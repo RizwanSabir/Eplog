@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <meta name="description" content="" />
+
+    
+    <link rel="mask-icon" href="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/favicon.ico" color="#1A73E8">
+    <link rel="icon" type="images/ico" href="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/favicon.ico" />
+
+    <title>Eplog Properties</title>
+<meta name='robots' content='noindex, nofollow' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://eplogproperties.com/wp-includes/css/dist/block-library/style.min.css?ver=6.6.1' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='contact-form-7-css' href='https://eplogproperties.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.9.6' type='text/css' media='all' />
+<link rel='stylesheet' id='dtheme-style-css' href='https://eplogproperties.com/wp-content/themes/dtheme/style.css?ver=6.6.1' type='text/css' media='all' />
+<link rel='stylesheet' id='dtheme-slick-css' href='https://eplogproperties.com/wp-content/themes/dtheme/assets/slick/slick.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='dtheme-slick-theme-css' href='https://eplogproperties.com/wp-content/themes/dtheme/assets/slick/slick-theme.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='dtheme-bootstrap-css' href='https://eplogproperties.com/wp-content/themes/dtheme/assets/bootstrap/css/bootstrap.min.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='dtheme-font-awesome-css' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='dtheme-swiper-css' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='dtheme-style-main-css' href='https://eplogproperties.com/wp-content/themes/dtheme/assets/css/style.css?ver=1.0' type='text/css' media='all' />
+<script type="text/javascript" src="https://eplogproperties.com/wp-content/themes/dtheme/assets/js/jquery.min.js?ver=1" id="dtheme-jquery-min-js"></script>
+<link rel="canonical" href="https://eplogproperties.com/" />
+<link rel="icon" href="https://eplogproperties.com/wp-content/uploads/2024/01/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://eplogproperties.com/wp-content/uploads/2024/01/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://eplogproperties.com/wp-content/uploads/2024/01/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://eplogproperties.com/wp-content/uploads/2024/01/cropped-favicon-270x270.png" />
+</head>
+
+<body class="home page-template page-template-page-templates page-template-home-page page-template-page-templateshome-page-php page page-id-112">
+        <div class="wrapper">
+                    <!-- Banner section :: BEGIN -->
+            <div class="section p-0 banner-section  ">
+                <div class="container-fluid h-100">
+                    <div class="row h-100">
+                                                    <div class="banner-portion">
+								<video width="100%" height="100%"  autoplay muted loop class="d-none d-md-block">
+									<source src="https://eplogproperties.com/wp-content/uploads/2023/11/Vector-5-1.mp4" type="video/mp4">
+								</video>
+								<!-- Mobile section :: BEGIN-->
+								<video width="100%" height="100%"  autoplay muted loop class="d-block d-md-none">
+									<source src="https://eplogproperties.com/wp-content/uploads/2023/11/Mobile_Lander.mp4" type="video/mp4">
+								</video>
+								<!-- Mobile section :: END-->
+                            </div>
+                            
+                        <div class="col-6 position-relative ps-md-5 pt-lg-4 pt-2">
+    <a href="https://eplogproperties.com">
+         <img src="https://eplogproperties.com/wp-content/uploads/2023/10/logo.svg" width="180" class="header-logo d-none d-lg-block" alt="" />          <img src="https://eplogproperties.com/wp-content/uploads/2023/10/logo-bloack.svg" width="180" class="header-logo d-block d-lg-none" alt="" />     </a>
+</div>
+<div class="col-6 position-relative">
+    <nav class="navbar navbar-expand-xl">
+        <div class="container-fluid">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fa fa-bars"></i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<i class="fa fa-times close-menu d-block d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></i>
+                <ul id="menu-main-nav" class="navbar-nav ms-auto mb-2 mb-lg-0"><li id="menu-item-129" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-129 nav-item "><a href="https://eplogproperties.com/about-us/" class="nav-link">About us</a></li>
+<li id="menu-item-136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136 nav-item "><a href="https://eplogproperties.com/services/" class="nav-link">Services</a></li>
+<li id="menu-item-130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-130 nav-item "><a href="https://eplogproperties.com/blogs/" class="nav-link">Blogs</a></li>
+<li id="menu-item-131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131 nav-item "><a href="https://eplogproperties.com/career/" class="nav-link">Career</a></li>
+<li id="menu-item-133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133 nav-item "><a href="https://eplogproperties.com/contact-us/" class="nav-link">Contact Us</a></li>
+<li id="menu-item-134" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-134 nav-item "><a href="https://eplogproperties.com/properties/" class="nav-link">Properties</a></li>
+</ul>            </div>
+        </div>
+    </nav>
+</div>
+                        <div class="col-12 col-md-7 col-lg-7 position-relative ps-md-5  banner-title-section">
+                             <h1 class="banner-title">Your Trusted <br class="d-none d-md-block" />Source for Real <br class="d-none d-md-block" />Estate Excellence <br class="d-none d-md-block" />in Dubai</h1> 
+                                                            <div class="banner-btns mt-md-5">
+                                    <a href="https://eplogproperties.com/contact-us/" class="btn btn-primary" target="_self">Get In Touch</a>                                    <a href="#" class="btn outline-white ms-3" target="_self">Learn More</a>                                </div>
+                                                    </div>
+                                                    <div class="col-6 position-relative marquee-section">
+                                <marquee>
+                                     <span> 4 BHK For sale in Dubai Media City </span>                                    <span><img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dot-img.svg" width="8" class="me-1 ms-1 align-baseline" />2 BHK For sale in Jumeirah Lake Towers</span>                                    <span><img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dot-img.svg" width="8" class="me-1 ms-1 align-baseline" />4 BHK For sale in Dubai Media City</span>                                                                    </marquee>
+                            </div>
+                                                                            <div class="  book-section   d-none d-md-flex">
+
+                                                                    <div class="booking-box">
+
+                                                                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/calender-icon.svg" width="40" />
+                                                                                <p class="mb-0"><a href="https://eplogproperties.com/contact-us/" class="white-text">Book Free<br />
+Consultation</a></p>
+                                                                            </div>
+                                                                                                    <div class="booking-box find-home">
+                                        <p class="mb-0"><a href="https://eplogproperties.com/properties/" class="white-text">Find your next <br />
+home in Dubai</a></p>
+                                        <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/home-icon.svg" width="60" />
+                                    </div>
+                                
+                            </div>
+                                            </div>
+                </div>
+            </div>
+            <!-- Banner section :: END -->
+            <!-- Partners section :: BEGIN -->
+    <section class="section partner-section">
+        <div class="container">
+            <div class="row">
+                                    <div class="col-12 text-center">
+                        <h1 class="sub-small-title">Trusted By</h1>
+                    </div>
+                                    <div class="col-12">
+                        <div class="partner-slider">
+                                                             <div><img src="https://eplogproperties.com/wp-content/uploads/2023/10/dubai-properties.svg" width="100" class="" alt="" /> </div>                                                              <div><img src="https://eplogproperties.com/wp-content/uploads/2023/10/nakheel.svg" width="100" class="" alt="" /> </div>                                                              <div><img src="https://eplogproperties.com/wp-content/uploads/2023/10/meraas.svg" width="100" class="" alt="" /> </div>                                                              <div><img src="https://eplogproperties.com/wp-content/uploads/2023/10/danube-properties.svg" width="100" class="" alt="" /> </div>                                                              <div><img src="https://eplogproperties.com/wp-content/uploads/2023/10/damac.svg" width="100" class="" alt="" /> </div>                                                              <div><img src="https://eplogproperties.com/wp-content/uploads/2023/10/emaar.svg" width="100" class="" alt="" /> </div>                                                     </div>
+                    </div>
+                            </div>
+        </div>
+        <div class="dotted-line">
+            <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line.svg" />
+        </div>
+    </section>
+    <!-- Partners section :: END -->
+    <!-- about eplog section :: BEGIN  -->
+    <section class="section about-eplog" style="background-image: url(https://eplogproperties.com/wp-content/uploads/2023/10/buy-sell.svg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                     <img src="https://eplogproperties.com/wp-content/uploads/2023/10/mobile-buy-sell-image.svg" class="d-block d-md-none mb-5 ms-auto" alt="" />                      <h1 class="section-title">Buy & Sell<br />
+With Ease</h1>                      <p class="mt-3"> At Eplog we simplify property transactions in the UAE. Whether you're buying or selling, our goal is to make the process easy, efficient, and stress-free. </p> 
+                                            <div class="row mt-5">
+                                                            <div class="col-12 col-md-6">
+                                    <div class="benefits-box ">
+                                        <div class="d-flex align-items-center gap-3 mb-3">
+                                             <img src="https://eplogproperties.com/wp-content/uploads/2023/10/icon1.svg" width="30" class="" alt="" />                                              <h4>Effortless<br />
+Transactions<br />
+</h4>                                         </div>
+                                         <p> We streamline the process, so you can buy or sell without the hassle. </p>                                     </div>
+                                </div>
+                                                            <div class="col-12 col-md-6">
+                                    <div class="benefits-box ">
+                                        <div class="d-flex align-items-center gap-3 mb-3">
+                                             <img src="https://eplogproperties.com/wp-content/uploads/2023/10/icon2.svg" width="30" class="" alt="" />                                              <h4>Minimize<br />
+Stress</h4>                                         </div>
+                                         <p> Let us handle the details while you focus on your real estate goals. </p>                                     </div>
+                                </div>
+                                                            <div class="col-12 col-md-6">
+                                    <div class="benefits-box no-border">
+                                        <div class="d-flex align-items-center gap-3 mb-3">
+                                             <img src="https://eplogproperties.com/wp-content/uploads/2023/10/icon3.svg" width="30" class="" alt="" />                                              <h4>Your Success,<br />
+Our Mission</h4>                                         </div>
+                                         <p> We're committed to helping you achieve your property dreams with ease. </p>                                     </div>
+                                </div>
+                                                            <div class="col-12 col-md-6">
+                                    <div class="benefits-box no-border">
+                                        <div class="d-flex align-items-center gap-3 mb-3">
+                                             <img src="https://eplogproperties.com/wp-content/uploads/2023/10/icon4.svg" width="30" class="" alt="" />                                              <h4>Guidance You<br />
+Can Trust</h4>                                         </div>
+                                         <p> Rely on our expertise to make informed decisions. </p>                                     </div>
+                                </div>
+                                                    </div>
+                                    </div>
+                <div class="col-12"><a href="https://calendly.com/eplogproperties/30min" class="btn btn-primary" target="_self">Get In Touch</a></div>            </div>
+        </div>
+    </section>
+    <!-- about eplog section :: END  -->
+    <!-- investment section :: BEGIN -->
+    <section class="section investment-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-end">
+                    <div class="learn-more-box text-start">
+                                                    <p class="mb-0">
+                                Institutional<br />
+Investment                            </p>
+                        
+                        <div class="arrow text-center"><a href="https://eplogproperties.com/contact-us/" class="" target="_self"><i class="fa fa-arrow-right"></i><br /><span>Get In Touch</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- investment section :: END -->
+    <!-- Property snagging section :: BEGIN -->
+    <section class="section propert-snagging-section" style="background-image: url( https://eplogproperties.com/wp-content/uploads/2023/10/property-snagging.svg );">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                                            <h1 class="section-title">
+                            Property Snagging <br />
+& Handover                        </h1>
+                                                                <p class="mt-4">
+                            Our property handover and snagging services are meticulously designed to offer complete peace of mind.                        </p>
+                                                                <p class="mt-2">
+                            We conduct an exhaustive inspection to identify and document any issues, ensuring every aspect of your property is in top condition before handover.</p>                        </p>
+                                    </div>
+                <div class="col-12 pt-4 ">
+                                            <div class="property-snaging-slider">
+                                                            <div>
+                                    <div class="white-box">
+                                                                                    <h5 class="box-title">
+                                                Thorough<br />
+Inspection:                                            </h5>
+                                                                                <div class="line"></div>
+                                                                                    <p class="mb-0">
+                                                We leave no detail unchecked, ensuring your property meets the highest standards.                                            </p>
+                                                                            </div>
+                                </div>
+                                                            <div>
+                                    <div class="white-box">
+                                                                                    <h5 class="box-title">
+                                                Issue <br />
+Resolution:                                            </h5>
+                                                                                <div class="line"></div>
+                                                                                    <p class="mb-0">
+                                                We swiftly handle snagging issues, working directly with developers for speedy resolutions.                                            </p>
+                                                                            </div>
+                                </div>
+                                                            <div>
+                                    <div class="white-box">
+                                                                                    <h5 class="box-title">
+                                                Documentation<br />
+Assistance:                                            </h5>
+                                                                                <div class="line"></div>
+                                                                                    <p class="mb-0">
+                                                We simplify paperwork, ensuring a seamless handover process.                                            </p>
+                                                                            </div>
+                                </div>
+                                                            <div>
+                                    <div class="white-box">
+                                                                                    <h5 class="box-title">
+                                                Peace<br />
+of Mind:                                            </h5>
+                                                                                <div class="line"></div>
+                                                                                    <p class="mb-0">
+                                                Our service guarantees a worry-free handover, saving you time and hassle.                                            </p>
+                                                                            </div>
+                                </div>
+                                                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Property snagging section :: END -->
+    <!-- Land development section :: BEGIN -->
+    <section class="section land-development">
+        <div class="nex-page-section">
+            <div class="learn-more-box text-start">
+                                    <p class="mb-0">
+                        Business Setup,<br />
+Legal Services<br />
+& Golden Visa                    </p>
+                                                    <div class="arrow text-center">
+                        <a href="https://calendly.com/eplogproperties/30min"><i class="fa fa-long-arrow-right "></i></a>
+                    </div>
+                            </div>
+
+            <div class="learn-more-box yellow-bg text-start">
+                                    <p class="mb-0">
+                        Developers <br />
+Advisory                    </p>
+                                                    <div class="arrow text-center">
+                        <a href="https://calendly.com/eplogproperties/30min"><i class="fa fa-long-arrow-right "></i></a>
+                    </div>
+                            </div>
+        </div>
+
+                <div class="bg-img-set" style="background-image: url(https://eplogproperties.com/wp-content/uploads/2023/10/land-developement.svg);"></div>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-12 col-md-6">
+                </div>
+                <div class="col-12 col-md-6 mt-0 mt-lg-5">
+                                            <h1 class="section-title white-text">
+                            Land acquisition &<br />
+land development                        </h1>
+                                                                <p class="mt-3 white-text">
+                            Our property handover and snagging services are meticulously designed to offer complete peace of mind.                        </p>
+                                                                <p class="mt-4 white-text">
+                            We conduct an exhaustive inspection to identify and document any issues, ensuring every aspect of your property is in top condition before handover.                        </p>
+                    
+                    <a href="https://calendly.com/eplogproperties/30min" class="btn btn-primary mt-4 mb-0 mb-md-4" target="_self">Free Consultancy </a>                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Land development section :: END -->
+    <!-- Tranding Property section :: BEGIN -->
+    <section class="section tranding-property">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 title-flex">
+                                            <h1 class="section-title-small">
+                            Trending<br />
+Properties                        </h1>
+                                        <div class="line">
+                        <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line-black.svg" width="100%" />
+                    </div>
+                    <a href="https://eplogproperties.com/properties/" class="btn btn-primary" target="_self">View All</a>                </div>
+            </div>
+        </div>
+
+                    <div class="property-tranding-slider">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                                                    <div class="swiper-slide" id="propertyid-255">
+								<a href="#">
+                                <div class="property-box">
+                                                                            <img src="https://eplogproperties.com/wp-content/uploads/2023/10/1.svg" class="property-img wp-post-image" alt="1" decoding="async" />                                                                        <div class="property-details">
+                                        <div class="tag-other"> For Rent </div>                                            <h5 class="box-title">
+                                                AED 1.2 Million                                            </h5>
+                                                                                    <p class="text-cyan">
+                                                IMPZ Production City                                            </p>
+                                                                                    <small>
+                                                Building 4410 Lake side                                            </small>
+                                        
+                                        <div class="line"></div>
+
+                                        <div class="property-data d-flex align-items-center justify-content-between">
+                                                                                            <div class="bed">
+                                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg" width="15" />
+                                                    4 Beds
+                                                </div>
+                                                                                            <div class="bed">
+                                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg" width="15" />
+                                                    2 Bathrooms
+                                                </div>
+                                                                                            <div class="bed">
+                                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg" width="15" />
+                                                    1200 SQM
+                                                </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+								</a>
+                            </div>
+                                                    <div class="swiper-slide" id="propertyid-219">
+								<a href="#">
+                                <div class="property-box">
+                                                                            <img src="https://eplogproperties.com/wp-content/uploads/2023/10/1.svg" class="property-img wp-post-image" alt="1" decoding="async" />                                                                        <div class="property-details">
+                                        <div class="tag-yellow"> For Sale </div>                                            <h5 class="box-title">
+                                                AED 1.2 Million                                            </h5>
+                                                                                    <p class="text-cyan">
+                                                Discovery Gardens                                            </p>
+                                                                                    <small>
+                                                Building 4410 Lake side                                            </small>
+                                        
+                                        <div class="line"></div>
+
+                                        <div class="property-data d-flex align-items-center justify-content-between">
+                                                                                            <div class="bed">
+                                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg" width="15" />
+                                                    4 Beds
+                                                </div>
+                                                                                            <div class="bed">
+                                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg" width="15" />
+                                                    2 Bathrooms
+                                                </div>
+                                                                                            <div class="bed">
+                                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg" width="15" />
+                                                    1200 SQM
+                                                </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+								</a>
+                            </div>
+                                                    <div class="swiper-slide" id="propertyid-246">
+								<a href="#">
+                                <div class="property-box">
+                                                                            <img src="https://eplogproperties.com/wp-content/uploads/2023/10/1.svg" class="property-img wp-post-image" alt="1" decoding="async" />                                                                        <div class="property-details">
+                                        <div class="tag-yellow"> For Sale </div>                                            <h5 class="box-title">
+                                                AED 1.2 Million                                            </h5>
+                                                                                    <p class="text-cyan">
+                                                Discovery Gardens                                            </p>
+                                                                                    <small>
+                                                Building 4410 Lake side                                            </small>
+                                        
+                                        <div class="line"></div>
+
+                                        <div class="property-data d-flex align-items-center justify-content-between">
+                                                                                            <div class="bed">
+                                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg" width="15" />
+                                                    4 Beds
+                                                </div>
+                                                                                            <div class="bed">
+                                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg" width="15" />
+                                                    2 Bathrooms
+                                                </div>
+                                                                                            <div class="bed">
+                                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg" width="15" />
+                                                    1200 SQM
+                                                </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+								</a>
+                            </div>
+                                                    <div class="swiper-slide" id="propertyid-248">
+								<a href="#">
+                                <div class="property-box">
+                                                                            <img src="https://eplogproperties.com/wp-content/uploads/2023/10/1.svg" class="property-img wp-post-image" alt="1" decoding="async" />                                                                        <div class="property-details">
+                                        <div class="tag-yellow"> For Sale </div>                                            <h5 class="box-title">
+                                                AED 1.2 Million                                            </h5>
+                                                                                    <p class="text-cyan">
+                                                Discovery Gardens                                            </p>
+                                                                                    <small>
+                                                Building 4410 Lake side                                            </small>
+                                        
+                                        <div class="line"></div>
+
+                                        <div class="property-data d-flex align-items-center justify-content-between">
+                                                                                            <div class="bed">
+                                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg" width="15" />
+                                                    4 Beds
+                                                </div>
+                                                                                            <div class="bed">
+                                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg" width="15" />
+                                                    2 Bathrooms
+                                                </div>
+                                                                                            <div class="bed">
+                                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg" width="15" />
+                                                    1200 SQM
+                                                </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+								</a>
+                            </div>
+                                            </div>
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            </div>
+                        </section>
+    <!-- Tranding Property section :: END -->
+    <!-- Team section :: BEGIN -->
+    <section class="section team-section pb-0">
+        <!-- Desktop section :: BEGIN -->
+        <div class="team-data">
+                                <div class="team team-1"><img src="https://eplogproperties.com/wp-content/uploads/2023/10/1-1.svg" alt="" /></div>                                 <div class="team team-2"><img src="https://eplogproperties.com/wp-content/uploads/2023/10/2-1.svg" alt="" /></div>             
+            <div class="about-team">
+                 <h1 class="white-text"> Meet Our Expert<br />
+Real Estate Team </h1>                  <p class="mt-3 mb-4 white-text"> We're a passionate group of real estate professionals dedicated to providing you with top-notch service and expertise. With years of experience in the UAE real estate market, we've honed our skills and built a deep understanding of the industry. </p>                  <p class="mt-3 mb-5 white-text"> What sets us apart is our commitment to your needs and our unwavering focus on delivering exceptional results. Whether you're buying, selling, or investing, you can trust our team to guide you with integrity, knowledge, and a friendly approach. Your real estate journey is our priority, and we're here to make it a seamless and enjoyable experience. </p>                 <a href="https://calendly.com/eplogproperties/30min" class="btn btn-primary" target="_self">Get in Touch</a>            </div>
+			<div class="team-datas about-team-1 d-none">
+                <div class="about-person">
+                    <p class="mb-0 yellow-text">
+                        P : <a herf="tel:+971552404551" class="yellow-text pe-2">+971 55-2404551</a>   <br/>  <span>E</span> : <a herf="mailto:saliq@eplogproperties.com" class="yellow-text">saliq@eplogproperties.com</a></p>
+                    <p class="mb-0">
+                        <i class="fa fa-linkedin"></i>
+                    </p>
+                </div>
+                <p>Saliq is highly regarded as a professional in the real estate industry, having gained extensive experience since 2013. He is known for his honesty, knowledge, and experience, and has received numerous recommendations on LinkedIn from satisfied clients. </p>
+                <p>In addition to his role as a real estate agent, Saliq's background as a construction engineer enables him to offer valuable guidance to private real estate developers, covering aspects from land acquisition to development and sales. </p>
+            </div> 
+            <div class="team-datas about-team-2 d-none">
+                <div class="about-person">
+                    <p class="mb-0 yellow-text">
+                        P : <a herf="tel:+971552404551" class="yellow-text pe-2">+971 55-2404551</a>   <br/>  <span>E</span> : <a herf="mailto:saliq@eplogproperties.com" class="yellow-text">Anife@eplogproperties.com</a></p>
+                    <p class="mb-0">
+                        <i class="fa fa-linkedin"></i>
+                    </p>
+                </div>
+                <p>Anife is highly regarded as a professional in the real estate industry, having gained extensive experience since 2013. She is known for her honesty, knowledge, and experience, and has received numerous recommendations on LinkedIn from satisfied clients. </p>
+                <p>In addition to her role as a real estate agent, Anife's background as a construction engineer enables her to offer valuable guidance to private real estate developers, covering aspects from land acquisition to development and sales. </p>
+            </div> 
+        </div>
+        <!-- Desktop section :: END -->
+
+        <!-- Mobile section :: BEGIN -->
+        <div class="d-block d-md-none">
+            <div class="about-team">
+                 <h1 class="white-text"> Meet Our Expert<br />
+Real Estate Team </h1>                  <p class="mt-3 mb-4 white-text"> We're a passionate group of real estate professionals dedicated to providing you with top-notch service and expertise. With years of experience in the UAE real estate market, we've honed our skills and built a deep understanding of the industry. </p>                  <p class="mt-3 mb-5 white-text"> What sets us apart is our commitment to your needs and our unwavering focus on delivering exceptional results. Whether you're buying, selling, or investing, you can trust our team to guide you with integrity, knowledge, and a friendly approach. Your real estate journey is our priority, and we're here to make it a seamless and enjoyable experience. </p>                 <a href="https://calendly.com/eplogproperties/30min" class="btn btn-primary" target="_self">Get in Touch</a>            </div>
+
+                                <div class="team team-1">
+                        <img src="https://eplogproperties.com/wp-content/uploads/2023/10/1-1.svg" alt="" />                         <div>
+                            <h3 class="team-member-name">Saliq Zahoor</h3>                            <p class="position mb-0">founder</p>                        </div>
+                                            </div>
+                                <div class="team team-1">
+                        <img src="https://eplogproperties.com/wp-content/uploads/2023/10/2-1.svg" alt="" />                         <div>
+                            <h3 class="team-member-name">Anife</h3>                            <p class="position mb-0">Co-founder</p>                        </div>
+                                            </div>
+                    </div>
+        <!-- Mobile section :: END -->
+    </section>
+    <!-- Team section :: END -->
+    <!-- Testimonial section :: BEGIN -->
+    <section class="section testimonial-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="">Our customers <br />
+think we’re  the best</h1>                </div>
+            </div>
+        </div>
+                    <div class="testimonial-slider">
+                                    <div>
+                        <div class="testimonial-box">
+                            <img src="https://eplogproperties.com/wp-content/uploads/2023/10/stars.svg" alt="" class="ms-auto mb-2" width="100" />                             <div class="testimonial-details">
+                                <p>Saliq will put all his efforts in the transactions he is handling, regardless whether this for rental or acquisition. I met Saliq during my search for an apartment rental and I can really confirm he’s very professional, respectful and very helpful. He is also very responsive and has a very positive attitude.</p>
+                                <div class="testimonial-user">
+                                    <img src="https://eplogproperties.com/wp-content/uploads/2023/12/1605606741964.jpeg" alt="" class="" width="30" />                                     <div>
+                                        <p class="mb-0"><strong>Sarah DIDI.</strong></p>                                        <p class="mb-0">Associate Director</p>                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div>
+                        <div class="testimonial-box">
+                            <img src="https://eplogproperties.com/wp-content/uploads/2023/10/stars.svg" alt="" class="ms-auto mb-2" width="100" />                             <div class="testimonial-details">
+                                <p>Saliq is a highly skilled and professional real estate agent with a wealth of experience in selling properties and rentals. I am pleased to recommend him. Saliq has exceptional knowledge of the real estate market, and goes the extra mile in getting to understand his client, their profile and their needs.</p>
+                                <div class="testimonial-user">
+                                    <img src="https://eplogproperties.com/wp-content/uploads/2023/12/1517041191012.jpeg" alt="" class="" width="30" />                                     <div>
+                                        <p class="mb-0"><strong>Carla Slim</strong></p>                                        <p class="mb-0">Economist</p>                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div>
+                        <div class="testimonial-box">
+                            <img src="https://eplogproperties.com/wp-content/uploads/2023/10/stars.svg" alt="" class="ms-auto mb-2" width="100" />                             <div class="testimonial-details">
+                                <p>Saliq is an exceptional real estate agent. He guided us through our property purchase journey from A to Z. He is straightforward, experienced, willing to answer all questions and is great with the follow up.</p>
+                                <div class="testimonial-user">
+                                    <img src="https://eplogproperties.com/wp-content/uploads/2023/12/1686281713672.jpeg" alt="" class="" width="30" />                                     <div>
+                                        <p class="mb-0"><strong>Afif Heloui</strong></p>                                        <p class="mb-0">Principal, Black Stone</p>                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div>
+                        <div class="testimonial-box">
+                            <img src="https://eplogproperties.com/wp-content/uploads/2023/10/stars.svg" alt="" class="ms-auto mb-2" width="100" />                             <div class="testimonial-details">
+                                <p>I had the pleasure of working with ABC Realty to find my dream home, and I couldn&#8217;t be happier with the entire experience. From the moment I walked into their office, I felt welcomed and supported by their friendly team.</p>
+                                <div class="testimonial-user">
+                                    <img src="https://eplogproperties.com/wp-content/uploads/2023/12/1684855305798.jpeg" alt="" class="" width="30" />                                     <div>
+                                        <p class="mb-0"><strong>Veronika Kim</strong></p>                                        <p class="mb-0">Strategic Marketer</p>                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div>
+                        <div class="testimonial-box">
+                            <img src="https://eplogproperties.com/wp-content/uploads/2023/10/stars.svg" alt="" class="ms-auto mb-2" width="100" />                             <div class="testimonial-details">
+                                <p>Saliq was great to work with, he was constantly updating me on the sale process and once the deal was agreed upon, he made sure that i was kept informed at every stage and was present at the closing in case i had any questions/concerns.</p>
+                                <div class="testimonial-user">
+                                    <img src="https://eplogproperties.com/wp-content/uploads/2023/12/1517720628611.jpeg" alt="" class="" width="30" />                                     <div>
+                                        <p class="mb-0"><strong>Fady Chamat</strong></p>                                        <p class="mb-0">Licensed Financial Advisor</p>                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div>
+                        <div class="testimonial-box">
+                            <img src="https://eplogproperties.com/wp-content/uploads/2023/10/stars.svg" alt="" class="ms-auto mb-2" width="100" />                             <div class="testimonial-details">
+                                <p><span aria-hidden="true">Saliq based on my experience with him in one of my realestate project is indeed very competent and hard working sales specialist with very strong customer focus leadership style.</span></p>
+                                <div class="testimonial-user">
+                                    <img src="https://eplogproperties.com/wp-content/uploads/2023/12/1516604428406.jpeg" alt="" class="" width="30" />                                     <div>
+                                        <p class="mb-0"><strong>Badria almulla</strong></p>                                        <p class="mb-0">Founder and President IeBG</p>                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+            </section>
+    <!-- Testimonial section :: END -->
+    <!-- Calender section :: BEGIN -->
+    <section class="section calender-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-5">
+                    <h1>Want to learn<br />
+more? Let’s<br />
+schedule a call</h1>                </div>
+                <div class="col-12 col-md-7">
+                                    </div>
+            </div>
+        </div>
+    </section>
+    <!-- Calender section :: END -->
+    <!-- Blog section :: BEGIN -->
+    <section class="section blog-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 p-0">
+                    <h1 class="section-title-small">Blogs</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pt-4">
+                    <div class="blog-slider">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                                                    <div class="swiper-slide">
+										<a href="#">
+											<div class="blog-box">
+																									<img src="https://eplogproperties.com/wp-content/uploads/2023/10/1.svg" class="property-img wp-post-image" alt="1" width="100%" decoding="async" />																								<div class="blog-detail">
+													<h3>IMPZ Production City</h3>
+													<p></p>
+												</div>
+											</div>
+										</a>
+                                    </div>
+                                                                    <div class="swiper-slide">
+										<a href="#">
+											<div class="blog-box">
+																									<img src="https://eplogproperties.com/wp-content/uploads/2023/10/1.svg" class="property-img wp-post-image" alt="1" width="100%" decoding="async" />																								<div class="blog-detail">
+													<h3>Jumeirah Lake Towers Apt. 2011</h3>
+													<p></p>
+												</div>
+											</div>
+										</a>
+                                    </div>
+                                                                    <div class="swiper-slide">
+										<a href="#">
+											<div class="blog-box">
+																									<img src="https://eplogproperties.com/wp-content/uploads/2023/10/1.svg" class="property-img wp-post-image" alt="1" width="100%" decoding="async" />																								<div class="blog-detail">
+													<h3>Jumeirah Lake Towers Apt. 2011</h3>
+													<p></p>
+												</div>
+											</div>
+										</a>
+                                    </div>
+                                                                    <div class="swiper-slide">
+										<a href="#">
+											<div class="blog-box">
+																									<img src="https://eplogproperties.com/wp-content/uploads/2023/10/1.svg" class="property-img wp-post-image" alt="1" width="100%" decoding="async" />																								<div class="blog-detail">
+													<h3>Jumeirah Lake Towers Apt. 2011</h3>
+													<p></p>
+												</div>
+											</div>
+										</a>
+                                    </div>
+                                                            </div>
+                            <div class="swiper-scrollbar"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog section :: END -->
+<!-- Newslatter section :: BEGIN -->
+<section class="section newsletter-section bg-blue-500">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12 m-auto d-flex align-items-center gap-3 justify-content-center">
+                <p class="fz-18 mb-0">Subscribe to our newsletter</p>
+                
+<div class="wpcf7 no-js" id="wpcf7-f296-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f296-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="296" />
+<input type="hidden" name="_wpcf7_version" value="5.9.6" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f296-o1" />
+<input type="hidden" name="_wpcf7_container_post" value="0" />
+<input type="hidden" name="_wpcf7_posted_data_hash" value="" />
+</div>
+<div class="input-group theme-input-group">
+<span class="wpcf7-form-control-wrap" data-name="your-email"><input size="40" maxlength="80" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email form-control" aria-required="true" aria-invalid="false" placeholder="enter your email address" value="" type="email" name="your-email" /></span>
+  <span class="input-group-text" id="basic-addon1"><em class="fa fa-paper-plane"></em></span>
+</div><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Newslatter section :: END -->
+<!-- Contact us section :: BEGIN -->
+<section class="section contact-details-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="section-title">Contact us</h1>                <p class="section-tagline">Let’s get in touch and find you the best solution from the real estate.</p>            </div>
+            <div class="col-12 col-md-8 col-lg-7">
+            
+<div class="wpcf7 no-js" id="wpcf7-f295-o2" lang="en-US" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f295-o2" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="295" />
+<input type="hidden" name="_wpcf7_version" value="5.9.6" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f295-o2" />
+<input type="hidden" name="_wpcf7_container_post" value="0" />
+<input type="hidden" name="_wpcf7_posted_data_hash" value="" />
+</div>
+<div class="row">
+        <div class="col-12 col-md-6 mb-4">
+            <label class="input-label">Name</label>
+            <div class="form-group">
+                <span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="80" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control theme-input" aria-required="true" aria-invalid="false" placeholder="Enter your name" value="" type="text" name="your-name" /></span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+            <label class="input-label">Email</label>
+            <div class="form-group">
+                <span class="wpcf7-form-control-wrap" data-name="your-email"><input size="40" maxlength="80" class="wpcf7-form-control wpcf7-email wpcf7-text wpcf7-validates-as-email form-control theme-input" aria-invalid="false" placeholder="Enter your email address" value="" type="email" name="your-email" /></span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+            <label class="input-label">Contact Number</label>
+            <div class="form-group">
+                <span class="wpcf7-form-control-wrap" data-name="contact-number"><input size="40" maxlength="80" class="wpcf7-form-control wpcf7-tel wpcf7-text wpcf7-validates-as-tel form-control theme-input" aria-invalid="false" placeholder="Enter Contact Number" value="" type="tel" name="contact-number" /></span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+            <label class="input-label">Subject</label>
+            <div class="form-group">
+                <span class="wpcf7-form-control-wrap" data-name="Subject"><input size="40" maxlength="80" class="wpcf7-form-control wpcf7-text form-control theme-input" aria-invalid="false" placeholder="Your Interest" value="" type="text" name="Subject" /></span>
+            </div>
+        </div>
+        <div class="col-12 mb-4">
+            <label class="input-label">Message</label>
+            <div class="form-group">
+                <span class="wpcf7-form-control-wrap" data-name="Message"><textarea cols="40" rows="3" maxlength="400" class="wpcf7-form-control wpcf7-textarea form-control theme-input" aria-invalid="false" placeholder="Type your message..." name="Message"></textarea></span>
+            </div>
+        </div>
+        <div class="col-12">
+            <button type="submit" name="Submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- footer :: BEGIN -->
+<footer class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                 <img src="https://eplogproperties.com/wp-content/uploads/2023/10/logo.svg" width="180" class="footer-logo" alt="" />             </div>
+            <div class="col-12 mt-2">
+                <div class="d-flex align-items-start justify-content-between gap-2">
+                     <div class="footer-about-text">
+                            <p class="mb-4 mb-md-0">Navigate the world of real estate with confidence at Eplog Properties, your ally in the seamless buying and selling of luxury Dubai properties. <br><br> Eplog Properties L.L.C</p>
+                        </div> 
+                                            <div class="footer-links">
+                            <ul>
+                                                                        <li> <a href="https://eplogproperties.com/about-us/">About us</a> </li>
+                                                                        <li> <a href="https://eplogproperties.com/services/">Services</a> </li>
+                                </ul><ul>                                        <li> <a href="https://eplogproperties.com/career/">Career</a> </li>
+                                                                        <li> <a href="https://eplogproperties.com/contact-us/">Contact Us</a> </li>
+                                </ul><ul>                                        <li> <a href="https://eplogproperties.com/properties/">Properties</a> </li>
+                                                                        <li> <a href="https://eplogproperties.com/consultation/">Consultation</a> </li>
+                                </ul><ul>                                        <li> <a href="https://eplogproperties.com/book-appointment/">Book Appointment</a> </li>
+                                                                        <li> <a href="https://eplogproperties.com/blogs/">Blogs</a> </li>
+                                </ul><ul>                            </ul>
+                        </div>
+                    
+                    <div class="social-links gap-3 d-flex align-items-center">
+                         <a target="_blank" href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>                          <a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>                          <a target="_blank" href="https://twitter.com/"><i class="fa fa-twitter"></i></a>                          <a target="_blank" href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a>                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer :: END -->
+</div>
+
+<!-- FOOTER End-->
+<script type="text/javascript" src="https://eplogproperties.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.9.6" id="swv-js"></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/eplogproperties.com\/wp-json\/","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://eplogproperties.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.9.6" id="contact-form-7-js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js?ver=6.6.1" id="dtheme-swiper-min-js"></script>
+<script type="text/javascript" src="https://eplogproperties.com/wp-content/themes/dtheme/assets/bootstrap/js/bootstrap.min.js?ver=6.6.1" id="dtheme-bootstrap-min-js"></script>
+<script type="text/javascript" src="https://eplogproperties.com/wp-content/themes/dtheme/assets/slick/slick.min.js?ver=6.6.1" id="dtheme-slick-min-js"></script>
+<script type="text/javascript" src="https://eplogproperties.com/wp-content/themes/dtheme/assets/js/custom.js?ver=6.6.1" id="dtheme-custom-js-js"></script>
+</body>
+
+</html>
