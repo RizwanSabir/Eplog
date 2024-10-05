@@ -12,12 +12,12 @@ export default function App() {
     return (
         <Router>
             <Routes>
-                {/* <Route path="/" element={<HomeIndex />} /> */}
-                {/* <Route path="/about-us" element={<About />} /> */}
-                {/* <Route path="/services" element={<ServiceIndex />} /> */}
-                {/* <Route path="/blogs" element={<BlogIndex />} /> */}
-                {/* <Route path="/career/" element={<CareerIndex />} /> */}
-                <Route path="/" element={<ContactIndex />} />
+                <Route path="/" element={<HomeIndex />} />
+                <Route path="/about-us" element={<About />} />
+                <Route path="/services" element={<ServiceIndex />} />
+                <Route path="/blogs" element={<BlogIndex />} />
+                <Route path="/career/" element={<CareerIndex />} />
+                <Route path="/contact-us" element={<ContactIndex />} />
             </Routes>
         </Router>
     );

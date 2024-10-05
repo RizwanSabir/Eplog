@@ -2,6 +2,9 @@ import React from 'react'
 import HeroContactSection from '../../Components/HeroContactSection/HeroSection'
 import RoundedInput from '../../Components/InputField/RoundedInput';
 import RoundedMesage from '../../Components/InputField/RoundedMesage';
+import FooterMain from '../Footer/FooterMain';
+import NewsLetter from '../Home/NewsLetter';
+import Footer from '../Home/Footer';
 
 const ContactIndex = () => {
   return (
@@ -11,15 +14,17 @@ const ContactIndex = () => {
 
 <HeroContactSection/>
 
-<div className='borderRed'>
-<div className='borderRed flex justify-center items-center'>
+<div className=''>
+<div className=' flex flex-col md:flex-row justify-start  items-center mx-10'>
 
     <ContactUs/>
     <ContactDetails/>
 </div>
 
 
-    
+
+    <NewsLetter/>
+    <Footer/>
 </div>
 </>
 )
@@ -29,7 +34,7 @@ const ContactIndex = () => {
 
 const ContactDetails = () => {
   return (
-    <div className="col-span-12 md:col-span-4 lg:col-span-5 mt-5">
+    <div className="col-span-12 md:col-span-4 lg:col-span-5 mt-5 ">
       <div className="contact-details pl-0 md:pl-3 lg:pl-5">
         <div className="flex items-center gap-2 mb-3 md:mb-4">
           <img
@@ -81,14 +86,14 @@ const ContactUs = () => {
   return (
     <>
     
-    <section className="py-12 bg-gray-100 borderRed">
-    <div className="mx-2 sm:mx-10 md:ml-[100px] ">
+    <section className="py-12 bg-gray-100">
+    <div className="mx-2 ">
         <div className="flex flex-wrap ">
             <div className="w-full mb-8">
                 <h1 className="section-title">Contact us</h1>
                 <p className="text-gray-600">Let’s get in touch and find you the best solution from the real estate.</p>
             </div>
-            <div className="w-full md:w-2/3 lg:w-1/2">
+            <div className="w-full md:w-2/3 ">
             
                 <form action="/#wpcf7-f295-o2" method="post" className="w-full" aria-label="Contact form" novalidate="novalidate">
                   
