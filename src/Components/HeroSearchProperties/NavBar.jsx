@@ -46,7 +46,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="relative z-20">
+        <nav className="relative z-50">
             <div className="container mx-auto px-4 py-3 flex items-center justify-between">
                 {/* Toggler Button */}
                 <button
@@ -61,12 +61,12 @@ const Navbar = () => {
                 </button>
 
                 {/* Navbar Items for Large Screens */}
-                <div className="hidden w-full lg:flex lg:items-center lg:space-x-4 text-[14px] z-10">
+                <div className="hidden w-full lg:flex lg:items-center lg:space-x-4 text-[14px]">
                     {menuItems.map((item, index) => (
                         <a
                             key={index}
                             href={item.link}
-                            className="text-black hover:text-blue-500 z-10"
+                            className="text-black hover:text-blue-500"
                         >
                             {item.name}
                         </a>

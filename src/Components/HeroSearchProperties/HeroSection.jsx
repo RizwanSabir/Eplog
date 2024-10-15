@@ -1,12 +1,15 @@
+import { useEffect, useRef, useState } from 'react';
 
-import React, { useRef, useState } from "react";
-import { motion } from 'framer-motion';
-import { div } from "framer-motion/client";
+import './index.css'
+import Navbar from './NavBar';
+import SearchBar from './SearchBar';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
-const ExploreProperties = () => {
-
+const HeroSearchSection = ({HeroText}) => {
+   
     let [User, setUser] = useState(['New Projects', 'Brand']);
-
+    
     const properties = [
         {
             link: "#",
@@ -100,55 +103,121 @@ const ExploreProperties = () => {
         },
     ];
 
+    const navigate = useNavigate();
+
+    const handleClickItem = () => {
+        console.log("Search is Clicked")
+      navigate('/property');
+    };
+ 
+    return (
+        <>
+            <div className="pt-2 text-[14px] px-4 h-fit">
+
+
+                {/* Top Navigation on Small Screen  */}
+                <div className='flex mdm:hidden'>
+
+                    <TopNavigationTab />
+
+                </div>
+
+                {/* Banner section */}
+                <div className="relative w-full "  >
+                    <div className="w-full px-[10px] mx-auto text-[10px] h-full ">
+                        {/* Top Hero Section */}
+                        <div className="row h-full flex">
+
+                            <TopNavigationTabLarge />
+
+
+                        </div>
+
+                        <NavBar User={User} setUser={setUser} />
+
+
+                        <SearchBar/>
+                    </div>
+                </div>
+
+                <PropertyListing properties={properties} handleClickItem={handleClickItem} />
+            </div>
+        </>
+    );
+};
+
+
+const TopNavigationTab = () => {
+
+
+    return <>
+
+        {/* Logo of Brand */}
+        <div className="col-6 relative pl-5 pb-10 lg:pb-14 sm:pl-9 lg:pt-5 flex items-center">
+            <a href="https://eplogproperties.com">
+                <img src="https://eplogproperties.com/wp-content/uploads/2023/10/logo-bloack.svg" width="180" className="lg:hidden" alt="" />
+            </a>
+        </div>
+
+        {/* Nav Bar */}
+        <div className="  col-6 relative flex justify-end">
+            <Navbar />
+        </div>
+
+    </>
+}
+const TopNavigationTabLarge = () => {
+
+
+    return <>
+
+        {/* Logo of Brand */}
+        <div className="hidden mdm:flex col-6 relative pl-5 pb-10 lg:pb-14 sm:pl-9 lg:pt-5  items-center">
+            <a href="https://eplogproperties.com">
+                <img src="https://eplogproperties.com/wp-content/uploads/2023/10/logo-bloack.svg" width="180" alt="" />
+            </a>
+        </div>
+
+        {/* Nav Bar */}
+        <div className=" hidden mdm:flex col-6 relative flex justify-end">
+            <Navbar />
+        </div>
+
+    </>
+}
+
+const NavBar = ({ User, setUser }) => {
+
+
+    let users = [['New Projects', 'Brand'], ['Buy', 'Influencer'], ['Rent', 'User']]
+
     return (
         <>
 
-            <section className="section px-[50px] bg-slate-500">
-                <h1 className="section-title-small text-white  text-center text-[20px] md:text-[40px]">
-                    Explore Properties
-                </h1>
-                <div className="max-w-[1140px]  mx-auto">
-                    <div className=" flex justify-between items-center mt-10">
-                        <div className="w-full flex items-center justify-center gap-10 ">
-                            <NavBar User={User} setUser={setUser} />
-
-                            <div className="line hidden md:flex">
-                                <img
-                                    src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line-black.svg"
-                                    className="w-full"
-                                    alt="dashed-line"
-                                />
-                            </div>
-                            
-                            <div className=" flex  gap-x-4">
-                                <div className="border border-white size-[50px] rounded-full flex justify-center items-center text-white">
-                                    <i className="fa-solid fa-chevron-left"></i>
-                                </div>
-                                <div className="border border-white size-[50px] rounded-full flex justify-center items-center text-white">
-                                    <i className="fa-solid fa-chevron-right"></i>
-                                </div>
+            <div className="flex flex-row justify-center mt-5 text-[8px] sm:text-[12px] w-[150px] xs:w-[200px] sm:w-[250px] mx-auto bg-white rounded-full z-40  border">
+                <div className="flex flex-row bgColor py-1 w-full justify-around items-center rounded-3xl ">
+                    {
+                        users.map((user) => {
+                            return (
 
 
-                            </div>
-                        </div>
-                    </div>
+                                user[0] === User[0] ?
+                                    (<WhiteBackground key={user} user={user} setUser={setUser}>
+                                        <motion.div className="absolute w-full bg-[#82DFDF] h-full top-0 left-0   rounded-full   -z-10" layoutId="underline" ></motion.div>
+                                    </WhiteBackground>
+
+
+                                    ) : <WhiteBackground key={user} user={user} setUser={setUser} />
+
+                            );
+                        })
+                    }
+
+
+
+
                 </div>
-
-                <PropertyListing properties={properties} />
-
-                <div>
-                    <div className="bg-white w-[200px] h-[50px] rounded-full ml-auto flex justify-center gap-x-3 items-center ">
-                        <p className="text-[16px] font-bold leading-[19.23px] ">View All</p>
-                        <div className="bg-black size-[35px] rounded-full text-white flex justify-center items-center " >
-                        <i className="fa-solid fa-arrow-right"></i>
-                        </div>
-
-                    </div>
-                </div>
-
-
-            </section>
-
+            </div>
 
 
         </>
@@ -156,46 +225,30 @@ const ExploreProperties = () => {
 }
 
 
-const PropertyListing = ({ properties }) => {
-    const scrollRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
+const WhiteBackground = ({ user, setUser, children }) => {
+    return (
+        <motion.div key={user} onMouseEnter={() => { setUser(user) }} className={`poppins-regular px-4 py-1   relative z-30 cursor-pointer`}>
+            <h1 >{user[0]}</h1>
+            {children}
 
-    const handleMouseDown = (e) => {
-        setIsDragging(true);
-        setStartX(e.pageX - scrollRef.current.offsetLeft);
-        setScrollLeft(scrollRef.current.scrollLeft);
-    };
 
-    const handleMouseLeave = () => {
-        setIsDragging(false);
-    };
+        </motion.div>
+    );
+};
 
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
 
-    const handleMouseMove = (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - scrollRef.current.offsetLeft;
-        const walk = (x - startX) * 2; // Scroll-fast, adjust multiplier as needed
-        scrollRef.current.scrollLeft = scrollLeft - walk;
-    };
+
+const PropertyListing = ({ properties ,handleClickItem}) => {
+
 
     return (
         <div
             className="md:ml-[100px] mt-[20px] overflow-x-scroll  flex scrollbar-hide"
-            ref={scrollRef}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
+          
         >
-            <div className="flex space-x-5 ">
+            <div className="grid grid-cols-4  w-full">
                 {properties.map((property, index) => (
-                    <div key={index} className="  rounded-4xl shadow-[5px_4px_44px_#00000017] w-[200px]  overflow-hidden md:w-full mb-9" style={{ width: "272px" }}>
+                    <div  onClick={handleClickItem} key={index} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full mb-9" style={{ width: "272px" }}>
                         <a href={property.link}>
                             <div className=" bg-gray-100  ">
                                 <img
@@ -203,14 +256,12 @@ const PropertyListing = ({ properties }) => {
                                     className="w-full object-cover"
                                     alt={property.alt}
                                 />
-                                <div className="px-4 bg-white rounded-b-3xl">
+                                <div className="px-4">
                                     {property.isForRent ? (
-                                        <div className=" text-black  py-2">For Rent</div>
+                                        <div className=" text-black my-1">For Rent</div>
                                     ) : (
-                                        <div className="py-2">
-                                            <div className="tag-yellow text-white px-2  rounded-full">
-                                                For Sale
-                                            </div>
+                                        <div className="tag-yellow text-white px-2 my-1 rounded-full">
+                                            For Sale
                                         </div>
                                     )}
                                     <h5 className="box-title text-lg font-bold">
@@ -249,60 +300,4 @@ const PropertyListing = ({ properties }) => {
         </div>
     );
 };
-
-
-const NavBar = ({ User, setUser }) => {
-
-
-    let users = [['Buy', 'Brand'], ['New Projects', 'Influencer'], ['Rent', 'User']]
-
-    return (
-        <>
-
-            <div className="flex  flex-row justify-center  text-[8px] sm:text-[12px] w-[150px] xs:w-[200px] sm:w-[250px]  bg-white  rounded-full">
-                <div className="flex flex-row bgColor py-1 w-full justify-around items-center rounded-3xl ">
-                    {
-                        users.map((user) => {
-                            return (
-
-
-                                user[0] === User[0] ?
-                                    (<WhiteBackground key={user} user={user} setUser={setUser}>
-                                        <motion.div className="absolute w-full bg-[#82DFDF] h-full top-0 left-0   rounded-full   -z-10" layoutId="explore" ></motion.div>
-                                    </WhiteBackground>
-
-
-                                    ) : <WhiteBackground key={user} user={user} setUser={setUser} />
-
-                            );
-                        })
-                    }
-
-
-
-
-                </div>
-            </div>
-
-
-        </>
-    )
-}
-
-
-const WhiteBackground = ({ user, setUser, children }) => {
-    return (
-        <motion.div key={user} onMouseEnter={() => { setUser(user) }} className={`poppins-regular px-4 py-1   relative z-30 cursor-pointer`}>
-            <h1 >{user[0]}</h1>
-            {children}
-
-
-        </motion.div>
-    );
-};
-
-
-
-
-
-export default ExploreProperties
+export default HeroSearchSection;

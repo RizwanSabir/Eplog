@@ -7,6 +7,7 @@ import Blog from './Blog'
 import Podcasts from './Podcasts'
 import NewsLetter from '../Footer/NewsLetter'
 import Footer from '../Footer/Footer'
+import MeetTeam from './MeetTeam'
 
 const Properties = () => {
   return (
@@ -16,6 +17,7 @@ const Properties = () => {
 <PatnerSection/>
 <TrendingProperties/>
 <ExploreProperties/>
+<MeetTeam/>
 <Blog/>
 <Podcasts/>
 <NewsLetter/>

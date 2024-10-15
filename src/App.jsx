@@ -9,6 +9,9 @@ import CareerIndex from "./Pages/Career/CareerIndex";
 import ContactIndex from "./Pages/ContactUs/ContactIndex";
 import Properties from "./Pages/Properties/Properties";
 import Podcasts from "./Pages/Properties/Podcasts";
+import MeetTeam from "./Pages/Properties/MeetTeam";
+import SearchProperties from "./Pages/Properties/SearchProperties";
+import Property from "./Pages/Properties/Property";
 
 export default function App() {
     return (
@@ -22,6 +25,9 @@ export default function App() {
                 <Route path="/contact-us" element={<ContactIndex />} /> */}
                 {/* <Route path="/" element={<HomeIndex />} /> */}
                 <Route path="/" element={<Properties />} />
+                <Route path="/SearchProperties" element={<SearchProperties />} />
+                <Route path="/property" element={<Property />} />
+
                 
             </Routes>
         </Router>

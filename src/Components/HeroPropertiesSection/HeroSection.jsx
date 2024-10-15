@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 
 import './index.css'
 import Navbar from './NavBar';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import SearchBar from './SearchBar';
 
 
 const HeroPropertiesSection = ({ HeroText }) => {
@@ -10,6 +11,14 @@ const HeroPropertiesSection = ({ HeroText }) => {
     let [User, setUser] = useState(['New Projects', 'Brand']);
     const [parentHeight, setParentHeight] = useState("650px");
     const [videoSrc, setVideoSrc] = useState('');
+
+    const images = ["/2.png", "/3.png", "/4.png"];
+    const [currentImage, setCurrentImage] = useState([images[0], 0]);
+
+    const handleClick = (index) => {
+        setCurrentImage([images[index], index]);
+    };
+
 
     const updateParentHeight = () => {
         if (videoRef.current) {
@@ -52,6 +61,20 @@ const HeroPropertiesSection = ({ HeroText }) => {
         };
     }, []);
 
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+          setCurrentImage((prev) => {
+            const nextIndex = (prev[1] + 1) % images.length; // cycle through the images
+            return [images[nextIndex], nextIndex];
+          });
+        }, 2000);
+    
+        // Cleanup the interval on component unmount
+        return () => clearInterval(interval);
+      }, [images]);
+    
+
     return (
         <>
             <div className="pt-2 text-[14px] px-4 h-fit">
@@ -74,13 +97,40 @@ const HeroPropertiesSection = ({ HeroText }) => {
 
 
                             {/* Video Banner Portion */}
-                            <video ref={videoRef} autoPlay playsInline muted loop className="w-full absolute -z-10" src={videoSrc}>
+                            {/* <video ref={videoRef} autoPlay playsInline muted loop className="w-full absolute -z-10" src={videoSrc}>
                                 Your browser does not support the video tag.
-                            </video>
+                            </video> */}
+
+                            <AnimatePresence>
+
+                                <motion.div
+                                    key={currentImage[1]}
+                                    className=" h-screen z-10  w-full absolute "
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0.5, position: "absolute" }}
+                                    transition={{ duration: 0.4 }}
+                                >
+                                    <div className="absolute flex justify-end   w-full z-40  top-[40%]   p-4" style={{ height: "630px" }}>
+                                        <div className="flex flex-col space-y-2">
+                                            {images.map((_, index) => (
+                                                <div
+                                                    key={index}
+                                                    onClick={() => handleClick(index)}
+                                                    className={`border border-white rounded-full size-[15px] cursor-pointer ${currentImage[1] === index ? 'bg-white' : ""} `}
+                                                ></div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+
+                                    <img className='-z-10 object-contain' src={`${currentImage[0]}`} alt="" />
+                                </motion.div>
+                            </AnimatePresence>
 
                             {/* Hero Text */}
 
-                            <div className='w-full  text-center  '>
+                            <div className='w-full  text-center mt-10   z-20'>
                                 <h1 className="    font-bold      xl:text-5xl tracking-tight word-spacing-[1px] text-white">
                                     Your Trusted   Source for Real  <br className="hidden md:block" />
                                     Estate Excellence  in Dubai <br className="hidden md:block" />
@@ -89,24 +139,14 @@ const HeroPropertiesSection = ({ HeroText }) => {
                                 {/* Search Bar Open  */}
 
                                 <NavBar User={User} setUser={setUser} />
-                                
-                                <div className='flex justify-center mt-5 '>
-                                    <div className='bg-white relative w-[500px] h-[45px] rounded-full overflow-hidden flex '>
 
-                                        
-                                        <img className='absolute  top-[35%] left-3' src="/Svg/Search.svg" alt="" />
-                                        <input className='ml-10 h-full w-[300px] outline-none text-[14px]' type="text" placeholder='Search' />
-                          
-        <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1'>Search</h1>
-        <h1 className=' rounded-full px-4 py-1 my-1 cursor-pointer'>More Filters</h1>
-                                    </div>
-                                </div>
+                                <SearchBar/>
 
                             </div>
 
 
                             {/* Bottom for text Marquee */}
-                            <div className="w-[47%] text-[14px] p-3 lg:mt-5 overflow-hidden z-20 mdm:pt-[80px] md:pt-10 lg:pt-[77px]  absolute -bottom-2 xs:bottom-1 sm:-bottom-2 lg:bottom-2">
+                            <div className="w-[47%] text-[14px] p-3  overflow-hidden z-20 mdm:pt-[80px] md:pt-10   absolute xs:bottom-1 sm:-bottom-2 lg:bottom-5">
                                 <div className="marquee whitespace-nowrap animate-marquee w-full mr-10 ">
                                     <span className="inline-flex items-center mx-2">4 BHK For sale in Dubai Media City</span>
                                     <span className="inline-flex items-center mx-2">
@@ -121,7 +161,7 @@ const HeroPropertiesSection = ({ HeroText }) => {
                             </div>
 
                             {/* Hero Boxes */}
-                            <div className="hidden md:flex book-section">
+                            <div className="hidden md:flex mb-10 book-section z-10">
                                 <div className="booking-box flex items-center">
                                     <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/calender-icon.svg" width="40" className="mr-2" />
                                     <p className="mb-0">
@@ -172,7 +212,7 @@ const TopNavigationTabLarge = () => {
 
     return <>
 
-        <div className=' flex '>
+        <div className=' flex z-40'>
             {/* Logo of Brand */}
             <div className="hidden mdm:flex col-6 relative pl-5   h-[80px] sm:pl-9 lg:pt-5  ">
                 <a href="https://eplogproperties.com">
@@ -199,7 +239,7 @@ const NavBar = ({ User, setUser }) => {
     return (
         <>
 
-            <div className="flex flex-row justify-center mt-5 text-[8px] sm:text-[12px] w-[150px] xs:w-[200px] sm:w-[250px] mx-auto bg-white rounded-full">
+            <div className="flex flex-row justify-center mt-5 text-[8px] sm:text-[12px] w-[150px] xs:w-[200px] sm:w-[250px] mx-auto bg-white rounded-full z-40 ">
                 <div className="flex flex-row bgColor py-1 w-full justify-around items-center rounded-3xl ">
                     {
                         users.map((user) => {
