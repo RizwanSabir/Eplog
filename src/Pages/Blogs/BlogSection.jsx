@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const BlogSection = () => {
   return (
     <>
-      <div className="flex flex-col mb-5 mx-10 mt-5">
+      <div className="flex flex-col mb-5 mx-10 mt-32">
         <div className="flex flex-col sm:flex-row items-center justify-between">
           <h1 className="text-2xl  font-bold ">Search Result For:</h1>
           <div className="mt-5 sm:mt-0">

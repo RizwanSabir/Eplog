@@ -88,20 +88,7 @@ const HeroContactSection = ({HeroText}) => {
 
 
                             {/* Bottom for text Marquee */}
-                            <div className="w-[47%] text-[14px] p-3 lg:mt-5 overflow-hidden z-20 mdm:pt-[80px] md:pt-10 lg:pt-[77px]  absolute -bottom-2 xs:bottom-1 sm:-bottom-2 lg:bottom-2">
-                                <div className="marquee whitespace-nowrap animate-marquee w-full mr-10 ">
-                                    <span className="inline-flex items-center mx-2">4 BHK For sale in Dubai Media City</span>
-                                    <span className="inline-flex items-center mx-2">
-                                        <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dot-img.svg" width="8" className="mx-1 align-baseline" />
-                                        2 BHK For sale in Jumeirah Lake Towers
-                                    </span>
-                                    <span className="inline-flex items-center mx-2">
-                                        <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dot-img.svg" width="8" className="mx-1 align-baseline" />
-                                        4 BHK For sale in Dubai Media City
-                                    </span>
-                                </div>
-                            </div>
-
+                           
                          
                         </div>
                     </div>
