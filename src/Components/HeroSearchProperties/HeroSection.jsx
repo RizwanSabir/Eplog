@@ -115,30 +115,7 @@ const HeroSearchSection = ({HeroText}) => {
             <div className="pt-2 text-[14px] px-4 h-fit">
 
 
-                {/* Top Navigation on Small Screen  */}
-                <div className='flex mdm:hidden'>
-
-                    <TopNavigationTab />
-
-                </div>
-
-                {/* Banner section */}
-                <div className="relative w-full "  >
-                    <div className="w-full px-[10px] mx-auto text-[10px] h-full ">
-                        {/* Top Hero Section */}
-                        <div className="row h-full flex">
-
-                            <TopNavigationTabLarge />
-
-
-                        </div>
-
-                        <NavBar User={User} setUser={setUser} />
-
-
-                        <SearchBar/>
-                    </div>
-                </div>
+             <h1 className='text-4xl font-bold  mx-5'>Explore Properties</h1>
 
                 <PropertyListing properties={properties} handleClickItem={handleClickItem} />
             </div>

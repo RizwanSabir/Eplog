@@ -7,6 +7,8 @@ const ExploreProperties = () => {
 
     let [User, setUser] = useState(['New Projects', 'Brand']);
 
+    const url = `${import.meta.env.VITE_REACT_APP_BASE_URL}`;
+
     const properties = [
         {
             link: "#",
@@ -138,7 +140,13 @@ const ExploreProperties = () => {
 
                 <div>
                     <div className="bg-white w-[200px] h-[50px] rounded-full ml-auto flex justify-center gap-x-3 items-center ">
-                        <p className="text-[16px] font-bold leading-[19.23px] ">View All</p>
+                        
+                        <a
+                                href={`${url}/SearchProperties/`}
+                                className=" text-[16px] font-bold leading-[19.23px]"
+                            >
+                                View All
+                            </a>
                         <div className="bg-black size-[35px] rounded-full text-white flex justify-center items-center " >
                         <i className="fa-solid fa-arrow-right"></i>
                         </div>

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 const TrendingProperties = () => {
 
     let [User, setUser] = useState(['New Projects', 'Brand']);
+    const url = `${import.meta.env.VITE_REACT_APP_BASE_URL}`;
 
     const properties = [
         {
@@ -118,7 +119,7 @@ const TrendingProperties = () => {
                                 />
                             </div>
                             <a
-                                href="https://eplogproperties.com/properties/"
+                                href={`${url}/SearchProperties/`}
                                 className=" w-[150px]  text-[16px] font-bold leading-[19.23px]  btn-primary text-center py-2 bg-blue-500 text-white py-1 px-2 rounded-[14px]"
                             >
                                 View All

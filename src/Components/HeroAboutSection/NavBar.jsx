@@ -10,7 +10,7 @@ const Navbar = () => {
     const toggleMenu = () => setIsOpen(!isOpen);
 
     const menuItems = [
-        { name: 'About us', link: `${ServerUrl}/about-us/` },
+        { name: 'Home', link: `${ServerUrl}/` },
         { name: 'Services', link: `${ServerUrl}/services/` },
         { name: 'Blogs', link: `${ServerUrl}/blogs/` },
         { name: 'Career', link: `${ServerUrl}/career/` },

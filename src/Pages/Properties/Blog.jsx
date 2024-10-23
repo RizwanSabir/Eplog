@@ -7,7 +7,7 @@ const Blog = () => {
 
     let [User, setUser] = useState(['Guides', 'Brand']);
 
-  
+    const url = `${import.meta.env.VITE_REACT_APP_BASE_URL}`;
     return (
         <>
 
@@ -31,7 +31,12 @@ const Blog = () => {
                         
                              <div>
                     <div className="bg-[#82DFDF] w-[200px] h-[50px] rounded-full ml-auto flex justify-center gap-x-3 items-center ">
-                        <p className="text-[16px] font-bold leading-[19.23px] ">View All</p>
+                    <a
+                                href={`${url}/blogs/`}
+                                className=" text-[16px] font-bold leading-[19.23px]"
+                            >
+                                View All
+                            </a>
                         <div className="bg-white  size-[35px] rounded-full  flex justify-center items-center " >
                         <i className="fa-solid fa-arrow-right"></i>
                         </div>
@@ -197,7 +202,10 @@ const BlogSection = () => {
     sliderRef.current.scrollLeft = scrollLeft - walk;
   };
 
+  
+
   return (
+
    <>
 
    
