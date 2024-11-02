@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from 'react';
 import './index.css'
 import Navbar from './NavBar';
 import { AnimatePresence, motion } from 'framer-motion';
-import SearchBar from './SearchBar';
+import SearchBar from '../SearchBar/SearchBar';
 
 
-const HeroNavBar = ({ HeroText }) => {
+const HeroNavBar = ({ children }) => {
     const videoRef = useRef(null);
     let [User, setUser] = useState(['New Projects', 'Brand']);
     const [parentHeight, setParentHeight] = useState("650px");
@@ -138,9 +138,7 @@ const HeroNavBar = ({ HeroText }) => {
                                 </h1>
                                 {/* Search Bar Open  */}
 
-                                <NavBar User={User} setUser={setUser} />
-
-                                <SearchBar/>
+                               {children}
 
                             </div>
 
@@ -202,7 +200,7 @@ const TopNavigationTabLarge = () => {
 const NavBar = ({ User, setUser }) => {
 
 
-    let users = [['New Projects', 'Brand'], ['Buy', 'Influencer'], ['Rent', 'User']]
+    let users = [['New Projects', 'NEW'], ['Buy', 'BUY'], ['Rent', 'SELL']]
 
     return (
         <>

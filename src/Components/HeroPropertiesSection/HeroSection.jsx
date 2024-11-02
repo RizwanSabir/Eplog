@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import './index.css'
 import Navbar from './NavBar';
 import { AnimatePresence, motion } from 'framer-motion';
-import SearchBar from './SearchBar';
+import SearchBar from '../SearchBar/SearchBar';
 
 
 const HeroPropertiesSection = ({ HeroText }) => {
@@ -96,10 +96,8 @@ const HeroPropertiesSection = ({ HeroText }) => {
                             <TopNavigationTabLarge />
 
 
-                            {/* Video Banner Portion */}
-                            {/* <video ref={videoRef} autoPlay playsInline muted loop className="w-full absolute -z-10" src={videoSrc}>
-                                Your browser does not support the video tag.
-                            </video> */}
+                          
+                          
 
                             <AnimatePresence>
 
@@ -145,20 +143,7 @@ const HeroPropertiesSection = ({ HeroText }) => {
                             </div>
 
 
-                            {/* Bottom for text Marquee */}
-                            <div className="w-[47%] text-[14px] p-3  overflow-hidden z-20 mdm:pt-[80px] md:pt-10   absolute xs:bottom-1 sm:-bottom-2 lg:bottom-5">
-                                <div className="marquee whitespace-nowrap animate-marquee w-full mr-10 ">
-                                    <span className="inline-flex items-center mx-2">4 BHK For sale in Dubai Media City</span>
-                                    <span className="inline-flex items-center mx-2">
-                                        <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dot-img.svg" width="8" className="mx-1 align-baseline" />
-                                        2 BHK For sale in Jumeirah Lake Towers
-                                    </span>
-                                    <span className="inline-flex items-center mx-2">
-                                        <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dot-img.svg" width="8" className="mx-1 align-baseline" />
-                                        4 BHK For sale in Dubai Media City
-                                    </span>
-                                </div>
-                            </div>
+                          
 
                             {/* Hero Boxes */}
                             <div className="hidden md:flex mb-10 book-section z-10">

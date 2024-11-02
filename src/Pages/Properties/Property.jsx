@@ -8,6 +8,8 @@ import ContactUs from '../Footer/ContactUs';
 import Footer from '../Footer/Footer';
 import NewsLetter from '../Footer/NewsLetter';
 import { useNavigate } from 'react-router-dom';
+import FloorPlan from '../../Components/Property/FloorPlan';
+import PaymentPlan from '../../Components/Property/PaymentPlan';
 
 const Property = ({ HeroText }) => {
 
@@ -110,7 +112,7 @@ const Property = ({ HeroText }) => {
 
     const handleBack = () => {
         console.log("Search is Clicked")
-      navigate('/SearchProperties');
+        navigate('/SearchProperties');
     };
 
     return (
@@ -187,51 +189,122 @@ const Property = ({ HeroText }) => {
                                         <div className="property-data flex  w-full justify-around ">
                                             <div className="bed flex items-center gap-x-1  ">
                                                 <img src='https://eplogproperties.com/wp-content/themes/dtheme/assets/images/bad-icon-white.svg' width="15" alt="bed" />
-                                                <p>12 Beds</p>
+
+
+
+                                                <div className='leading-[14px] flex flex-col items-center'>
+                                                    <p > Beds </p>
+                                                    <p>12 - 15</p>
+                                                </div>
                                             </div>
-                                            <div className="bathroom flex items-center gap-x-1 px-1">
+
+                                            <div className="area flex items-center gap-x-1">
+                                                <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/compress-icon-white.svg" width="15" alt="area" />
+
+                                                <div className='leading-[14px] flex flex-col items-center'>
+                                                    <p> SQM </p>
+                                                    <p>1223 -5432</p>
+                                                </div>
+                                            </div>
+
+                                            <div className=" flex items-center gap-x-1 px-1">
                                                 <img
-                                                    src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/bathroom-icon-white.svg"
+                                                    src="/Svg/HandOver.svg"
                                                     width="15"
                                                     alt="bathroom"
                                                 />
-                                                <p> 15  Bath</p>
-                                            </div>
-                                            <div className="area flex items-center gap-x-1">
-                                                <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/compress-icon-white.svg" width="15" alt="area" />
-                                                <p> 12 SQM</p>
+                                                <div className='leading-[14px] flex flex-col items-center'>
+                                                    <p> HandOver </p>
+                                                    <p>23-32-2023</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <p className='mt-3 text-xl font-bold'>
-                                        Located in the hear of Dubai 10 mintues distance from international production city
-                                    </p>
 
-                                    <p className='mt-4  text-[15px] leading-[24px]'>
-                                        Lorem ipsum dolor sit amet consectetur. Vehicula habitasse massa amet at amet quam gravida ultricies. Viverra ut augue diam quis lacus velit vulputate elit. Vel quis sollicitudin nunc platea sit cras euismod egestas et. Ultrices amet adipiscing iaculis sed ullamcorper commodo tincidunt. Vitae fringilla viverra sit nunc suscipit sodales sit mi commodo. Dolor aenean et aenean at egestas. Gravida vitae diam in mauris nec diam. Ultrices rutrum neque est vulputate adipiscing pretium id. Aliquam eleifend tortor tortor mi nisl. Purus arcu nibh dictum consequat congue.
-                                    </p>
+
+
+
+                                    {/* Property Description */}
+                                    <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full my-5 p-5 relative  '>
+
+                                        <p className='mt-3 text-xl font-bold'>
+                                            Located in the hear of Dubai 10 mintues distance from international production city
+                                        </p>
+
+                                        <p className='mt-4  text-[15px] leading-[24px]'>
+                                            Lorem ipsum dolor sit amet consectetur. Vehicula habitasse massa amet at amet quam gravida ultricies. Viverra ut augue diam quis lacus velit vulputate elit. Vel quis sollicitudin nunc platea sit cras euismod egestas et. Ultrices amet adipiscing iaculis sed ullamcorper commodo tincidunt. Vitae fringilla viverra sit nunc suscipit sodales sit mi commodo. Dolor aenean et aenean at egestas. Gravida vitae diam in mauris nec diam. Ultrices rutrum neque est vulputate adipiscing pretium id. Aliquam eleifend tortor tortor mi nisl. Purus arcu nibh dictum consequat congue.
+                                        </p>
+                                    </div>
+
+                                    <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full  p-5 relative  '>
+
+                                            <p className='mt-3 text-xl font-bold'>
+                                                Payment Plan
+                                            </p>
+                                            <PaymentPlan/>
+                                        </div>
+
+                                    {/* Property Floor plan */}
+
+
+
                                 </div>
 
                             </div>
 
 
                             {/* Right Picture two for the column */}
-                            <div className='flex flex-col ]'>
+                            <div className='flex flex-col '>
 
                                 <div className='w-[480px]    rounded-xl    pb-4'>
                                     <div className='bg-[#7C3EFF] text-[12px] h-[104px] w-full  rounded-xl flex justify-around  items-center   text-white'>
-                                    <p className='text-2xl w-[150px] text-center flex-grow'>For Rent</p>
+                                        <p className='text-2xl w-[150px] text-center flex-grow'>For Rent</p>
                                         <p className='bg-[#82DFDF] w-full h-full text-3xl text-black flex items-center justify-center font-bold'>AED 1.2 Million</p>
                                     </div>
+
+                                    
+                                    <div className='flex flex-col items-end space-y-5 justify-end space-x-5 text-[14px] mt-5'>
+
+                                        {/* <div className='flex'>
+                                            <div className='leading-[15px] text-right mr-1'>
+                                                <p className='text-[14px] font-bold '>Developer</p>
+                                                <p>Emaar</p>
+                                            </div>
+                                            <img
+                                                src="https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2024/06/29/9fb329a4-255a-464b-9fea-f323eafb63ff.jpg"
+                                                className="size-[50px] object-cover   rounded-xl outline outline-[1px] p-1"
+                                            />
+                                        </div>
+                                        <div className='flex'>
+                                            <div className='leading-[15px] text-right mr-1'>
+                                                <p className='text-[14px] font-bold mr-1'>Agent</p>
+                                                <p>Saliq</p>
+                                                <p>+97234314343</p>
+                                            </div>
+                                            <img
+                                                src="https://eplogproperties.com/wp-content/uploads/2023/10/1-1.svg"
+                                                className="size-[50px] object-cover   rounded-xl outline outline-[1px] p-1"
+                                            />
+                                        </div> */}
+
+                                        <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full  p-5 relative  '>
+
+                                            <p className='mt-3 text-xl font-bold'>
+                                                Floor Plan
+                                            </p>
+                                            <FloorPlan />
+                                        </div>
+
+
+                                        
+
+
+                                    </div>
+
+                                    
                                     <p className='bg-[#82DFDF] w-full text-xl text-center rounded-full mt-3 p-2 text-black  font-bold'>Book a visit</p>
  
-                                  <div className='flex justify-end space-x-2'>
-                                  <p className='text-xl'>Share the Listing : </p>
-                                    <div className='text-xl space-x-3'>
-                                    <i className="fa-brands fa-facebook-f" style={{color: "#63E6BE"}}></i>
-                                    </div>
-                                  </div>
                                 </div>
 
                             </div>
@@ -244,16 +317,16 @@ const Property = ({ HeroText }) => {
                     </div>
                 </div>
 
-                <div  className='h-[1px] px-4 w-full bg-slate-300  my-10'></div>
+                <div className='h-[1px] px-4 w-full bg-slate-300  my-10'></div>
 
                 <p className='text-[40px] items-center  font-bold  px-4'>Customers Also Viewed</p>
 
-               <div className='pt-5'>
-               <PropertyListing properties={properties} />
-               </div>
+                <div className='pt-5'>
+                    <PropertyListing properties={properties} />
+                </div>
             </div>
-            <NewsLetter/>
-            <Footer/>
+            <NewsLetter />
+            <Footer />
         </>
     );
 };

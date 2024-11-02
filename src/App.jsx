@@ -12,6 +12,9 @@ import Podcasts from "./Pages/Properties/Podcasts";
 import MeetTeam from "./Pages/Properties/MeetTeam";
 import SearchProperties from "./Pages/Properties/SearchProperties";
 import Property from "./Pages/Properties/Property";
+import PriceFilter from "./PriceFilter";
+import NavbarWithDropdown from "./PriceFilter";
+import SearchBar from "./Components/SearchBar/SearchBar";
 
 export default function App() {
     return (
@@ -19,19 +22,25 @@ export default function App() {
       <div className="max-w-[1280px] mx-auto">
       <Router>
             <Routes>
-                <Route path="/" element={<Properties />} />
+                {/* <Route path="/" element={<Properties />} />
                 <Route path="/about-us" element={<About />} />
                 <Route path="/services" element={<ServiceIndex />} />
                 <Route path="/blogs" element={<BlogIndex />} />
                 <Route path="/career/" element={<CareerIndex />} />
                 <Route path="/contact-us" element={<ContactIndex />} />
                 {/* <Route path="/" element={<HomeIndex />} /> */}
-                <Route path="/properties" element={<SearchProperties />} />
+                {/* <Route path="/properties" element={<SearchProperties />} /> 
                 <Route path="/SearchProperties" element={<SearchProperties />} />
+                <Route path="/property" element={<Property />} />  
+                <Route path="/" element={<Properties />} /> */}
+                <Route path="/" element={<SearchProperties />} /> 
                 <Route path="/property" element={<Property />} />
 
                 
             </Routes>
-        </Router></div></>
+        </Router>
+        
+        
+        </div></>
     );
 }

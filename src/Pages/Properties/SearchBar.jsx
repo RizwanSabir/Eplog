@@ -41,7 +41,7 @@ const SearchBar = () => {
                             <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer'>Apply Filter </h1>
                         </div>: <div className='flex justify-end w-full'>
                             <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer'>Search</h1>
-                            <h1 className='b rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { setUseFilter(!UseFilter) }}>Filter</h1>
+                            <h1 className='b rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { setUseFilter(!UseFilter) }}>Filtesssr</h1>
                         </div>}
                     </div>
                   </div>
@@ -58,7 +58,7 @@ const SearchBar = () => {
 
                   
                     {/* Filter Fields */}
-                    <div className="grid grid-cols-3 gap-x-2  content-center">
+                    <div className="grid grid-cols-3 gap-x-2  justify-center items-center place-content-center content-center ">
                         {/* Location */}
 
 
