@@ -1,8 +1,8 @@
 import React from 'react';
 
-const PaymentPlan = () => {
+const PaymentPlan = ({paymentPlan}) => {
 
-    let paymentPlan= "{\"one\":\"5\",\"two\":\"55\",\"three\":\"40\",\"four\":0}"
+    // let paymentPlan= "{\"one\":\"5\",\"two\":\"55\",\"three\":\"40\",\"four\":0}"
 
   // Parse the JSON string into an object
   const parsedPlan = JSON.parse(paymentPlan);

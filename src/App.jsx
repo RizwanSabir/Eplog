@@ -11,10 +11,14 @@ import Properties from "./Pages/Properties/Properties";
 import Podcasts from "./Pages/Properties/Podcasts";
 import MeetTeam from "./Pages/Properties/MeetTeam";
 import SearchProperties from "./Pages/Properties/SearchProperties";
-import Property from "./Pages/Properties/Property";
+
 import PriceFilter from "./PriceFilter";
 import NavbarWithDropdown from "./PriceFilter";
 import SearchBar from "./Components/SearchBar/SearchBar";
+import NewProperty from "./Pages/Property/NewProperty";
+import BuyProperty from "./Pages/Property/BuyProperty";
+import SellProperty from "./Pages/Property/SellProperty";
+
 
 export default function App() {
     return (
@@ -22,19 +26,21 @@ export default function App() {
       <div className="max-w-[1280px] mx-auto">
       <Router>
             <Routes>
-                {/* <Route path="/" element={<Properties />} />
+                <Route path="/" element={<Properties />} />
                 <Route path="/about-us" element={<About />} />
                 <Route path="/services" element={<ServiceIndex />} />
                 <Route path="/blogs" element={<BlogIndex />} />
                 <Route path="/career/" element={<CareerIndex />} />
                 <Route path="/contact-us" element={<ContactIndex />} />
-                {/* <Route path="/" element={<HomeIndex />} /> */}
+                {/* <Route path="/" element={<HomeIndex />} />
                 {/* <Route path="/properties" element={<SearchProperties />} /> 
                 <Route path="/SearchProperties" element={<SearchProperties />} />
                 <Route path="/property" element={<Property />} />  
                 <Route path="/" element={<Properties />} /> */}
-                <Route path="/" element={<SearchProperties />} /> 
-                <Route path="/property" element={<Property />} />
+                <Route path="/properties" element={<SearchProperties />} /> 
+                <Route path="/property/new" element={<NewProperty />} />
+                <Route path="/property/sell" element={<BuyProperty />} />
+                <Route path="/property/rent" element={<SellProperty />} />
 
                 
             </Routes>

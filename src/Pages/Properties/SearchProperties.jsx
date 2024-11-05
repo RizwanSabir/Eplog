@@ -35,7 +35,7 @@ const SearchProperties = () => {
 const NavBar = () => {
   const { User, setUser } = useNavBar();
 
-  let users = [['New Projects', 'NEW'], ['Buy', 'BUY'], ['Rent', 'RENT']]
+  let users = [['New Projects', 'NEW'], ['Buy', 'SELL'], ['Rent', 'RENT']]
 
   return (
       <>

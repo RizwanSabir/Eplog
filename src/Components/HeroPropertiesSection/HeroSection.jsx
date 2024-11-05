@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import './index.css'
 import Navbar from './NavBar';
 import { AnimatePresence, motion } from 'framer-motion';
-import SearchBar from '../SearchBar/SearchBar';
+import SearchBar from './SearchBar';
+
 
 
 const HeroPropertiesSection = ({ HeroText }) => {
