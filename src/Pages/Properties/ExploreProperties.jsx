@@ -10,98 +10,7 @@ const ExploreProperties = () => {
 
     const url = `${import.meta.env.VITE_REACT_APP_BASE_URL}`;
 
-    const properties = [
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: true, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-    ];
+ 
 
     return (
         <>
@@ -138,14 +47,13 @@ const ExploreProperties = () => {
                 </div>
 
 
-{/* <HeroSearchSection User={User}/> */}
 <ScrollProperty  User={User} Page={1}/>
 
                 <div>
                     <div className="bg-white w-[200px] h-[50px] rounded-full ml-auto flex justify-center gap-x-3 items-center ">
                         
                         <a
-                                href={`${url}/SearchProperties/`}
+                                href={`${url}/properties/`}
                                 className=" text-[16px] font-bold leading-[19.23px]"
                             >
                                 View All
@@ -173,7 +81,7 @@ const ExploreProperties = () => {
 const NavBar = ({ User, setUser }) => {
 
 
-    let users = [['Buy', 'BUY'], ['New Projects', 'NEW'], ['Rent', 'RENT']]
+    let users = [['Buy', 'SELL'], ['New Projects', 'NEW'], ['Rent', 'RENT']]
 
     return (
         <>

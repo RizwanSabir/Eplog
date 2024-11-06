@@ -8,7 +8,7 @@ import CustomLoader from "../Loaders/CustomLoader";
 
 
 const ScrollProperty = ({  User ,Page}) => {
-    const PropertyData = { listingType: `${User}` }; 
+    
    
     const [Properties, setProperties] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -52,6 +52,9 @@ const ScrollProperty = ({  User ,Page}) => {
 
     const handleClickItem = (propertyId, Type, DeveloperLogo) => {
         console.log("Search is Clicked");
+        console.log(propertyId);
+        console.log("Type is ");
+        console.log(Type);
         navigate(`/property/${Type}?propertyId=${propertyId}&dl=${DeveloperLogo}`);
     };
 
@@ -136,7 +139,7 @@ const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
         onMouseMove={handleMouseMove}>
             <div className="flex space-x-5 ">
                 {properties.map((property, index) => (
-                    <div onClick={() => { handleClickItem(property.propertyId,Type,property.developerLogo) }} key={index} className="   rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] bg-white overflow-hidden md:w-full mb-9 relative" style={{ width: "272px" }}>
+                    <div onClick={() => { handleClickItem(property.propertyId,Type.toLowerCase(),property.developerLogo) }} key={index} className="   rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] bg-white overflow-hidden md:w-full cursor-pointer mb-9 relative" style={{ width: "272px" }}>
 
                         {/* Div for Payment Plan */}
                         {property.newParam?.paymentPlan ?
@@ -173,7 +176,7 @@ const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
 
                                             <div className=''>
                                                 <div className='leading-4'>
-                                                    <p className="text-cyan-500 my-2">{property.title}</p>
+                                                    <p className="text-cyan-500 my-2 text-[14px] font-bold ">{property.title}</p>
                                                     <div className='flex'>
                                                         {/* <img src="/Svg/Estate.svg" alt="" /> */}
                                                         <p className="text-cyan-500">{property.developer}</p>
@@ -255,7 +258,10 @@ const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
 const PropertyListingRENT = ({ properties, handleClickItem,Type }) => {
 
     console.log("In Rent")
-    console.log(properties)
+    console.log(Type)
+
+    const TypeProperty=Type==="SELL"?"buy":"rent"
+    const DEveloperLogo=properties.listingType==="SELL"?"buy":"rent"
     const formatPrice = (price) => {
         if (price >= 1_000_000) {
             // Round off to millions with two decimal places
@@ -275,7 +281,7 @@ const PropertyListingRENT = ({ properties, handleClickItem,Type }) => {
             className="md:ml-[100px] mt-[20px] overflow-x-scroll  flex scrollbar-hide ">
             <div className="flex space-x-5">
                 {properties.map((property, index) => (
-                    <div onClick={() => { handleClickItem(property.propertyId,Type,property.developerLogo) }} key={index} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden bg-white md:w-full mb-9 relative  cursor-pointer" style={{ width: "272px" }}>
+                    <div onClick={() => { handleClickItem(property.propertyId,TypeProperty,property.developerLogo) }} key={index} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden bg-white md:w-full mb-9 relative  cursor-pointer" style={{ width: "272px" }}>
 
                         {/* Div for Payment Plan */}
                         {property.newParam?.paymentPlan ?
@@ -312,7 +318,7 @@ const PropertyListingRENT = ({ properties, handleClickItem,Type }) => {
 
                                             <div className=''>
                                                 <div className='leading-4'>
-                                                    <p className="text-cyan-500 my-2">{property.title}</p>
+                                                    <p className="text-cyan-500 my-2 text-[14px] font-bold">{property.title}</p>
                                                     <div className='flex'>
                                                         {/* <img src="/Svg/Estate.svg" alt="" /> */}
                                                         <p className="text-cyan-500">{property.developer}</p>

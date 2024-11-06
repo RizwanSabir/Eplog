@@ -44,14 +44,15 @@ const FloorPlan = ({floorPlans}) => {
 
               {/* Right Side - Non-null properties in grid */}
               <div className="w-1/2 ml-5">
+                
                 {title && (
                   <div>
-                    <strong>Title:</strong> {title}
+                    <strong>Name:</strong>{title}
                   </div>
                 )}
                 {name && (
                   <div>
-                    <strong>Name:</strong> {name}
+                    <strong>Bedrooms</strong> {name}
                   </div>
                 )}
                 {area && (
@@ -59,11 +60,7 @@ const FloorPlan = ({floorPlans}) => {
                     <strong>Area:</strong> {area} sqft
                   </div>
                 )}
-                {price && (
-                  <div>
-                    <strong>Price:</strong> {price}
-                  </div>
-                )}
+                
               </div>
             </div>
           );
@@ -112,7 +109,7 @@ const NavBar = ({data,selectedType,setSelectedType}) => {
     return (
         <>
   
-            <div className="flex flex-row mx-auto my-2   text-[8px] sm:text-[12px] w-[150px] xs:w-[200px] sm:w-[250px]  bg-white rounded-full z-40 border-[1px]  ">
+            <div className="flex flex-row mx-auto my-2   text-[8px]   bg-white rounded-full z-40 border-[1px]  ">
                 <div className="flex flex-row bgColor py-1 w-full justify-around items-center rounded-3xl ">
                     {
                         data.map((user) => {

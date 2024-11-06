@@ -161,7 +161,7 @@ const BuyProperty = ({ HeroText }) => {
             }
         };
         fetchDevelopers();
-    }, []);
+    }, [searchParams,propertyId]);
 
 
 
@@ -197,11 +197,11 @@ const BuyProperty = ({ HeroText }) => {
                             </div>
 
                             {/* Back Button  */}
-                            <div className='flex '>
+                            {/* <div className='flex '>
 
                                 <p>You are here: </p>
                                 <p>  Home / {PropertyDetail.name}</p>
-                            </div>
+                            </div> */}
 
                             {/* Heading of the property */}
                             <div className='mt-5 space-y-3'>
@@ -338,8 +338,8 @@ const BuyProperty = ({ HeroText }) => {
                     <p className='text-[40px] items-center  font-bold  px-4'>Customers Also Viewed</p>
 
                     <div className='pt-5'>
-                        <PropertyListing properties={properties} />
-                        <ScrollProperty  User={["Buy","BUY"]} Page={1}/>
+                        {/* <PropertyListing properties={properties} /> */}
+                        <ScrollProperty  User={["Buy","SELL"]} Page={1}/>
                     </div>
                 </div>
                 <NewsLetter />

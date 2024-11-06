@@ -162,7 +162,7 @@ const NewProperty = ({ HeroText }) => {
             }
         };
         fetchDevelopers();
-    }, []);
+    }, [searchParams,propertyId]);
 
     const navigate = useNavigate();
 
@@ -203,11 +203,11 @@ const NewProperty = ({ HeroText }) => {
                             </div>
 
                             {/* Back Button  */}
-                            <div className='flex '>
+                            {/* <div className='flex '>
 
                                 <p>You are here: </p>
                                 <p>  Home / {PropertyDetail.name}</p>
-                            </div>
+                            </div> */}
 
                             {/* Heading of the property */}
                             <div className='mt-5 space-y-3'>

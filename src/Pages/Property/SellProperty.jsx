@@ -18,7 +18,7 @@ import SliderComponentBuy from '../../Components/Property/SliderComponentBuy';
 import SliderComponentNew from '../../Components/Property/SliderComponentNew';
 import ScrollProperty from '../../Components/ScrollProperty/ScrollProperty';
 
-const SellProperty = ({ HeroText }) => {
+const RentProperty = ({ HeroText }) => {
     const [searchParams] = useSearchParams();
     let [User, setUser] = useState(['New Projects', 'Brand']);
     let [PropertyDetail, setPropertyDetail] = useState(null);
@@ -610,4 +610,4 @@ const PropertyDetails = ({ property, DeveloperLogo }) => {
 
 // https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg
 
-export default SellProperty;
+export default RentProperty;

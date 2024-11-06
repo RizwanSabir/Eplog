@@ -18,6 +18,7 @@ import SearchBar from "./Components/SearchBar/SearchBar";
 import NewProperty from "./Pages/Property/NewProperty";
 import BuyProperty from "./Pages/Property/BuyProperty";
 import SellProperty from "./Pages/Property/SellProperty";
+import RentProperty from "./Pages/Property/SellProperty";
 
 
 export default function App() {
@@ -37,10 +38,11 @@ export default function App() {
                 <Route path="/SearchProperties" element={<SearchProperties />} />
                 <Route path="/property" element={<Property />} />  
                 <Route path="/" element={<Properties />} /> */}
-                <Route path="/properties" element={<SearchProperties />} /> 
+                {/* <Route path="/properties" element={<SearchProperties />} />  */}
+                <Route path="/properties" element={<SearchProperties />} />
                 <Route path="/property/new" element={<NewProperty />} />
-                <Route path="/property/sell" element={<BuyProperty />} />
-                <Route path="/property/rent" element={<SellProperty />} />
+                <Route path="/property/buy" element={<BuyProperty />} />
+                <Route path="/property/rent" element={<RentProperty />} />
 
                 
             </Routes>
