@@ -296,26 +296,28 @@ const BuyProperty = ({ HeroText }) => {
                                     <div className='flex flex-col items-end space-y-5 justify-end space-x-5 text-[14px] '>
 
 
-
+{/* 
                                         <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full  p-5 relative  '>
 
                                             <p className='mt-3 text-xl font-bold'>
                                                 Floor Plan
                                             </p>
-                                            {/* <FloorPlan floorPlans={PropertyDetail.newParameter.style} /> */}
+                                            <FloorPlan floorPlans={PropertyDetail.newParameter.style} />
                                         </div>
                                         <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full  p-5 relative   '>
 
                                             <p className='mt-3 text-xl font-bold'>
                                                 Payment Plan
                                             </p>
-                                            {/* <PaymentPlan paymentPlan={PropertyDetail.newParameter.paymentPlan} /> */}
-                                        </div>
+                                            <PaymentPlan paymentPlan={PropertyDetail.newParameter.paymentPlan} />
+                                        </div> */}
 
 
                                         <p className='bg-[#82DFDF]  mx-auto text-xl text-center rounded-3xl mt-3 p-2 text-black  font-bold  w-full py-5'>Book a visit</p>
 
                                     </div>
+
+                                    
                                 </div>
 
 

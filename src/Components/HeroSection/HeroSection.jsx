@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import './index.css'
-import Navbar from './NavBar';
+
 import { AnimatePresence,motion } from 'framer-motion';
 const HeroSection = ({HeroText}) => {
     const videoRef = useRef(null);
@@ -206,7 +206,7 @@ const TopNavigationTab = () => {
 
         {/* Nav Bar */}
         <div className="  col-6 relative flex justify-end">
-            <Navbar />
+  
         </div>
 
     </>
@@ -225,7 +225,7 @@ const TopNavigationTabLarge = () => {
 
         {/* Nav Bar */}
         <div className=" hidden mdm:flex col-6 relative flex justify-end">
-            <Navbar />
+   
         </div>
 
     </>

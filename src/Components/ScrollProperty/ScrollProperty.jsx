@@ -224,7 +224,7 @@ const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
                                     <div className="property-data flex justify-between text-sm pb-5 ">
                                         <div className="bed flex items-center gap-x-1 ">
                                             <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg" width="15" alt="bed" />
-                                            <p>{property.newParam?.bedroomMax}-{property.newParam?.bedroomMin} Beds</p>
+                                            <p>{property.newParam?.bedroomMin}-{property.newParam?.bedroomMax} Beds</p>
                                             {/* property.newParam.bedroomMax */}
                                         </div>
                                         <div className="bathroom flex items-center gap-x-1 px-1">

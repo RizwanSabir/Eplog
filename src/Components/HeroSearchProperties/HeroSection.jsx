@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import './index.css';
-import Navbar from './NavBar';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { usePropertyData } from '../../Context/PropertyDataContext';
@@ -72,18 +71,23 @@ import { div } from 'framer-motion/client';
 // };
 
 
+
+
 const HeroSearchSection = ({ HeroText }) => {
     const { PropertyData } = usePropertyData();
     const [Properties, setProperties] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [page, setPage] = useState(2);
+    const [page, setPage] = useState(1);
     const [isFetchingMore, setIsFetchingMore] = useState(false);
+    const [hasMoreData, setHasMoreData] = useState(true); // New state to track if more data is available
 
     const navigate = useNavigate();
-    console.log("Property data in hero search ", PropertyData);
-    console.log("Pproperties are ", Properties);
+
 
     useEffect(() => {
+        const controller = new AbortController(); // Create an AbortController instance
+        const signal = controller.signal; // Get the signal from the controller
+
         const fetchProperties = async () => {
             setLoading(true);
             try {
@@ -95,12 +99,23 @@ const HeroSearchSection = ({ HeroText }) => {
                     },
                     body: JSON.stringify({
                         ...PropertyData,
-
                         "size": 10,
-                        "page": (page - 1) 
-                    })
+                        "page": page
+                    }),
+                    signal, // Pass the abort signal to the fetch request
                 });
+
+                if (!PropertyList.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
                 const DevelopersData = await PropertyList.json();
+              
+
+                // Check if fetched data is less than expected size
+                if (DevelopersData.data.list.length < 10) {
+                    setHasMoreData(false); // No more data to load
+                }
 
                 // Append new properties or reset if PropertyData changed
                 setProperties((prevProperties) => [
@@ -108,7 +123,9 @@ const HeroSearchSection = ({ HeroText }) => {
                     ...DevelopersData.data.list
                 ]);
             } catch (error) {
-                console.error("Error fetching developers:", error);
+                if (error.name !== 'AbortError') {
+                    console.error("Error fetching developers:", error);
+                }
             } finally {
                 setLoading(false);
                 setIsFetchingMore(false);
@@ -116,19 +133,23 @@ const HeroSearchSection = ({ HeroText }) => {
         };
 
         fetchProperties();
+
+        // Cleanup function to abort the fetch request when the component unmounts or rerenders
+        return () => {
+            controller.abort();
+        };
     }, [PropertyData, page]);
 
     // Reset Properties and page when PropertyData changes
     useEffect(() => {
         setProperties([]);
         setPage(1);
+        setHasMoreData(true); // Reset the hasMoreData flag when PropertyData changes
     }, [PropertyData]);
 
     const handleClickItem = (propertyId, Type, DeveloperLogo) => {
-        console.log("Search is Clicked");
         navigate(`/property/${Type}?propertyId=${propertyId}&dl=${DeveloperLogo}`);
     };
-    
 
     const handleLoadMore = () => {
         setPage((prevPage) => prevPage + 1);
@@ -136,39 +157,39 @@ const HeroSearchSection = ({ HeroText }) => {
     };
 
     return (
-        <>
+        <div className="pt-2 text-[14px] px-4 h-fit">
+            <h1 className="text-4xl font-bold mx-5">
+                Explore {PropertyData?.listingType === 'SELL' ? "Buy" : PropertyData?.listingType.toLowerCase()} Properties
+            </h1>
 
-            <div className="pt-2 text-[14px] px-4 h-fit"  >
-                <h1 className='text-4xl font-bold mx-5'>
-                    Explore {PropertyData?.listingType==='SELL'?"Buy":PropertyData?.listingType.toLowerCase()} Properties
-                </h1>
+            {loading && !Properties.length ? (
+                <div className="mt-10">
+                    <CustomLoader />
+                </div>
+            ) : (
+                <>
+                    {PropertyData?.listingType === "NEW" ? 
+                        <PropertyListingNEW Type={PropertyData?.listingType.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} /> 
+                        : 
+                        <PropertyListingRENT Type={PropertyData?.listingType ==="SELL"?'buy':PropertyData?.listingType.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} />
+                    }
 
-                {loading && !Properties.length ? (
-                    <div className='mt-10'>
-                        <CustomLoader />
-                    </div>
-                ) : (
-                    <>
-                        {PropertyData?.listingType === "NEW" ? <PropertyListingNEW Type={PropertyData?.listingType.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} /> : <PropertyListingRENT Type={PropertyData?.listingType.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} /> }
+                    {isFetchingMore && loading && <CustomLoader />} {/* Loader for Load More button */}
 
-                        {/* <PropertyListingNEW properties={Properties} handleClickItem={handleClickItem} /> */}
-                        {isFetchingMore && <CustomLoader />} {/* Loader for Load More button */}
-
-                        {!loading && (
-                            <div className='flex justify-center'>
-                                <button
-                                    className='bg-[#82DFDF] mx-auto text-xl text-center rounded-3xl my-3 p-2 text-black font-bold w-[500px] py-3'
-                                    onClick={handleLoadMore}
-                                    disabled={isFetchingMore}
-                                >
-                                    {isFetchingMore ? 'Loading...' : 'Load More'}
-                                </button>
-                            </div>
-                        )}
-                    </>
-                )}
-            </div>
-        </>
+                    {!loading && !isFetchingMore && hasMoreData && ( // Only show the button if there is more data
+                        <div className="flex justify-center">
+                            <button
+                                className="bg-[#82DFDF] mx-auto text-xl text-center rounded-3xl my-3 p-2 text-black font-bold w-[500px] py-3"
+                                onClick={handleLoadMore}
+                                disabled={isFetchingMore || !hasMoreData} // Disable if no more data
+                            >
+                                {isFetchingMore ? 'Loading...' : 'Load More'}
+                            </button>
+                        </div>
+                    )}
+                </>
+            )}
+        </div>
     );
 };
 
@@ -178,11 +199,11 @@ const HeroSearchSection = ({ HeroText }) => {
 
 
 
+
+
+
 const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
-    console.log("Properties are")
-    console.log(properties)
-
-
+   
     const formatPrice = (price) => {
         if (price >= 1_000_000) {
             // Round off to millions with two decimal places
@@ -319,9 +340,7 @@ const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
 
 
 const PropertyListingRENT = ({ properties, handleClickItem,Type }) => {
-    console.log("Properties are")
-    console.log(properties)
-
+  
 
     const formatPrice = (price) => {
         if (price >= 1_000_000) {

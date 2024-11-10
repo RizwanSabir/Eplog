@@ -40,98 +40,7 @@ const RentProperty = ({ HeroText }) => {
     };
 
 
-    const properties = [
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: true, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/images/bad-icon-white.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-    ];
+  
 
     useEffect(() => {
         const fetchDevelopers = async () => {
@@ -274,20 +183,20 @@ const RentProperty = ({ HeroText }) => {
 
 
 
-                                        <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full  p-5 relative  '>
+                                        {/* <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full  p-5 relative  '>
 
                                             <p className='mt-3 text-xl font-bold'>
                                                 Floor Plan
                                             </p>
-                                            {/* <FloorPlan floorPlans={PropertyDetail.newParameter.style} /> */}
-                                        </div>
-                                        <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full  p-5 relative   '>
+                                            <FloorPlan floorPlans={PropertyDetail.newParameter.style} />
+                                        </div> */}
+                                        {/* <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full  p-5 relative   '>
 
                                             <p className='mt-3 text-xl font-bold'>
                                                 Payment Plan
                                             </p>
-                                            {/* <PaymentPlan paymentPlan={PropertyDetail.newParameter.paymentPlan} /> */}
-                                        </div>
+                                            <PaymentPlan paymentPlan={PropertyDetail.newParameter.paymentPlan} />
+                                        </div> */}
 
 
                                         <p className='bg-[#82DFDF]  mx-auto text-xl text-center rounded-3xl mt-3 p-2 text-black  font-bold  w-full py-5'>Book a visit</p>

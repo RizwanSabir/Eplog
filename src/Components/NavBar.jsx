@@ -1,23 +1,25 @@
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-import './index.css';
+import { useLocation } from 'react-router-dom';
+
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const ServerUrl = `${import.meta.env.VITE_REACT_APP_BASE_URL}`
-
+    const location = useLocation(); // Get the current location
+    const ServerUrl = `${import.meta.env.VITE_REACT_APP_BASE_URL}`;
+    
     const toggleMenu = () => setIsOpen(!isOpen);
 
     const menuItems = [
-        { name: 'Home', link: `${ServerUrl}/` },
-        { name: 'About us', link: `${ServerUrl}/` },
-        { name: 'Services', link: `${ServerUrl}/services/` },
-        { name: 'Blogs', link: `${ServerUrl}/blogs/` },
-        { name: 'Contact Us', link: `${ServerUrl}/contact-us/` },
-        { name: 'Properties', link: `${ServerUrl}/properties/` },
+        { id: "/home", name: 'Home', link: `${ServerUrl}/` },
+        { id: "/properties/", name: 'Properties', link: `${ServerUrl}/properties/` },
+        { id: "/services/", name: 'Services', link: `${ServerUrl}/services/` },
+        { id: "/blogs/", name: 'Blogs', link: `${ServerUrl}/blogs/` },
+        { id: "/Career/", name: 'Career', link: `${ServerUrl}/Career/` },
+        { id: "/about-us/", name: 'About us', link: `${ServerUrl}/about-us/` },
+        { id: "/contact-us/", name: 'Contact Us', link: `${ServerUrl}/contact-us/` },
     ];
-    
 
     const variants = {
         open: { y: 0, opacity: 1, transition: { duration: 0.3 } },
@@ -63,13 +65,16 @@ const Navbar = () => {
                 {/* Navbar Items for Large Screens */}
                 <div className="hidden w-full lg:flex lg:items-center lg:space-x-4 text-[14px]">
                     {menuItems.map((item, index) => (
-                        <a
-                            key={index}
-                            href={item.link}
-                            className="text-black hover:text-blue-500"
-                        >
-                            {item.name}
-                        </a>
+                        // Conditionally hide the "Home" link if the user is on the homepage
+                        item.id !== "/home" || location.pathname !== "/" ? (
+                            <a
+                                key={index}
+                                href={item.link}
+                                className={` ${location.pathname.includes(item.id) ? 'font-bold text-[17px]  border-red-500  text-[#82DFDF]' : ''}`}
+                            >
+                                {item.name}
+                            </a>
+                        ) : null
                     ))}
                 </div>
             </div>
@@ -98,18 +103,21 @@ const Navbar = () => {
                             variants={listVariants}
                         >
                             {menuItems.map((item, index) => (
-                                <motion.li
-                                    key={index}
-                                    variants={itemVariants}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    <a
-                                        href={item.link}
-                                        className="text-white hover:text-blue-200"
+                                // Conditionally hide the "Home" link if the user is on the homepage
+                                item.id !== "/" || location.pathname !== "/" ? (
+                                    <motion.li
+                                        key={index}
+                                        variants={itemVariants}
+                                        transition={{ duration: 0.3 }}
                                     >
-                                        {item.name}
-                                    </a>
-                                </motion.li>
+                                        <a
+                                            href={item.link}
+                                            className={`text-white hover:text-blue-200 ${location.pathname.includes(item.id) ? 'font-bold border-red-500  text-[#82DFDF]' : ''}`}
+                                        >
+                                            {item.name}
+                                        </a>
+                                    </motion.li>
+                                ) : null
                             ))}
                         </motion.ul>
                     </motion.div>

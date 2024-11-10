@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import './index.css'
 
 import { AnimatePresence,motion } from 'framer-motion';
-import Navbar from './NavBar';
+import Navbar from '../NavBar';
+
 const HeroAboutSection = ({HeroText}) => {
     const videoRef = useRef(null);
     const [parentHeight, setParentHeight] = useState("600px");

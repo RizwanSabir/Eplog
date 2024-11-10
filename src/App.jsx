@@ -17,8 +17,8 @@ import NavbarWithDropdown from "./PriceFilter";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import NewProperty from "./Pages/Property/NewProperty";
 import BuyProperty from "./Pages/Property/BuyProperty";
-import SellProperty from "./Pages/Property/SellProperty";
-import RentProperty from "./Pages/Property/SellProperty";
+import SellProperty from "./Pages/Property/RentProperty";
+import RentProperty from "./Pages/Property/RentProperty";
 
 
 export default function App() {

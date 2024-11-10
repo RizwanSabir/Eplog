@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 
 import './index.css'
-import Navbar from './NavBar';
 import { AnimatePresence, motion } from 'framer-motion';
 import SearchBar from './SearchBar';
+import Navbar from '../NavBar';
+import { NavBarProvider, useNavBar } from '../../Context/NavBarContext';
 
 
 
@@ -65,16 +66,16 @@ const HeroPropertiesSection = ({ HeroText }) => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-          setCurrentImage((prev) => {
-            const nextIndex = (prev[1] + 1) % images.length; // cycle through the images
-            return [images[nextIndex], nextIndex];
-          });
+            setCurrentImage((prev) => {
+                const nextIndex = (prev[1] + 1) % images.length; // cycle through the images
+                return [images[nextIndex], nextIndex];
+            });
         }, 2000);
-    
+
         // Cleanup the interval on component unmount
         return () => clearInterval(interval);
-      }, [images]);
-    
+    }, [images]);
+
 
     return (
         <>
@@ -97,8 +98,8 @@ const HeroPropertiesSection = ({ HeroText }) => {
                             <TopNavigationTabLarge />
 
 
-                          
-                          
+
+
 
                             <AnimatePresence>
 
@@ -130,21 +131,23 @@ const HeroPropertiesSection = ({ HeroText }) => {
                             {/* Hero Text */}
 
                             <div className='w-full  text-center mt-10   z-20'>
-                                <h1 className="    font-bold      xl:text-5xl tracking-tight word-spacing-[1px] text-white">
+                                <h1 className="    font-bold      text-5xl tracking-tight word-spacing-[1px] text-white">
                                     Your Trusted   Source for Real  <br className="hidden md:block" />
                                     Estate Excellence  in Dubai <br className="hidden md:block" />
 
                                 </h1>
                                 {/* Search Bar Open  */}
 
-                                <NavBar User={User} setUser={setUser} />
 
-                                <SearchBar/>
+                                <NavBarProvider>
+                                    <NavBar />
+                                    <SearchBar />
+                                </NavBarProvider>
 
                             </div>
 
 
-                          
+
 
                             {/* Hero Boxes */}
                             <div className="hidden md:flex mb-10 book-section z-10">
@@ -217,10 +220,12 @@ const TopNavigationTabLarge = () => {
 
 
 
-const NavBar = ({ User, setUser }) => {
 
 
-    let users = [['New Projects', 'Brand'], ['Buy', 'Influencer'], ['Rent', 'User']]
+const NavBar = () => {
+    const { User, setUser } = useNavBar();
+
+    let users = [['New Projects', 'NEW'], ['Buy', 'BUY'], ['Rent', 'RENT']]
 
     return (
         <>
@@ -265,6 +270,7 @@ const WhiteBackground = ({ user, setUser, children }) => {
         </motion.div>
     );
 };
+
 
 
 export default HeroPropertiesSection;

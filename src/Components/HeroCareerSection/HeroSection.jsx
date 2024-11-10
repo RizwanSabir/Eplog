@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import './index.css'
-import Navbar from './NavBar';
+import Navbar from '../NavBar';
 const HeroCareerSection = ({HeroText}) => {
     const videoRef = useRef(null);
     const [parentHeight, setParentHeight] = useState("420px");
