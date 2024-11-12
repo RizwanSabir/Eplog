@@ -16,14 +16,16 @@ const ExploreProperties = () => {
         <>
 
             <section className="section px-[50px] bg-slate-500">
-                <h1 className="section-title-small text-white  text-center text-[20px] md:text-[40px]">
+            <h1 className="section-title-small text-white text-center mx-auto text-[25px] leading-[20px] mdm:leading-[40px] sm:text-[35px] md:text-[40px] ">
                     Explore Properties
                 </h1>
                 <div className="max-w-[1140px]  mx-auto">
                     <div className=" flex justify-between items-center mt-10">
-                        <div className="w-full flex items-center justify-center gap-10 ">
-                            <NavBar User={User} setUser={setUser} />
+                        <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-10  mdm:mt-10">
+                          <div className="w-[272px]  flex items-center  ">
+                          <NavBar User={User} setUser={setUser} />
 
+                          </div>
                             <div className="line hidden md:flex">
                                 <img
                                     src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line-black.svg"
@@ -81,13 +83,13 @@ const ExploreProperties = () => {
 const NavBar = ({ User, setUser }) => {
 
 
-    let users = [['Buy', 'SELL'], ['New Projects', 'NEW'], ['Rent', 'RENT']]
+    let users = [ ['Buy', 'SELL'],['New Projects', 'NEW'], ['Rent', 'RENT']]
 
     return (
         <>
 
-            <div className="flex  flex-row justify-center  text-[8px] sm:text-[12px] w-[150px] xs:w-[200px] sm:w-[250px]  bg-white  rounded-full">
-                <div className="flex flex-row bgColor py-1 w-full justify-around items-center rounded-3xl ">
+            <div className="flex  flex-row justify-center   text-[10px] leading-[25px] sm:leading-[30px]  w-full sm:text-[12px]  sm:w-[250px]  border  rounded-full">
+                <div className="flex flex-row  py-1 w-full justify-around items-center rounded-3xl bg-white">
                     {
                         users.map((user) => {
                             return (
@@ -95,7 +97,7 @@ const NavBar = ({ User, setUser }) => {
 
                                 user[0] === User[0] ?
                                     (<WhiteBackground key={user} user={user} setUser={setUser}>
-                                        <motion.div className="absolute w-full bg-[#82DFDF] h-full top-0 left-0   rounded-full   -z-10" layoutId="explore" ></motion.div>
+                                        <motion.div className="absolute w-full bg-[#82DFDF] h-full top-0 left-0   rounded-full   -z-10" layoutId="trending" ></motion.div>
                                     </WhiteBackground>
 
 
@@ -115,7 +117,6 @@ const NavBar = ({ User, setUser }) => {
         </>
     )
 }
-
 
 const WhiteBackground = ({ user, setUser, children }) => {
     return (

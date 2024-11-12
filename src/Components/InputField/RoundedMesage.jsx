@@ -1,14 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-const RoundedMesage = ({placeholder}) => {
+const RoundedMesage = React.forwardRef(({ placeholder, ...rest }, ref) => {
   return (
     <div className="form-group">
-    <textarea 
-          className="border w-full border-gray-300 rounded-[20px] px-4 py-2 focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-transparent "
+      <textarea
+        ref={ref} // Forward the ref here
+        className="border w-full border-gray-300 rounded-[20px] px-4 py-2 focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-transparent"
+        rows="3"
+        maxLength="400"
+        placeholder={placeholder}
+        {...rest} // Spread the rest of the props (e.g., from `register`)
+      ></textarea>
+    </div>
+  );
+});
 
-    rows="3" maxlength="400" placeholder={placeholder} name="Message"></textarea>
-</div>
-  )
-}
-
-export default RoundedMesage
+export default RoundedMesage;

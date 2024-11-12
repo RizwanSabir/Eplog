@@ -59,7 +59,7 @@ const ScrollProperty = ({  User ,Page}) => {
     };
 
     return (
-        <div className="pt-2 text-[14px] px-4 h-fit">
+        <div className="pt-2 text-[12px] sm:text-[14px] px-4 h-fit">
             {loading && !Properties.length ? (
                 <div className='mt-10'>
                     <CustomLoader />
@@ -131,15 +131,15 @@ const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
 
     return (
         <div
-        className="md:ml-[100px] mt-[20px] overflow-x-scroll  flex scrollbar-hide"
+        className=" md:ml-[100px] mt-[20px] overflow-x-scroll  flex scrollbar-hide"
         ref={scrollRef}
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}>
-            <div className="flex space-x-5 ">
+            <div className="flex space-x-2 sm:space-x-5 ">
                 {properties.map((property, index) => (
-                    <div onClick={() => { handleClickItem(property.propertyId,Type.toLowerCase(),property.developerLogo) }} key={index} className="   rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] bg-white overflow-hidden md:w-full cursor-pointer mb-9 relative" style={{ width: "272px" }}>
+                    <div  onClick={() => { handleClickItem(property.propertyId,Type.toLowerCase(),property.developerLogo) }} key={index} className="   rounded-3xl shadow-[5px_4px_44px_#00000017] w-[210px]  sm:!w-[272px]  bg-white overflow-hidden md:w-full cursor-pointer mb-9 relative">
 
                         {/* Div for Payment Plan */}
                         {property.newParam?.paymentPlan ?
@@ -192,7 +192,7 @@ const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
                                                     </div>
                                                 </div>
 
-                                                <div className='flex'>
+                                                <div className=' hidden sm:flex'>
                                                     <img src="/Svg/Home.svg" alt="" />
                                                     {property.propertyType.map((value, index) => {
                                                         // Capitalize the first letter and make the rest lowercase
@@ -221,8 +221,8 @@ const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
                                     <div className="line my-2 border-b"></div>
 
 
-                                    <div className="property-data flex justify-between text-sm pb-5 ">
-                                        <div className="bed flex items-center gap-x-1 ">
+                                    <div className="property-data flex justify-between text-sm sm:pb-5 ">
+                                        <div className="bed flex items-center gap-x-2  text-center">
                                             <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg" width="15" alt="bed" />
                                             <p>{property.newParam?.bedroomMin}-{property.newParam?.bedroomMax} Beds</p>
                                             {/* property.newParam.bedroomMax */}
@@ -236,7 +236,7 @@ const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
                                             {/* <p> {property.newParam.totalUnits}-{property.newParam.totalUnits}  Bath</p> */}
                                             {/* total units property.newParam.totalUnits */}
                                         </div>
-                                        <div className="area flex items-center gap-x-1">
+                                        <div className="area flex items-center gap-x-2 text-center">
                                             <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg" width="15" alt="area" />
                                             <p> {property.newParam?.maxSize} -{property.newParam?.minSize} SQM</p>
                                             {/* MAx size .newParam.maxSize*/}

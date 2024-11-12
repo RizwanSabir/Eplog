@@ -111,7 +111,7 @@ const HeroPropertiesSection = ({ HeroText }) => {
                                     exit={{ opacity: 0.5, position: "absolute" }}
                                     transition={{ duration: 0.4 }}
                                 >
-                                    <div className="absolute flex justify-end   w-full z-40  top-[40%]   p-4" style={{ height: "630px" }}>
+                                    <div className="absolute flex justify-end   w-full z-40 sm:top-[20%] mdm:top-[25%] md:top-[30%]  lg:top-[35%] xl:top-[40%]   p-4" style={{ height: "630px" }}>
                                         <div className="flex flex-col space-y-2">
                                             {images.map((_, index) => (
                                                 <div
@@ -131,9 +131,9 @@ const HeroPropertiesSection = ({ HeroText }) => {
                             {/* Hero Text */}
 
                             <div className='w-full  text-center mt-10   z-20'>
-                                <h1 className="    font-bold      text-5xl tracking-tight word-spacing-[1px] text-white">
-                                    Your Trusted   Source for Real  <br className="hidden md:block" />
-                                    Estate Excellence  in Dubai <br className="hidden md:block" />
+                                <h1 className="    font-bold sm:text-2xl mdm:text-3xl  md:text-4xl   lg:text-4xl  xl:text-5xl tracking-tight word-spacing-[1px] text-white">
+                                    Your Trusted   Source for Real  <br className=" block" />
+                                    Estate Excellence  in Dubai <br className="block" />
 
                                 </h1>
                                 {/* Search Bar Open  */}
@@ -150,22 +150,22 @@ const HeroPropertiesSection = ({ HeroText }) => {
 
 
                             {/* Hero Boxes */}
-                            <div className="hidden md:flex mb-10 book-section z-10">
-                                <div className="booking-box flex items-center">
-                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/calender-icon.svg" width="40" className="mr-2" />
+                            <div className="hidden md:flex   md:mb-40 lg:mb-32 xl:mb-10 book-section z-10">
+                                <div className="booking-box w-[190px] h-[100px]">
+                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/calender-icon.svg" width="40" className="mr-2 hidden  lg:block" />
                                     <p className="mb-0">
                                         <a href="https://eplogproperties.com/contact-us/" className="text-white">
                                             Book Free<br />Consultation
                                         </a>
                                     </p>
                                 </div>
-                                <div className="booking-box flex items-center ml-4 find-home">
+                                <div className="booking-box w-[190px] h-[100px]  md:p-[5px]  flex items-center ml-4 ">
                                     <p className="mb-0">
                                         <a href="https://eplogproperties.com/properties/" className="text-white">
                                             Find your next <br />home in Dubai
                                         </a>
                                     </p>
-                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/home-icon.svg" width="60" className="ml-2" />
+                                    <img className="hidden lg:block" src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/home-icon.svg" width="60"  />
                                 </div>
                             </div>
                         </div>
@@ -203,7 +203,7 @@ const TopNavigationTabLarge = () => {
 
         <div className=' flex z-40'>
             {/* Logo of Brand */}
-            <div className="hidden mdm:flex col-6 relative pl-5   h-[80px] sm:pl-9 lg:pt-5  ">
+            <div className="hidden mdm:flex col-6 relative pl-5   h-[80px] sm:pl-9 mdm:pt-9 md:pt-7 lg:pt-5  ">
                 <a href="https://eplogproperties.com">
                     <img src="https://eplogproperties.com/wp-content/uploads/2023/10/logo.svg" width="180" alt="" />
                 </a>

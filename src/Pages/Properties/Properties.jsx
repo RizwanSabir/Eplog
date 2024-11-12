@@ -8,20 +8,21 @@ import Podcasts from './Podcasts'
 import NewsLetter from '../Footer/NewsLetter'
 import Footer from '../Footer/Footer'
 import MeetTeam from './MeetTeam'
+import ScreenSizeDisplay from '../../useCurrentScreenSize'
 
 const Properties = () => {
   return (
 <>
 
-<HeroPropertiesSection/>
-<PatnerSection/>
-<TrendingProperties/>
+<HeroPropertiesSection/> 
+ <PatnerSection/>
+ <TrendingProperties/> 
 <ExploreProperties/>
-<MeetTeam/>
-<Blog/>
-<Podcasts/>
+ {/* <MeetTeam/> 
+ <Blog/> 
+<Podcasts/> */}
 <NewsLetter/>
-<Footer/>
+ <Footer/> 
 </>  
 
 )

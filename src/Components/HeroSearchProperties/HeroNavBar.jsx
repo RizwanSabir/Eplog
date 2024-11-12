@@ -101,39 +101,39 @@ const HeroNavBar = ({ children }) => {
                                 Your browser does not support the video tag.
                             </video> */}
 
-                            <AnimatePresence>
+<AnimatePresence>
 
-                                <motion.div
-                                    key={currentImage[1]}
-                                    className=" h-screen z-10  w-full absolute "
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0.5, position: "absolute" }}
-                                    transition={{ duration: 0.4 }}
-                                >
-                                    <div className="absolute flex justify-end   w-full z-40  top-[40%]   p-4" style={{ height: "630px" }}>
-                                        <div className="flex flex-col space-y-2">
-                                            {images.map((_, index) => (
-                                                <div
-                                                    key={index}
-                                                    onClick={() => handleClick(index)}
-                                                    className={`border border-white rounded-full size-[15px] cursor-pointer ${currentImage[1] === index ? 'bg-white' : ""} `}
-                                                ></div>
-                                            ))}
-                                        </div>
-                                    </div>
+<motion.div
+    key={currentImage[1]}
+    className=" h-screen z-10  w-full absolute "
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0.5, position: "absolute" }}
+    transition={{ duration: 0.4 }}
+>
+    <div className="absolute flex justify-end   w-full z-40 sm:top-[20%] mdm:top-[25%] md:top-[30%]  lg:top-[35%] xl:top-[40%]   p-4" style={{ height: "630px" }}>
+        <div className="flex flex-col space-y-2">
+            {images.map((_, index) => (
+                <div
+                    key={index}
+                    onClick={() => handleClick(index)}
+                    className={`border border-white rounded-full size-[15px] cursor-pointer ${currentImage[1] === index ? 'bg-white' : ""} `}
+                ></div>
+            ))}
+        </div>
+    </div>
 
 
-                                    <img className='-z-10 object-contain' src={`${currentImage[0]}`} alt="" />
-                                </motion.div>
-                            </AnimatePresence>
+    <img className='-z-10 object-contain' src={`${currentImage[0]}`} alt="" />
+</motion.div>
+</AnimatePresence>
 
                             {/* Hero Text */}
 
                             <div className='w-full  text-center mt-10   z-20'>
-                                <h1 className="    font-bold      xl:text-5xl tracking-tight word-spacing-[1px] text-white">
-                                    Your Trusted   Source for Real  <br className="hidden md:block" />
-                                    Estate Excellence  in Dubai <br className="hidden md:block" />
+                            <h1 className="    font-bold sm:text-2xl mdm:text-3xl  md:text-4xl   lg:text-4xl  xl:text-5xl tracking-tight word-spacing-[1px] text-white">
+                                    Your Trusted   Source for Real  <br className=" block" />
+                                    Estate Excellence  in Dubai <br className="block" />
 
                                 </h1>
                                 {/* Search Bar Open  */}

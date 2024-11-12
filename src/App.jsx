@@ -19,12 +19,14 @@ import NewProperty from "./Pages/Property/NewProperty";
 import BuyProperty from "./Pages/Property/BuyProperty";
 import SellProperty from "./Pages/Property/RentProperty";
 import RentProperty from "./Pages/Property/RentProperty";
+import ScreenSizeDisplay from "./useCurrentScreenSize";
 
 
 export default function App() {
     return (
       <>
-      <div className="max-w-[1280px] mx-auto">
+      <ScreenSizeDisplay/>
+      <div className="max-w-[1580px] mx-auto">
       <Router>
             <Routes>
                 <Route path="/" element={<Properties />} />
@@ -39,6 +41,7 @@ export default function App() {
                 <Route path="/property" element={<Property />} />  
                 <Route path="/" element={<Properties />} /> */}
                 {/* <Route path="/properties" element={<SearchProperties />} />  */}
+                <Route path="/" element={<SearchProperties />} />
                 <Route path="/properties" element={<SearchProperties />} />
                 <Route path="/property/new" element={<NewProperty />} />
                 <Route path="/property/buy" element={<BuyProperty />} />

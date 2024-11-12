@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { usePropertyData } from '../../Context/PropertyDataContext';
 import CustomLoader from '../Loaders/CustomLoader';
 import { div } from 'framer-motion/client';
+import ScreenSizeDisplay from '../../useCurrentScreenSize';
 
 // const HeroSearchSection = ({ HeroText }) => {
 //     const { PropertyData } = usePropertyData();
@@ -161,6 +162,7 @@ const HeroSearchSection = ({ HeroText }) => {
             <h1 className="text-4xl font-bold mx-5">
                 Explore {PropertyData?.listingType === 'SELL' ? "Buy" : PropertyData?.listingType.toLowerCase()} Properties
             </h1>
+        
 
             {loading && !Properties.length ? (
                 <div className="mt-10">
@@ -220,10 +222,10 @@ const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
 
     return (
         <div
-            className="md:ml-[100px] mt-[20px] overflow-x-scroll  flex scrollbar-hide ">
-            <div className="grid grid-cols-4  w-full">
+            className="lg:ml-[100px] mt-[20px] overflow-x-scroll  flex scrollbar-hide ">
+            <div className="grid gap-2 sm:grid-cols-2 mdm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4  w-full justify-center">
                 {properties.map((property, index) => (
-                    <div onClick={() => { handleClickItem(property.propertyId,Type,property.developerLogo) }} key={index} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full mb-9 relative  cursor-pointer" style={{ width: "272px" }}>
+                    <div onClick={() => { handleClickItem(property.propertyId,Type,property.developerLogo) }} key={index} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] !w-[272px] mdm:!w-[250px] md:!w-[270px] overflow-hidden mb-9 relative  cursor-pointer" >
 
                         {/* Div for Payment Plan */}
                         {property.newParam?.paymentPlan ?

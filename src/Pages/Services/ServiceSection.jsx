@@ -92,37 +92,37 @@ const ServiceSection = () => {
 
   return (
     <>
-    <div className='mx-5'>
-    <div className=" flex  gap-x-5 my-10 space-y-5 mdm:grid mdm:grid-cols-2 w-full">
-      
-      <ServiceBox isOpen={Array.isArray(openAccordion) ? openAccordion.includes(0) : openAccordion === 0}  onClick={() => handleAccordionClick(0)}
-          service={services[0]}/>
+      <div className=''>
+        <div className="flex flex-col   gap-x-5 my-10 space-y-5 mdm:grid mdm:grid-cols-2 w-full">
+
+          <ServiceBox isOpen={Array.isArray(openAccordion) ? openAccordion.includes(0) : openAccordion === 0} onClick={() => handleAccordionClick(0)}
+            service={services[0]} />
           <div></div>
           <div></div>
-          <ServiceBox isOpen={Array.isArray(openAccordion) ? openAccordion.includes(1) : openAccordion === 1}  onClick={() => handleAccordionClick(1)}
-          service={services[1]}/>
-      <ServiceBox isOpen={Array.isArray(openAccordion) ? openAccordion.includes(2) : openAccordion === 2}  onClick={() => handleAccordionClick(2)}
-          service={services[2]}/>
+          <ServiceBox isOpen={Array.isArray(openAccordion) ? openAccordion.includes(1) : openAccordion === 1} onClick={() => handleAccordionClick(1)}
+            service={services[1]} />
+          <ServiceBox isOpen={Array.isArray(openAccordion) ? openAccordion.includes(2) : openAccordion === 2} onClick={() => handleAccordionClick(2)}
+            service={services[2]} />
           <div></div>
           <div></div>
-          <ServiceBox isOpen={Array.isArray(openAccordion) ? openAccordion.includes(3) : openAccordion === 3}  onClick={() => handleAccordionClick(3)}
-          service={services[3]}/>
-      <ServiceBox isOpen={Array.isArray(openAccordion) ? openAccordion.includes(4) : openAccordion === 4}  onClick={() => handleAccordionClick(4)}
-          service={services[4]}/>
+          <ServiceBox isOpen={Array.isArray(openAccordion) ? openAccordion.includes(3) : openAccordion === 3} onClick={() => handleAccordionClick(3)}
+            service={services[3]} />
+          <ServiceBox isOpen={Array.isArray(openAccordion) ? openAccordion.includes(4) : openAccordion === 4} onClick={() => handleAccordionClick(4)}
+            service={services[4]} />
           <div></div>
           <div></div>
-          <ServiceBox isOpen={Array.isArray(openAccordion) ? openAccordion.includes(5) : openAccordion === 5}  onClick={() => handleAccordionClick(5)}
-          service={services[5]}/>
-         
-    </div>
-    </div>
+          <ServiceBox isOpen={Array.isArray(openAccordion) ? openAccordion.includes(5) : openAccordion === 5} onClick={() => handleAccordionClick(5)}
+            service={services[5]} />
+
+        </div>
+      </div>
     </>
   );
 };
 
 const ServiceBox = ({ isOpen, onClick, service }) => {
   return (
-    <div className="service-box w-[290px] sm:w-[500px] mdm:w-full mx-auto px-[30px] h-fit py-10">
+    <div className="service-box w-[190px] sm:w-[500px] mdm:w-full mx-auto px-[30px] h-fit py-10">
       <h4 className="counter hidden mdm:block text-4xl font-bold">{service.id}</h4>
       <div className="mdm:hidden flex justify-between">
         <p className="mb-0 service-title mdm:font-bold">{service.title}</p>

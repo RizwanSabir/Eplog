@@ -14,12 +14,12 @@ const TrendingProperties = () => {
     return (
         <>
 
-            <section className=" px-[50px] ">
+            <section className="px-10 sm:px-[50px] ">
                 <div className="max-w-[1140px]  mx-auto">
                     <div className=" flex justify-between items-center ">
-                        <div className="w-full flex items-center justify-center gap-10">
-                            <h1 className="section-title-small  text-[20px] md:text-[40px]">
-                                Trending<br />
+                        <div className="w-full flex items-center justify-between mdm:gap-10">
+                            <h1 className="section-title-small grow w-[190px] text-[25px] leading-[20px] mdm:leading-[40px] sm:text-[20px] md:text-[40px] ">
+                                Trending
                                 Properties
                             </h1>
                             <div className="line hidden md:flex">
@@ -31,7 +31,7 @@ const TrendingProperties = () => {
                             </div>
                             <a
                                 href={`${url}/properties/`}
-                                className=" w-[150px]  text-[16px] font-bold leading-[19.23px]  btn-primary text-center py-2 bg-blue-500 text-white py-1 px-2 rounded-[14px]"
+                                className=" w-[150px]  text-[12px] sm:text-[17px] md:text-[20px] font-bold leading-[19.23px]  btn-primary text-center sm:py-2 bg-blue-500 text-white py-1 px-1 sm:px-2 rounded-[14px]"
                             >
                                 View All
                             </a>
@@ -39,7 +39,24 @@ const TrendingProperties = () => {
                     </div>
                 </div>
 
-                <NavBar User={User} setUser={setUser} />
+                <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-y-4 sm:gap-10  mdm:mt-10">
+                          <div className="w-[272px]  flex items-center  ">
+                          <NavBar User={User} setUser={setUser} />
+
+                          </div>
+                            
+                            
+                            <div className=" flex  gap-x-4">
+                                <div className="border border-black size-[50px] rounded-full flex justify-center items-center text-black">
+                                    <i className="fa-solid fa-chevron-left"></i>
+                                </div>
+                                <div className="border border-black size-[50px] rounded-full flex justify-center items-center text-black">
+                                    <i className="fa-solid fa-chevron-right"></i>
+                                </div>
+
+
+                            </div>
+                        </div>
 
                 <ScrollProperty  User={User} Page={1}/>
 
@@ -66,7 +83,7 @@ const NavBar = ({ User, setUser }) => {
     return (
         <>
 
-            <div className="flex  flex-row justify-center mt-10 text-[8px] sm:text-[12px] w-[150px] xs:w-[200px] sm:w-[250px]  border  rounded-full">
+            <div className="flex  flex-row justify-center mt-10 sm:mt-0  text-[10px] leading-[25px] sm:leading-[30px]  w-full sm:text-[12px] xs:w-[200px] sm:w-[250px]  border  rounded-full">
                 <div className="flex flex-row bgColor py-1 w-full justify-around items-center rounded-3xl ">
                     {
                         users.map((user) => {
