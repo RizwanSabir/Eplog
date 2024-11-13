@@ -17,6 +17,7 @@ import { div } from 'framer-motion/client';
 import TruncatedText from '../../Components/Property/TruncatedText';
 import SliderComponentNew from '../../Components/Property/SliderComponentNew';
 import ScrollProperty from '../../Components/ScrollProperty/ScrollProperty';
+import BookVisit from './BookVisit';
 
 const NewProperty = ({ HeroText }) => {
     const [searchParams] = useSearchParams();
@@ -40,98 +41,7 @@ const NewProperty = ({ HeroText }) => {
     };
 
 
-    const properties = [
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: true, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-        {
-            link: "#",
-            image: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
-            alt: "Property 1",
-            isForRent: false, // Use false for "For Sale"
-            price: "AED 1.2 Million",
-            location: "IMPZ Production City",
-            building: "Building 4410 Lake side",
-            beds: 4,
-            bathrooms: 2,
-            area: 1200,
-            bedIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/images/bad-icon-white.svg",
-            bathroomIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg",
-            areaIcon: "https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg",
-        },
-    ];
+  
 
     useEffect(() => {
         const fetchDevelopers = async () => {
@@ -162,7 +72,7 @@ const NewProperty = ({ HeroText }) => {
             }
         };
         fetchDevelopers();
-    }, [searchParams,propertyId]);
+    }, [searchParams, propertyId]);
 
     const navigate = useNavigate();
 
@@ -195,7 +105,7 @@ const NewProperty = ({ HeroText }) => {
 
                     {/* Banner section */}
                     <div className="relative w-full "  >
-                        <div className="w-full px-[10px] mx-auto text-[10px] h-full ">
+                        <div className=" px-[10px] overflow-hidden mx-auto text-[10px] h-full ">
                             {/* Top Hero Section */}
 
                             <div className="row h-full flex">
@@ -215,15 +125,21 @@ const NewProperty = ({ HeroText }) => {
                             </div>
 
                             {/* Property Pictures */}
-                            <div className='flex w-full '>
+                            <div className='flex flex-col justify-center w-full lg:flex-row '>
 
                                 {/* Left side */}
-                                <div className='flex flex-col gap-x-6 mt-2  w-[687px]'>
+                                <div className='flex flex-col lg:gap-x-6 mt-2  mx-auto  lg:w-[687px]'>
 
                                     {/* <SliderComponent images={['https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg', 'https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg', "https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg", "https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg", "https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg", "https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg", "https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg"]} /> */}
                                     <SliderComponentNew baseUrl='https://dataapi.pixxicrm.ae/pixxiapi/v1/' PropertyId={PropertyDetail.propertyId} images={PropertyDetail.photos} />
 
-                                    <div className='bg-[#7C3EFF] text-[12px] h-[104px] w-full  rounded-xl flex justify-around  items-center   text-white mt-5'>
+                                    {/* <div className='bg-[#7C3EFF] mt-5 md:hidden text-[12px] h-[60px] w-full  rounded-xl flex justify-around  items-center   text-white '>
+                                        <p className='text-lg w-[180px] text-center flex-grow px-2'>New Property</p>
+                                        <p className='bg-[#82DFDF] w-full h-full text-lg text-black flex items-center justify-center font-bold rounded-r-xl'>AED {formatPrice(PropertyDetail.price)}</p>
+                                    </div> */}
+
+
+                                    <div className='bg-[#7C3EFF] hidden md:flex text-[12px] h-[104px] w-full  rounded-xl  justify-around  items-center   text-white mt-5'>
                                         <div className="property-data flex  w-full justify-around ">
                                             <div className="bed flex items-center gap-x-1  ">
                                                 <img src='https://eplogproperties.com/wp-content/themes/dtheme/assets/images/bad-icon-white.svg' width="15" alt="bed" />
@@ -275,7 +191,7 @@ const NewProperty = ({ HeroText }) => {
                                     </div>
 
 
-                                    <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full  p-5 relative   mt-5'>
+                                    <div className=' hidden md:flex rounded-3xl shadow-[5px_4px_44px_#00000017] w-full mx-auto  lg:w-full overflow-hidden md:w-full  p-5 relative   mt-5'>
 
                                         <p className='mt-3 text-xl'>
                                             <TruncatedText text={PropertyDetail.description} maxLines={3} />
@@ -289,27 +205,90 @@ const NewProperty = ({ HeroText }) => {
                                 </div>
 
                                 {/* right side */}
-                                <div className="ml-10  w-full ">
-                                    <div className='bg-[#7C3EFF] text-[12px] h-[60px] w-full  rounded-xl flex justify-around  items-center   text-white'>
+                                <div className="lg:ml-10  w-full ">
+                                    <div className='bg-[#7C3EFF] hidden md:flex text-[12px] h-[60px] w-full  rounded-xl  justify-around  items-center   text-white'>
                                         <p className='text-lg w-[180px] text-center flex-grow px-2'>New Property</p>
                                         <p className='bg-[#82DFDF] w-full h-full text-lg text-black flex items-center justify-center font-bold rounded-r-xl'>AED {formatPrice(PropertyDetail.price)}</p>
                                     </div>
                                     <PropertyDetails property={PropertyDetail} DeveloperLogo={DeveloperLogo} />
 
 
+                                    <div className=' flex md:hidden rounded-3xl shadow-[5px_4px_44px_#00000017]  mx-auto  lg:w-full overflow-hidden md:w-full  p-5 relative   mt-5'>
 
-                                    <div className='flex flex-col items-end space-y-5 justify-end space-x-5 text-[14px] '>
+                                        <p className='mt-3 text-xl'>
+                                            <TruncatedText text={PropertyDetail.description} maxLines={3} />
+
+                                        </p>
+
+
+                                    </div>
+
+                                    <div className='bg-[#7C3EFF]  flex md:hidden text-[12px] h-[104px] w-full  rounded-xl  justify-around  items-center   text-white mt-5'>
+                                        <div className="property-data flex  w-full justify-around ">
+                                            <div className="bed flex items-center gap-x-1  ">
+                                                <img src='https://eplogproperties.com/wp-content/themes/dtheme/assets/images/bad-icon-white.svg' width="15" alt="bed" />
 
 
 
-                                        <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full  p-5 relative  '>
+                                                <div className='leading-[14px] flex flex-col items-center'>
+                                                    <p > Beds </p>
+                                                    <p>{PropertyDetail.newParameter?.bedroomMax}-{PropertyDetail.newParameter?.bedroomMin}</p>
+                                                </div>
+                                            </div>
+
+                                            <div className="area flex items-center gap-x-1">
+                                                <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/compress-icon-white.svg" width="15" alt="area" />
+
+                                                <div className='leading-[14px] flex flex-col items-center'>
+                                                    <p> SQM </p>
+                                                    <p> {PropertyDetail.newParameter?.maxSize} -{PropertyDetail.newParameter?.minSize} </p>
+                                                </div>
+                                            </div>
+                                            {/* handoverTime */}
+
+                                            {PropertyDetail.newParameter?.handoverTime ? (
+                                                <div className="flex items-center gap-x-1 px-1">
+                                                    <img
+                                                        src="/Svg/HandOver.svg"
+                                                        width="15"
+                                                        alt="Hand Over"
+                                                    />
+                                                    <div className='leading-[14px] flex flex-col items-center'>
+                                                        <p> Hand Over </p>
+                                                        <p>
+                                                            {
+                                                                // Parse the date string and format it
+                                                                (() => {
+                                                                    const date = new Date(PropertyDetail.newParameter.handoverTime);
+                                                                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                                                                    return date.toLocaleDateString(undefined, options);
+                                                                })()
+                                                            }
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                ""
+                                            )}
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div className='flex flex-col  lg:items-end space-y-5 lg:justify-end lg:space-x-5 text-[14px] '>
+
+
+
+                                        <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] mx-auto w-full  overflow-hidden md:w-full  p-5 relative  '>
 
                                             <p className='mt-3 text-xl font-bold'>
                                                 Floor Plan
                                             </p>
                                             <FloorPlan floorPlans={PropertyDetail.newParameter.style} />
                                         </div>
-                                        <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full  p-5 relative   '>
+                                        <div className='  mx-auto  rounded-3xl shadow-[5px_4px_44px_#00000017] w-full   overflow-hidden md:w-full  p-5 relative   '>
 
                                             <p className='mt-3 text-xl font-bold'>
                                                 Payment Plan
@@ -317,8 +296,9 @@ const NewProperty = ({ HeroText }) => {
                                             <PaymentPlan paymentPlan={PropertyDetail.newParameter.paymentPlan} />
                                         </div>
 
+                                        <BookVisit PropertyData={PropertyDetail} propertyId={propertyId} Type="New projects" />
 
-                                        <p className='bg-[#82DFDF]  mx-auto text-xl text-center rounded-3xl mt-3 p-2 text-black  font-bold  w-full py-5'>Book a visit</p>
+
 
                                     </div>
                                 </div>
@@ -344,7 +324,7 @@ const NewProperty = ({ HeroText }) => {
 
                     <div className='pt-5'>
                         {/* <PropertyListing properties={properties} /> */}
-                        <ScrollProperty  User={["New Projects","NEW"]} Page={1}/>
+                        <ScrollProperty User={["New Projects", "NEW"]} Page={1} />
                     </div>
                 </div>
                 <NewsLetter />
@@ -398,97 +378,6 @@ const TopNavigationTabLarge = () => {
     </>
 }
 
-const PropertyListing = ({ properties }) => {
-    const scrollRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
-
-    const handleMouseDown = (e) => {
-        setIsDragging(true);
-        setStartX(e.pageX - scrollRef.current.offsetLeft);
-        setScrollLeft(scrollRef.current.scrollLeft);
-    };
-
-    const handleMouseLeave = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseMove = (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - scrollRef.current.offsetLeft;
-        const walk = (x - startX) * 2; // Scroll-fast, adjust multiplier as needed
-        scrollRef.current.scrollLeft = scrollLeft - walk;
-    };
-
-    return (
-        <div
-            className="md:ml-[100px] mt-[20px] overflow-x-scroll  flex scrollbar-hide"
-            ref={scrollRef}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-        >
-            <div className="flex space-x-5 ">
-                {properties.map((property, index) => (
-                    <div key={index} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full mb-9" style={{ width: "272px" }}>
-                        <a href={property.link}>
-                            <div className=" bg-gray-100  ">
-                                <img
-                                    src={property.image}
-                                    className="w-full object-cover"
-                                    alt={property.alt}
-                                />
-                                <div className="px-4">
-                                    {property.isForRent ? (
-                                        <div className=" text-black my-1">For Rent</div>
-                                    ) : (
-                                        <div className="tag-yellow text-white px-2 my-1 rounded-full">
-                                            For Sale
-                                        </div>
-                                    )}
-                                    <h5 className="box-title text-lg font-bold">
-                                        {property.price}
-                                    </h5>
-                                    <p className="text-cyan-500">{property.location}</p>
-                                    <small className="text-gray-500 block mt-5">
-                                        {property.building}
-                                    </small>
-                                    <div className="line my-2 border-b"></div>
-
-                                    <div className="property-data flex justify-between text-sm pb-5 ">
-                                        <div className="bed flex items-center gap-x-1 ">
-                                            <img src={property.bedIcon} width="15" alt="bed" />
-                                            <p>{property.beds} Beds</p>
-                                        </div>
-                                        <div className="bathroom flex items-center gap-x-1 px-1">
-                                            <img
-                                                src={property.bathroomIcon}
-                                                width="15"
-                                                alt="bathroom"
-                                            />
-                                            <p> {property.bathrooms}  Bath</p>
-                                        </div>
-                                        <div className="area flex items-center gap-x-1">
-                                            <img src={property.areaIcon} width="15" alt="area" />
-                                            <p> {property.area} SQM</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-};
 
 
 
@@ -561,7 +450,7 @@ const PropertyDetails = ({ property, DeveloperLogo }) => {
                                 <div className="p-4 ">
 
                                     {/* Outer div */}
-                                    <div className='mt-2 flex justify-between'>
+                                    <div className='mt-2  lg:w-full mx-auto flex justify-between'>
                                         {/* Left side */}
                                         <div className=' '>
 
@@ -634,6 +523,9 @@ const PropertyDetails = ({ property, DeveloperLogo }) => {
 
     );
 };
+
+
+
 
 
 // https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg

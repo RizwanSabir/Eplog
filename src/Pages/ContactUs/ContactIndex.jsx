@@ -6,6 +6,7 @@ import FooterMain from '../Footer/FooterMain';
 import NewsLetter from '../Home/NewsLetter';
 import Footer from '../Home/Footer';
 import { useForm } from 'react-hook-form';
+import PopOver from '../../Components/PopOver';
 
 const ContactIndex = () => {
   return (
@@ -91,7 +92,10 @@ const ContactUs = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const [popOverColor, setPopOverColor] = useState('bg-red-500'); // default to red
+  const [showPopOver, setShowPopOver] = useState(false);
 
+  const closePopOver = () => setShowPopOver(false);
   const onSubmit = async (data) => {
     setIsLoading(true);
     setSuccessMessage('');
@@ -101,7 +105,8 @@ const ContactUs = () => {
       extraData: {
         Subject: data.subject,
       },
-      formId: "49442551-2ef0-4861-bb2a-03511d0fcda3",
+      formId: "0bb607f0-5201-4578-a498-4ae16e901340",
+      "formName": "Contact US Buy",
       leadType: "BUY",
       name: data.name,
       email: data.email,
@@ -113,18 +118,24 @@ const ContactUs = () => {
       const response = await fetch('https://dataapi.pixxicrm.ae/pixxiapi/webhook/v1/form', {
         method: 'POST',
         headers: {
+          "X-PIXXI-TOKEN":"FjuseQnHvSZy4jTqs8EN6uHfRz85YGv-",
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(payload)
       });
 
       const result = await response.json();
-      alert('Message sent successfully!');
+      
+      setShowPopOver(true);
       setSuccessMessage('Message sent successfully!');
+      setPopOverColor('bg-[#82DFDF]'); // Set color to green on success
       reset(); // Reset all form fields
     } catch (error) {
       console.error('Error:', error);
       setSuccessMessage('Failed to send message. Please try again.');
+      setShowPopOver(true);
+      setPopOverColor('bg-red-500'); // Set color to red on error
+      setShowPopOver(true);
     } finally {
       setIsLoading(false);
     }
@@ -193,6 +204,8 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+      {showPopOver && <PopOver msg={successMessage} closePopOver={closePopOver} color={popOverColor} />}
+
     </section>
   );
 };

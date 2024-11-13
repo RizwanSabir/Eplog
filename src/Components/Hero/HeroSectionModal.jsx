@@ -2,13 +2,16 @@ import { useEffect, useRef, useState } from 'react';
 
 import './index.css'
 import { AnimatePresence, motion } from 'framer-motion';
-import Navbar from './Components/NavBar';
+
+import { NavBarProvider, useNavBar } from '../../Context/NavBarContext';
+import Navbar from '../NavBar';
 
 
 
-const Test = ({ HeroText }) => {
+
+const HeroPropertiesSectionModal = ({ children }) => {
     const videoRef = useRef(null);
-    const url = `${import.meta.env.VITE_REACT_APP_BASE_URL}`;
+  
     const [parentHeight, setParentHeight] = useState("650px");
     const [videoSrc, setVideoSrc] = useState('');
     const screenSize = useCurrentScreenSize(); // Get the current screen size
@@ -17,7 +20,7 @@ const Test = ({ HeroText }) => {
     // Define images based on screen size
     const images = {
         xxs: ["xs1.jpg", "xs2.jpg", "xs3.jpg"],
-        xs: ["xs1.jpg", "xs2.jpg", "xs3.jpg"],
+        xs: ["sm1.jpg", "sm2.jpg", "sm3.jpg"],
         sm: ["sm1.jpg", "sm2.jpg", "sm3.jpg"],
         mdm: ["lg1.png", "lg1.png", "lg1.png"],
         md: ["lg1.png", "lg1.png", "lg1.png"],
@@ -36,7 +39,8 @@ const Test = ({ HeroText }) => {
         if (screenSize === 'mdm') return images.lg;
         if (screenSize === 'md') return images.lg;
         if (screenSize === 'sm') return images.sm;
-        return images.xs;
+        if (screenSize === 'xs') return images.xs;
+        return images.xxs;
     };
 
     const [currentImages, setCurrentImages] = useState(getImagesForScreen);
@@ -91,10 +95,10 @@ const Test = ({ HeroText }) => {
                 </div>
 
                 {/* Banner section */}
-                <div className="relative w-full " style={{ height: parentHeight }} >
+                <div className="relative w-full mt-5 md:mt-0" style={{ height: parentHeight }} >
                     <div className="w-full  mx-auto text-[10px] h-full ">
                         {/* Top Hero Section */}
-                        <div className="flex flex-col h-full flex">
+                        <div className=" flex-col h-[500px] flex">
 
                             <TopNavigationTabLarge />
 
@@ -109,10 +113,10 @@ const Test = ({ HeroText }) => {
                                     className=" h-screen z-10  w-full absolute "
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0.5, position: "absolute" }}
+                                    exit={{ opacity: 0.5, position: "absolute",display:"hidden" }}
                                     transition={{ duration: 0.4 }}
                                 >
-                                    <div className="absolute flex justify-end   w-full z-40 sm:top-[20%] mdm:top-[25%] md:top-[30%]  lg:top-[35%] xl:top-[40%]   p-4" style={{ height: "630px" }}>
+                                    <div className="absolute flex justify-end   w-full z-40 top-[60%] sm:top-[40%] mdm:top-[25%] md:top-[30%]  lg:top-[35%] xl:top-[40%]   p-4" style={{ height: "630px" }}>
                                         <div className="flex flex-col space-y-2">
                                             {currentImages.map((_, index) => (
                                                 <div
@@ -131,44 +135,9 @@ const Test = ({ HeroText }) => {
 
                             {/* Hero Text */}
 
-                            <div className='w-full  text-center mt-10   z-20'>
-                                <h1 className="    font-bold sm:text-2xl mdm:text-3xl  md:text-4xl   lg:text-4xl  xl:text-5xl tracking-tight word-spacing-[1px] text-white">
-                                    Your Trusted   Source for Real  <br className=" block" />
-                                    Estate Excellence  in Dubai <br className="block" />
-
-                                </h1>
-                                {/* Search Bar Open  */}
+                           {children}
 
 
-                                {/* <NavBarProvider>
-                                    <NavBar />
-                                    <SearchBar />
-                                </NavBarProvider> */}
-
-                            </div>
-
-
-
-
-                            {/* Hero Boxes */}
-                            <div className="hidden md:flex   md:mb-40 lg:mb-32 xl:mb-10 book-section z-10">
-                                <div className="booking-box w-[190px] h-[100px]">
-                                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/calender-icon.svg" width="40" className="mr-2 hidden  lg:block" />
-                                    <p className="mb-0">
-                                        <a href={`${url}/contact-us/`} className="text-white">
-                                            Book Free<br />Consultation
-                                        </a>
-                                    </p>
-                                </div>
-                                <div className="booking-box w-[190px] h-[100px]  md:p-[5px]  flex items-center ml-4 ">
-                                    <p className="mb-0">
-                                        <a href={`${url}/properties/`} className="text-white">
-                                            Find your next <br />home in Dubai
-                                        </a>
-                                    </p>
-                                    <img className="hidden lg:block" src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/home-icon.svg" width="60"  />
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -220,60 +189,6 @@ const TopNavigationTabLarge = () => {
 }
 
 
-
-
-
-const NavBar = () => {
-    // const { User, setUser } = useNavBar();
-
-    let users = [['New Projects', 'NEW'], ['Buy', 'BUY'], ['Rent', 'RENT']]
-
-    return (
-        <>
-
-            <div className="flex flex-row justify-center mt-5 text-[8px] sm:text-[12px] w-[150px] xs:w-[200px] sm:w-[250px] mx-auto bg-white rounded-full z-40 ">
-                <div className="flex flex-row bgColor py-1 w-full justify-around items-center rounded-3xl ">
-                    {
-                        users.map((user) => {
-                            return (
-
-
-                                user[0] === User[0] ?
-                                    (<WhiteBackground key={user} user={user} setUser={setUser}>
-                                        <motion.div className="absolute w-full bg-[#82DFDF] h-full top-0 left-0   rounded-full   -z-10" layoutId="underline" ></motion.div>
-                                    </WhiteBackground>
-
-
-                                    ) : <WhiteBackground key={user} user={user} setUser={setUser} />
-
-                            );
-                        })
-                    }
-
-
-
-
-                </div>
-            </div>
-
-
-        </>
-    )
-}
-
-const WhiteBackground = ({ user, setUser, children }) => {
-    return (
-        <motion.div key={user} onMouseEnter={() => { setUser(user) }} className={`poppins-regular px-4 py-1   relative z-30 cursor-pointer`}>
-            <h1 >{user[0]}</h1>
-            {children}
-
-
-        </motion.div>
-    );
-};
-
-
-
 // Define the breakpoints
 const breakpoints = {
     xxs:'290px',
@@ -322,8 +237,6 @@ const breakpoints = {
     if (width >= parseInt(breakpoints.xxs)) return 'xxs';
     return 'base';
   };
-  
 
 
-
-export default Test;
+export default HeroPropertiesSectionModal

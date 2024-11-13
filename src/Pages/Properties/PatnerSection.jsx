@@ -3,9 +3,9 @@ import React from 'react';
 const PatnerSection = () => {
     return (
         <>
-            <div className="relative ">
-                <div className="max-w-[1140px] mx-auto px-4  relative overflow-hidden pb-32">
-                    <div className="flex flex-col items-center w-full justify-center mt-8 z-20">
+            <div className="relative mx-10">
+                <div className="max-w-[1140px] mt-10 mx-auto px-4  relative overflow-hidden rounded-xl mb-10 pb-32 ">
+                    <div className="flex flex-col items-center w-full justify-center mt-8 z-20 ">
                         <h1 className="section-title-small  text-[20px] md:text-[30px] ">Trusted By</h1>
 
                         {/* Logo container */}
@@ -16,19 +16,18 @@ const PatnerSection = () => {
                                     <img
 
                                         src="https://eplogproperties.com/wp-content/uploads/2023/10/dubai-properties.svg"
-                                        width="100"
-                                        className=" w-[50px] md:w-[100px] p-1 shrink-0"
+                                        
+                                        className=" w-[60px] h-[60px] md:w-[100px] p-1 shrink-0"
                                         alt="Dubai Properties"
                                     />
                                 </div>
 
-                                <div className='outline-[1px] p-2 flex justify-center items-center rounded-lg outline  h-[70px]'>
+                                <div className='outline-[1px]  flex justify-center items-center rounded-lg outline  h-[60px] w-[70px] md:w-[120px]'>
 
                                     <img
-                                     className=" w-[50px] md:w-[100px] p-1 shrink-0"
+                                     className=" !w-[50px] md:!w-[120px]  md:p-2 shrink-0"
                                         src="https://eplogproperties.com/wp-content/uploads/2023/10/nakheel.svg"
-                                        width="100"
-                                        className="shrink-0"
+                                        
                                         alt="Nakheel"
                                     />
                                 </div>
@@ -48,10 +47,9 @@ const PatnerSection = () => {
                                 <div className='outline-[1px] p-2 flex justify-center items-center rounded-lg outline  h-[70px]'>
 
                                     <img
-                                        className=" w-[50px] md:w-[100px] p-1 shrink-0"
+                                        className=" !w-[50px] h-[60px] md:!w-[100px] p-1 shrink-0"
                                         src="https://eplogproperties.com/wp-content/uploads/2023/10/damac.svg"
-                                        width="100"
-                                        className="shrink-0"
+                                        
                                         alt="Damac"
                                     />
                                 </div>
