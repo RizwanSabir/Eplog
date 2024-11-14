@@ -36,10 +36,10 @@ const TeamSection = () => {
   ];
 
   return (
-    <section className="team-section pb-0 mb-10">
+    <section className="team-section pb-0 ">
       <div className="container mx-auto">
         <div className="mb-4 mb-md-3">
-          <h1 className="text-xl font-semibold">Meet the team</h1>
+          <h1 className=" text-center text-[20px] md:text-[50px]  md:my-20 font-semibold">Meet the team</h1>
         </div>
       </div>
 

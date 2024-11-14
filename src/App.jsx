@@ -20,13 +20,14 @@ import BuyProperty from "./Pages/Property/BuyProperty";
 import SellProperty from "./Pages/Property/RentProperty";
 import RentProperty from "./Pages/Property/RentProperty";
 import ScreenSizeDisplay from "./useCurrentScreenSize";
-import Test from "./Test";
+import Test from "./Components/SearchBar/Test";
+
 
 
 export default function App() {
     return (
       <>
-      {/* <ScreenSizeDisplay/> */}
+      <ScreenSizeDisplay/>
       <div className="max-w-[1580px] mx-auto">
       <Router>
             <Routes>

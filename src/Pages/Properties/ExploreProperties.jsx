@@ -10,22 +10,22 @@ const ExploreProperties = () => {
 
     const url = `${import.meta.env.VITE_REACT_APP_BASE_URL}`;
 
- 
+
 
     return (
         <>
 
             <section className="section px-[50px] bg-slate-500">
-            <h1 className="section-title-small text-white text-center mx-auto text-[25px] leading-[20px] mdm:leading-[40px] sm:text-[35px] md:text-[40px] ">
+                <h1 className="section-title-small text-white text-center mx-auto text-[25px] leading-[20px] mdm:leading-[40px] sm:text-[35px] md:text-[40px] ">
                     Explore Properties
                 </h1>
                 <div className="max-w-[1140px]  mx-auto">
                     <div className=" flex justify-between items-center mt-10">
                         <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-10  mdm:mt-10">
-                          <div className="w-[272px]  flex items-center  ">
-                          <NavBar User={User} setUser={setUser} />
+                            <div className="w-[272px]  flex items-center  ">
+                                <NavBar User={User} setUser={setUser} />
 
-                          </div>
+                            </div>
                             <div className="line hidden md:flex">
                                 <img
                                     src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line-black.svg"
@@ -33,8 +33,8 @@ const ExploreProperties = () => {
                                     alt="dashed-line"
                                 />
                             </div>
-                            
-                            <div className=" flex  gap-x-4">
+
+                            {/* <div className=" flex  gap-x-4">
                                 <div className="border border-white size-[50px] rounded-full flex justify-center items-center text-white">
                                     <i className="fa-solid fa-chevron-left"></i>
                                 </div>
@@ -43,25 +43,25 @@ const ExploreProperties = () => {
                                 </div>
 
 
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
 
 
-<ScrollProperty  User={User} Page={1}/>
+                <ScrollProperty User={User} Page={1} />
 
                 <div>
                     <div className="bg-white w-[200px] h-[50px] rounded-full ml-auto flex justify-center gap-x-3 items-center ">
-                        
+
                         <a
-                                href={`${url}/properties/`}
-                                className=" text-[16px] font-bold leading-[19.23px]"
-                            >
-                                View All
-                            </a>
+                            href={`${url}/properties/`}
+                            className=" text-[16px] font-bold leading-[19.23px]"
+                        >
+                            View All
+                        </a>
                         <div className="bg-black size-[35px] rounded-full text-white flex justify-center items-center " >
-                        <i className="fa-solid fa-arrow-right"></i>
+                            <i className="fa-solid fa-arrow-right"></i>
                         </div>
 
                     </div>
@@ -83,7 +83,7 @@ const ExploreProperties = () => {
 const NavBar = ({ User, setUser }) => {
 
 
-    let users = [ ['Buy', 'SELL'],['New Projects', 'NEW'], ['Rent', 'RENT']]
+    let users = [['Buy', 'SELL'], ['New Projects', 'NEW'], ['Rent', 'RENT']]
 
     return (
         <>

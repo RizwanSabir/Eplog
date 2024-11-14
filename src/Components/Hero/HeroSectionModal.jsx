@@ -11,25 +11,56 @@ import Navbar from '../NavBar';
 
 const HeroPropertiesSectionModal = ({ children }) => {
     const videoRef = useRef(null);
-  
-    const [parentHeight, setParentHeight] = useState("650px");
-    const [videoSrc, setVideoSrc] = useState('');
+    
     const screenSize = useCurrentScreenSize(); // Get the current screen size
+    const [parentHeight, setParentHeight] = useState('640px');
 
-  
+
+    useEffect(() => {
+        // Update parentHeight based on screenSize
+        if (screenSize === '2xl' || screenSize === 'xl') {
+          setParentHeight('600px');
+        } else if (screenSize === 'lg' || screenSize === 'md') {
+          setParentHeight('540px');
+        } else  if (screenSize==='sm'){
+          setParentHeight('480px');
+        
+        } else  if (screenSize==='mdm'){
+            setParentHeight('280px');
+          
+          } 
+        
+        else  if (screenSize==='xs'){
+          setParentHeight('380px');
+        }
+         else  if (screenSize==='xxs'){
+          setParentHeight('450px');
+        }
+         else  {
+          setParentHeight('250px');
+        }
+    
+       
+    
+      }, [screenSize]); // Runs every time screenSize changes
+
+
+    const [videoSrc, setVideoSrc] = useState('');
+
+
     // Define images based on screen size
     const images = {
-        xxs: ["xs1.jpg", "xs2.jpg", "xs3.jpg"],
-        xs: ["sm1.jpg", "sm2.jpg", "sm3.jpg"],
-        sm: ["sm1.jpg", "sm2.jpg", "sm3.jpg"],
+        xxs: ["xs1.png", "xs2.png", "xs3.png"],
+        xs: ["sm1.png", "sm2.png", "sm3.png"],
+        sm: ["sm1.png", "sm2.png", "sm3.png"],
         mdm: ["lg1.png", "lg1.png", "lg1.png"],
         md: ["lg1.png", "lg1.png", "lg1.png"],
         lg: ["lg1.png", "lg2.png", "lg3.png"],
-        xl: ["xl1.jpg", "xl2.jpg", "xl3.jpg"],
-        "2xl": ["xl1.jpg", "xl2.jpg", "xl3.jpg"]
+        xl: ["lg1.png", "lg2.png", "lg3.png"],
+        "2xl": ["xl1.jpg", "xl2.png", "xl3.png"]
     };
 
- 
+
 
     // Set initial images based on current screen size
     const getImagesForScreen = () => {
@@ -48,7 +79,7 @@ const HeroPropertiesSectionModal = ({ children }) => {
 
 
     useEffect(() => {
-        let images=getImagesForScreen()
+        let images = getImagesForScreen()
         setCurrentImages(images);
         setCurrentImage([images[0], 0]); // Reset to the first image for new screen size
     }, [screenSize]);
@@ -57,19 +88,12 @@ const HeroPropertiesSectionModal = ({ children }) => {
         setCurrentImage([currentImages[index], index]);
     };
 
-  
+
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImage((prev) => {
-                console.log("Previous is")
-                console.log(prev[1])
-                console.log("Current images length is ")
-                console.log(currentImages.length)
                 const nextIndex = (prev[1] + 1) % currentImages.length; // cycle through the images
-                
-                console.log("Currernt index is ")
-                console.log(nextIndex)
                 return [currentImages[nextIndex], nextIndex];
             });
         }, 2000);
@@ -78,9 +102,9 @@ const HeroPropertiesSectionModal = ({ children }) => {
     }, [currentImages]);
 
 
-  
 
- 
+
+
 
     return (
         <>
@@ -101,11 +125,7 @@ const HeroPropertiesSectionModal = ({ children }) => {
                         <div className=" flex-col h-[500px] flex">
 
                             <TopNavigationTabLarge />
-
-
-
-
-
+                            
                             <AnimatePresence>
 
                                 <motion.div
@@ -113,16 +133,16 @@ const HeroPropertiesSectionModal = ({ children }) => {
                                     className=" h-screen z-10  w-full absolute "
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0.5, position: "absolute",display:"hidden" }}
+                                    exit={{ opacity: 0.5, position: "absolute"  }}
                                     transition={{ duration: 0.4 }}
                                 >
-                                    <div className="absolute flex justify-end   w-full z-40 top-[60%] sm:top-[40%] mdm:top-[25%] md:top-[30%]  lg:top-[35%] xl:top-[40%]   p-4" style={{ height: "630px" }}>
+                                    <div className="absolute hidden xs:flex justify-end   w-full z-40 top-[60%] sm:top-[40%] mdm:top-[25%] md:top-[30%]  lg:top-[35%] xl:top-[40%]   p-4" style={{ height: "630px" }}>
                                         <div className="flex flex-col space-y-2">
                                             {currentImages.map((_, index) => (
                                                 <div
                                                     key={index}
                                                     onClick={() => handleClick(index)}
-                                                    className={`border border-white rounded-full size-[15px] cursor-pointer ${currentImage[1] === index ? 'bg-white' : ""} `}
+                                                    className={`border border-white rounded-full size-[10px] sm:size-[15px] cursor-pointer ${currentImage[1] === index ? 'bg-white' : ""} `}
                                                 ></div>
                                             ))}
                                         </div>
@@ -130,12 +150,13 @@ const HeroPropertiesSectionModal = ({ children }) => {
 
 
                                     <img className='-z-10 object-contain' src={`/images/${currentImage[0]}`} alt="" />
+                                    {/* <img className='-z-10 object-contain' src="http://localhost:5173/images/lg2.png" alt="" /> */}
                                 </motion.div>
                             </AnimatePresence>
 
                             {/* Hero Text */}
 
-                           {children}
+                            {children}
 
 
                         </div>
@@ -191,7 +212,7 @@ const TopNavigationTabLarge = () => {
 
 // Define the breakpoints
 const breakpoints = {
-    xxs:'290px',
+    xxs: '290px',
     xs: '490px',
     sm: '640px',
     mdm: '768px',
@@ -199,33 +220,33 @@ const breakpoints = {
     lg: '1024px',
     xl: '1280px',
     '2xl': '1536px',
-  };
-  
-  // Custom hook to get the current screen size
-  const useCurrentScreenSize = () => {
+};
+
+// Custom hook to get the current screen size
+const useCurrentScreenSize = () => {
     const [screenSize, setScreenSize] = useState(getScreenSize());
-  
+
     useEffect(() => {
-      const mediaQueries = Object.keys(breakpoints).map((key) => {
-        const mediaQuery = window.matchMedia(`(min-width: ${breakpoints[key]})`);
-        const handleChange = () => setScreenSize(getScreenSize());
-        mediaQuery.addListener(handleChange);
-        return { key, mediaQuery, handleChange };
-      });
-  
-      // Cleanup function to remove event listeners
-      return () => {
-        mediaQueries.forEach(({ mediaQuery, handleChange }) => {
-          mediaQuery.removeListener(handleChange);
+        const mediaQueries = Object.keys(breakpoints).map((key) => {
+            const mediaQuery = window.matchMedia(`(min-width: ${breakpoints[key]})`);
+            const handleChange = () => setScreenSize(getScreenSize());
+            mediaQuery.addListener(handleChange);
+            return { key, mediaQuery, handleChange };
         });
-      };
+
+        // Cleanup function to remove event listeners
+        return () => {
+            mediaQueries.forEach(({ mediaQuery, handleChange }) => {
+                mediaQuery.removeListener(handleChange);
+            });
+        };
     }, []);
-  
+
     return screenSize;
-  };
-  
-  // Helper function to get the current screen size
-  const getScreenSize = () => {
+};
+
+// Helper function to get the current screen size
+const getScreenSize = () => {
     const width = window.innerWidth;
     if (width >= parseInt(breakpoints['2xl'])) return '2xl';
     if (width >= parseInt(breakpoints.xl)) return 'xl';
@@ -236,7 +257,7 @@ const breakpoints = {
     if (width >= parseInt(breakpoints.xs)) return 'xs';
     if (width >= parseInt(breakpoints.xxs)) return 'xxs';
     return 'base';
-  };
+};
 
 
 export default HeroPropertiesSectionModal

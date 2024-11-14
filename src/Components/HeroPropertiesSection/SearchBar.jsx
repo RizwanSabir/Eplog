@@ -127,18 +127,27 @@ const SearchBar = () => {
     return (
         <>
    
-            <div className='flex justify-center mt-5'>
+            <div className='flex justify-center mt-2 sm:mt-5'>
                 {/* Show when UserFilter is Not Clicked */}
-                {!UseFilter ? <div className='bg-white relative w-[500px] h-[45px] rounded-full overflow-hidden flex border '>
+                {!UseFilter ? <div className='bg-white relative w-[250px] sm:w-[500px] h-[35px] sm:h-[45px] rounded-full overflow-hidden flex border '>
                     <img className='absolute  top-[35%] left-3' src="/Svg/Search.svg" alt="" />
-                    <input className='ml-10 h-full w-[700px] outline-none text-[14px]' type="text" placeholder='Search by area or project name' />
+                    <input className='ml-10 h-full sm:w-[700px] outline-none text-[14px] placeholder:text-[10px] sm:placeholder:text-[14px]' type="text" placeholder='Search by area or project name' />
 
 
                     {UseFilter ? <div className='flex justify-end w-full'>
-                        <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { SearchProperties() }} >Search  </h1>
+                        <div className=' rounded-full px-4 sm:py-1 sm:my-1 mr-2 cursor-pointer flex justify-center items-center borderRed' onClick={() => { SearchProperties() }} >
+                            
+                         
+
+<p>                            Search</p>
+                       
+                              </div>
                     </div> : <div className='flex justify-end w-full'>
-                        <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer ' onClick={() => { SearchProperties() }} >Search</h1>
-                        <h1 className='b rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { setUseFilter(!UseFilter) }}>Filter</h1>
+                        <div className='bg-[#82DFDF] flex justify-center items-center rounded-full my-1 px-2 sm:px-4 sm:py-1 sm:my-1 mr-2 cursor-pointer ' onClick={() => { SearchProperties() }} >
+                           <h1> Search</h1>
+                            
+                            </div>
+                        <h1 className='hidden rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { setUseFilter(!UseFilter) }}>Filter</h1>
                     </div>}
                 </div> : ""}
             </div>
@@ -154,7 +163,7 @@ const SearchBar = () => {
                         <img className='absolute  top-[35%] left-3' src="/Svg/Search.svg" alt="" />
                         <input className='ml-10 h-full w-[700px] outline-none text-[14px]' type="text" placeholder='Search by area or project name' />
 
-                        <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { SearchProperties() }}  >Search  </h1>
+                        <h1 className=' rounded-full sm:px-4 sm:py-1 sm:my-1 mr-2 border-2 border-red-500 cursor-pointer' onClick={() => { SearchProperties() }}  >Search  </h1>
 
                     </div>
 

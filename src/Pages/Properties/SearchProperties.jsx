@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import HeroSearchSection from '../../Components/HeroSearchProperties/HeroSection';
-import HeroNavBar from '../../Components/HeroSearchProperties/HeroNavBar';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import { NavBarProvider, useNavBar } from '../../Context/NavBarContext';
 import { PropertyDataProvider } from '../../Context/PropertyDataContext';
 import { motion } from 'framer-motion';
+import HeroPropertiesSectionModal from '../../Components/Hero/HeroSectionModal';
+
 
 const SearchProperties = () => {
   const [searchParams] = useSearchParams();
@@ -26,10 +27,14 @@ const SearchProperties = () => {
     <>
       <NavBarProvider>
         <PropertyDataProvider>
-          <HeroNavBar>
+          <HeroPropertiesSectionModal>
+
+          <div className='w-full  text-center mt-32 sm:mt-52 mdm:mt-10   z-20'>
+        <HeroText/>
             <NavBar />
             <SearchBar />
-          </HeroNavBar>
+            </div>
+          </HeroPropertiesSectionModal>
           <HeroSearchSection />
         </PropertyDataProvider>
       </NavBarProvider>
@@ -38,43 +43,58 @@ const SearchProperties = () => {
 };
 
 
+const HeroText = () => { 
+
+  return (
+    <>
+      <h1 className="    font-bold text-2xl sm:text-2xl mdm:text-3xl  md:text-4xl   lg:text-4xl  xl:text-5xl tracking-tight word-spacing-[1px] text-white">
+                    Your Trusted   Source  for Real  <br className=" block" />
+                    Estate Excellence  in Dubai <br className="block" />
+
+                </h1>
+    
+    </>
+  )
+ }
+
+
 
 
 const NavBar = () => {
   const { User, setUser } = useNavBar();
 
-  let users = [['New Projects', 'NEW'], ['Buy', 'SELL'], ['Rent', 'RENT']]
+  let users = [['New Projects', 'NEW'], ['Buy', 'BUY'], ['Rent', 'RENT']]
 
   return (
-    <>
+      <>
 
-      <div className="flex flex-row justify-center mt-5 text-[8px] sm:text-[12px] w-[150px] xs:w-[200px] sm:w-[250px] mx-auto bg-white rounded-full z-40 ">
-        <div className="flex flex-row bgColor py-1 w-full justify-around items-center rounded-3xl ">
-          {
-            users.map((user) => {
-              return (
-
-
-                user[0] === User[0] ?
-                  (<WhiteBackground key={user} user={user} setUser={setUser}>
-                    <motion.div className="absolute w-full bg-[#82DFDF] h-full top-0 left-0   rounded-full   -z-10" layoutId="underline" ></motion.div>
-                  </WhiteBackground>
+          <div className="flex   flex-row justify-center mt-5 text-[8px]  leading-[25px] sm:leading-[30px] sm:text-[12px] w-[200px]  xs:w-[200px] sm:w-[250px] mx-auto bg-white rounded-full z-40 ">
+              <div className="flex flex-row bgColor py-1 w-full justify-around items-center rounded-3xl ">
+                  {
+                      users.map((user) => {
+                          return (
 
 
-                  ) : <WhiteBackground key={user} user={user} setUser={setUser} />
-
-              );
-            })
-          }
-
+                              user[0] === User[0] ?
+                                  (<WhiteBackground key={user} user={user} setUser={setUser}>
+                                      <motion.div className="absolute w-full bg-[#82DFDF] h-full top-0 left-0   rounded-full   -z-10" layoutId="underline" ></motion.div>
+                                  </WhiteBackground>
 
 
+                                  ) : <WhiteBackground key={user} user={user} setUser={setUser} />
 
-        </div>
-      </div>
+                          );
+                      })
+                  }
 
 
-    </>
+
+
+              </div>
+          </div>
+
+
+      </>
   )
 }
 

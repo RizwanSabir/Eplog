@@ -3,8 +3,8 @@ import React from 'react';
 const PatnerSection = () => {
     return (
         <>
-            <div className="relative mx-10">
-                <div className="max-w-[1140px] mt-10 mx-auto px-4  relative overflow-hidden rounded-xl mb-10 pb-32 ">
+            <div className="relative mx-10  xxs:mt-[250px] xs:mt-[200px] sm:mt-[200px] mdm:mt-[200px] xl:mt-[200px]">
+                <div className="max-w-[1140px]  mx-auto px-4  relative overflow-hidden rounded-xl mb-10 pb-32 ">
                     <div className="flex flex-col items-center w-full justify-center mt-8 z-20 ">
                         <h1 className="section-title-small  text-[20px] md:text-[30px] ">Trusted By</h1>
 

@@ -181,17 +181,21 @@ const SearchProperties = () => {
     return (
         <>
 
-            <div className='flex justify-center mt-5'>
+            <div className='flex justify-center mt-5 z-50'>
                 {/* Show when UserFilter is Not Clicked */}
-                {!UseFilter ? <div className='bg-white relative w-[500px] h-[45px] rounded-full overflow-hidden flex border '>
+                {!UseFilter ? <div className='bg-white relative w-[300px] sm:w-[500px] h-[45px] rounded-full overflow-hidden flex border '>
                     <img className='absolute  top-[35%] left-3' src="/Svg/Search.svg" alt="" />
-                    <input className='ml-10 h-full w-[700px] outline-none text-[14px]' type="text" placeholder='Search by area or project name' />
+                    <input className='ml-10 h-full sm:w-[700px] outline-none text-[14px] placeholder:text-[10px] sm:placeholder:text-[14px]' type="text" placeholder='Search by area or project name' />
+
 
 
                     {UseFilter ? <div className='flex justify-end w-full'>
                         <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { SearchProperties() }} >Search  </h1>
                     </div> : <div className='flex justify-end w-full'>
-                        <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer ' onClick={() => { SearchProperties() }} >Search</h1>
+                    <div className='bg-[#82DFDF] flex justify-center items-center rounded-full my-1 px-2 sm:px-4 sm:py-1 sm:my-1 mr-2 cursor-pointer ' onClick={() => { SearchProperties() }} >
+                           <h1> Search</h1>
+                            
+                            </div>
                         <h1 className='b rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { setUseFilter(!UseFilter) }}>Filter</h1>
                     </div>}
                 </div> : ""}
@@ -200,13 +204,14 @@ const SearchProperties = () => {
             {UseFilter ? <motion.div
                 animate={{ height: "auto" }}
                 transition={{ duration: 1 }}
-                className=" inset-0 z-30 flex justify-center items-center bg-gray-800 bg-opacity-50  rounded relative">
+                className=" inset-0 z-30 flex justify-center items-center  bg-gray-800 bg-opacity-50  rounded relative ">
 
                 <div className='bg-white rounded-3xl py-5 px-5'>
 
-                    <div className='bg-white mx-auto relative w-[500px] h-[45px] rounded-full overflow-hidden flex border  '>
+                    <div className='bg-white mx-auto relative sm:w-[500px] h-[45px] rounded-full overflow-hidden flex border  '>
                         <img className='absolute  top-[35%] left-3' src="/Svg/Search.svg" alt="" />
-                        <input className='ml-10 h-full w-[700px] outline-none text-[14px]' type="text" placeholder='Search by area or project name' />
+                        <input className='ml-10 h-full sm:w-[700px] outline-none text-[14px] placeholder:text-[10px] sm:placeholder:text-[14px]' type="text" placeholder='Search by area or project name' />
+
 
                         <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { SearchProperties() }}  >Search  </h1>
 
@@ -214,9 +219,9 @@ const SearchProperties = () => {
 
 
                     {/* Filter Fields */}
-                    <div className="bg-white  rounded-lg  w-[800px] z-50 ">
+                    <div className="bg-white  rounded-lg  sm:w-[800px] z-50 ">
 
-                        <div className="grid grid-cols-2  gap-x-2    relative   w-[400px] mx-auto">
+                        <div className="grid  sm:grid-cols-2  gap-x-2    relative   sm:w-[400px] mx-auto">
                             {/* Location */}
 
 
@@ -433,9 +438,6 @@ const CustomDropFilter = ({ Name, Value, developers, handleFilterChange,QuerySel
         setSelectedDevelopers((prev) => {
             let updatedSelected;
     
-            console.log("Selected value is: ");
-            console.log(value);
-    
             // Check if the developer ID already exists in the selected array
             if (prev.some(dev => dev.id === value.id)) {
                 // Remove the developer with the matching ID
@@ -448,15 +450,7 @@ const CustomDropFilter = ({ Name, Value, developers, handleFilterChange,QuerySel
             // Create an array of selected developer IDs
             const selectedIds = updatedSelected.map(dev => dev.id);
     
-            // Update filter with the selected IDs
-            console.log("Updated call cahnge is ")
-            console.log(value)
-            console.log("Updated call selected values is ")
-
-            console.log(selectedIds)
-
-            console.log("Updated call Value is ")
-           console.log(Value)
+            
             handleFilterChange(Value, selectedIds); 
     
             return updatedSelected;
@@ -506,8 +500,7 @@ const CustomDropFilter = ({ Name, Value, developers, handleFilterChange,QuerySel
             <div className='relative'>
                 <div
                     className={`w-full text-left flex py-1 px-2 border rounded cursor-pointer ${selectedDevelopers.length >= 1 ? '  scrollbarX' : ''} overflow-y-auto`}
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                >
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
 
 
                     {/* Display all selected developers with a close button */}

@@ -3,7 +3,7 @@ import React from 'react'
 const PartnerSection = () => {
   return (
    <>
-   <section className="py-10 bg-gray-100">
+   <section className=" bg-gray-100 xxs:mt-[200px] sm:mt-[150px] xl:mt-[120px] 2xl:mt-[150px]">
 		<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div className="flex flex-col md:flex-row">
 				<div className="w-full md:w-2/3">

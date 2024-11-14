@@ -7,70 +7,6 @@ import CustomLoader from '../Loaders/CustomLoader';
 import { div } from 'framer-motion/client';
 import ScreenSizeDisplay from '../../useCurrentScreenSize';
 
-// const HeroSearchSection = ({ HeroText }) => {
-//     const { PropertyData } = usePropertyData();
-//     const [Properties, setProperties] = useState([]);
-//     const [loading, setLoading] = useState(true); // New loading state
-
-//     console.log("Property data is ", PropertyData);
-//     console.log("Properties are ", Properties);
-
-//     useEffect(() => {
-//         const fetchProperties = async () => {
-//             setLoading(true); // Set loading to true before fetching
-//             try {
-//                 const PropertyList = await fetch('https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Eplog Properties', {
-//                     method: 'POST',
-//                     headers: {
-//                         'Content-Type': 'application/json',
-//                         'X-PIXXI-TOKEN': 'FjuseQnHvSZy4jTqs8EN6uHfRz85YGv-'
-//                     },
-//                     body: JSON.stringify({
-//                         ...PropertyData,
-//                         "size":20,
-//                         "ssize":10
-//                     })
-//                 });
-//                 const DevelopersData = await PropertyList.json();
-
-// // const stringifiedArray = JSON.stringify(DevelopersData.data.);
-
-// // console.log(stringifiedArray);
-//                 console.log("Total size is " + DevelopersData.data.totalSize)
-//                 setProperties(DevelopersData.data.list);
-//             } catch (error) {
-//                 console.error("Error fetching developers:", error);
-//             } finally {
-//                 setLoading(false); // Set loading to false after fetching
-//             }
-//         };
-//         fetchProperties();
-//     }, [PropertyData]); // Add PropertyData as a dependency to refetch when it changes
-
-//     const navigate = useNavigate();
-
-//     const handleClickItem = () => {
-//         console.log("Search is Clicked");
-//         navigate('/property');
-//     };
-
-//     return (
-//         <>
-//             <div className="pt-2 text-[14px] px-4 h-fit">
-//                 <h1 className='text-4xl font-bold mx-5'>Explore Properties</h1>
-
-//                 {loading ? ( // Conditional rendering for the loader
-//                     <div className='mt-10'>
-//                         <CustomLoader />
-//                     </div>
-//                 ) : (
-//                     <PropertyListingNEW properties={Properties} handleClickItem={handleClickItem} />
-//                 )}
-//             </div>
-//         </>
-//     );
-// };
-
 
 
 
@@ -158,7 +94,7 @@ const HeroSearchSection = ({ HeroText }) => {
     };
 
     return (
-        <div className="pt-2 text-[14px] px-4 h-fit">
+        <div className="pt-2 text-[14px] px-4 h-fit mt-[200px] lg:mt-[100px] ">
             <h1 className="text-4xl font-bold mx-5">
                 Explore {PropertyData?.listingType === 'SELL' ? "Buy" : PropertyData?.listingType.toLowerCase()} Properties
             </h1>

@@ -19,9 +19,9 @@ const HeroPropertiesSection = () => {
 
         <HeroPropertiesSectionModal>
 
-            <div className='w-full  text-center mt-20 mdm:mt-10   z-20'>
-                <h1 className="    font-bold text-2xl sm:text-2xl mdm:text-3xl  md:text-4xl   lg:text-4xl  xl:text-5xl tracking-tight word-spacing-[1px] text-white">
-                    Your Trusted   Source <br className='xs:hidden' /> for Real  <br className=" block" />
+            <div className='w-full  text-center mt-32 sm:mt-52 mdm:mt-10   z-20'>
+                <h1 className="    font-bold text-[20px] sm:text-2xl mdm:text-3xl  md:text-4xl   lg:text-4xl  xl:text-5xl tracking-tight word-spacing-[1px] text-white">
+                    Your Trusted   Source  for Real  <br className=" block" />
                     Estate Excellence  in Dubai <br className="block" />
 
                 </h1>
@@ -39,7 +39,7 @@ const HeroPropertiesSection = () => {
 
 
             {/* Hero Boxes */}
-            <div className="hidden md:flex lg:mb-20   xl:mb-36 book-section z-10">
+            <div className="hidden md:flex    book-section z-10 mb-0  absolute bottom-0">
                 <div className="booking-box w-[190px] h-[100px]">
                     <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/calender-icon.svg" width="40" className="mr-2 hidden  lg:block" />
                     <p className="mb-0">
@@ -67,6 +67,8 @@ const HeroPropertiesSection = () => {
 
 
 
+
+
 const NavBar = () => {
     const { User, setUser } = useNavBar();
 
@@ -75,8 +77,8 @@ const NavBar = () => {
     return (
         <>
 
-            <div className="flex flex-row justify-center mt-5 text-[8px] sm:text-[12px] w-[150px] xs:w-[200px] sm:w-[250px] mx-auto bg-white rounded-full z-40 ">
-                <div className="flex flex-row bgColor py-1 w-full justify-around items-center rounded-3xl ">
+            <div className="flex  flex-row justify-center mt-5 text-[7px] leading-[15px] sm:leading-[30px] sm:text-[12px] w-[130px] xs:w-[150px] sm:w-[250px] mx-auto bg-white rounded-full z-40 ">
+                <div className="flex flex-row bgColor py-[2px] sm:py-1 w-full justify-around items-center rounded-3xl ">
                     {
                         users.map((user) => {
                             return (
@@ -107,7 +109,7 @@ const NavBar = () => {
 
 const WhiteBackground = ({ user, setUser, children }) => {
     return (
-        <motion.div key={user} onMouseEnter={() => { setUser(user) }} className={`poppins-regular px-4 py-1   relative z-30 cursor-pointer`}>
+        <motion.div key={user} onMouseEnter={() => { setUser(user) }} className={`poppins-regular px-2 sm:px-4 py-1   relative z-30 cursor-pointer`}>
             <h1 >{user[0]}</h1>
             {children}
 
@@ -115,6 +117,5 @@ const WhiteBackground = ({ user, setUser, children }) => {
         </motion.div>
     );
 };
-
 
 export default HeroPropertiesSection;

@@ -45,17 +45,8 @@ const TrendingProperties = () => {
 
                           </div>
                             
+                            {/*  back and forth batton */}
                             
-                            <div className=" flex  gap-x-4">
-                                <div className="border border-black size-[50px] rounded-full flex justify-center items-center text-black">
-                                    <i className="fa-solid fa-chevron-left"></i>
-                                </div>
-                                <div className="border border-black size-[50px] rounded-full flex justify-center items-center text-black">
-                                    <i className="fa-solid fa-chevron-right"></i>
-                                </div>
-
-
-                            </div>
                         </div>
 
                 <ScrollProperty  User={User} Page={1}/>
