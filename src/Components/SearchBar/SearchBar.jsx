@@ -8,13 +8,18 @@ import { useNavBar } from '../../Context/NavBarContext';
 import { usePropertyData } from '../../Context/PropertyDataContext';
 import { SlExclamation } from 'react-icons/sl';
 import { MdPreview } from 'react-icons/md';
+import SearchInput from './Test';
 
 const SearchBar = () => {
 
     // Here get all the query params if there exists 
-
+   
     const { PropertyData, setPropertyData } = usePropertyData();
     const [UseFilter, setUseFilter] = useState(Boolean(PropertyData && Object.keys(PropertyData).length > 0));
+ const [InputError, setInputError] = useState('')
+ const [InputData, setInputData] = useState('')
+
+
 
 
 
@@ -24,7 +29,7 @@ const SearchBar = () => {
     const [QueryPropertyType, setQueryPropertyType] = useState(''); // State for developers list
 
 
-   
+
     const { User, setUser } = useNavBar();
 
     const PropertyType = [
@@ -66,10 +71,10 @@ const SearchBar = () => {
         { "id": "OTHER_COMMERCIAL", "name": "Other Commercial" }
     ]
 
-// If PropertyData might change over time, use an effect to update UseFilter
-useEffect(() => {
-    setUseFilter(Boolean(PropertyData && Object.keys(PropertyData).length > 0));
-}, [PropertyData]);
+    // If PropertyData might change over time, use an effect to update UseFilter
+    useEffect(() => {
+        setUseFilter(Boolean(PropertyData && Object.keys(PropertyData).length > 0));
+    }, [PropertyData]);
 
 
     useEffect(() => {
@@ -90,8 +95,8 @@ useEffect(() => {
                 const DevelopersData = await DevelopersList.json();
                 if (DevelopersData.statusCode === 200) {
                     const developersList = DevelopersData.data.list.map(dev => ({ id: dev.id + "", name: dev.name }));
-                     console.log("Developer List using Fetch predefined is")
-                     console.log(developersList)
+                    console.log("Developer List using Fetch predefined is")
+                    console.log(developersList)
                     setDevelopers(developersList); // Store only id and name
                 } else {
                     console.error("Failed to fetch developers");
@@ -121,38 +126,72 @@ useEffect(() => {
 
 
 
-const SearchProperties = () => {
-    // Process `selectedFilters` to extract only `id` values from arrays of objects
-    const searchParams = Object.entries(selectedFilters).reduce((acc, [key, value]) => {
-        if (Array.isArray(value)) {
-            // Map over array elements and extract the `id` if each element is an object
-            acc[key] = value.map(item => (typeof item === 'object' && item !== null ? item.id : item));
-        } else {
-            // For non-array values, directly set the value or `id` if it's an object
-            acc[key] = typeof value === 'object' && value !== null ? value.id : value;
+    // const SearchProperties = () => {
+    //     // Process `selectedFilters` to extract only `id` values from arrays of objects
+    //     const searchParams = Object.entries(selectedFilters).reduce((acc, [key, value]) => {
+    //         if (Array.isArray(value)) {
+    //             // Map over array elements and extract the `id` if each element is an object
+    //             acc[key] = value.map(item => (typeof item === 'object' && item !== null ? item.id : item));
+    //         } else {
+    //             // For non-array values, directly set the value or `id` if it's an object
+    //             acc[key] = typeof value === 'object' && value !== null ? value.id : value;
+    //         }
+    //         return acc;
+    //     }, { listingType: User[1] });
+
+    //     console.log("Selected filters for search button are:", {...searchParams,...InputData});
+
+    //     // Convert the search parameters object to a query string
+    //     const queryString = new URLSearchParams(searchParams).toString();
+
+    //     // Set the query string in the URL without navigation
+    //     const newUrl = `${window.location.pathname}?${queryString}`;
+    //     window.history.pushState(null, '', newUrl);
+
+    //     // Optionally, update the property data in state
+    //     setPropertyData({...searchParams,...InputData});
+    // };
+    const SearchProperties = () => {
+        // Process `selectedFilters` to extract only `id` values from arrays of objects
+        let searchParams;
+        
+        if(selectedFilters){
+            searchParams= Object.entries(selectedFilters).reduce((acc, [key, value]) => {
+                if (Array.isArray(value)) {
+                    // Map over array elements and extract the `id` if each element is an object
+                    acc[key] = value.map(item => (typeof item === 'object' && item !== null ? item.id : item));
+                } else {
+                    // For non-array values, directly set the value or `id` if it's an object
+                    acc[key] = typeof value === 'object' && value !== null ? value.id : value;
+                }
+                return acc;
+            }, {});
         }
-        return acc;
-    }, { listingType: User[1] });
+    
+        // Add `listingType` to `searchParams` only if `InputData.cityId` is null
+        if (!InputData.cityId && searchParams?.listingType) {
+            searchParams.listingType = User[1];
+        }
+    
+        console.log("Selected filters for search button are:", { ...searchParams, ...InputData });
+    
+        // Convert the search parameters object to a query string
+        const queryString = new URLSearchParams(searchParams).toString();
+    
+        // Set the query string in the URL without navigation
+        const newUrl = `${window.location.pathname}?${queryString}`;
+        window.history.pushState(null, '', newUrl);
+    
+        // Optionally, update the property data in state
+        setPropertyData({ ...searchParams, ...InputData });
+    };
+    
 
-    console.log("Selected filters for search button are:", searchParams);
-
-    // Convert the search parameters object to a query string
-    const queryString = new URLSearchParams(searchParams).toString();
-
-    // Set the query string in the URL without navigation
-    const newUrl = `${window.location.pathname}?${queryString}`;
-    window.history.pushState(null, '', newUrl);
-
-    // Optionally, update the property data in state
-    setPropertyData(searchParams);
-};
-
-  
-     useEffect(() => { 
+    useEffect(() => {
         function mapDevelopers(propertyDeveloperIds, developerList) {
             return developerList.filter(developer => propertyDeveloperIds.includes(developer.id));
         }
-    
+
         if (PropertyData?.developerIds && PropertyData.developerIds.length > 0) {
             const result = mapDevelopers(PropertyData.developerIds, developers);
             setQueryDeveloper(result);
@@ -161,12 +200,12 @@ const SearchProperties = () => {
             setQueryDeveloper([]);
         }
     }, [PropertyData, developers]);
-    
-     useEffect(() => { 
+
+    useEffect(() => {
         function mapDevelopers(propertyDeveloperIds, developerList) {
             return developerList.filter(developer => propertyDeveloperIds.includes(developer.id));
         }
-    
+
         if (PropertyData?.propertyType && PropertyData.propertyType.length > 0) {
             const result = mapDevelopers(PropertyData.propertyType, PropertyType);
             setQueryPropertyType(result);
@@ -175,51 +214,68 @@ const SearchProperties = () => {
             setQueryPropertyType([]);
         }
     }, [PropertyData]);
-    
+
 
 
     return (
         <>
 
-            <div className='flex justify-center mt-5 z-50'>
+            <div className='flex flex-col justify-center items-center mt-5 z-50'>
                 {/* Show when UserFilter is Not Clicked */}
-                {!UseFilter ? <div className='bg-white relative w-[300px] sm:w-[500px] h-[45px] rounded-full overflow-hidden flex border '>
-                    <img className='absolute  top-[35%] left-3' src="/Svg/Search.svg" alt="" />
-                    <input className='ml-10 h-full sm:w-[700px] outline-none text-[14px] placeholder:text-[10px] sm:placeholder:text-[14px]' type="text" placeholder='Search by area or project name' />
+                {!UseFilter ? <div className='bg-white relative w-[300px] sm:[300px] mdm:w-[500px] rounded-full  flex border justify-center xs:justify-between'>
+                    <div className=' flex  xs:w-[300px] items-center '>
+                        <img className='size-[20px] ml-2' src="/Svg/Search.svg" alt="" />
+                        {/* <input className='ml-1 h-full w-[300px] sm:w-[700px] outline-none text-[14px] placeholder:text-[12px] sm:placeholder:text-[14px]' type="text" placeholder='Search by area or project name' /> */}
+                        <SearchInput InputError={InputError} setInputError={setInputError} InputData={InputData} setInputData={setInputData}/>
+
+                    </div>
 
 
 
-                    {UseFilter ? <div className='flex justify-end w-full'>
-                        <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { SearchProperties() }} >Search  </h1>
-                    </div> : <div className='flex justify-end w-full'>
-                    <div className='bg-[#82DFDF] flex justify-center items-center rounded-full my-1 px-2 sm:px-4 sm:py-1 sm:my-1 mr-2 cursor-pointer ' onClick={() => { SearchProperties() }} >
-                           <h1> Search</h1>
-                            
-                            </div>
+                    <div className=' hidden xs:flex  w-full'>
+                        {/* <div className='bg-[#82DFDF] flex justify-center items-center rounded-full my-1 px-2 sm:px-4 sm:py-1 sm:my-1 mr-2 cursor-pointer ' onClick={() => { SearchProperties() }} >
+                            <h1> Search</h1>
+                           
+
+                        </div> */}
                         <h1 className='b rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { setUseFilter(!UseFilter) }}>Filter</h1>
-                    </div>}
-                </div> : ""}
+                    </div>
+
+
+                 
+                </div>
+                    : ""}
+
+                {!UseFilter ? (<div className='flex xs:hidden w-full justify-center mt-2'>
+                    {/* <div className='bg-[#82DFDF] flex justify-center items-center rounded-full my-1 px-4 sm:py-1 sm:my-1 mr-2 cursor-pointer ' onClick={() => { SearchProperties() }} >
+                        <h1> Search</h1>
+
+                    </div> */}
+                    <h1 className='b rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { setUseFilter(!UseFilter) }}>Filter</h1>
+                </div>) : ("")}
             </div>
 
             {UseFilter ? <motion.div
                 animate={{ height: "auto" }}
                 transition={{ duration: 1 }}
-                className=" inset-0 z-30 flex justify-center items-center  bg-gray-800 bg-opacity-50  rounded relative ">
+                className=" inset-0 z-30 flex justify-center items-center  bg-gray-800 bg-opacity-50  rounded relative  ">
 
-                <div className='bg-white rounded-3xl py-5 px-5'>
+                <div className='bg-white rounded-3xl py-5 px-5 outline outline-[1px]'>
 
-                    <div className='bg-white mx-auto relative sm:w-[500px] h-[45px] rounded-full overflow-hidden flex border  '>
+                    <div className='bg-white mx-auto relative xs:w-[290px]  md:w-[500px]  rounded-xl  flex border   py-2'>
                         <img className='absolute  top-[35%] left-3' src="/Svg/Search.svg" alt="" />
-                        <input className='ml-10 h-full sm:w-[700px] outline-none text-[14px] placeholder:text-[10px] sm:placeholder:text-[14px]' type="text" placeholder='Search by area or project name' />
+                        {/* <input className='ml-10 h-full xs:w-[200px] md:w-[700px] outline-none text-[14px] placeholder:text-[12px] sm:placeholder:text-[14px]' type="text" placeholder='Search by area or project name' /> */}
+<SearchInput InputError={InputError} setInputError={setInputError} InputData={InputData} setInputData={setInputData}/>
 
-
-                        <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { SearchProperties() }}  >Search  </h1>
+                        {/* <h1 className=' hidden sm:flex bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { SearchProperties() }}  >Search  </h1> */}
 
                     </div>
+                    {UseFilter && InputError && <p className="text-sm text-red-500 mt-2">{InputError}</p>}
+
 
 
                     {/* Filter Fields */}
-                    <div className="bg-white  rounded-lg  sm:w-[800px] z-50 ">
+                    <div className="bg-white  rounded-lg w-full sm:w-[400px]  md:w-[800px] z-50 ">
 
                         <div className="grid  sm:grid-cols-2  gap-x-2    relative   sm:w-[400px] mx-auto">
                             {/* Location */}
@@ -239,7 +295,12 @@ const SearchProperties = () => {
 
 
                         </div>
-                        <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 w-[100px] ml-auto mt-2  mr-2 cursor-pointer' onClick={() => { setUseFilter(!UseFilter) }} >Close  </h1>
+                        <div className='flex justify-end mt-2'>
+                            <h1 className='  sm:flex bg-[#82DFDF] rounded-full px-4 py-1 my-1  cursor-pointer' onClick={() => { SearchProperties() }}  >Search  </h1>
+                            {/* <h1 className=' rounded-full px-4  mr-2 cursor-pointer py-1 my-1' onClick={() => { setUseFilter(!UseFilter) }} >Close  </h1> */}
+
+
+                        </div>
                     </div>
                 </div>
 
@@ -397,15 +458,15 @@ const DropFilter = ({ Name, Value, developers, handleFilterChange, Obj, QuerySel
 
 
 
-const CustomDropFilter = ({ Name, Value, developers, handleFilterChange,QuerySelect }) => {
+const CustomDropFilter = ({ Name, Value, developers, handleFilterChange, QuerySelect }) => {
 
-    const [selectedDevelopers, setSelectedDevelopers] = useState([]); 
-  
+    const [selectedDevelopers, setSelectedDevelopers] = useState([]);
 
-    useEffect(() => { 
+
+    useEffect(() => {
         if (QuerySelect && Object.keys(QuerySelect).length > 0) {
             const selectedIds = QuerySelect.map(dev => dev.id);
-            handleFilterChange(Value, selectedIds); 
+            handleFilterChange(Value, selectedIds);
             setSelectedDevelopers(QuerySelect);
         }
     }, [QuerySelect]);
@@ -416,7 +477,7 @@ const CustomDropFilter = ({ Name, Value, developers, handleFilterChange,QuerySel
 
     // Handle the change of developer selection
     // const handleSelectChange = (value) => {
-        
+
     //     setSelectedDevelopers((prev) => {
     //         let updatedSelected;
     //         console.log("Previous value is  ")
@@ -437,7 +498,7 @@ const CustomDropFilter = ({ Name, Value, developers, handleFilterChange,QuerySel
     const handleSelectChange = (value) => {
         setSelectedDevelopers((prev) => {
             let updatedSelected;
-    
+
             // Check if the developer ID already exists in the selected array
             if (prev.some(dev => dev.id === value.id)) {
                 // Remove the developer with the matching ID
@@ -446,21 +507,21 @@ const CustomDropFilter = ({ Name, Value, developers, handleFilterChange,QuerySel
                 // Add the developer to the selected list
                 updatedSelected = [...prev, value];
             }
-    
+
             // Create an array of selected developer IDs
             const selectedIds = updatedSelected.map(dev => dev.id);
-    
-            
-            handleFilterChange(Value, selectedIds); 
-    
+
+
+            handleFilterChange(Value, selectedIds);
+
             return updatedSelected;
         });
     };
 
     // Handle removal of selected developer
-    
-    
-    
+
+
+
     const handleRemoveDeveloper = (value) => {
         setSelectedDevelopers((prev) => {
             const updatedSelected = prev.filter(dev => dev.name !== value);

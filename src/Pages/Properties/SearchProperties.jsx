@@ -6,6 +6,7 @@ import { NavBarProvider, useNavBar } from '../../Context/NavBarContext';
 import { PropertyDataProvider } from '../../Context/PropertyDataContext';
 import { motion } from 'framer-motion';
 import HeroPropertiesSectionModal from '../../Components/Hero/HeroSectionModal';
+import HeroPropertiesSectionModal2 from '../../Components/Hero/HeroSectionModal2';
 
 
 const SearchProperties = () => {
@@ -27,14 +28,14 @@ const SearchProperties = () => {
     <>
       <NavBarProvider>
         <PropertyDataProvider>
-          <HeroPropertiesSectionModal>
+          <HeroPropertiesSectionModal2>
 
-          <div className='w-full  text-center mt-32 sm:mt-52 mdm:mt-10   z-20'>
+          <div className='w-full  text-center mt-16 sm:mt-52 mdm:mt-10   z-20'>
         <HeroText/>
             <NavBar />
             <SearchBar />
             </div>
-          </HeroPropertiesSectionModal>
+          </HeroPropertiesSectionModal2>
           <HeroSearchSection />
         </PropertyDataProvider>
       </NavBarProvider>
@@ -68,7 +69,7 @@ const NavBar = () => {
   return (
       <>
 
-          <div className="flex   flex-row justify-center mt-5 text-[8px]  leading-[25px] sm:leading-[30px] sm:text-[12px] w-[200px]  xs:w-[200px] sm:w-[250px] mx-auto bg-white rounded-full z-40 ">
+          <div className="flex   flex-row justify-center mt-5 text-[8px]  leading-[25px] sm:leading-[30px] sm:text-[12px] w-[200px]  xs:w-[200px] sm:w-[250px] mx-auto  rounded-full z-40 bg-white  ">
               <div className="flex flex-row bgColor py-1 w-full justify-around items-center rounded-3xl ">
                   {
                       users.map((user) => {

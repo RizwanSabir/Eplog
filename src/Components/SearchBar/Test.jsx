@@ -1,28 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './index.css';
+import CustomLoader from '../Loaders/CustomLoader';
 
-const Test = () => {
+const SearchInput = ({ InputError, setInputError, InputData, setInputData }) => {
   const [query, setQuery] = useState('');
   const [locations, setLocations] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [controller, setController] = useState(null); // Store the AbortController
-  const [error, setError] = useState(''); // Error message state
-  const [noResults, setNoResults] = useState(false); // State to handle "No results found" after delay
+  const [controller, setController] = useState(null);
+  const [error, setError] = useState(InputError);
+  const [noResults, setNoResults] = useState(false);
+  const [lastResult, setLastResult] = useState([]);
+  const dropdownRef = useRef(null); // Ref to detect outside clicks
 
   const handleSearch = async () => {
-    if (query.length < 3) return; // Do not search if query is less than 3 characters
+    if (query.length < 3) return;
 
-    // Cancel the previous request if it exists
     if (controller) {
       controller.abort();
     }
 
-    // Create a new AbortController for the current request
     const newController = new AbortController();
     setController(newController);
 
     setLoading(true);
-    setNoResults(false); // Reset "No results" message while loading
+    setNoResults(false);
     try {
       const response = await fetch(`https://dataapi.pixxicrm.ae/pixxiapi/v1/search/${query}`, {
         method: 'POST',
@@ -34,13 +35,18 @@ const Test = () => {
           page: 1,
           size: 10,
         }),
-        signal: newController.signal, // Attach the abort signal
+        signal: newController.signal,
       });
+
       const data = await response.json();
-      if (data.statusCode === 200) {
+      if (data.statusCode === 200 && data.data.length > 0) {
         setLocations(data.data);
-      } else {
-        console.error("Failed to fetch locations:", data.message);
+        setLastResult(data.data);
+        setNoResults(false);
+      } else if (data.data.length === 0) {
+        setLocations(lastResult);
+        setNoResults(true);
+        setError("No results found for your search.");
       }
     } catch (error) {
       if (error.name !== 'AbortError') {
@@ -48,28 +54,54 @@ const Test = () => {
       }
     } finally {
       setLoading(false);
-
-      // After loading finishes, wait 2 seconds before checking for no results
-      setTimeout(() => {
-        if (locations.length === 0) {
-          setNoResults(true); // Show "No results found" if no locations are found
-        }
-      }, 2000);
     }
   };
 
   const handleInputChange = (event) => {
     const newQuery = event.target.value;
     setQuery(newQuery);
-    if (newQuery.length < 3) {
-      setError('Please enter at least 3 characters to search.');
-      setLocations([]); // Clear locations when input is too short
-      setNoResults(false); // Reset "No results" state
+
+    
+    
+    if (newQuery.length < 4) {
+      setInputError("Please enter at least 4 characters to search.");
+      setLocations([]);
+      setNoResults(false);
     } else {
-      setError(''); // Clear error when query length is valid
+      setInputError('');
       handleSearch();
     }
   };
+  const handleSelectLocation = (location) => {
+    console.log("Location data is:", location);
+
+    // Dynamically construct the input data object
+    const newInputData = {};
+    if (location.cityId) newInputData.cityIds = [location.cityId];
+    if (location.regionId) newInputData.regionIds = [location.regionId];
+    if (location.communityId) newInputData.communityIds = [location.communityId];
+
+    // Update the state
+    setInputData(newInputData);
+    setQuery(location.fullName);
+    setLocations([]);
+    setNoResults(false);
+};
+
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setLocations([]);
+    }
+  };
+
+  // Add event listener to detect clicks outside of the dropdown
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   // Cleanup on component unmount or re-render to cancel any ongoing requests
   useEffect(() => {
@@ -81,42 +113,39 @@ const Test = () => {
   }, [controller]);
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 bg-gray-100">
-      <div className="w-full">
-        <label htmlFor="location-input" className="block mb-2 text-sm font-medium text-gray-700">
-          Search Location
-        </label>
+    <div ref={dropdownRef}>
+      <input
+        className='ml-10 h-full xs:w-[200px] md:w-[350px] outline-none text-[14px] placeholder:text-[12px] sm:placeholder:text-[14px]'
+        type="text"
+        value={query}
+        onChange={handleInputChange}
+        placeholder="Type a city or region..."
+      />
+      {/* {error && <p className="text-sm text-red-500 mt-2">{error}</p>} */}
 
-        <input
-          id="location-input"
-          type="text"
-          value={query}
-          onChange={handleInputChange}
-          placeholder="Type a city or region..."
-        />
-        {error && <p className="text-sm text-red-500 mt-2">{error}</p>}
+      {noResults && query.length >= 3 && locations.length === 0 && (
+        <div className="px-4 py-2 text-sm text-gray-500">No further results found</div>
+      )}
 
-        {loading && <p className="text-sm text-gray-500 mt-2">Loading...</p>}
-
-        {noResults && query.length >= 3 && locations.length === 0 && (
-          <li className="px-4 py-2 text-sm text-gray-500">No results found</li>
-        )}
-
-        {!noResults && locations.length > 0 && (
-          <div className="mt-2 w-[200px] text-black bg-white absolute border overflow-y-scroll rounded scrollbar text-left h-[200px] flex flex-col z-[150]">
-            {locations.map((dev, index) => (
-              <div
-                key={index}
-                className="w-full cursor-pointer hover:bg-gray-200 pl-2 flex gap-y-2 items-center"
-              >
-                <p>{dev.fullName}</p>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+      {!noResults && locations.length > 0 ? (
+        <div className="mt-5 w-[200px] text-black bg-white absolute border overflow-y-scroll rounded scrollbar text-left h-[200px] flex flex-col z-[150]">
+          {locations.map((dev, index) => (
+            <div
+              key={index}
+              onClick={() => handleSelectLocation(dev)}
+              className="w-full cursor-pointer hover:bg-gray-200 pl-2 flex gap-y-2 items-center"
+            >
+              <p>{dev.fullName}</p>
+            </div>
+          ))}
+        </div>
+      ) : loading ? (
+        <div className="mt-2 w-[200px] text-black bg-white absolute border overflow-y-scroll rounded scrollbar text-left h-[200px] flex flex-col z-[150]">
+          <CustomLoader />
+        </div>
+      ) : ""}
     </div>
   );
 };
 
-export default Test;
+export default SearchInput;

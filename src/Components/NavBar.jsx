@@ -15,7 +15,7 @@ const Navbar = () => {
         { id: "/home", name: 'Home', link: `${ServerUrl}/` },
         { id: "/properties/", name: 'Properties', link: `${ServerUrl}/properties/` },
         { id: "/services/", name: 'Services', link: `${ServerUrl}/services/` },
-        { id: "/blogs/", name: 'Blogs', link: `${ServerUrl}/blogs/` },
+        // { id: "/blogs/", name: 'Blogs', link: `${ServerUrl}/blogs/` },
         { id: "/Career/", name: 'Career', link: `${ServerUrl}/Career/` },
         { id: "/about-us/", name: 'About us', link: `${ServerUrl}/about-us/` },
         { id: "/contact-us/", name: 'Contact Us', link: `${ServerUrl}/contact-us/` },

@@ -27,7 +27,7 @@ import Test from "./Components/SearchBar/Test";
 export default function App() {
     return (
       <>
-      <ScreenSizeDisplay/>
+      {/* <ScreenSizeDisplay/> */}
       <div className="max-w-[1580px] mx-auto">
       <Router>
             <Routes>
@@ -44,6 +44,7 @@ export default function App() {
                 <Route path="/" element={<Properties />} /> */}
                 {/* <Route path="/properties" element={<SearchProperties />} />  */}
                 {/* <Route path="/SearchProperties" element={<SearchProperties />} /> */}
+                <Route path="/" element={<SearchProperties />} />
                 <Route path="/properties" element={<SearchProperties />} />
                 <Route path="/property/new" element={<NewProperty />} />
                 <Route path="/property/buy" element={<BuyProperty />} />
