@@ -50,7 +50,7 @@ const ExploreProperties = () => {
 
                 <ScrollProperty User={User} Page={1} Image={{default:true}}  />
 
-                <div>
+                <div className="max-w-[1140px]  mx-auto">
                     <div className="bg-white w-[200px] h-[50px] rounded-full ml-auto flex justify-center gap-x-3 items-center ">
 
                         <a

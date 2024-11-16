@@ -17,7 +17,7 @@ const ContactIndex = () => {
 <HeroContactSection/>
 
 <div className=''>
-<div className=' flex flex-col md:flex-row justify-start  items-center mx-10'>
+<div className=' flex flex-col md:flex-row justify-start  items-center md:mx-44'>
 
     <ContactUs/>
     <ContactDetails/>

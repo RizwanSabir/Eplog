@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Hiring = () => {
     return (
         <>
-            <div className='mx-5 mt-10'>
-                <h1 className="text-2xl  font-bold ">Currently Hiring</h1>
+            <div className='mx-5  2xl:mt-[20px] '>
+                <h1 className="text-2xl md:text-3xl  text-center  font-bold ">Currently Hiring</h1>
             </div>
 
          <div className='my-10  "'>

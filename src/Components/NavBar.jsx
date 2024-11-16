@@ -74,7 +74,13 @@ const Navbar = () => {
                             >
                                 {item.name}
                             </a>
-                        ) : null
+                        ) :   <a
+                        key={index}
+                        href={item.link}
+                        className={`  font-bold text-[17px]  border-red-500  text-[#82DFDF]`}
+                    >
+                        {item.name}
+                    </a>
                     ))}
                 </div>
             </div>

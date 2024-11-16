@@ -5,6 +5,8 @@ import ServiceSection from './ServiceSection'
 import EplogSection from './EplogSection'
 import TeamSection from './TeamSection'
 import FooterMain from '../Footer/FooterMain'
+import NewsLetter from '../Footer/NewsLetter'
+import Footer from '../Footer/Footer'
 
 const About = () => {
   return (
@@ -22,7 +24,8 @@ const About = () => {
    <ServiceSection/>
    <EplogSection/>
    <TeamSection/>
-   <FooterMain/>
+  <NewsLetter/>
+  <Footer/>
    
    </>
   )

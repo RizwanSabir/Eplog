@@ -140,6 +140,8 @@ import ScreenSizeDisplay from '../../useCurrentScreenSize';
 
 import ReactPaginate from 'react-paginate';
 import FooterMain from '../../Pages/Footer/FooterMain';
+import NewsLetter from '../../Pages/Footer/NewsLetter';
+import Footer from '../../Pages/Footer/Footer';
 
 
 const HeroSearchSection = ({ HeroText }) => {
@@ -217,7 +219,7 @@ const HeroSearchSection = ({ HeroText }) => {
 
     return (
         <div className="text-[14px] px-4 h-fit xxs:mt-[200px] xl:mt-[200px]">
-            <h1 className="text-4xl font-bold mx-5">
+            <h1 className="text-4xl font-bold mx-5 text-center mt-[200px]">
                 Explore {PropertyData?.listingType === 'SELL' ? "Buy" : PropertyData?.listingType?.toLowerCase()} Properties
             </h1>
 
@@ -260,7 +262,8 @@ const HeroSearchSection = ({ HeroText }) => {
                             </div>
                         </>
                     )}
-                    <FooterMain/>
+                     <NewsLetter/>
+                     <Footer/>
                 </>
             )}
         </div>
@@ -289,7 +292,7 @@ const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
 
     return (
         <div
-            className="lg:ml-[100px] mt-[20px] overflow-x-scroll  flex scrollbar-hide ">
+            className="lg:ml-[100px] mt-[50px] overflow-x-scroll  flex scrollbar-hide  ">
             <div className="grid gap-2 sm:grid-cols-2 mdm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4  w-full justify-center">
                 {properties.map((property, index) => (
                     <div onClick={() => { handleClickItem(property.propertyId,Type,property.developerLogo) }} key={index} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] !w-[272px] mdm:!w-[250px] md:!w-[270px] overflow-hidden mb-9 relative  cursor-pointer" >

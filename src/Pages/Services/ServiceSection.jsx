@@ -11,7 +11,7 @@ const services = [
     description2: 'Whether you’re looking to purchase your dream home, sell your existing property, or find a suitable rental, our experienced team is here to assist you.',
     image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-1.svg',
     alt: 'Step 1',
-    link: 'https://eplogproperties.com/contact-us/',
+    link: '/properties/',
     linkText: 'Browse Properties'
   },
   {
@@ -21,7 +21,7 @@ const services = [
     description2: 'From tenant management to maintenance, our team is ready to manage all aspects of your property.',
     image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-2.svg',
     alt: 'Step 2',
-    link: 'https://eplogproperties.com/property-management/',
+    link: '/properties/',
     linkText: 'Learn More'
   },
   {
@@ -31,7 +31,7 @@ const services = [
     description2: 'From tenant management to maintenance, our team is ready to manage all aspects of your property.',
     image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-3.svg',
     alt: 'Step 2',
-    link: 'https://eplogproperties.com/property-management/',
+    link: '/properties/',
     linkText: 'Learn More'
   },
   {
@@ -41,7 +41,7 @@ const services = [
     description2: 'From tenant management to maintenance, our team is ready to manage all aspects of your property.',
     image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-4.svg',
     alt: 'Step 2',
-    link: 'https://eplogproperties.com/property-management/',
+    link: '/properties/',
     linkText: 'Learn More'
   },
   {
@@ -51,7 +51,7 @@ const services = [
     description2: 'From tenant management to maintenance, our team is ready to manage all aspects of your property.',
     image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-5.svg',
     alt: 'Step 2',
-    link: 'https://eplogproperties.com/property-management/',
+    link: '/properties/',
     linkText: 'Learn More'
   },
   {
@@ -61,7 +61,7 @@ const services = [
     description2: 'From tenant management to maintenance, our team is ready to manage all aspects of your property.',
     image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-6.svg',
     alt: 'Step 2',
-    link: 'https://eplogproperties.com/property-management/',
+    link: '/properties/',
     linkText: 'Learn More'
   },
   // Add more services as needed
@@ -161,7 +161,7 @@ const ServiceBox = ({ isOpen, onClick, service }) => {
               <div className="mt-5">
                 <a
                   href={service.link}
-                  className="bg-primary btn text-white py-2 px-5 rounded hover:bg-transparent hover:border-primary hover:text-primary"
+                  className="bg-primary btn text-white py-2 px-5 rounded hover:bg-transparent hover:border-primary hover:text-primary hover:outline hover:outline-[1px]"
                   target="_self"
                 >
                   {service.linkText}

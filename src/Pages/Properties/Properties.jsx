@@ -9,7 +9,6 @@ import NewsLetter from '../Footer/NewsLetter'
 import Footer from '../Footer/Footer'
 import MeetTeam from './MeetTeam'
 import ScreenSizeDisplay from '../../useCurrentScreenSize'
-import FooterMain from '../Footer/FooterMain'
 
 const Properties = () => {
   return (
@@ -21,8 +20,11 @@ const Properties = () => {
 <ExploreProperties/>
  {/* <MeetTeam/> 
  <Blog/> 
+ 
 <Podcasts/> */}
- <FooterMain/>
+ {/* <FooterMain/> */}
+ <NewsLetter/>
+ <Footer/>
 </>  
 
 )

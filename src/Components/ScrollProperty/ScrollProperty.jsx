@@ -142,32 +142,35 @@ const PropertyListingNEW = ({ properties, handleClickItem, Type, User, setUser, 
         <>
             <div className="flex justify-between">
 
-               <div className="shrink-0">
-               <NavBar User={User} setUser={setUser} Image={Image} />
+<div className="shrink-0">
+    <NavBar User={User} setUser={setUser} Image={Image} />
 
-               </div>
-                {Image?.default && <div className="line hidden md:flex ">
-                    <img
-                        src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line-black.svg"
-                        className="px-10"
-                        alt="dashed-line"
-                    />
-                </div>}
-
-
-                <div className=" flex  gap-x-4 justify-center md:justify-end">
-                    <div className="border border-black size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleBack}
-                        disabled={currentIndex === 0}>
-                        <i className="fa-solid fa-chevron-left"></i>
-                    </div>
-                    <div className="border border-black size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleNext}
-                        disabled={currentIndex === properties.length - 1}>
-                        <i className="fa-solid fa-chevron-right"></i>
-                    </div>
+</div>
+{Image?.default && <div className="line hidden md:flex ">
+    <img
+        src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line-black.svg"
+        className="px-10"
+        alt="dashed-line"
+    />
+</div>}
 
 
-                </div>
-            </div>
+<div className={` flex ${Image?.default ? 'text-white' : 'text-black'} gap-x-4 justify-center md:justify-end`}>
+    <div className={`border ${Image?.default ? 'border-white' : 'border-black'} size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleBack}`}
+        disabled={currentIndex === 0}>
+        <i className={`fa-solid ${Image?.default ? 'text-white' : 'text-black'}  fa-chevron-left`}></i>
+    </div>
+    <div
+        className={`border ${Image?.default ? 'border-white' : 'border-black'} size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleBack}`}
+
+        onClick={handleNext}
+        disabled={currentIndex === properties.length - 1}>
+        <i className={`fa-solid ${Image?.default ? 'text-white' : 'text-black'} fa-chevron-right`}></i>
+    </div>
+
+
+</div>
+</div>
 
 
 
@@ -339,12 +342,12 @@ const PropertyListingRENT = ({ properties, handleClickItem, Type, User, setUser,
     return (
         <>
 
-<div className="flex justify-between">
+            <div className="flex justify-between">
 
-               <div className="shrink-0">
-               <NavBar User={User} setUser={setUser} Image={Image} />
+                <div className="shrink-0">
+                    <NavBar User={User} setUser={setUser} Image={Image} />
 
-               </div>
+                </div>
                 {Image?.default && <div className="line hidden md:flex ">
                     <img
                         src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line-black.svg"
@@ -354,14 +357,17 @@ const PropertyListingRENT = ({ properties, handleClickItem, Type, User, setUser,
                 </div>}
 
 
-                <div className=" flex  gap-x-4 justify-center md:justify-end">
-                    <div className="border border-black size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleBack}
+                <div className={` flex ${Image?.default ? 'text-white' : 'text-black'} gap-x-4 justify-center md:justify-end`}>
+                    <div className={`border ${Image?.default ? 'border-white' : 'border-black'} size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleBack}`}
                         disabled={currentIndex === 0}>
-                        <i className="fa-solid fa-chevron-left"></i>
+                        <i className={`fa-solid ${Image?.default ? 'text-white' : 'text-black'}  fa-chevron-left`}></i>
                     </div>
-                    <div className="border border-black size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleNext}
+                    <div
+                        className={`border ${Image?.default ? 'border-white' : 'border-black'} size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleBack}`}
+
+                        onClick={handleNext}
                         disabled={currentIndex === properties.length - 1}>
-                        <i className="fa-solid fa-chevron-right"></i>
+                        <i className={`fa-solid ${Image?.default ? 'text-white' : 'text-black'} fa-chevron-right`}></i>
                     </div>
 
 

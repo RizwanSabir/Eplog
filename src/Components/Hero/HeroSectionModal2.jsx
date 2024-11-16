@@ -100,7 +100,7 @@ const HeroPropertiesSectionModal2 = ({ children }) => {
                                     className=" h-screen z-10  w-full absolute "
                                     
                                 >
-                                    <div className="absolute hidden xs:flex justify-end   w-full z-40 top-[60%] sm:top-[40%] mdm:top-[25%] md:top-[30%]  lg:top-[35%] xl:top-[40%]   p-4" style={{ height: "630px" }}>
+                                    {/* <div className="absolute hidden xs:flex justify-end   w-full z-40 top-[60%] sm:top-[40%] mdm:top-[25%] md:top-[30%]  lg:top-[35%] xl:top-[40%]   p-4" style={{ height: "630px" }}>
                                         <div className="flex flex-col space-y-2">
                                             {currentImages.map((_, index) => (
                                                 <div
@@ -110,7 +110,7 @@ const HeroPropertiesSectionModal2 = ({ children }) => {
                                                 ></div>
                                             ))}
                                         </div>
-                                    </div>
+                                    </div> */}
 
 
                                     <img className='-z-10 object-contain' src={`/images/${currentImage[0]}`} alt="" />
