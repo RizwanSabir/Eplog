@@ -140,16 +140,16 @@ const PropertyListingNEW = ({ properties, handleClickItem, Type, User, setUser, 
 
 
         <>
-            <div className="flex justify-between">
+            <div className="flex flex-col md:flex-row space-y-3 justify-center items-center md:justify-between">
 
-<div className="shrink-0">
+<div className="shrink-0 ">
     <NavBar User={User} setUser={setUser} Image={Image} />
 
 </div>
 {Image?.default && <div className="line hidden md:flex ">
     <img
         src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line-black.svg"
-        className="px-10"
+        className="px-10 hidden md:flex"
         alt="dashed-line"
     />
 </div>}
@@ -157,6 +157,7 @@ const PropertyListingNEW = ({ properties, handleClickItem, Type, User, setUser, 
 
 <div className={` flex ${Image?.default ? 'text-white' : 'text-black'} gap-x-4 justify-center md:justify-end`}>
     <div className={`border ${Image?.default ? 'border-white' : 'border-black'} size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleBack}`}
+    onClick={handleBack}
         disabled={currentIndex === 0}>
         <i className={`fa-solid ${Image?.default ? 'text-white' : 'text-black'}  fa-chevron-left`}></i>
     </div>

@@ -131,12 +131,12 @@ const HeroPropertiesSectionModal = ({ children }) => {
                                 <motion.div
                                     key={currentImage[1]}
                                     className=" h-screen z-10  w-full absolute "
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0.5, position: "absolute"  }}
+                                    // initial={{ opacity: 0 }}
+                                    // animate={{ opacity: 1 }}
+                                    // exit={{ opacity: 0.5, position: "absolute" ,right:0 }}
                                     transition={{ duration: 0.4 }}
                                 >
-                                    <div className="absolute hidden xs:flex justify-end   w-full z-40 top-[60%] sm:top-[40%] mdm:top-[25%] md:top-[30%]  lg:top-[35%] xl:top-[40%]   p-4" style={{ height: "630px" }}>
+                                    <div className="absolute hidden md:flex justify-end   w-full z-40 top-[60%] sm:top-[40%] mdm:top-[25%] md:top-[30%]  lg:top-[35%] xl:top-[40%]   p-4" style={{ height: "630px" }}>
                                         <div className="flex flex-col space-y-2">
                                             {currentImages.map((_, index) => (
                                                 <div

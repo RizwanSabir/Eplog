@@ -39,7 +39,7 @@ const HeroPropertiesSection = () => {
 
 
             {/* Hero Boxes */}
-            <div className="hidden md:flex    book-section z-10 mb-0  absolute bottom-0">
+            <div className="hidden lg:flex    book-section z-10 mb-0  absolute bottom-0">
                 <div className="booking-box w-[190px] h-[100px]">
                     <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/calender-icon.svg" width="40" className="mr-2 hidden  lg:block" />
                     <p className="mb-0">

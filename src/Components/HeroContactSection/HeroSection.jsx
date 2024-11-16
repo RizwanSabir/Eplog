@@ -4,7 +4,7 @@ import './index.css'
 import Navbar from '../NavBar';
 const HeroContactSection = ({HeroText}) => {
     const videoRef = useRef(null);
-    const [parentHeight, setParentHeight] = useState("420px");
+    const [parentHeight, setParentHeight] = useState("620px");
     const [videoSrc, setVideoSrc] = useState('');
 
     const updateParentHeight = () => {
@@ -73,7 +73,7 @@ const HeroContactSection = ({HeroText}) => {
                             {/* <video ref={videoRef} autoPlay playsInline muted loop className="w-full absolute -z-10" src={videoSrc}>
                                 Your browser does not support the video tag.
                             </video> */}
-                            <img className='absolute -z-10' src={videoSrc} ref={videoRef} alt="" />
+                            <img className='absolute -z-10 w-full' src={videoSrc} ref={videoRef} alt="" />
 
                             {/* Hero Text */}
                             <div className="w-full    flex flex-col justify-center items-center mdm:justify-start mdm:items-start sm:items-start h-full  mb-[85px] px-3 md:w-7/12 lg:w-7/12 md:pl-9 z-10 sm:mb-6 text-white  lg:mt-10">

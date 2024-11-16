@@ -219,7 +219,7 @@ const HeroSearchSection = ({ HeroText }) => {
 
     return (
         <div className="text-[14px] px-4 h-fit xxs:mt-[200px] xl:mt-[200px]">
-            <h1 className="text-4xl font-bold mx-5 text-center mt-[200px]">
+            <h1 className="text-4xl font-bold mx-5 text-center mt-[200px] mdm:mt-[0px] xl:mt-[300px] 2xl:mt-[250px]">
                 Explore {PropertyData?.listingType === 'SELL' ? "Buy" : PropertyData?.listingType?.toLowerCase()} Properties
             </h1>
 

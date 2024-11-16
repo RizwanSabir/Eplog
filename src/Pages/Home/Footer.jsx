@@ -22,20 +22,18 @@ const Footer = () => {
                             <div className=" footer-links grid grid-cols-2 gap-y-2 sm:grid-cols-4 lg:flex  lg:justify-between sm:gap-x-1 w-full sm:w-[450px] ">
 
                                 <ul>
-                                    <li> <a href="https://eplogproperties.com/about-us/" className=''>About us</a> </li>
-                                    <li> <a href="https://eplogproperties.com/services/">Services</a> </li>
+                                    <li> <a href="/about-us/" className=''>About us</a> </li>
+                                    <li> <a href="/services/">Services</a> </li>
                                 </ul>
                                 <ul>
-                                    <li> <a href="https://eplogproperties.com/career/">Career</a> </li>
-                                    <li> <a href="https://eplogproperties.com/contact-us/">Contact Us</a> </li>
+                                    <li> <a href="/career/">Career</a> </li>
+                                    <li> <a href="/contact-us/">Contact Us</a> </li>
                                 </ul>
                                 <ul>
-                                    <li> <a href="https://eplogproperties.com/properties/">Properties</a> </li>
-                                    <li> <a href="https://eplogproperties.com/consultation/">Consultation</a> </li>
+                                    <li> <a href="/properties/">Properties</a> </li>
+                                    <li> <a href="/contact-us/">Book Appointment</a> </li>
                                 </ul>
                                 <ul>
-                                    <li> <a href="https://eplogproperties.com/book-appointment/">Book Appointment</a> </li>
-                                    <li> <a href="https://eplogproperties.com/blogs/">Blogs</a> </li>
                                 </ul>
                                 <ul>
                                 </ul>
