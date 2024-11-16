@@ -109,7 +109,7 @@ const ContactUs = () => {
     };
   
     return (
-      <section className="py-12 bg-gray-100">
+      <section className="py-12 bg-gray-100 max-w-[1140px]  mx-auto">
         <div className="mx-2">
           <div className="flex flex-wrap">
             <div className="w-full mb-8">

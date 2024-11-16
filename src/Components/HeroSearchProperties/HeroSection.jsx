@@ -235,9 +235,9 @@ const HeroSearchSection = ({ HeroText }) => {
                     ) : (
                         <>
                             {PropertyData?.listingType === "NEW" ? 
-                                <PropertyListingNEW Type={PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} /> 
+                                <PropertyListingNEW key={Properties} Type={PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} /> 
                                 : 
-                                <PropertyListingRENT Type={PropertyData?.listingType === "SELL" ? 'buy' : PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} />
+                                <PropertyListingRENT key={Properties} Type={PropertyData?.listingType === "SELL" ? 'buy' : PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} />
                             }
 
                            <div className="justify-end select-none mt-6 react-paginate">

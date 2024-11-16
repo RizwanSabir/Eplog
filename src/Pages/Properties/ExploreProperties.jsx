@@ -21,18 +21,17 @@ const ExploreProperties = () => {
                 </h1>
                 <div className="max-w-[1140px]  mx-auto">
                     <div className=" flex justify-between items-center mt-10">
-                        <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-10  mdm:mt-10">
+                        <div className="max-w-[1140px]  mx-auto flex flex-col sm:flex-row items-center justify-center gap-10  mdm:mt-10">
                             <div className="w-[272px]  flex items-center  ">
-                                <NavBar User={User} setUser={setUser} />
 
                             </div>
-                            <div className="line hidden md:flex">
+                            {/* <div className="line hidden md:flex">
                                 <img
                                     src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line-black.svg"
                                     className="w-full"
                                     alt="dashed-line"
                                 />
-                            </div>
+                            </div> */}
 
                             {/* <div className=" flex  gap-x-4">
                                 <div className="border border-white size-[50px] rounded-full flex justify-center items-center text-white">
@@ -49,7 +48,7 @@ const ExploreProperties = () => {
                 </div>
 
 
-                <ScrollProperty User={User} Page={1} />
+                <ScrollProperty User={User} Page={1} Image={{default:true}}  />
 
                 <div>
                     <div className="bg-white w-[200px] h-[50px] rounded-full ml-auto flex justify-center gap-x-3 items-center ">
@@ -97,7 +96,7 @@ const NavBar = ({ User, setUser }) => {
 
                                 user[0] === User[0] ?
                                     (<WhiteBackground key={user} user={user} setUser={setUser}>
-                                        <motion.div className="absolute w-full bg-[#82DFDF] h-full top-0 left-0   rounded-full   -z-10" layoutId="trending" ></motion.div>
+                                        <motion.div className="absolute w-full bg-[#82DFDF] h-full top-0 left-0   rounded-full   -z-10" layoutId="explore" ></motion.div>
                                     </WhiteBackground>
 
 

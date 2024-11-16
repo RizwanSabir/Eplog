@@ -39,9 +39,9 @@ const TrendingProperties = () => {
                     </div>
                 </div>
 
-                <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-y-4 sm:gap-10  mdm:mt-10">
+                <div className=" max-w-[1140px]  mx-auto flex flex-col sm:flex-row items-center justify-between gap-y-4 sm:gap-10  mdm:mt-10  ">
                           <div className="w-[272px]  flex items-center  ">
-                          <NavBar User={User} setUser={setUser} />
+                          {/* <NavBar User={User} setUser={setUser} /> */}
 
                           </div>
                             
@@ -49,7 +49,7 @@ const TrendingProperties = () => {
                             
                         </div>
 
-                <ScrollProperty  User={User} Page={1}/>
+                <ScrollProperty  Page={1}/>
 
 
 
