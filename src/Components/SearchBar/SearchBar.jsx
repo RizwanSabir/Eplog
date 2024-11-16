@@ -151,12 +151,47 @@ const SearchBar = () => {
     //     // Optionally, update the property data in state
     //     setPropertyData({...searchParams,...InputData});
     // };
+    // const SearchProperties = () => {
+    //     // Process `selectedFilters` to extract only `id` values from arrays of objects
+    //     let searchParams;
+        
+    //     if(selectedFilters){
+    //         searchParams= Object.entries(selectedFilters).reduce((acc, [key, value]) => {
+    //             if (Array.isArray(value)) {
+    //                 // Map over array elements and extract the `id` if each element is an object
+    //                 acc[key] = value.map(item => (typeof item === 'object' && item !== null ? item.id : item));
+    //             } else {
+    //                 // For non-array values, directly set the value or `id` if it's an object
+    //                 acc[key] = typeof value === 'object' && value !== null ? value.id : value;
+    //             }
+    //             return acc;
+    //         }, {});
+    //     }
+    
+    //     // Add `listingType` to `searchParams` only if `InputData.cityId` is null
+    //     // if (!InputData.cityId && searchParams?.listingType) {
+    //         searchParams.listingType = User[1];
+    //     // }
+    
+    //     console.log("Selected filters for search button are:", { ...searchParams, ...InputData });
+    
+    //     // Convert the search parameters object to a query string
+    //     const queryString = new URLSearchParams(searchParams).toString();
+    
+    //     // Set the query string in the URL without navigation
+    //     const newUrl = `${window.location.pathname}?${queryString}`;
+    //     window.history.pushState(null, '', newUrl);
+    
+    //     // Optionally, update the property data in state
+    //     setPropertyData({ ...searchParams, ...InputData });
+    // };
+    
     const SearchProperties = () => {
         // Process `selectedFilters` to extract only `id` values from arrays of objects
-        let searchParams;
-        
-        if(selectedFilters){
-            searchParams= Object.entries(selectedFilters).reduce((acc, [key, value]) => {
+        let searchParams = {};
+    
+        if (selectedFilters) {
+            searchParams = Object.entries(selectedFilters).reduce((acc, [key, value]) => {
                 if (Array.isArray(value)) {
                     // Map over array elements and extract the `id` if each element is an object
                     acc[key] = value.map(item => (typeof item === 'object' && item !== null ? item.id : item));
@@ -168,8 +203,8 @@ const SearchBar = () => {
             }, {});
         }
     
-        // Add `listingType` to `searchParams` only if `InputData.cityId` is null
-        if (!InputData.cityId && searchParams?.listingType) {
+        // Ensure `listingType` exists in `searchParams`, defaulting to `User[1]` if absent
+        if (!searchParams.listingType) {
             searchParams.listingType = User[1];
         }
     
@@ -186,7 +221,6 @@ const SearchBar = () => {
         setPropertyData({ ...searchParams, ...InputData });
     };
     
-
     useEffect(() => {
         function mapDevelopers(propertyDeveloperIds, developerList) {
             return developerList.filter(developer => propertyDeveloperIds.includes(developer.id));
@@ -226,7 +260,7 @@ const SearchBar = () => {
                     <div className=' flex  xs:w-[300px] items-center '>
                         <img className='size-[20px] ml-2' src="/Svg/Search.svg" alt="" />
                         {/* <input className='ml-1 h-full w-[300px] sm:w-[700px] outline-none text-[14px] placeholder:text-[12px] sm:placeholder:text-[14px]' type="text" placeholder='Search by area or project name' /> */}
-                        <SearchInput InputError={InputError} setInputError={setInputError} InputData={InputData} setInputData={setInputData}/>
+                        <SearchInput initalValue={PropertyData.SearchName ||""} InputError={InputError} setInputError={setInputError} InputData={InputData} setInputData={setInputData}/>
 
                     </div>
 

@@ -10,27 +10,30 @@ import ScreenSizeDisplay from '../../useCurrentScreenSize';
 
 
 
+
+
+
+
+
+// import ReactPaginate from 'react-paginate';
+
 // const HeroSearchSection = ({ HeroText }) => {
 //     const { PropertyData } = usePropertyData();
 //     const [Properties, setProperties] = useState([]);
 //     const [loading, setLoading] = useState(true);
 //     const [page, setPage] = useState(1);
-//     const [isFetchingMore, setIsFetchingMore] = useState(false);
-//     const [hasMoreData, setHasMoreData] = useState(true); // New state to track if more data is available
+//     const [totalPages, setTotalPages] = useState(1); // Track total pages available
 
 //     const navigate = useNavigate();
 
-
 //     useEffect(() => {
-//         const controller = new AbortController(); // Create an AbortController instance
-//         const signal = controller.signal; // Get the signal from the controller
+//         const controller = new AbortController();
+//         const signal = controller.signal;
 
 //         const fetchProperties = async () => {
 //             setLoading(true);
-//             console.log("In listing data property data sent is ")
-//             console.log(PropertyData)
 //             try {
-//                 const PropertyList = await fetch('https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Eplog Properties', {
+//                 const response = await fetch('https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Eplog Properties', {
 //                     method: 'POST',
 //                     headers: {
 //                         'Content-Type': 'application/json',
@@ -38,70 +41,56 @@ import ScreenSizeDisplay from '../../useCurrentScreenSize';
 //                     },
 //                     body: JSON.stringify({
 //                         ...PropertyData,
-//                         "size": 12,
-//                         "page": page,
-                        
+//                         size: 12,
+//                         page,
 //                     }),
-//                     signal, // Pass the abort signal to the fetch request
+//                     signal,
 //                 });
 
-//                 if (!PropertyList.ok) {
+//                 if (!response.ok) {
 //                     throw new Error('Network response was not ok');
 //                 }
 
-//                 const DevelopersData = await PropertyList.json();
-              
-
-//                 // Check if fetched data is less than expected size
-//                 if (DevelopersData.data.list.length < 10) {
-//                     setHasMoreData(false); // No more data to load
-//                 }
-
-//                 // Append new properties or reset if PropertyData changed
-//                 setProperties((prevProperties) => [
-//                     ...prevProperties,
-//                     ...DevelopersData.data.list
-//                 ]);
+//                 const DevelopersData = await response.json();
+//                 setProperties(DevelopersData.data.list);
+//                 console.log("properties are")
+//                 console.log(Properties)
+//                 setTotalPages(Math.ceil(DevelopersData.data.totalSize/12)); // Set total pages based on response
 //             } catch (error) {
 //                 if (error.name !== 'AbortError') {
 //                     console.error("Error fetching developers:", error);
 //                 }
 //             } finally {
 //                 setLoading(false);
-//                 setIsFetchingMore(false);
 //             }
 //         };
 
 //         fetchProperties();
 
-//         // Cleanup function to abort the fetch request when the component unmounts or rerenders
 //         return () => {
 //             controller.abort();
 //         };
 //     }, [PropertyData, page]);
 
-//     // Reset Properties and page when PropertyData changes
 //     useEffect(() => {
 //         setProperties([]);
 //         setPage(1);
-//         setHasMoreData(true); // Reset the hasMoreData flag when PropertyData changes
 //     }, [PropertyData]);
 
 //     const handleClickItem = (propertyId, Type, DeveloperLogo) => {
 //         navigate(`/property/${Type}?propertyId=${propertyId}&dl=${DeveloperLogo}`);
 //     };
 
-//     const handleLoadMore = () => {
-//         setPage((prevPage) => prevPage + 1);
-//         setIsFetchingMore(true);
+//     const handlePageClick = ({ selected }) => {
+//         console.log("item is clicked")
+//         setPage(selected + 1); // ReactPaginate uses zero-based indexing
 //     };
 
 //     return (
-//         <div className="text-[14px] px-4 h-fit xxs:mt-[200px]   xl:mt-[200px]">
+//         <div className="text-[14px] px-4 h-fit xxs:mt-[200px] xl:mt-[200px]">
 //             <h1 className="text-4xl font-bold mx-5">
 //                 Explore {PropertyData?.listingType === 'SELL' ? "Buy" : PropertyData?.listingType?.toLowerCase()} Properties
 //             </h1>
-        
 
 //             {loading && !Properties.length ? (
 //                 <div className="mt-10">
@@ -109,24 +98,39 @@ import ScreenSizeDisplay from '../../useCurrentScreenSize';
 //                 </div>
 //             ) : (
 //                 <>
-//                     {PropertyData?.listingType === "NEW" ? 
-//                         <PropertyListingNEW Type={PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} /> 
-//                         : 
-//                         <PropertyListingRENT Type={PropertyData?.listingType ==="SELL"?'buy':PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} />
-//                     }
-
-//                     {isFetchingMore && loading && <CustomLoader />} {/* Loader for Load More button */}
-
-//                     {!loading && !isFetchingMore && hasMoreData && ( // Only show the button if there is more data
-//                         <div className="flex justify-center">
-//                             <button
-//                                 className="bg-[#82DFDF] mx-auto text-xl text-center rounded-3xl my-3 p-2 text-black font-bold w-[500px] py-3"
-//                                 onClick={handleLoadMore}
-//                                 disabled={isFetchingMore || !hasMoreData} // Disable if no more data
-//                             >
-//                                 {isFetchingMore ? 'Loading...' : 'Load More'}
-//                             </button>
+//                     {!loading && !Properties.length ? (
+//                         <div className="text-center mt-10">
+//                             <h2 className="text-2xl font-bold">No Properties Found</h2>
+//                             <p className="text-gray-500 mt-2">Try adjusting your search criteria.</p>
 //                         </div>
+//                     ) : (
+//                         <>
+//                             {PropertyData?.listingType === "NEW" ? 
+//                                 <PropertyListingNEW Type={PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} /> 
+//                                 : 
+//                                 <PropertyListingRENT Type={PropertyData?.listingType === "SELL" ? 'buy' : PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} />
+//                             }
+
+//                             <div className="flex  justify-center mt-6">
+//                                 <ReactPaginate
+//                                     previousLabel={"← Previous"}
+//                                     nextLabel={"Next →"}
+//                                     breakLabel={"..."}
+//                                     pageCount={totalPages}
+//                                     marginPagesDisplayed={2}
+//                                     pageRangeDisplayed={5}
+//                                     onPageChange={handlePageClick}
+//                                     containerClassName={"pagination"}
+//                                     activeClassName={"active"}
+//                                     previousClassName={"prev"}
+//                                     nextClassName={"next"}
+//                                     disabledClassName={"disabled"}
+//                                     pageClassName={"page"}
+//                                     breakClassName={"break"}
+                                    
+//                                 />
+//                             </div>
+//                         </>
 //                     )}
 //                 </>
 //             )}
@@ -134,82 +138,81 @@ import ScreenSizeDisplay from '../../useCurrentScreenSize';
 //     );
 // };
 
+import ReactPaginate from 'react-paginate';
+import FooterMain from '../../Pages/Footer/FooterMain';
+
 
 const HeroSearchSection = ({ HeroText }) => {
     const { PropertyData } = usePropertyData();
     const [Properties, setProperties] = useState([]);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
-    const [isFetchingMore, setIsFetchingMore] = useState(false);
-    const [hasMoreData, setHasMoreData] = useState(true); // Track if more data is available
+    const [totalPages, setTotalPages] = useState(1); // Track total pages available
+    const [abortController, setAbortController] = useState(null); // Keep track of the current AbortController
 
     const navigate = useNavigate();
 
     useEffect(() => {
+        // Cancel the previous request if there's an active controller
+        if (abortController) {
+            abortController.abort();
+        }
+
         const controller = new AbortController();
+        setAbortController(controller); // Save the new controller
         const signal = controller.signal;
 
         const fetchProperties = async () => {
             setLoading(true);
             try {
-                const PropertyList = await fetch('https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Eplog Properties', {
+                const response = await fetch('https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Eplog Properties', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-PIXXI-TOKEN': 'FjuseQnHvSZy4jTqs8EN6uHfRz85YGv-'
+                        'X-PIXXI-TOKEN': 'FjuseQnHvSZy4jTqs8EN6uHfRz85YGv-',
                     },
                     body: JSON.stringify({
                         ...PropertyData,
-                        "size": 12,
-                        "page": page,
+                        size: 12,
+                        page,
                     }),
                     signal,
                 });
 
-                if (!PropertyList.ok) {
+                if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
 
-                const DevelopersData = await PropertyList.json();
-
-                if (DevelopersData.data.list.length < 10) {
-                    setHasMoreData(false);
-                }
-
-                setProperties((prevProperties) => [
-                    ...prevProperties,
-                    ...DevelopersData.data.list,
-                ]);
+                const DevelopersData = await response.json();
+                setProperties(DevelopersData.data.list);
+                setTotalPages(Math.ceil(DevelopersData.data.totalSize / 12)); // Set total pages based on response
             } catch (error) {
                 if (error.name !== 'AbortError') {
                     console.error("Error fetching developers:", error);
                 }
             } finally {
                 setLoading(false);
-                setIsFetchingMore(false);
             }
         };
 
         fetchProperties();
 
         return () => {
-            controller.abort();
+            controller.abort(); // Cleanup when the effect is re-run
         };
-    }, [PropertyData, page]);
+    }, [PropertyData, page]); // Dependency on page ensures a new request on page change
 
     useEffect(() => {
         setProperties([]);
         setPage(1);
-        setHasMoreData(true);
     }, [PropertyData]);
 
     const handleClickItem = (propertyId, Type, DeveloperLogo) => {
         navigate(`/property/${Type}?propertyId=${propertyId}&dl=${DeveloperLogo}`);
     };
 
-    const handleLoadMore = () => {
-        setPage((prevPage) => prevPage + 1);
-        setIsFetchingMore(true);
+    const handlePageClick = ({ selected }) => {
+        setPage(selected + 1); // ReactPaginate uses zero-based indexing
     };
 
     return (
@@ -234,34 +237,35 @@ const HeroSearchSection = ({ HeroText }) => {
                             {PropertyData?.listingType === "NEW" ? 
                                 <PropertyListingNEW Type={PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} /> 
                                 : 
-                                <PropertyListingRENT Type={PropertyData?.listingType ==="SELL"?'buy':PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} />
+                                <PropertyListingRENT Type={PropertyData?.listingType === "SELL" ? 'buy' : PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} />
                             }
 
-                            {isFetchingMore && loading && <CustomLoader />}
-
-                            {!loading && !isFetchingMore && hasMoreData && (
-                                <div className="flex justify-center">
-                                    <button
-                                        className="bg-[#82DFDF] mx-auto text-xl text-center rounded-3xl my-3 p-2 text-black font-bold w-[500px] py-3"
-                                        onClick={handleLoadMore}
-                                        disabled={isFetchingMore || !hasMoreData}
-                                    >
-                                        {isFetchingMore ? 'Loading...' : 'Load More'}
-                                    </button>
-                                </div>
-                            )}
+                           <div className="justify-end select-none mt-6 react-paginate">
+                                <ReactPaginate
+                                    previousLabel={"← Previous"}
+                                    nextLabel={"Next →"}
+                                    breakLabel={"..."}
+                                    pageCount={totalPages}
+                                    marginPagesDisplayed={2}
+                                    pageRangeDisplayed={5}
+                                    onPageChange={handlePageClick}
+                                    containerClassName={"react-paginate"}
+                                    activeClassName={"active"}
+                                    previousClassName={"prev"}
+                                    nextClassName={"next"}
+                                    disabledClassName={"disabled"}
+                                    pageClassName={"page"}
+                                    breakClassName={"break"}
+                                />
+                            </div>
                         </>
                     )}
+                    <FooterMain/>
                 </>
             )}
         </div>
     );
 };
-
-
-
-
-
 
 
 
@@ -424,11 +428,11 @@ const PropertyListingRENT = ({ properties, handleClickItem,Type }) => {
                     <div onClick={() => { handleClickItem(property.propertyId,Type,property.developerLogo) }} key={index} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full mb-9 relative  cursor-pointer" style={{ width: "272px" }}>
 
                         {/* Div for Payment Plan */}
-                        {property.newParam?.paymentPlan ?
+                        {/* {property.newParam?.paymentPlan ?
                             <div className='absolute -right-2 h-[30px] text-white w-[120px] pl-1 rounded-s-lg rounded-t-lg top-6 bg-red-500 text-[10px] tracking-[0px]'>
                                 60 / 40 Payment Plan
                             </div>
-                            : ""}
+                            : ""} */}
 
                         {/* */}
 

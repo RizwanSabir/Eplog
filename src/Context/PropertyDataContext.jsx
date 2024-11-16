@@ -14,7 +14,12 @@ export const PropertyDataProvider = ({ children }) => {
         const updatedQueryParams = Object.keys(queryParams).reduce((acc, key) => {
             if (key === "listingType") {
                 acc[key] = queryParams[key];
-            } else if (typeof queryParams[key] === 'string' && queryParams[key].includes(',')) {
+            }else if (key === "SearchName") {
+                let words = queryParams[key].split(',');
+                words.pop(); // Remove the last word
+                acc[key] = words.join(','); // Join the remaining words back into a string
+            }
+             else if (typeof queryParams[key] === 'string' && queryParams[key].includes(',')) {
                 // Convert comma-separated strings to arrays
                 acc[key] = queryParams[key].split(',');
             } else {

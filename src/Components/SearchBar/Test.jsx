@@ -2,8 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import './index.css';
 import CustomLoader from '../Loaders/CustomLoader';
 
-const SearchInput = ({ InputError, setInputError, InputData, setInputData }) => {
-  const [query, setQuery] = useState('');
+const SearchInput = ({ InputError,initalValue, setInputError, InputData, setInputData }) => {
+  // print("Inistal value is")
+  // print(initalValue)
+  const [query, setQuery] = useState(initalValue);
   const [locations, setLocations] = useState([]);
   const [loading, setLoading] = useState(false);
   const [controller, setController] = useState(null);
@@ -80,6 +82,7 @@ const SearchInput = ({ InputError, setInputError, InputData, setInputData }) => 
     if (location.cityId) newInputData.cityIds = [location.cityId];
     if (location.regionId) newInputData.regionIds = [location.regionId];
     if (location.communityId) newInputData.communityIds = [location.communityId];
+    if (location.fullName) newInputData.SearchName = [location.fullName];
 
     // Update the state
     setInputData(newInputData);

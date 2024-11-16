@@ -105,4 +105,80 @@ img, svg {
     height: 118px;
 }
 
-
+/* General styling for the pagination container */
+.react-paginate {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center the pagination for better visibility */
+    list-style-type: none;
+    padding: 0 1rem;
+    gap: 8px;
+  }
+  
+  /* Style for each pagination item */
+  .react-paginate li {
+    display: inline-block;
+  }
+  
+  /* Style for the anchor tag inside each li */
+  .react-paginate li a {
+    border-radius: 7px;
+    padding: 0.1rem 1rem;
+    border: gray 1px solid;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+  }
+  
+  /* Style for previous, next, and break pagination items */
+  .react-paginate li.previous a,
+  .react-paginate li.next a,
+  .react-paginate li.break a {
+    border-color: transparent;
+  }
+  
+  /* Style for the active page */
+  .react-paginate li.active a {
+    background-color: #0366d6;
+    border-color: transparent;
+    color: white;
+    min-width: 32px;
+  }
+  
+  /* Style for disabled pagination items */
+  .react-paginate li.disabled a {
+    color: grey;
+  }
+  
+  .react-paginate li.disable,
+  .react-paginate li.disabled a {
+    cursor: default;
+  }
+  
+  /* Responsive adjustments for small screens */
+  @media (max-width: 768px) {
+    .react-paginate {
+      flex-wrap: wrap; /* Allow pagination items to wrap to the next line */
+      gap: 4px;
+      padding: 0 2rem; /* Adjust padding for smaller screens */
+    }
+  
+    .react-paginate li a {
+      padding: 0.1rem 0.5rem; /* Reduce padding for smaller buttons */
+      font-size: 0.9rem; /* Adjust font size for better fit */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .react-paginate {
+      padding: 0 1rem;
+    }
+  
+    .react-paginate li a {
+      padding: 0.1rem 0.3rem; /* Further reduce padding for very small screens */
+      font-size: 0.8rem;
+    }
+  }
+  
+  

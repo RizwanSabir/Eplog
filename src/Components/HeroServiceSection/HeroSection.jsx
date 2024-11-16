@@ -102,7 +102,7 @@ const HeroServiceSection = ({ HeroText }) => {
 
                                 </div>
 
-                                <div className="hidden md:flex  w-5/12 leading-[40px] ">
+                                {/* <div className="hidden md:flex  w-5/12 leading-[40px] ">
                                     <div className=" booking-box mx-auto  flex flex-col  w-10/12 px-6 pt-9 pb-9  h-fit">
 
                                         <p className='text-[27px] font-light'>Book a property  for evaluation</p>
@@ -145,8 +145,8 @@ const HeroServiceSection = ({ HeroText }) => {
                                     </div>
 
 
-                                </div>
-
+                                </div> */}
+<BookProperty/>
 
 
 
@@ -218,5 +218,143 @@ const TopNavigationTabLarge = () => {
     </>
 }
 
+
+
+import { useForm } from 'react-hook-form';
+
+const BookProperty = () => {
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const [isLoading, setIsLoading] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
+  
+    const onSubmit = async (data) => {
+      setIsLoading(true);
+      setSuccessMessage('');
+  
+      const payload = {
+
+        
+        name: data.name,
+        email: data.email,
+        phone: data.contactNumber,
+        
+
+
+
+
+         clientSource: "Eplog Properties",
+         extraData: {
+           Subject: "Service Tag",
+           address: data.address,
+           message: data.message
+         },
+         formId: "0bb607f0-5201-4578-a498-4ae16e901340",
+         "formName": "Contact US Buy",
+        
+        
+      };
+  
+      try {
+        const response = await fetch('https://dataapi.pixxicrm.ae/pixxiapi/webhook/v1/form', {
+          method: 'POST',
+          headers: {
+            "X-PIXXI-TOKEN": "FjuseQnHvSZy4jTqs8EN6uHfRz85YGv-",
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+  
+        const result = await response.json(); // Parse the JSON response
+        console.log("Result is")
+        console.log(result)
+        if (result.code!=500 && response.ok) {
+          setSuccessMessage('Form submitted successfully!');
+          reset();
+        } else {
+          // Display error message from the server
+          setSuccessMessage(result.message || 'Failed to submit the form. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        setSuccessMessage('An error occurred. Please try again.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+  
+    return (
+      <div className="hidden md:flex w-5/12 leading-[40px]">
+        <div className="booking-box mx-auto flex flex-col w-10/12 px-6 pt-9 pb-9 h-fit">
+          <p className="text-[27px] font-light">Book a property for evaluation</p>
+          <p className="text-[14px] mt-2 font-light">
+            Our roster of prospective clients, in-depth community information, and established trust are three factors that attract people to us.
+          </p>
+  
+          <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+            {/* Name Field */}
+            <input
+              className={`rounded-2xl px-3 py-[10px] w-full mt-1 placeholder:text-gray-400 placeholder:font-light focus:outline-none focus:ring-1 ${errors.name ? 'border-red-500 focus:ring-red-500' : 'focus:ring-gray-500'} text-black font-light`}
+              type="text"
+              placeholder="Name"
+              {...register('name', { required: 'Name is required' })}
+            />
+            {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+  
+            {/* Email Field */}
+            <input
+              className={`rounded-2xl px-3 py-[10px] w-full mt-1 placeholder:text-gray-400 placeholder:font-light focus:outline-none focus:ring-1 ${errors.email ? 'border-red-500 focus:ring-red-500' : 'focus:ring-gray-500'} text-black font-light`}
+              type="email"
+              placeholder="Enter your email address"
+              {...register('email', {
+                required: 'Email is required',
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: 'Invalid email address',
+                },
+              })}
+            />
+            {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+  
+            {/* Contact Number Field */}
+            <input
+              className={`rounded-2xl px-3 py-[10px] w-full mt-1 placeholder:text-gray-400 placeholder:font-light focus:outline-none focus:ring-1 ${errors.contactNumber ? 'border-red-500 focus:ring-red-500' : 'focus:ring-gray-500'} text-black font-light`}
+              type="text"
+              placeholder="Enter Your Contact Number"
+              {...register('contactNumber', { required: 'Contact number is required' })}
+            />
+            {errors.contactNumber && <p className="text-red-500 text-sm">{errors.contactNumber.message}</p>}
+  
+            {/* Address Field */}
+            <input
+              className={`rounded-2xl px-3 py-[10px] w-full mt-1 placeholder:text-gray-400 placeholder:font-light focus:outline-none focus:ring-1 ${errors.address ? 'border-red-500 focus:ring-red-500' : 'focus:ring-gray-500'} text-black font-light`}
+              type="text"
+              placeholder="Enter your address"
+              {...register('address', { required: 'Address is required' })}
+            />
+            {errors.address && <p className="text-red-500 text-sm">{errors.address.message}</p>}
+  
+            {/* Submit Button */}
+            <div className="mr-auto mt-3">
+              <button
+                type="submit"
+                className="bg-primary btn text-white py-2 px-5 rounded hover:bg-transparent hover:border-primary hover:text-primary"
+                disabled={isLoading}
+              >
+                {isLoading ? 'Submitting...' : 'Submit'}
+              </button>
+            </div>
+          </form>
+          {successMessage && (
+            <p className={`text-center mt-4 ${successMessage.includes('successfully') ? 'text-green-500' : 'text-red-500'}`}>
+              {successMessage}
+            </p>
+          )}
+        </div>
+      </div>
+    );
+  };
+  
+  
+  
 
 export default HeroServiceSection;

@@ -133,7 +133,7 @@ import HeroPropertiesSectionModal from '../Hero/HeroSectionModal';
 const HeroAboutSection = ({ HeroText }) => {
 
 
-
+    const url = `${import.meta.env.VITE_REACT_APP_BASE_URL}`;
 
     return (
         <>
@@ -154,12 +154,12 @@ const HeroAboutSection = ({ HeroText }) => {
                     {/* Buttons */}
                     <div className="mt-12 sm:mt-12 mdm:mt-9 text-[2px] mdm:text-[14px] flex flex-col gap-4 sm:flex-row">
                         <div>
-                            <a href="https://eplogproperties.com/contact-us/" className="bg-primary btn text-white sm:py-2 sm:px-5 rounded hover:bg-transparent hover:border-primary hover:text-primary" target="_self">
+                            <a href={`${url}/contact-us/`} className="bg-primary btn text-white sm:py-2 sm:px-5 rounded hover:bg-transparent hover:border-primary hover:text-primary" target="_self">
                                 Get In Touch
                             </a>
                         </div>
                         <div>
-                            <a href="#" className="btn border border-white text-white sm:py-2 sm:px-4 rounded hover:border-white hover:text-black hover:bg-white" target="_self">
+                            <a href={`${url}/contact-us/`} className="btn border border-white text-white sm:py-2 sm:px-4 rounded hover:border-white hover:text-black hover:bg-white" target="_self">
                                 Learn More
                             </a>
                         </div>
