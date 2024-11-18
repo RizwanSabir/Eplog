@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './index.css';
 import CustomLoader from '../Loaders/CustomLoader';
+import { usePropertyData } from '../../Context/PropertyDataContext';
 
-const SearchInput = ({ InputError,initalValue, setInputError, InputData, setInputData }) => {
-  // print("Inistal value is")
-  // print(initalValue)
-  const [query, setQuery] = useState(initalValue);
+const SearchInput = ({ InputError, setInputError, InputData, setInputData }) => {
+
+  const { PropertyData, setPropertyData } = usePropertyData();
+  const [query, setQuery] = useState(PropertyData?.name||""); // Default to an empty string
   const [locations, setLocations] = useState([]);
   const [loading, setLoading] = useState(false);
   const [controller, setController] = useState(null);
@@ -13,6 +14,20 @@ const SearchInput = ({ InputError,initalValue, setInputError, InputData, setInpu
   const [noResults, setNoResults] = useState(false);
   const [lastResult, setLastResult] = useState([]);
   const dropdownRef = useRef(null); // Ref to detect outside clicks
+
+
+// // Update query when initialValue changes
+useEffect(() => {
+  console.log("Property data in text file is")
+  console.log(PropertyData)
+  if (PropertyData?.name!== query) {
+      const Inputdatanew=handleInputData(PropertyData)
+      setQuery(PropertyData?.name);
+      setInputData(Inputdatanew)
+  }
+  
+}, [PropertyData]);
+
 
   const handleSearch = async () => {
     if (query.length < 3) return;
@@ -23,7 +38,7 @@ const SearchInput = ({ InputError,initalValue, setInputError, InputData, setInpu
 
     const newController = new AbortController();
     setController(newController);
-
+    setError('')
     setLoading(true);
     setNoResults(false);
     try {
@@ -75,21 +90,41 @@ const SearchInput = ({ InputError,initalValue, setInputError, InputData, setInpu
     }
   };
   const handleSelectLocation = (location) => {
-    console.log("Location data is:", location);
+ 
 
     // Dynamically construct the input data object
     const newInputData = {};
     if (location.cityId) newInputData.cityIds = [location.cityId];
     if (location.regionId) newInputData.regionIds = [location.regionId];
     if (location.communityId) newInputData.communityIds = [location.communityId];
-    if (location.fullName) newInputData.SearchName = [location.fullName];
+    if (location.communityId) newInputData.fullName = location.fullName;
 
-    // Update the state
+    let name = location.fullName.split(',');
+                if (name.length > 1) {
+                    name.pop(); // Remove the last word
+                }
+                name = name.join(','); // Join back as a string
+    if (location.fullName) newInputData.name = name;
+
     setInputData(newInputData);
     setQuery(location.fullName);
     setLocations([]);
     setNoResults(false);
 };
+  const handleInputData = (PropertyData) => {
+ 
+
+    // Dynamically construct the input data object
+    const newInputData = {};
+    if (PropertyData.cityId) newInputData.cityIds = [PropertyData.cityId];
+    if (PropertyData.regionId) newInputData.regionIds = [PropertyData.regionId];
+    if (PropertyData.communityId) newInputData.communityIds = [PropertyData.communityId];
+    if (PropertyData.name) newInputData.name = PropertyData.name;
+
+    return newInputData
+};
+
+
 
 
   const handleClickOutside = (event) => {
@@ -126,8 +161,8 @@ const SearchInput = ({ InputError,initalValue, setInputError, InputData, setInpu
       />
       {/* {error && <p className="text-sm text-red-500 mt-2">{error}</p>} */}
 
-      {noResults && query.length >= 3 && locations.length === 0 && (
-        <div className="px-4 py-2 text-sm text-gray-500">No further results found</div>
+      {noResults && query.length >= 3 && locations.length === 0 || (error) && (
+        <div className="text-sm text-red-500 mt-2">No further results found</div>
       )}
 
       {!noResults && locations.length > 0 ? (

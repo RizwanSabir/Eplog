@@ -13,11 +13,11 @@ import SearchInput from './Test';
 const SearchBar = () => {
 
     // Here get all the query params if there exists 
-   
+
     const { PropertyData, setPropertyData } = usePropertyData();
     const [UseFilter, setUseFilter] = useState(Boolean(PropertyData && Object.keys(PropertyData).length > 0));
- const [InputError, setInputError] = useState('')
- const [InputData, setInputData] = useState('')
+    const [InputError, setInputError] = useState('')
+    const [InputData, setInputData] = useState('')
 
 
 
@@ -95,8 +95,7 @@ const SearchBar = () => {
                 const DevelopersData = await DevelopersList.json();
                 if (DevelopersData.statusCode === 200) {
                     const developersList = DevelopersData.data.list.map(dev => ({ id: dev.id + "", name: dev.name }));
-                    console.log("Developer List using Fetch predefined is")
-                    console.log(developersList)
+                    
                     setDevelopers(developersList); // Store only id and name
                 } else {
                     console.error("Failed to fetch developers");
@@ -126,69 +125,11 @@ const SearchBar = () => {
 
 
 
-    // const SearchProperties = () => {
-    //     // Process `selectedFilters` to extract only `id` values from arrays of objects
-    //     const searchParams = Object.entries(selectedFilters).reduce((acc, [key, value]) => {
-    //         if (Array.isArray(value)) {
-    //             // Map over array elements and extract the `id` if each element is an object
-    //             acc[key] = value.map(item => (typeof item === 'object' && item !== null ? item.id : item));
-    //         } else {
-    //             // For non-array values, directly set the value or `id` if it's an object
-    //             acc[key] = typeof value === 'object' && value !== null ? value.id : value;
-    //         }
-    //         return acc;
-    //     }, { listingType: User[1] });
 
-    //     console.log("Selected filters for search button are:", {...searchParams,...InputData});
-
-    //     // Convert the search parameters object to a query string
-    //     const queryString = new URLSearchParams(searchParams).toString();
-
-    //     // Set the query string in the URL without navigation
-    //     const newUrl = `${window.location.pathname}?${queryString}`;
-    //     window.history.pushState(null, '', newUrl);
-
-    //     // Optionally, update the property data in state
-    //     setPropertyData({...searchParams,...InputData});
-    // };
-    // const SearchProperties = () => {
-    //     // Process `selectedFilters` to extract only `id` values from arrays of objects
-    //     let searchParams;
-        
-    //     if(selectedFilters){
-    //         searchParams= Object.entries(selectedFilters).reduce((acc, [key, value]) => {
-    //             if (Array.isArray(value)) {
-    //                 // Map over array elements and extract the `id` if each element is an object
-    //                 acc[key] = value.map(item => (typeof item === 'object' && item !== null ? item.id : item));
-    //             } else {
-    //                 // For non-array values, directly set the value or `id` if it's an object
-    //                 acc[key] = typeof value === 'object' && value !== null ? value.id : value;
-    //             }
-    //             return acc;
-    //         }, {});
-    //     }
-    
-    //     // Add `listingType` to `searchParams` only if `InputData.cityId` is null
-    //     // if (!InputData.cityId && searchParams?.listingType) {
-    //         searchParams.listingType = User[1];
-    //     // }
-    
-    //     console.log("Selected filters for search button are:", { ...searchParams, ...InputData });
-    
-    //     // Convert the search parameters object to a query string
-    //     const queryString = new URLSearchParams(searchParams).toString();
-    
-    //     // Set the query string in the URL without navigation
-    //     const newUrl = `${window.location.pathname}?${queryString}`;
-    //     window.history.pushState(null, '', newUrl);
-    
-    //     // Optionally, update the property data in state
-    //     setPropertyData({ ...searchParams, ...InputData });
-    // };
-    
     const SearchProperties = () => {
         // Process `selectedFilters` to extract only `id` values from arrays of objects
         let searchParams = {};
+        let searchParams2 = {};
     
         if (selectedFilters) {
             searchParams = Object.entries(selectedFilters).reduce((acc, [key, value]) => {
@@ -203,21 +144,38 @@ const SearchBar = () => {
             }, {});
         }
     
+        if (InputData) {
+            searchParams2 = Object.entries(InputData).reduce((acc, [key, value]) => {
+                if (Array.isArray(value)) {
+                    // Map over array elements and extract the `id` if each element is an object
+                    acc[key] = value.map(item => (typeof item === 'object' && item !== null ? item.id : item));
+                } else {
+                    // For non-array values, directly set the value or `id` if it's an object
+                    acc[key] = typeof value === 'object' && value !== null ? value.id : value;
+                }
+                return acc;
+            }, {});
+        }
+        
         // Ensure `listingType` exists in `searchParams`, defaulting to `User[1]` if absent
         if (!searchParams.listingType) {
             searchParams.listingType = User[1];
         }
+      
     
-        console.log("Selected filters for search button are:", { ...searchParams, ...InputData });
+        // Combine both searchParams and searchParams2
+     
+        const combinedParams = { ...searchParams, ...searchParams2 };
     
-        // Convert the search parameters object to a query string
-        const queryString = new URLSearchParams(searchParams).toString();
+        console.log("Input data  is")
+        console.log(InputData)
+        // Optionally, update the property data in state
+        // Convert the combined search parameters object to a query string
+        const queryString = new URLSearchParams(combinedParams).toString();
     
         // Set the query string in the URL without navigation
         const newUrl = `${window.location.pathname}?${queryString}`;
         window.history.pushState(null, '', newUrl);
-    
-        // Optionally, update the property data in state
         setPropertyData({ ...searchParams, ...InputData });
     };
     
@@ -249,7 +207,7 @@ const SearchBar = () => {
         }
     }, [PropertyData]);
 
-
+let Value=PropertyData?.name
 
     return (
         <>
@@ -260,7 +218,7 @@ const SearchBar = () => {
                     <div className=' flex  xs:w-[300px] items-center '>
                         <img className='size-[20px] ml-2' src="/Svg/Search.svg" alt="" />
                         {/* <input className='ml-1 h-full w-[300px] sm:w-[700px] outline-none text-[14px] placeholder:text-[12px] sm:placeholder:text-[14px]' type="text" placeholder='Search by area or project name' /> */}
-                        <SearchInput initalValue={PropertyData.SearchName ||""} InputError={InputError} setInputError={setInputError} InputData={InputData} setInputData={setInputData}/>
+                        <SearchInput  InputError={InputError} setInputError={setInputError} InputData={InputData} setInputData={setInputData} />
 
                     </div>
 
@@ -276,7 +234,7 @@ const SearchBar = () => {
                     </div>
 
 
-                 
+
                 </div>
                     : ""}
 
@@ -299,7 +257,7 @@ const SearchBar = () => {
                     <div className='bg-white mx-auto relative xs:w-[290px]  md:w-[500px]  rounded-xl  flex border   py-2'>
                         <img className='absolute  top-[35%] left-3' src="/Svg/Search.svg" alt="" />
                         {/* <input className='ml-10 h-full xs:w-[200px] md:w-[700px] outline-none text-[14px] placeholder:text-[12px] sm:placeholder:text-[14px]' type="text" placeholder='Search by area or project name' /> */}
-<SearchInput InputError={InputError} setInputError={setInputError} InputData={InputData} setInputData={setInputData}/>
+                        <SearchInput InputError={InputError} setInputError={setInputError} InputData={InputData} setInputData={setInputData} />
 
                         {/* <h1 className=' hidden sm:flex bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { SearchProperties() }}  >Search  </h1> */}
 
@@ -356,135 +314,6 @@ const SearchBar = () => {
 
 
 
-const DropFilter = ({ Name, Value, developers, handleFilterChange, Obj, QuerySelect }) => {
-    const [selectedDevelopers, setSelectedDevelopers] = useState(QuerySelect || []); // Store selected developers
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Manage dropdown visibility
-    const [searchTerm, setSearchTerm] = useState(''); // Store search term
-    const dropdownRef = useRef(null); // Ref for the dropdown
-
-
-
-    // Handle the change of developer selection
-    const handleSelectChange = (value) => {
-        setSelectedDevelopers((prev) => {
-            let updatedSelected;
-            if (prev.includes(value)) {
-                updatedSelected = prev.filter(dev => dev !== value); // Remove if already selected
-            } else {
-                updatedSelected = [...prev, value]; // Add if not selected
-            }
-            handleFilterChange(Value, updatedSelected); // Update filter
-            return updatedSelected;
-        });
-    };
-
-    // Handle removal of selected developer
-    const handleRemoveDeveloper = (value) => {
-        setSelectedDevelopers((prev) => {
-            const updatedSelected = prev.filter(dev => dev !== value);
-            handleFilterChange(Value, updatedSelected); // Update filter with the updated list
-            return updatedSelected;
-        });
-    };
-
-    // Close dropdown if clicked outside
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setIsDropdownOpen(false);
-            }
-        };
-
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
-
-    // Filter developers based on the search term
-    const filteredDevelopers = developers.filter(dev =>
-        dev.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    return (
-        <motion.div
-            key={isDropdownOpen}
-            animate={{ height: "auto" }}
-            transition={{ duration: 0.5 }}
-            className='text-[#bebec0] select-none mt-5'
-            ref={dropdownRef} // Attach ref to the dropdown div
-        >
-
-            <div className='relative'>
-                <div
-                    className={`w-full text-left flex py-1 px-2 border rounded cursor-pointer ${selectedDevelopers.length >= 1 ? 'scrollbarX' : ''} overflow-y-auto`}
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                >
-
-
-                    {/* Display all selected developers with a close button */}
-                    <div className='flex gap-x-2 z-50 flex-shrink-0'>
-                        {selectedDevelopers.length > 0 ? (
-                            selectedDevelopers.map((dev, index) => (
-                                <div key={index} className='border-[#82DFDF] border px-2 rounded max-h-fit flex flex-shrink-0'>
-                                    <span className='flex items-center'>
-                                        <span className='text-[#82DFDF]'>{Obj ? dev[1] : dev}</span>
-                                        <button
-                                            onClick={(e) => {
-                                                e.stopPropagation(); // Prevent dropdown toggle
-                                                handleRemoveDeveloper(dev);
-                                            }}
-                                            className="ml-2 text-[#82DFDF]"
-                                            title="Remove"
-                                        >
-                                            <i className="fa-solid fa-times"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                            ))
-                        ) : (
-                            isDropdownOpen ? '' : Name
-                        )}
-                    </div>
-
-
-                    {/* Search input */}
-                    {isDropdownOpen && (
-                        <input
-                            type="text"
-                            className="w-full  px-2 py-1  rounded text-black outline-none  flex flex-shrink-0"
-                            placeholder={`Search ${Name} ...`}
-                            value={searchTerm}
-                            onClick={(e) => e.stopPropagation()} // Prevent closing dropdown on input click
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
-                    )}
-
-
-                </div>
-
-                {isDropdownOpen && (
-                    <div className="mt-2 text-black bg-white absolute border overflow-auto z-[150] rounded w-full text-left h-[200px] flex flex-col scrollbar"> {/* Add scrollbar class here */}
-                        {filteredDevelopers.map((dev, index) => (
-                            <div
-                                key={index}
-                                className="w-full cursor-pointer hover:bg-gray-200 pl-2 flex gap-x-2 items-center"
-                                onClick={() => handleSelectChange(dev)}
-                            >
-                                {/* Show a tick if the developer is selected */}
-                                {selectedDevelopers.includes(dev) && (
-                                    <i className="fa-solid fa-check" style={{ color: "#63E6BE" }}></i>
-                                )}
-                                <p>{dev}</p>
-                            </div>
-                        ))}
-                    </div>
-                )}
-
-            </div>
-        </motion.div>
-    );
-};
 
 
 
@@ -509,26 +338,7 @@ const CustomDropFilter = ({ Name, Value, developers, handleFilterChange, QuerySe
     const [searchTerm, setSearchTerm] = useState(''); // Store search term
     const dropdownRef = useRef(null); // Ref for the dropdown
 
-    // Handle the change of developer selection
-    // const handleSelectChange = (value) => {
-
-    //     setSelectedDevelopers((prev) => {
-    //         let updatedSelected;
-    //         console.log("Previous value is  ")
-    //         console.log(prev)
-    //         if (prev.includes(value)) {
-    //             updatedSelected = prev.filter(dev => dev.name !== value.name); // Remove if already selected
-    //         } else {
-    //             updatedSelected = [...prev, value]; // Add if not selected
-    //         }
-    //         // Create an array of selected developer IDs (or names, if that's what you need)
-    //         const selectedIds = updatedSelected.map(dev => dev.id); // Assuming each developer has an 'id' property
-
-    //         handleFilterChange(Value, selectedIds); // Update filter with selected IDs
-    //         return updatedSelected;
-    //     });
-    // };
-
+  
     const handleSelectChange = (value) => {
         setSelectedDevelopers((prev) => {
             let updatedSelected;
@@ -644,7 +454,7 @@ const CustomDropFilter = ({ Name, Value, developers, handleFilterChange, QuerySe
                         {filteredDevelopers.map((dev, index) => (
                             <div
                                 key={index}
-                                className="w-full cursor-pointer hover:bg-gray-200 pl-2 flex gap-x-2 items-center"
+                                className="w-full cursor-pointer hover:bg-gray-200 pl-2 flex gap-x-2 items-center border-y-[1px] border-[#F1F1F1]"
                                 onClick={() => handleSelectChange(dev)}
                             >
                                 {/* Show a tick if the developer is selected */}

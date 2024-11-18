@@ -9,25 +9,28 @@ import NewsLetter from '../Footer/NewsLetter'
 import Footer from '../Footer/Footer'
 import MeetTeam from './MeetTeam'
 import ScreenSizeDisplay from '../../useCurrentScreenSize'
-
+import { PropertyDataProvider } from '../../Context/PropertyDataContext';
 const Properties = () => {
   return (
-<>
+    <>
 
-<HeroPropertiesSection/> 
- <PatnerSection/>
- <TrendingProperties/> 
-<ExploreProperties/>
- {/* <MeetTeam/> 
+      <PropertyDataProvider>
+        <HeroPropertiesSection />
+      </PropertyDataProvider>
+
+      <PatnerSection />
+      <TrendingProperties />
+      <ExploreProperties />
+      {/* <MeetTeam/> 
  <Blog/> 
  
 <Podcasts/> */}
- {/* <FooterMain/> */}
- <NewsLetter/>
- <Footer/>
-</>  
+      {/* <FooterMain/> */}
+      <NewsLetter />
+      <Footer />
+    </>
 
-)
+  )
 }
 
 export default Properties

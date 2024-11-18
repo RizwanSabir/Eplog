@@ -147,7 +147,8 @@ import Footer from '../../Pages/Footer/Footer';
 const HeroSearchSection = ({ HeroText }) => {
     const { PropertyData } = usePropertyData();
     const [Properties, setProperties] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true); // Initial load
+const [fetching, setFetching] = useState(false); // For data updates
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1); // Track total pages available
     const [abortController, setAbortController] = useState(null); // Keep track of the current AbortController
@@ -165,7 +166,8 @@ const HeroSearchSection = ({ HeroText }) => {
         const signal = controller.signal;
 
         const fetchProperties = async () => {
-            setLoading(true);
+            setFetching(true); // Set fetching state to true
+    setLoading(true);
             try {
                 const response = await fetch('https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Eplog Properties', {
                     method: 'POST',
@@ -193,7 +195,8 @@ const HeroSearchSection = ({ HeroText }) => {
                     console.error("Error fetching developers:", error);
                 }
             } finally {
-                setLoading(false);
+                setLoading(false); // Main loading finishes
+                setFetching(false); // Data fetching finishes
             }
         };
 
@@ -222,14 +225,13 @@ const HeroSearchSection = ({ HeroText }) => {
             <h1 className="text-4xl font-bold mx-5 text-center mt-[200px] mdm:mt-[0px] xl:mt-[300px] 2xl:mt-[250px]">
                 Explore {PropertyData?.listingType === 'SELL' ? "Buy" : PropertyData?.listingType?.toLowerCase()} Properties
             </h1>
-
-            {loading && !Properties.length ? (
+            {(loading || fetching) && !Properties.length ? (
                 <div className="mt-10">
                     <CustomLoader />
                 </div>
             ) : (
                 <>
-                    {!loading && !Properties.length ? (
+                    {!loading && !fetching && !Properties.length ? (
                         <div className="text-center mt-10">
                             <h2 className="text-2xl font-bold">No Properties Found</h2>
                             <p className="text-gray-500 mt-2">Try adjusting your search criteria.</p>
@@ -262,8 +264,7 @@ const HeroSearchSection = ({ HeroText }) => {
                             </div>
                         </>
                     )}
-                     <NewsLetter/>
-                     <Footer/>
+                    
                 </>
             )}
         </div>

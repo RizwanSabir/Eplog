@@ -140,10 +140,6 @@ const SearchBar = () => {
         navigate(`/properties?${queryString}`);
     };
 
-    useEffect(() => { 
-console.log("Input data is")
-console.log(InputData)
-     },[InputData])
 
 
     return (

@@ -7,6 +7,8 @@ import { PropertyDataProvider } from '../../Context/PropertyDataContext';
 import { motion } from 'framer-motion';
 import HeroPropertiesSectionModal from '../../Components/Hero/HeroSectionModal';
 import HeroPropertiesSectionModal2 from '../../Components/Hero/HeroSectionModal2';
+import NewsLetter from '../Footer/NewsLetter';
+import Footer from '../Footer/Footer';
 
 
 const SearchProperties = () => {
@@ -39,6 +41,8 @@ const SearchProperties = () => {
           <HeroSearchSection />
         </PropertyDataProvider>
       </NavBarProvider>
+      <NewsLetter/>
+      <Footer/>
     </>
   );
 };
