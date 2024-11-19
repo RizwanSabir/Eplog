@@ -48,7 +48,7 @@ const NewsLetter = () => {
 
   return (
     <>
-      <section className="newsletter-section py-20 ">
+      <section className="newsletter-section py-20 rounded-t-xl ">
         <div className="max-w-[1140px] mx-auto">
           <div className="flex justify-center">
             <div className="flex flex-col sm:flex-row items-center justify-center max-w-3xl w-full mx-10 lg:mx-0">

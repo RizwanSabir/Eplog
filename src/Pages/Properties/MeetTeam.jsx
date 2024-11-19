@@ -10,7 +10,7 @@ const MeetTeam = () => {
 
   return (
     <>
-      <div className='mt-20 mx-10'>
+      <div className='mt-20 mx-10 max-w-[1140px]  mx-auto'>
 
         
 

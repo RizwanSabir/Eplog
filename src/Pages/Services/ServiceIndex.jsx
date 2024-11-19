@@ -4,6 +4,8 @@ import HeroServiceSection from '../../Components/HeroServiceSection/HeroSection'
 import ServiceSection from './ServiceSection'
 import ScreenSizeDisplay from '../../Hooks/useCurrentScreenSize'
 import FooterMain from '../Footer/FooterMain'
+import NewsLetter from '../Footer/NewsLetter'
+import Footer from '../Footer/Footer'
 
 const ServiceIndex = () => {
   return (
@@ -12,7 +14,8 @@ const ServiceIndex = () => {
 {/* <ScreenSizeDisplay/> */}
 <HeroServiceSection/>
 <ServiceSection/>
-<FooterMain/>
+<NewsLetter/>
+<Footer/>
 
 </>
 

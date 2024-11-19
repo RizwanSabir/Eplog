@@ -8,7 +8,7 @@ const PartnerSection = () => {
 			<div className="flex flex-col md:flex-row">
 				<div className="w-full md:w-2/3">
 					<h1 className="text-2xl md:text-4xl font-bold text-primary">
-						Rooted in trustworthiness, knowledge, and commitment, we are your dedicated partner in UAE real estate.
+					At Eplog Properties, we are dedicated to being knowledgeable, trustworthy, and committed in everything we do
 					</h1>
 				</div>
 				<div className="w-full md:w-1/3 mt-6 md:mt-0">

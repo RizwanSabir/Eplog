@@ -17,7 +17,7 @@ const ContactIndex = () => {
 <HeroContactSection/>
 
 <div className=''>
-<div className=' flex flex-col md:flex-row justify-start  items-center md:mx-44'>
+<div className=' flex flex-col md:flex-row justify-start  items-center md:ml-32 md:mr-10'>
 
     <ContactUs/>
     <ContactDetails/>
@@ -37,7 +37,7 @@ const ContactIndex = () => {
 const ContactDetails = () => {
   return (
     <div className="col-span-12 md:col-span-4 lg:col-span-5 mt-5 ">
-      <div className="contact-details pl-0 md:pl-3 lg:pl-5">
+      <div className="contact-details pl-0 md:pl-3 ">
         <div className="flex items-center gap-2 mb-3 md:mb-4">
           <img
             src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/call-icon.svg"
@@ -54,9 +54,14 @@ const ContactDetails = () => {
             width="30"
             alt="WhatsApp Icon"
           />
-          <a className="contact-text" href="tel:971552477432">
-            +971 55 247 7432
-          </a>
+         <div> 
+         <p className="contact-text">
+          +971 58 883 4756
+          </p>
+          <p className="contact-text">
+          +971 55 247 7432
+          </p>
+         </div>
         </div>
         <div className="flex items-center gap-2 mb-3 md:mb-4">
           <img
@@ -65,7 +70,8 @@ const ContactDetails = () => {
             alt="Map Icon"
           />
           <p className="mb-0 contact-text">
-            1915 Binary Tower Business Bay Dubai UAE
+            1118 & 1121 Tamani Arts Offices, Business Bay. Dubai UAE
+
           </p>
         </div>
         <div className="flex items-center gap-2 mb-3 md:mb-4">
@@ -75,7 +81,7 @@ const ContactDetails = () => {
             alt="Email Icon"
           />
           <a className="contact-text" href="mailto:Admin@eplogproperties.com">
-            Admin@eplogproperties.com
+            admin@eplogproperties.com
           </a>
         </div>
       </div>

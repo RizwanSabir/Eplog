@@ -27,6 +27,7 @@ const SearchBar = () => {
     const [developers, setDevelopers] = useState([]); // State for developers list
     const [QueryDeveloper, setQueryDeveloper] = useState(''); // State for developers list
     const [QueryPropertyType, setQueryPropertyType] = useState(''); // State for developers list
+    const [QueryBedRoomNum, setQueryBedRoomNum] = useState(''); // State for developers list
 
 
 
@@ -95,7 +96,7 @@ const SearchBar = () => {
                 const DevelopersData = await DevelopersList.json();
                 if (DevelopersData.statusCode === 200) {
                     const developersList = DevelopersData.data.list.map(dev => ({ id: dev.id + "", name: dev.name }));
-                    
+
                     setDevelopers(developersList); // Store only id and name
                 } else {
                     console.error("Failed to fetch developers");
@@ -107,8 +108,13 @@ const SearchBar = () => {
         fetchDevelopers();
     }, []);
 
-    // const Status = ['Post HandOver']
-    // const Rooms = Array.from({ length: 20 }, (_, i) => `${i + 1}`);
+    const bedRoomNum = Array.from({ length: 20 }, (_, i) => ({
+        id: `${i + 1}`, // String representation of the number
+        name: i + 1 + ""    // Integer value
+    }));
+
+    // Adding 'Studio' to the front of the array
+    bedRoomNum.unshift({ id: 'Studio', name: 'Studio' });
 
 
 
@@ -130,7 +136,7 @@ const SearchBar = () => {
         // Process `selectedFilters` to extract only `id` values from arrays of objects
         let searchParams = {};
         let searchParams2 = {};
-    
+
         if (selectedFilters) {
             searchParams = Object.entries(selectedFilters).reduce((acc, [key, value]) => {
                 if (Array.isArray(value)) {
@@ -143,7 +149,7 @@ const SearchBar = () => {
                 return acc;
             }, {});
         }
-    
+
         if (InputData) {
             searchParams2 = Object.entries(InputData).reduce((acc, [key, value]) => {
                 if (Array.isArray(value)) {
@@ -156,29 +162,29 @@ const SearchBar = () => {
                 return acc;
             }, {});
         }
-        
+
         // Ensure `listingType` exists in `searchParams`, defaulting to `User[1]` if absent
         if (!searchParams.listingType) {
             searchParams.listingType = User[1];
         }
-      
-    
+
+
         // Combine both searchParams and searchParams2
-     
+
         const combinedParams = { ...searchParams, ...searchParams2 };
-    
+
         console.log("Input data  is")
         console.log(InputData)
         // Optionally, update the property data in state
         // Convert the combined search parameters object to a query string
         const queryString = new URLSearchParams(combinedParams).toString();
-    
+
         // Set the query string in the URL without navigation
         const newUrl = `${window.location.pathname}?${queryString}`;
         window.history.pushState(null, '', newUrl);
         setPropertyData({ ...searchParams, ...InputData });
     };
-    
+
     useEffect(() => {
         function mapDevelopers(propertyDeveloperIds, developerList) {
             return developerList.filter(developer => propertyDeveloperIds.includes(developer.id));
@@ -207,7 +213,21 @@ const SearchBar = () => {
         }
     }, [PropertyData]);
 
-let Value=PropertyData?.name
+    useEffect(() => {
+        function mapDevelopers(propertyDeveloperIds, developerList) {
+            return developerList.filter(developer => propertyDeveloperIds.includes(developer.id));
+        }
+
+        if (PropertyData?.bedRoomNum && PropertyData.bedRoomNum.length > 0) {
+            const result = mapDevelopers(PropertyData.bedRoomNum, bedRoomNum);
+            setQueryBedRoomNum(result);
+        } else {
+            // Optionally clear the QuerySelect if developerIds is empty or undefined
+            setQueryBedRoomNum([]);
+        }
+    }, [PropertyData]);
+
+
 
     return (
         <>
@@ -218,7 +238,7 @@ let Value=PropertyData?.name
                     <div className=' flex  xs:w-[300px] items-center '>
                         <img className='size-[20px] ml-2' src="/Svg/Search.svg" alt="" />
                         {/* <input className='ml-1 h-full w-[300px] sm:w-[700px] outline-none text-[14px] placeholder:text-[12px] sm:placeholder:text-[14px]' type="text" placeholder='Search by area or project name' /> */}
-                        <SearchInput  InputError={InputError} setInputError={setInputError} InputData={InputData} setInputData={setInputData} />
+                        <SearchInput InputError={InputError} setInputError={setInputError} InputData={InputData} setInputData={setInputData} />
 
                     </div>
 
@@ -269,7 +289,7 @@ let Value=PropertyData?.name
                     {/* Filter Fields */}
                     <div className="bg-white  rounded-lg w-full sm:w-[400px]  md:w-[800px] z-50 ">
 
-                        <div className="grid  sm:grid-cols-2  gap-x-2    relative   sm:w-[400px] mx-auto">
+                        <div className={`grid  grid-cols-2 ${User[1] != 'NEW' ? 'md:grid-cols-3' : 'md:grid-cols-2'}   gap-x-2    relative   md:w-[600px] mx-auto `}>
                             {/* Location */}
 
 
@@ -278,7 +298,7 @@ let Value=PropertyData?.name
 
                             <CustomDropFilter Name="Developers" Value="developerIds" developers={developers} handleFilterChange={handleFilterChange} QuerySelect={QueryDeveloper} />
                             <CustomDropFilter Name="Property Type" Value="propertyType" developers={PropertyType} handleFilterChange={handleFilterChange} QuerySelect={QueryPropertyType} />
-
+                            {User[1] != 'NEW' ? <CustomDropFilter Name="Rooms " Value="bedRoomNum" developers={bedRoomNum} handleFilterChange={handleFilterChange} QuerySelect={QueryBedRoomNum} /> : ""}
                             {/* <DropFilter Name="HandOver Year" Value="dateStart" developers={Years} handleFilterChange={handleFilterChange} /> */}
                             {/* <DropFilter Name="All Payment" value="" developers={Status} handleFilterChange={handleFilterChange} /> */}
 
@@ -338,7 +358,7 @@ const CustomDropFilter = ({ Name, Value, developers, handleFilterChange, QuerySe
     const [searchTerm, setSearchTerm] = useState(''); // Store search term
     const dropdownRef = useRef(null); // Ref for the dropdown
 
-  
+
     const handleSelectChange = (value) => {
         setSelectedDevelopers((prev) => {
             let updatedSelected;

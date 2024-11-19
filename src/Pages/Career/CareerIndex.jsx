@@ -13,6 +13,9 @@ const CareerIndex = () => {
 
 {/* <ScreenSizeDisplay/> */}
 <HeroCareerSection/>
+<div>
+  
+</div>
 <Hiring/>
 <NewsLetter/>
 <Footer/>

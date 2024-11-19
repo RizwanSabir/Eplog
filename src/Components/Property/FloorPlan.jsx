@@ -9,9 +9,10 @@ const FloorPlan = ({floorPlans}) => {
   // const floorPlans = JSON.parse(string);
 
   // State to track selected bedroom type
-  const [selectedType, setSelectedType] = useState(floorPlans[0].name);
+  const [selectedType, setSelectedType] = useState(floorPlans[0]?.name);
   const [selectedPlan, setSelectedPlan] = useState(null); // To handle the selected plan for modal
-
+console.log("floor plan is  ")
+console.log(floorPlans)
   // Extract unique bedroom types for button generation
   const uniqueTypes = [...new Set(floorPlans.map((plan) => plan.name))];
 

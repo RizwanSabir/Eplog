@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import Navbar from '../Properties/NavBar';
+
 import SearchBar from '../Properties/SearchBar';
 import { AnimatePresence, motion } from 'framer-motion';
 import ContactUs from '../Footer/ContactUs';
@@ -18,6 +18,7 @@ import TruncatedText from '../../Components/Property/TruncatedText';
 import SliderComponentNew from '../../Components/Property/SliderComponentNew';
 import ScrollProperty from '../../Components/ScrollProperty/ScrollProperty';
 import BookVisit from './BookVisit';
+import Navbar from '../../Components/NavBar';
 
 const NewProperty = ({ HeroText }) => {
     const [searchParams] = useSearchParams();
@@ -26,7 +27,8 @@ const NewProperty = ({ HeroText }) => {
     const [loading, setLoading] = useState(true);
     const propertyId = searchParams.get('propertyId');
     const DeveloperLogo = searchParams.get('dl');
-    console.log(propertyId)
+    console.log(" proerty details are ")
+    console.log(PropertyDetail)
 
     const formatPrice = (price) => {
         if (price >= 1_000_000) {
@@ -57,7 +59,7 @@ const NewProperty = ({ HeroText }) => {
 
                 const DevelopersData = await DevelopersList.json();
                 if (DevelopersData.statusCode === 200) {
-                    console.log(DevelopersData.data)
+                   
                     setPropertyDetail(DevelopersData.data)
 
                 } else {
@@ -79,7 +81,7 @@ const NewProperty = ({ HeroText }) => {
 
 
     const handleBack = () => {
-        console.log("Search is Clicked")
+  
         navigate('/SearchProperties');
     };
 
@@ -409,7 +411,7 @@ const PropertyDetails = ({ property, DeveloperLogo }) => {
 
                 const DevelopersData = await DevelopersList.json();
                 if (DevelopersData.statusCode === 200) {
-                    console.log(DevelopersData.data)
+                  
                     setPropertyDetail(DevelopersData.data)
 
                 } else {

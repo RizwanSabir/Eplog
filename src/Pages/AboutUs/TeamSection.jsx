@@ -15,28 +15,28 @@ const TeamSection = () => {
   const teammates = [
     {
       name: 'Saliq Zahoor',
-      designation: 'Managing Director',
-      phone: '+971 55-2404551',
+      designation: 'FOUNDER',
+      phone: '+971  55  247  7432',
       email: 'saliq@eplogproperties.com',
       linkedIn: 'https://www.linkedin.com/',
       image: 'https://eplogproperties.com/wp-content/uploads/2023/10/1-1.svg',
-      description1: 'Saliq is highly regarded as a professional in the real estate industry, having gained extensive experience since 2013. He is known for his honesty, knowledge, and experience, and has received numerous recommendations on LinkedIn from satisfied clients.',
-      description2: 'In addition to his role as a real estate agent, Saliq’s background as a construction engineer enables him to offer valuable guidance to private real estate developers, covering aspects from land acquisition to development and sales.'
+      description1: 'I have been in the industry since 2013, and in addition to my role as a real estate agent buying and selling for clients , my qualification and experience as a construction engineer enables me to offer valuable guidance to private real estate developers, covering aspects from land acquisition, design, feasibility study, development, and sales. ',
+      description2: 'My integrity, personalized approach, and comprehensive skill set have earned me a reputation as a trusted advisor in the industry.'
     },
     {
-      name: 'Anife',
-      designation: 'Managing Director',
-      phone: '+971 55-2404551',
-      email: 'saliq@eplogproperties.com',
+      name: 'Anife Osmanova ',
+      designation: 'CEO | CO-FOUNDER ',
+      phone: '+971  55  482  6366',
+      email: 'anife@eplogproperties.com',
       linkedIn: 'https://www.linkedin.com/',
       image: 'https://eplogproperties.com/wp-content/uploads/2023/10/2-1.svg',
-      description1: 'Saliq is highly regarded as a professional in the real estate industry, having gained extensive experience since 2013. He is known for his honesty, knowledge, and experience, and has received numerous recommendations on LinkedIn from satisfied clients.',
-      description2: 'In addition to his role as a real estate agent, Saliq’s background as a construction engineer enables him to offer valuable guidance to private real estate developers, covering aspects from land acquisition to development and sales'
+      description1: 'Anife has been a prominent figure in the Dubai real estate market for over a decade, consistently delivering exceptional results and a proven track record of closing deals worth hundreds of millions of dirhams. Known for a personalized and attentive approach, Anife goes beyond the transaction to truly understand each client’s unique needs and financial goals. ',
+      description2: 'This commitment ensures that every property deal is carefully tailored to meet specific requirements, whether it involves apartments, villas, luxury properties, or commercial spaces. With a stellar reputation and an impressive portfolio of successful transactions, Anife has earned the trust of clients and is widely regarded as the go-to agent in the market.'
     }
   ];
 
   return (
-    <section className="team-section pb-0 ">
+    <section className="team-section pb-0   mx-5">
       <div className="container mx-auto">
         <div className="mb-4 mb-md-3">
           <h1 className=" text-center text-[20px] md:text-[50px]  md:my-20 font-semibold">Meet the team</h1>
@@ -180,82 +180,82 @@ className="w-full md:w-1/2  text-[14px] leading-[21px] bg-[#374957] text-white">
         </div>
       </div> */}
 
-<div>
-      {teammates.map((teammate, index) => (
-        <div key={index} className="block md:hidden mt-[1px]">
-          <div>
-            <h2>
-              <div
-                className={`flex justify-between items-center gap-2 pr-2 pt-1 ${index===1?'bg-[#7C3EFF] text-white':'bg-[#82DFDF]'}`}
-                onClick={() => toggleAccordion(index)}
-              >
-                <div className="flex gap-x-2">
-                  <img
-                    className="w-[100px] mt-auto mr-auto transform "
-                    style={{ transform: "rotateY(175deg)" }}
-                    src={teammate.image}
-                    alt={teammate.name}
-                  />
-                  <div className="mt-2 pb-3">
-                    <p className="text-2xl font-semibold">{teammate.name}</p>
-                    <p className="text-lg font-semibold">{teammate.designation}</p>
-                  </div>
-                </div>
-                <div className="flex items-end flex-col flex-shrink">
-                  <div className={`${index===0?'bg-[#75C8C8]':'bg-[#9665FF]'} w-[2px] h-[60px] mr-[2px]`}></div>
-                  <div className="flex gap-x-2 mt-3">
-                    <p className="text-sm w-[70px]">Read more</p>
-                    <i className="fas fa-chevron-down text-sm"></i>
-                  </div>
-                </div>
-              </div>
-            </h2>
-            <AnimatePresence>
-              {openAccordion === index && (
-                <motion.div
-                  initial={{ height: 0 }}
-                  animate={{ height: 'auto' }}
-                  exit={{ height: 0 ,opacity:0}}
-                  transition={{ duration: 0.3 }}
-                  className="w-full text-[14px] leading-[21px] bg-[#374957] text-white"
+      <div>
+        {teammates.map((teammate, index) => (
+          <div key={index} className="block md:hidden ">
+            <div>
+              <h2>
+                <div
+                  className={`flex justify-between items-center gap-2 pr-2 pt-1 ${index === 1 ? 'bg-[#7C3EFF] text-white' : 'bg-[#82DFDF]'}`}
+                  onClick={() => toggleAccordion(index)}
                 >
-                  <div className="flex justify-between p-4">
-                    <p className="mb-0">
-                      <span className="text-[#FFCB2B]">P:</span>{' '}
-                      <a
-                        href={`tel:${teammate.phone}`}
-                        className="text-yellow-500"
-                      >
-                        {teammate.phone}
-                      </a>{' '}
-                      |{' '}
-                      <span className="text-[#FFCB2B]">E:</span>{' '}
-                      <a
-                        href={`mailto:${teammate.email}`}
-                        className="text-yellow-500"
-                      >
-                        {teammate.email}
-                      </a>
-                    </p>
-                    <p className="mb-0">
-                      <a href={teammate.linkedIn}>
-                        <i className="fa fa-linkedin"></i>
-                      </a>
-                    </p>
+                  <div className="flex gap-x-2">
+                    <img
+                      className="w-[100px] mt-auto mr-auto transform "
+                      style={{ transform: "rotateY(175deg)" }}
+                      src={teammate.image}
+                      alt={teammate.name}
+                    />
+                    <div className="mt-2 pb-3">
+                      <p className="text-2xl font-semibold">{teammate.name}</p>
+                      <p className="text-lg font-semibold">{teammate.designation}</p>
+                    </div>
                   </div>
-                  <div className="h-[1px] bg-white px-4"></div>
-                  <p className="p-4">{teammate.description1}</p>
-                  <p className="mt-1 p-4">{teammate.description2}</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  <div className="flex items-end flex-col flex-shrink">
+                    <div className={`${index === 0 ? 'bg-[#75C8C8]' : 'bg-[#9665FF]'} w-[2px] h-[60px] mr-[2px]`}></div>
+                    <div className="flex gap-x-2 mt-3">
+                      <p className="text-sm w-[70px]">Read more</p>
+                      <i className="fas fa-chevron-down text-sm"></i>
+                    </div>
+                  </div>
+                </div>
+              </h2>
+              <AnimatePresence>
+                {openAccordion === index && (
+                  <motion.div
+                    initial={{ height: 0 }}
+                    animate={{ height: 'auto' }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full text-[14px] leading-[21px] bg-[#374957] text-white"
+                  >
+                    <div className="flex justify-between p-4">
+                      <p className="mb-0">
+                        <span className="text-[#FFCB2B]">P:</span>{' '}
+                        <a
+                          href={`tel:${teammate.phone}`}
+                          className="text-yellow-500"
+                        >
+                          {teammate.phone}
+                        </a>{' '}
+                        |{' '}
+                        <span className="text-[#FFCB2B]">E:</span>{' '}
+                        <a
+                          href={`mailto:${teammate.email}`}
+                          className="text-yellow-500"
+                        >
+                          {teammate.email}
+                        </a>
+                      </p>
+                      <p className="mb-0">
+                        <a href={teammate.linkedIn}>
+                          <i className="fa fa-linkedin"></i>
+                        </a>
+                      </p>
+                    </div>
+                    <div className="h-[1px] bg-white px-4"></div>
+                    <p className="p-4">{teammate.description1}</p>
+                    <p className="mt-1 p-4">{teammate.description2}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
-  
+        ))}
+      </div>
 
-      
+
+
       {/* End of Mobile section */}
     </section>
   );
@@ -270,10 +270,10 @@ export default TeamSection;
 
 const Teammate = ({ name, designation, phone, email, linkedIn, image, description1, description2, Swap }) => {
   return (
-    <div className="team-data-divider">
-      <div className="teammate-data pt-[60px] ">
+    <div className="team-data-divider  my-3">
+      <div className="teammate-data pt-[60px]  rounded-xl">
         <div className="container mx-auto">
-          <div className={`flex items-center  ${Swap ? 'flex-row-reverse' : ''}`}>
+          <div className={`flex items-center  ${Swap ? 'flex-row-reverse ml-28' : ''} `}>
             <div className="w-full mt-auto md:w-1/2 ">
               <img className={`w-[80%] ${Swap ? 'ml-auto' : 'mr-auto'}`} src={image} alt={name} />
             </div>

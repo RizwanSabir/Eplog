@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import Navbar from '../Properties/NavBar';
+
 import SearchBar from '../Properties/SearchBar';
 import { AnimatePresence, motion } from 'framer-motion';
 import ContactUs from '../Footer/ContactUs';
@@ -18,6 +18,7 @@ import SliderComponentBuy from '../../Components/Property/SliderComponentBuy';
 import SliderComponentNew from '../../Components/Property/SliderComponentNew';
 import ScrollProperty from '../../Components/ScrollProperty/ScrollProperty';
 import BookVisit from './BookVisit';
+import Navbar from '../../Components/NavBar';
 
 
 const RentProperty = ({ HeroText }) => {

@@ -21,6 +21,7 @@ import SellProperty from "./Pages/Property/RentProperty";
 import RentProperty from "./Pages/Property/RentProperty";
 import ScreenSizeDisplay from "./useCurrentScreenSize";
 import Test from "./Components/SearchBar/Test";
+import WhatsappLink from "./Components/WhatsappLink/WhatsappLink";
 
 
 
@@ -29,6 +30,9 @@ export default function App() {
       <>
       {/* <ScreenSizeDisplay/> */}
       <div className="max-w-[1580px] mx-auto">
+
+<WhatsappLink/>
+
       <Router>
             <Routes>
                 <Route path="/" element={<Properties />} />

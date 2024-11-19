@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import Navbar from '../Properties/NavBar';
+
 import SearchBar from '../Properties/SearchBar';
 import { AnimatePresence, motion } from 'framer-motion';
 import ContactUs from '../Footer/ContactUs';
@@ -18,6 +18,7 @@ import SliderComponentBuy from '../../Components/Property/SliderComponentBuy';
 import ScrollProperty from '../../Components/ScrollProperty/ScrollProperty';
 import { useForm } from 'react-hook-form';
 import BookVisit from './BookVisit';
+import Navbar from '../../Components/NavBar';
 
 const BuyProperty1 = ({ HeroText }) => {
     const [searchParams] = useSearchParams();
