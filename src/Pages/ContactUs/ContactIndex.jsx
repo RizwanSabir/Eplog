@@ -148,7 +148,7 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="py-12 bg-gray-100">
+    <section className="pb-12 bg-gray-100">
       <div className="mx-2">
         <div className="flex flex-wrap">
           <div className="w-full mb-8">

@@ -48,7 +48,7 @@ export default function App() {
                 <Route path="/" element={<Properties />} /> */}
                 {/* <Route path="/properties" element={<SearchProperties />} />  */}
                 {/* <Route path="/SearchProperties" element={<SearchProperties />} /> */}
-                <Route path="/" element={<SearchProperties />} />
+                {/* <Route path="/" element={<SearchProperties />} /> */}
                 <Route path="/properties" element={<SearchProperties />} />
                 <Route path="/property/new" element={<NewProperty />} />
                 <Route path="/property/buy" element={<BuyProperty />} />

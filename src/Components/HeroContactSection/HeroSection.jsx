@@ -4,7 +4,7 @@ import './index.css'
 import Navbar from '../NavBar';
 const HeroContactSection = ({HeroText}) => {
     const videoRef = useRef(null);
-    const [parentHeight, setParentHeight] = useState("620px");
+    const [parentHeight, setParentHeight] = useState("520px");
     const [videoSrc, setVideoSrc] = useState('');
 
     const updateParentHeight = () => {
