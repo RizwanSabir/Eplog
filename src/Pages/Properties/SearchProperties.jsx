@@ -18,7 +18,7 @@ const SearchProperties = () => {
   useEffect(() => {
     // Convert searchParams to a regular object for easier usage
     const queryParams = Object.fromEntries(searchParams.entries());
-    console.log("Query Params:", queryParams);
+    
 
     // Set user based on listingType in query params
     if (queryParams?.listingType) {

@@ -2,10 +2,10 @@ import * as React from "react";
 
 const WhatsappLink = (props) => (
   <div
-    onClick={() => window.open("https://wa.link/a65bvl", "_blank")}
+    
     className="w-full fixed z-50 h-auto flex items-end justify-end gap-4 flex-wrap right-10 bottom-10"
   >
-    <button className="group transition-all duration-500 hover:-translate-y-2">
+    <button className="group transition-all duration-200 hover:-translate-y-10" onClick={() => window.open("https://wa.link/a65bvl", "_blank")}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={48}

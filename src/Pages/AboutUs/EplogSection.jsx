@@ -10,7 +10,7 @@ const EplogSection = () => {
                     <div className="flex flex-col md:flex-row items-center">
                         <div className="w-full md:w-1/2 mb-5 md:mb-0">
                             <img
-                                src="https://eplogproperties.com/wp-content/uploads/2023/10/left-img.svg"
+                                src="/Svg/left-img.svg"
                                 alt=""
                                 className="w-full"
                             />

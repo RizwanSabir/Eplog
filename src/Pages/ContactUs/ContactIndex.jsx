@@ -33,24 +33,28 @@ const ContactIndex = () => {
 }
 
 
-
 const ContactDetails = () => {
   return (
     <div className="col-span-12 md:col-span-4 lg:col-span-5 mt-5 ">
       <div className="contact-details pl-0 md:pl-3 ">
         <div className="flex items-center gap-2 mb-3 md:mb-4">
           <img
-            src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/call-icon.svg"
+            src="/Svg/call-icon.svg"
             width="30"
             alt="Call Icon"
           />
-          <a className="contact-text" href="tel:971552477432">
-            +971 55 247 7432
-          </a>
+          <div> 
+         <p className="contact-text">
+          +971 55 247 7432
+          </p>
+          <p className="contact-text">
+          +971 58 599 77432
+          </p>
+         </div>
         </div>
         <div className="flex items-center gap-2 mb-3 md:mb-4">
           <img
-            src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/whatsapp-icon.svg"
+            src="/Svg/whatsapp-icon.svg"
             width="30"
             alt="WhatsApp Icon"
           />
@@ -65,7 +69,7 @@ const ContactDetails = () => {
         </div>
         <div className="flex items-center gap-2 mb-3 md:mb-4">
           <img
-            src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/map-icon.svg"
+            src="/Svg/map-icon.svg"
             width="30"
             alt="Map Icon"
           />
@@ -76,7 +80,7 @@ const ContactDetails = () => {
         </div>
         <div className="flex items-center gap-2 mb-3 md:mb-4">
           <img
-            src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/email-icon.svg"
+            src="/Svg/email-icon.svg"
             width="30"
             alt="Email Icon"
           />
@@ -88,10 +92,6 @@ const ContactDetails = () => {
     </div>
   );
 };
-
-
-
-
 
 
 const ContactUs = () => {
@@ -215,11 +215,6 @@ const ContactUs = () => {
     </section>
   );
 };
-
-
-
-
-
 
 
 export default ContactIndex

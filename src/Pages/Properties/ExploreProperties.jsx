@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { div } from "framer-motion/client";
 import ScrollProperty from "../../Components/ScrollProperty/ScrollProperty";
 
+import { Link } from "react-router-dom"
+
 const ExploreProperties = () => {
 
     let [User, setUser] = useState(['New Projects', 'NEW']);
@@ -48,23 +50,23 @@ const ExploreProperties = () => {
                 </div>
 
 
-                <ScrollProperty User={User} Page={1} Image={{default:true}}  />
+                <ScrollProperty User={User} Page={1} Image={{ default: true }} />
 
-                <div className="max-w-[1140px]  mx-auto">
-                    <div className="bg-white w-[200px] h-[50px] rounded-full ml-auto flex justify-center gap-x-3 items-center ">
-
-                        <a
-                            href={`${url}/properties/`}
-                            className=" text-[16px] font-bold leading-[19.23px]"
-                        >
+              
+                <div className="max-w-[1140px] mx-auto">
+                    <Link
+                        to="/properties"
+                        className="bg-white w-[200px] h-[50px] rounded-full ml-auto flex justify-center gap-x-3 items-center hover:cursor-pointer"
+                    >
+                        <span className="text-[16px] font-bold leading-[19.23px]">
                             View All
-                        </a>
-                        <div className="bg-black size-[35px] rounded-full text-white flex justify-center items-center " >
+                        </span>
+                        <div className="bg-black size-[35px] rounded-full text-white flex justify-center items-center">
                             <i className="fa-solid fa-arrow-right"></i>
                         </div>
-
-                    </div>
+                    </Link>
                 </div>
+
 
 
             </section>

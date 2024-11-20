@@ -43,10 +43,9 @@ const Footer = () => {
                             {/* Social Media  */}
 
                             <div className='gap-3 flex items-center social-links'>
-                                <a target="_blank" href="https://www.instagram.com/"><i className="fa fa-instagram "></i></a>
-                                <a target="_blank" href="https://www.facebook.com/"><i className="fa fa-facebook"></i></a>
-                                <a target="_blank" href="https://twitter.com/"><i className="fa fa-twitter"></i></a>
-                                <a target="_blank" href="https://www.youtube.com/"><i className="fa fa-youtube"></i></a>
+                                <a target="_blank" href="https://www.instagram.com/eplogproperties/"><i className="fa fa-instagram "></i></a>
+                                <a target="_blank" href="https://www.facebook.com/Eplogproperties/"><i className="fa fa-facebook"></i></a>
+                                <a target="_blank" href="https://www.youtube.com/@EplogProperties"><i className="fa fa-youtube"></i></a>
                             </div>
 
                         </div>

@@ -20,7 +20,7 @@ const SearchBar = () => {
     const Years = ['2025', '2024', '2023', '2022', '2021', '2019', '2018', '2017',]
     // Handle the filter change when a developer is selected
     const handleFilterChange = (filterType, value) => {
-        console.log(`Selected ${filterType}:`, value);
+        
         // Implement your filtering logic here
     };
 

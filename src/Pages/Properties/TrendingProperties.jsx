@@ -24,7 +24,7 @@ const TrendingProperties = () => {
                             </h1>
                             <div className="line hidden md:flex">
                                 <img
-                                    src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line-black.svg"
+                                    src="/Svg/dashed-line-black.svg"
                                     className="w-full"
                                     alt="dashed-line"
                                 />

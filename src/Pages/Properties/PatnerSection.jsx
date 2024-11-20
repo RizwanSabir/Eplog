@@ -15,7 +15,7 @@ const PatnerSection = () => {
                                 <div className='outline-[1px] p-1 mdm:p-2 flex justify-center items-center rounded-lg outline  mdm:h-[70px]'>
                                     <img
 
-                                        src="https://eplogproperties.com/wp-content/uploads/2023/10/dubai-properties.svg"
+                                        src="/Svg/dubai-properties.svg"
                                         
                                         className=" w-[60px] h-[60px] md:w-[100px] p-1 shrink-0"
                                         alt="Dubai Properties"
@@ -26,7 +26,7 @@ const PatnerSection = () => {
 
                                     <img
                                      className=" !w-[50px] md:!w-[120px]  md:p-2 shrink-0"
-                                        src="https://eplogproperties.com/wp-content/uploads/2023/10/nakheel.svg"
+                                        src="/Svg/nakheel.svg"
                                         
                                         alt="Nakheel"
                                     />
@@ -36,7 +36,7 @@ const PatnerSection = () => {
 
                                     <img
                                         className=" w-[50px] md:w-[100px] p-1 shrink-0"
-                                        src="https://eplogproperties.com/wp-content/uploads/2023/10/meraas.svg"
+                                        src="/Svg/meraas.svg"
                                         width 
                                        
                                        
@@ -48,7 +48,7 @@ const PatnerSection = () => {
 
                                     <img
                                         className=" !w-[50px] h-[60px] md:!w-[100px] p-1 shrink-0"
-                                        src="https://eplogproperties.com/wp-content/uploads/2023/10/damac.svg"
+                                        src="/Svg/damac.svg"
                                         
                                         alt="Damac"
                                     />
@@ -57,7 +57,7 @@ const PatnerSection = () => {
 
                                     <img
                                         className=" w-[50px] md:w-[100px] p-1 shrink-0"
-                                        src="https://eplogproperties.com/wp-content/uploads/2023/10/danube-properties.svg"
+                                        src="/Svg/danube-properties.svg"
                                         width="100"
 
                                         alt="Danube Properties"
@@ -67,7 +67,7 @@ const PatnerSection = () => {
 
                                     <img
                                     className=" w-[50px] md:w-[100px] p-1 shrink-0"
-                                        src="https://eplogproperties.com/wp-content/uploads/2023/10/emaar.svg"
+                                        src="/Svg/emaar.svg"
                                         width="100"
                                        
                                         alt="Emaar"

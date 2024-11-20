@@ -9,7 +9,7 @@ const services = [
     title: 'Property Buying Consultation',
     description1: 'Expert guidance to help you make informed decisions when purchasing a property. ',
     description2: 'We assist in identifying the best investment opportunities based on your needs, preferences, and budget',
-    image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-1.svg',
+    image: '/images/step-1.svg',
     alt: 'Step 1',
     link: '/properties/',
     linkText: 'Browse Properties'
@@ -19,7 +19,7 @@ const services = [
     title: 'Property Resale Services',
     description1: 'Helping clients sell properties quickly and at optimal prices.',
     description2: 'We handle everything from marketing and negotiations to closing the sale, ensuring a seamless experience.',
-    image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-2.svg',
+    image: '/images/step-2.svg',
     alt: 'Step 2',
     link: '/properties/',
     linkText: 'Learn More'
@@ -29,7 +29,7 @@ const services = [
     title: 'Legal & Documentation Assistance',
     description1: 'Expert support in handling all legal aspects of property transactions, including drafting contracts, verifying documents, and ensuring compliance with local laws and regulations',
     description2: '',
-    image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-3.svg',
+    image: '/images/step-3.svg',
     alt: 'Step 2',
     link: '/properties/',
     linkText: 'Learn More'
@@ -39,7 +39,7 @@ const services = [
     title: 'After-Sales Services',
     description1: 'Ongoing support post-purchase, including assistance with settling into your new property, addressing concerns, and managing any immediate needs.',
     description2: '',
-    image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-4.svg',
+    image: '/images/step-4.svg',
     alt: 'Step 2',
     link: '/properties/',
     linkText: 'Learn More'
@@ -49,7 +49,7 @@ const services = [
     title: 'Investment Analysis and Market Research',
     description1: 'Detailed market research and investment analysis to help you understand current market trends, evaluate potential investments, and make informed, profitable decisions.',
     description2: '',
-    image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-5.svg',
+    image: '/images/step-5.svg',
     alt: 'Step 2',
     link: '/properties/',
     linkText: 'Learn More'
@@ -59,7 +59,7 @@ const services = [
     title: 'Payment Plan Guidance',
     description1: 'Assisting buyers in navigating various payment plans, structuring flexible and manageable options to ease the financial burden of purchasing property.',
     description2: '',
-    image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-6.svg',
+    image: '/images/step-6.svg',
     alt: 'Step 2',
     link: '/properties/',
     linkText: 'Learn More'
@@ -69,7 +69,7 @@ const services = [
     title: 'Handover and Snagging Services',
     description1: 'Ensuring that your new property meets quality standards through comprehensive handover and snagging inspections, resolving any issues before you move in.',
     description2: '',
-    image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-6.svg',
+    image: '/images/step-6.svg',
     alt: 'Step 2',
     link: '/properties/',
     linkText: 'Learn More'
@@ -79,7 +79,7 @@ const services = [
     title: 'Exclusive Pre-Launch Access',
     description1: 'Providing early access to new developments before they hit the market, giving you the opportunity to secure prime properties at competitive prices.',
     description2: '',
-    image: 'https://eplogproperties.com/wp-content/uploads/2023/10/step-6.svg',
+    image: '/images/step-6.svg',
     alt: 'Step 2',
     link: '/properties/',
     linkText: 'Learn More'

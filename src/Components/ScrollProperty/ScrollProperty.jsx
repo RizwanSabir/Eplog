@@ -13,8 +13,7 @@ const ScrollProperty = ({ Page, Image = { default: false } }) => {
 
     const [Properties, setProperties] = useState([]);
     const [loading, setLoading] = useState(true);
-    console.log("USer is and properties ")
-    console.log(Properties)
+  
 
 
     let [User, setUser] = useState(['New Projects', 'NEW']);
@@ -55,10 +54,7 @@ const ScrollProperty = ({ Page, Image = { default: false } }) => {
 
 
     const handleClickItem = (propertyId, Type, DeveloperLogo) => {
-        console.log("Search is Clicked");
-        console.log(propertyId);
-        console.log("Type is ");
-        console.log(Type);
+     
         navigate(`/property/${Type}?propertyId=${propertyId}&dl=${DeveloperLogo}`);
     };
 
@@ -148,7 +144,7 @@ const PropertyListingNEW = ({ properties, handleClickItem, Type, User, setUser, 
 </div>
 {Image?.default && <div className="line hidden md:flex ">
     <img
-        src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line-black.svg"
+        src="/Svg/dashed-line-black.svg"
         className="px-10 hidden md:flex"
         alt="dashed-line"
     />
@@ -194,12 +190,12 @@ const PropertyListingNEW = ({ properties, handleClickItem, Type, User, setUser, 
                                 key={index}
                                 className="rounded-3xl shadow-[5px_4px_44px_#00000017] w-[210px] sm:w-[272px] bg-white overflow-hidden cursor-pointer mb-9 relative"
                             >
-                                {/* Payment Plan */}
+                                {/* Payment Plan
                                 {property.newParam?.paymentPlan && (
                                     <div className="absolute -right-2 h-[30px] text-white w-[120px] pl-1 rounded-s-lg rounded-t-lg top-6 bg-red-500 text-[10px] tracking-[0px]">
                                         60 / 40 Payment Plan
                                     </div>
-                                )}
+                                )} */}
                                 <a href={property.link}>
                                     <div className="bg-gray-100">
                                         <img
@@ -251,7 +247,7 @@ const PropertyListingNEW = ({ properties, handleClickItem, Type, User, setUser, 
                                             <div className="property-data flex justify-between text-sm sm:pb-5">
                                                 <div className="bed flex items-center gap-x-2 text-center">
                                                     <img
-                                                        src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg"
+                                                        src="/Svg/bed-icon.svg"
                                                         width="15"
                                                         alt="bed"
                                                     />
@@ -259,7 +255,7 @@ const PropertyListingNEW = ({ properties, handleClickItem, Type, User, setUser, 
                                                 </div>
                                                 <div className="area flex items-center gap-x-2 text-center">
                                                     <img
-                                                        src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg"
+                                                        src="/Svg/compress-icon.svg"
                                                         width="15"
                                                         alt="area"
                                                     />

@@ -13,7 +13,7 @@ const PartnerSection = () => {
 				</div>
 				<div className="w-full md:w-1/3 mt-6 md:mt-0">
 					<img 
-					  src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/arrow-svg.svg" 
+					  src="/images/arrow-svg.svg" 
 					  alt="Arrow" 
 					  className="w-9/12 mx-auto"
 					/>
@@ -22,7 +22,7 @@ const PartnerSection = () => {
 		</div>
 		<div className="flex justify-center my-8">
 			<img 
-			  src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line.svg" 
+			  src="/Svg/dashed-line.svg" 
 			  alt="Dashed Line" 
 			  className="w-11/12"
 			/>

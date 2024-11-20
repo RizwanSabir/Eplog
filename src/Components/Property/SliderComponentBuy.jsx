@@ -12,9 +12,7 @@ const SliderComponentBuy = ({ baseUrl, images, PropertyId }) => {
     const [startIdx, setStartIdx] = useState(0); // To handle visible thumbnails
     const [visibleThumbnails, setVisibleThumbnails] = useState(4); // Default to 4
 
-    console.log("Property ID is " + PropertyId);
-    console.log("Image link is ");
-    console.log(`${baseUrl}${PropertyId}${mainImage}`);
+
 
     // Dynamically update the number of thumbnails based on screen width
     useEffect(() => {

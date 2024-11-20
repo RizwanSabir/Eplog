@@ -173,8 +173,7 @@ const SearchBar = () => {
 
         const combinedParams = { ...searchParams, ...searchParams2 };
 
-        console.log("Input data  is")
-        console.log(InputData)
+     
         // Optionally, update the property data in state
         // Convert the combined search parameters object to a query string
         const queryString = new URLSearchParams(combinedParams).toString();

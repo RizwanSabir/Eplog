@@ -16,8 +16,8 @@ const HeroServiceSection = ({ HeroText }) => {
 
   const updateVideoSource = () => {
     const newSrc = window.innerWidth >= 640
-      ? "https://eplogproperties.com/wp-content/uploads/2023/11/Services.mp4"
-      : "https://eplogproperties.com/wp-content/uploads/2023/11/Lander_2.mp4";
+      ? "/images/Services.mp4"
+      : "/images/Lander_2.mp4";
     setVideoSrc(newSrc);
   };
 
@@ -251,8 +251,6 @@ const BookProperty = () => {
       });
 
       const result = await response.json(); // Parse the JSON response
-      console.log("Result is")
-      console.log(result)
       if (result.code != 500 && response.ok) {
         setSuccessMessage('Form submitted successfully!');
         reset();

@@ -1,158 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './index.css';
-import { AnimatePresence, motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { usePropertyData } from '../../Context/PropertyDataContext';
 import CustomLoader from '../Loaders/CustomLoader';
-import { div } from 'framer-motion/client';
-import ScreenSizeDisplay from '../../useCurrentScreenSize';
-
-
-
-
-
-
-
-
-
-// import ReactPaginate from 'react-paginate';
-
-// const HeroSearchSection = ({ HeroText }) => {
-//     const { PropertyData } = usePropertyData();
-//     const [Properties, setProperties] = useState([]);
-//     const [loading, setLoading] = useState(true);
-//     const [page, setPage] = useState(1);
-//     const [totalPages, setTotalPages] = useState(1); // Track total pages available
-
-//     const navigate = useNavigate();
-
-//     useEffect(() => {
-//         const controller = new AbortController();
-//         const signal = controller.signal;
-
-//         const fetchProperties = async () => {
-//             setLoading(true);
-//             try {
-//                 const response = await fetch('https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Eplog Properties', {
-//                     method: 'POST',
-//                     headers: {
-//                         'Content-Type': 'application/json',
-//                         'X-PIXXI-TOKEN': 'FjuseQnHvSZy4jTqs8EN6uHfRz85YGv-'
-//                     },
-//                     body: JSON.stringify({
-//                         ...PropertyData,
-//                         size: 12,
-//                         page,
-//                     }),
-//                     signal,
-//                 });
-
-//                 if (!response.ok) {
-//                     throw new Error('Network response was not ok');
-//                 }
-
-//                 const DevelopersData = await response.json();
-//                 setProperties(DevelopersData.data.list);
-//                 console.log("properties are")
-//                 console.log(Properties)
-//                 setTotalPages(Math.ceil(DevelopersData.data.totalSize/12)); // Set total pages based on response
-//             } catch (error) {
-//                 if (error.name !== 'AbortError') {
-//                     console.error("Error fetching developers:", error);
-//                 }
-//             } finally {
-//                 setLoading(false);
-//             }
-//         };
-
-//         fetchProperties();
-
-//         return () => {
-//             controller.abort();
-//         };
-//     }, [PropertyData, page]);
-
-//     useEffect(() => {
-//         setProperties([]);
-//         setPage(1);
-//     }, [PropertyData]);
-
-//     const handleClickItem = (propertyId, Type, DeveloperLogo) => {
-//         navigate(`/property/${Type}?propertyId=${propertyId}&dl=${DeveloperLogo}`);
-//     };
-
-//     const handlePageClick = ({ selected }) => {
-//         console.log("item is clicked")
-//         setPage(selected + 1); // ReactPaginate uses zero-based indexing
-//     };
-
-//     return (
-//         <div className="text-[14px] px-4 h-fit xxs:mt-[200px] xl:mt-[200px]">
-//             <h1 className="text-4xl font-bold mx-5">
-//                 Explore {PropertyData?.listingType === 'SELL' ? "Buy" : PropertyData?.listingType?.toLowerCase()} Properties
-//             </h1>
-
-//             {loading && !Properties.length ? (
-//                 <div className="mt-10">
-//                     <CustomLoader />
-//                 </div>
-//             ) : (
-//                 <>
-//                     {!loading && !Properties.length ? (
-//                         <div className="text-center mt-10">
-//                             <h2 className="text-2xl font-bold">No Properties Found</h2>
-//                             <p className="text-gray-500 mt-2">Try adjusting your search criteria.</p>
-//                         </div>
-//                     ) : (
-//                         <>
-//                             {PropertyData?.listingType === "NEW" ? 
-//                                 <PropertyListingNEW Type={PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} /> 
-//                                 : 
-//                                 <PropertyListingRENT Type={PropertyData?.listingType === "SELL" ? 'buy' : PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} />
-//                             }
-
-//                             <div className="flex  justify-center mt-6">
-//                                 <ReactPaginate
-//                                     previousLabel={"← Previous"}
-//                                     nextLabel={"Next →"}
-//                                     breakLabel={"..."}
-//                                     pageCount={totalPages}
-//                                     marginPagesDisplayed={2}
-//                                     pageRangeDisplayed={5}
-//                                     onPageChange={handlePageClick}
-//                                     containerClassName={"pagination"}
-//                                     activeClassName={"active"}
-//                                     previousClassName={"prev"}
-//                                     nextClassName={"next"}
-//                                     disabledClassName={"disabled"}
-//                                     pageClassName={"page"}
-//                                     breakClassName={"break"}
-                                    
-//                                 />
-//                             </div>
-//                         </>
-//                     )}
-//                 </>
-//             )}
-//         </div>
-//     );
-// };
 
 import ReactPaginate from 'react-paginate';
-import FooterMain from '../../Pages/Footer/FooterMain';
-import NewsLetter from '../../Pages/Footer/NewsLetter';
-import Footer from '../../Pages/Footer/Footer';
 
 
-const HeroSearchSection = ({ HeroText }) => {
+
+const HeroSearchSection = () => {
     const { PropertyData } = usePropertyData();
     const [Properties, setProperties] = useState([]);
     const [loading, setLoading] = useState(true); // Initial load
-const [fetching, setFetching] = useState(false); // For data updates
+    const [fetching, setFetching] = useState(false); // For data updates
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1); // Track total pages available
     const [abortController, setAbortController] = useState(null); // Keep track of the current AbortController
-
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -167,7 +30,7 @@ const [fetching, setFetching] = useState(false); // For data updates
 
         const fetchProperties = async () => {
             setFetching(true); // Set fetching state to true
-    setLoading(true);
+            setLoading(true);
             try {
                 const response = await fetch('https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Eplog Properties', {
                     method: 'POST',
@@ -238,13 +101,13 @@ const [fetching, setFetching] = useState(false); // For data updates
                         </div>
                     ) : (
                         <>
-                            {PropertyData?.listingType === "NEW" ? 
-                                <PropertyListingNEW key={Properties} Type={PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} /> 
-                                : 
-                                <PropertyListingRENT key={Properties} Type={PropertyData?.listingType === "SELL" ? 'buy' : PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} />
+                            {PropertyData?.listingType === "NEW" ?
+                                <PropertyListingNEW key={page} Type={PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} />
+                                :
+                                <PropertyListingRENT key={page} Type={PropertyData?.listingType === "SELL" ? 'buy' : PropertyData?.listingType?.toLowerCase()} properties={Properties} handleClickItem={handleClickItem} />
                             }
 
-                           <div className="justify-end select-none mt-6 react-paginate">
+                            <div className="justify-end select-none mt-6 react-paginate">
                                 <ReactPaginate
                                     previousLabel={"← Previous"}
                                     nextLabel={"Next →"}
@@ -264,7 +127,7 @@ const [fetching, setFetching] = useState(false); // For data updates
                             </div>
                         </>
                     )}
-                    
+
                 </>
             )}
         </div>
@@ -273,10 +136,10 @@ const [fetching, setFetching] = useState(false); // For data updates
 
 
 
-const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
+const PropertyListingNEW = ({ properties, handleClickItem, Type }) => {
 
 
-   
+
     const formatPrice = (price) => {
         if (price >= 1_000_000) {
             // Round off to millions with two decimal places
@@ -293,12 +156,13 @@ const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
 
     return (
         <div
+        key={properties}
             className="lg:ml-[100px] mt-[50px] overflow-x-scroll  flex scrollbar-hide  ">
             <div className="grid gap-2 sm:grid-cols-2 mdm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4  w-full justify-center">
                 {properties.map((property, index) => (
-                    <div onClick={() => { handleClickItem(property.propertyId,Type,property.developerLogo) }} key={index} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] !w-[272px] mdm:!w-[250px] md:!w-[270px] overflow-hidden mb-9 relative  cursor-pointer" >
+                    <div onClick={() => { handleClickItem(property.propertyId, Type, property.developerLogo) }} key={index} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] !w-[272px] mdm:!w-[250px] md:!w-[270px] overflow-hidden mb-9 relative  cursor-pointer" >
 
-                       
+
 
                         {/* */}
 
@@ -407,8 +271,8 @@ const PropertyListingNEW = ({ properties, handleClickItem,Type }) => {
 };
 
 
-const PropertyListingRENT = ({ properties, handleClickItem,Type }) => {
-  
+const PropertyListingRENT = ({ properties, handleClickItem, Type }) => {
+
 
     const formatPrice = (price) => {
         if (price >= 1_000_000) {
@@ -429,7 +293,7 @@ const PropertyListingRENT = ({ properties, handleClickItem,Type }) => {
             className="md:ml-[100px] mt-[20px] overflow-x-scroll  flex scrollbar-hide ">
             <div className="grid grid-cols-4  w-full">
                 {properties.map((property, index) => (
-                    <div onClick={() => { handleClickItem(property.propertyId,Type,property.developerLogo) }} key={index} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full mb-9 relative  cursor-pointer" style={{ width: "272px" }}>
+                    <div onClick={() => { handleClickItem(property.propertyId, Type, property.developerLogo) }} key={index} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] w-[200px] overflow-hidden md:w-full mb-9 relative  cursor-pointer" style={{ width: "272px" }}>
 
                         {/* Div for Payment Plan */}
                         {/* {property.newParam?.paymentPlan ?

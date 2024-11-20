@@ -18,8 +18,7 @@ const SearchInput = ({ InputError, setInputError, InputData, setInputData }) => 
 
 // // Update query when initialValue changes
 useEffect(() => {
-  console.log("Property data in text file is")
-  console.log(PropertyData)
+
   if (PropertyData?.name!== query) {
       const Inputdatanew=handleInputData(PropertyData)
       setQuery(PropertyData?.name);

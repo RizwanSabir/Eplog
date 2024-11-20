@@ -275,7 +275,7 @@ const BuyProperty = ({ HeroText }) => {
     const [loading, setLoading] = useState(true);
     const propertyId = searchParams.get('propertyId');
     const DeveloperLogo = searchParams.get('dl');
-    console.log(propertyId)
+   
 
     const formatPrice = (price) => {
         if (price >= 1_000_000) {
@@ -306,7 +306,6 @@ const BuyProperty = ({ HeroText }) => {
 
                 const DevelopersData = await DevelopersList.json();
                 if (DevelopersData.statusCode === 200) {
-                    console.log(DevelopersData.data)
                     setPropertyDetail(DevelopersData.data)
 
                 } else {
@@ -328,7 +327,6 @@ const BuyProperty = ({ HeroText }) => {
 
 
     const handleBack = () => {
-        console.log("Search is Clicked")
         navigate('/SearchProperties');
     };
 
@@ -750,7 +748,6 @@ const PropertyDetails = ({ property, DeveloperLogo }) => {
 
                 const DevelopersData = await DevelopersList.json();
                 if (DevelopersData.statusCode === 200) {
-                    console.log(DevelopersData.data)
                     setPropertyDetail(DevelopersData.data)
 
                 } else {

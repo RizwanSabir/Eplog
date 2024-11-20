@@ -13,17 +13,17 @@ const ServiceSection = () => {
     {
       title: "Knowledgeable",
       content: "At Eplog Properties, we pride ourselves on being experts in the real estate market. Our team brings deep industry knowledge and a wealth of experience to every transaction, ensuring our clients receive informed guidance. Whether it's understanding market trends, pricing strategies, or the nuances of property law, we are dedicated to providing you with the insights needed to make the best possible decisions.",
-      icon: "https://eplogproperties.com/wp-content/uploads/2023/10/icon1-1.svg",
+      icon: "/Svg/icon1-1.svg",
     },
     {
       title: "Trustworthy",
       content: "Trust is the foundation of every relationship we build. Our clients rely on us for honest advice, transparent communication, and ethical practices throughout the real estate process. We put your needs first, offering reliable solutions and consistently following through on our promises. At Eplog Properties, integrity is at the core of everything we do.",
-      icon: "https://eplogproperties.com/wp-content/uploads/2023/10/icon2.svg", // Add appropriate icon
+      icon: "/Svg/icon2-1.svg", // Add appropriate icon
     },
     {
       title: "Committed",
       content: "We are fully invested in your success. Our commitment to excellence drives us to go above and beyond to achieve the best outcomes for our clients. Whether you're buying, selling, or renting, we remain dedicated to guiding you through every step of the process with unwavering focus, personalized attention, and a relentless pursuit of your goals.",
-      icon: "https://eplogproperties.com/wp-content/uploads/2023/10/icon3.svg", // Add appropriate icon
+      icon: "/Svg/icon3-1.svg", // Add appropriate icon
     },
   ];
 

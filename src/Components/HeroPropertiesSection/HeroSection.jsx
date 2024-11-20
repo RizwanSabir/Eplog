@@ -41,7 +41,7 @@ const HeroPropertiesSection = () => {
             {/* Hero Boxes */}
             <div className="hidden lg:flex    book-section z-10 mb-0  absolute bottom-0">
                 <div className="booking-box w-[190px] h-[100px]">
-                    <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/calender-icon.svg" width="40" className="mr-2 hidden  lg:block" />
+                    <img src="/Svg/calender-icon.svg" width="40" className="mr-2 hidden  lg:block" />
                     <p className="mb-0">
                         <a href={`${url}/contact-us/`} className="text-white">
                             Book Free<br />Consultation
@@ -54,7 +54,7 @@ const HeroPropertiesSection = () => {
                             Find your next <br />home in Dubai
                         </a>
                     </p>
-                    <img className="hidden lg:block" src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/home-icon.svg" width="60" />
+                    <img className="hidden lg:block" src="/Svg/home-icon.svg" width="60" />
                 </div>
             </div>
 

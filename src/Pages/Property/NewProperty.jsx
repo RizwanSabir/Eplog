@@ -27,8 +27,7 @@ const NewProperty = ({ HeroText }) => {
     const [loading, setLoading] = useState(true);
     const propertyId = searchParams.get('propertyId');
     const DeveloperLogo = searchParams.get('dl');
-    console.log(" proerty details are ")
-    console.log(PropertyDetail)
+ 
 
     const formatPrice = (price) => {
         if (price >= 1_000_000) {

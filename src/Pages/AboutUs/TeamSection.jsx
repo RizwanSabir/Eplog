@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 
 import './index.css'
-// TeamSection.js
 
 const TeamSection = () => {
 
@@ -19,7 +18,7 @@ const TeamSection = () => {
       phone: '+971  55  247  7432',
       email: 'saliq@eplogproperties.com',
       linkedIn: 'https://www.linkedin.com/',
-      image: 'https://eplogproperties.com/wp-content/uploads/2023/10/1-1.svg',
+      image: '/Svg/1-1.svg',
       description1: 'I have been in the industry since 2013, and in addition to my role as a real estate agent buying and selling for clients , my qualification and experience as a construction engineer enables me to offer valuable guidance to private real estate developers, covering aspects from land acquisition, design, feasibility study, development, and sales. ',
       description2: 'My integrity, personalized approach, and comprehensive skill set have earned me a reputation as a trusted advisor in the industry.'
     },
@@ -29,7 +28,7 @@ const TeamSection = () => {
       phone: '+971  55  482  6366',
       email: 'anife@eplogproperties.com',
       linkedIn: 'https://www.linkedin.com/',
-      image: 'https://eplogproperties.com/wp-content/uploads/2023/10/2-1.svg',
+      image: '/Svg/2-1.svg',
       description1: 'Anife has been a prominent figure in the Dubai real estate market for over a decade, consistently delivering exceptional results and a proven track record of closing deals worth hundreds of millions of dirhams. Known for a personalized and attentive approach, Anife goes beyond the transaction to truly understand each client’s unique needs and financial goals. ',
       description2: 'This commitment ensures that every property deal is carefully tailored to meet specific requirements, whether it involves apartments, villas, luxury properties, or commercial spaces. With a stellar reputation and an impressive portfolio of successful transactions, Anife has earned the trust of clients and is widely regarded as the go-to agent in the market.'
     }
