@@ -20,14 +20,6 @@ const HeroCareerSection = ({HeroText}) => {
             : "/Media/Vector-3-1-scaled.jpg";
         setVideoSrc(newSrc);
     };
-
-
-    // const updateVideoSource = () => {
-    //     const newSrc = window.innerWidth >= 640
-    //       ? "https://eplogproperties.com/wp-content/uploads/2023/11/Services.mp4"
-    //       : "https://eplogproperties.com/wp-content/uploads/2023/11/Lander_2.mp4";
-    //     setVideoSrc(newSrc);
-    //   };
     useEffect(() => {
         updateVideoSource(); // Set initial video source
 
@@ -58,13 +50,9 @@ const HeroCareerSection = ({HeroText}) => {
     return (
         <>
             <div className="pt-2 text-[14px] px-4 h-fit">
-
-
                 {/* Top Navigation on Small Screen  */}
                 <div className='flex mdm:hidden'>
-
                     <TopNavigationTab />
-
                 </div>
 
                 {/* Banner section */}
@@ -74,12 +62,6 @@ const HeroCareerSection = ({HeroText}) => {
                         <div className="row h-full flex">
 
                             <TopNavigationTabLarge />
-
-
-                            {/* Video Banner Portion */}
-                            {/* <video ref={videoRef} autoPlay playsInline muted loop className="w-full absolute -z-10" src={videoSrc}>
-                                Your browser does not support the video tag.
-                            </video> */}
                             <img className='absolute -z-10 w-full' src={videoSrc} ref={videoRef} alt="" />
 
                             {/* Hero Text */}
@@ -88,16 +70,9 @@ const HeroCareerSection = ({HeroText}) => {
                                 We are always <br />
                                 Hiring!
                                 </h1>
-
-                               
                             </div>
-
-
-
                             {/* Bottom for text Marquee */}
                            
-
-                         
                         </div>
                     </div>
                 </div>
@@ -127,10 +102,7 @@ const TopNavigationTab = () => {
     </>
 }
 const TopNavigationTabLarge = () => {
-
-
     return <>
-
         {/* Logo of Brand */}
         <div className="hidden mdm:flex col-6 relative pl-5 pb-10 lg:pb-14 sm:pl-9 lg:pt-5  items-center">
             <a href="https://eplogproperties.com">
@@ -145,6 +117,4 @@ const TopNavigationTabLarge = () => {
 
     </>
 }
-
-
 export default HeroCareerSection;

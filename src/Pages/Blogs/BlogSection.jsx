@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
-
+import './index.css';
+import TruncatedTextWithSplit from './TruncatedTextWithSplit';
+import { useNavigate } from 'react-router-dom';
+// import Comments from './Comments';
 // Main BlogSection Component
 const BlogSection = () => {
+
+  const navigate=useNavigate()
+  const handlePageClick = ({ selected }) => {
+     navigate('/viewblog')
+  };
+
   return (
     <>
       <div className="flex flex-col mb-5 mx-10 mt-32">
@@ -25,128 +34,265 @@ const BlogSection = () => {
             </form>
           </div>
         </div>
-        <Blog blogData={blogData} />
+        {/* <Blog blogData={blogData} /> */}
+
+
+        <Blog
+          Blog={dummyBlogData}
+          handleClickItem={handlePageClick}
+          Type="residential"
+        />
+
+
+
       </div>
     </>
   );
 };
 
-// Example array of blog data
-const blogData = [
+
+const dummyBlogData = [
+
+
   {
-    id: 1,
-    title: "IMPZ Production City",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
+    id: "blog001",
+    photos: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
+    title: "Dubai Real Estate Trends 2024",
+    description: "Exploring the latest trends in Dubai's dynamic real estate market and what to expect in the coming year.",
+    Category:"Properties",
+    Tags: ["MARKET ANALYSIS", "INVESTMENT"],
+    alt: "Dubai Real Estate Market",
     link: "#",
+    newParam: {
+      Likes: 245,
+      Comments: 48,
+      Readminutes: 8
+    }
   },
   {
-    id: 2,
-    title: "Business Bay",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/2.svg",
+    id: "blog002",
+    photos: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
+    title: "Top 10 Luxury Areas in Dubai",
+    description: "A comprehensive guide to Dubai's most prestigious residential neighborhoods and what makes them special.",
+    Category:"Properties",
+    Tags: ["LUXURY", "NEIGHBORHOODS"],
+    alt: "Luxury Dubai Areas",
     link: "#",
+    newParam: {
+      Likes: 189,
+      Comments: 32,
+      Readminutes: 12
+    }
   },
   {
-    id: 3,
-    title: "Dubai Marina",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/3.svg",
+    id: "blog003",
+    photos: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
+    title: "Investment Guide: Off-Plan Properties",
+    description: "Everything you need to know about investing in off-plan properties in Dubai's growing market.",
+    Category:"Properties",
+    Tags: ["INVESTMENT", "OFF-PLAN"],
+    alt: "Off Plan Investment",
     link: "#",
+    newParam: {
+      Likes: 312,
+      Comments: 67,
+      Readminutes: 15
+    }
   },
   {
-    id: 4,
-    title: "Downtown Dubai",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/4.svg",
+    id: "blog004",
+    photos: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
+    title: "Sustainable Living in Dubai",
+    description: "Discover eco-friendly properties and sustainable development projects reshaping Dubai's real estate.",
+    Category:"Properties",
+    Tags: ["SUSTAINABILITY", "GREEN LIVING"],
+    alt: "Sustainable Properties",
     link: "#",
+    newParam: {
+      Likes: 156,
+      Comments: 23,
+      Readminutes: 10
+    }
+  },
+
+  {
+    id: "blog001",
+    photos: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
+    title: "Dubai Real Estate Trends 2024",
+    description: "Exploring the latest trends in Dubai's dynamic real estate market and what to expect in the coming year.",
+    Category:"Properties",
+    Tags: ["MARKET ANALYSIS", "INVESTMENT"],
+    alt: "Dubai Real Estate Market",
+    link: "#",
+    newParam: {
+      Likes: 245,
+      Comments: 48,
+      Readminutes: 8
+    }
   },
   {
-    id: 5,
-    title: "Palm Jumeirah",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/5.svg",
+    id: "blog002",
+    photos: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
+    title: "Top 10 Luxury Areas in Dubai",
+    description: "A comprehensive guide to Dubai's most prestigious residential neighborhoods and what makes them special.",
+    Category:"Properties",
+    Tags: ["LUXURY", "NEIGHBORHOODS"],
+    alt: "Luxury Dubai Areas",
     link: "#",
+    newParam: {
+      Likes: 189,
+      Comments: 32,
+      Readminutes: 12
+    }
   },
   {
-    id: 6,
-    title: "Jumeirah Beach Residence",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/6.svg",
+    id: "blog003",
+    photos: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
+    title: "Investment Guide: Off-Plan Properties",
+    description: "Everything you need to know about investing in off-plan properties in Dubai's growing market.",
+    Category:"Properties",
+    Tags: ["INVESTMENT", "OFF-PLAN"],
+    alt: "Off Plan Investment",
     link: "#",
+    newParam: {
+      Likes: 312,
+      Comments: 67,
+      Readminutes: 15
+    }
   },
+  {
+    id: "blog004",
+    photos: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
+    title: "Sustainable Living in Dubai",
+    description: "Discover eco-friendly properties and sustainable development projects reshaping Dubai's real estate.",
+    Category:"Properties",
+    Tags: ["SUSTAINABILITY", "GREEN LIVING"],
+    alt: "Sustainable Properties",
+    link: "#",
+    newParam: {
+      Likes: 156,
+      Comments: 23,
+      Readminutes: 10
+    }
+  }
+
+
+
 ];
 
-// Blog Component with Pagination
-const Blog = ({ blogData }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3;
-
-  // Calculate total pages
-  const totalPages = Math.ceil(blogData.length / itemsPerPage);
-
-  // Get current items based on page
-  const currentItems = blogData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+const Blog = ({ Blog, handleClickItem }) => {
 
   return (
-    <>
-      <div className=' grid  gap-y-10 xs:grid-cols-2 lg:grid-cols-3 sm:gap-x-4 sm:gap-y-10 mt-10'>
-        {currentItems.map((blog) => (
-          <div key={blog.id} className="   mx-auto w-[300px] xs:w-[250px] sm:w-[356px]">
-            <a href={blog.link}>
-              <div className='sm:p-5'>
-              <div className="blog-box">
-                <img
-                  src={blog.imgSrc}
-                  className="w-full"
-                  alt={blog.title}
-                />
-                <div className="mt-2 text-center">
-                  <h3 className="">{blog.title}</h3>
+    <div className="text-[14px] px-4 h-fit mt-[50px] ">
+
+      <div
+        key={Blog}
+        className="  flex   ">
+        <div className="grid gap-2 sm:grid-cols-2 mdm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4  w-full justify-center">
+         
+          {Blog.map((blog, index) => (
+            <div key={index} onClick={handleClickItem} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] !w-[272px] mdm:!w-[250px] md:!w-[270px] overflow-hidden mb-9 relative  cursor-pointer" >
+
+
+
+              {/* */}
+
+              <a href={blog.link}>
+                <div className=" bg-gray-100  ">
+                  <img
+                    src={blog.photos}
+                    // property.photos[0]
+                    className="w-full object-cover h-[150px] "
+                    alt={blog.alt}
+                  />
+                  {/* Whole Upper  */}
+                  <div className="px-4 ">
+
+                    {/* Outer div */}
+                    <div className='mt-2 flex justify-between'>
+                      {/* Left side */}
+                      <div className=' '>
+                        <div className='flex'>
+
+                          <h5 className="box-title text-lg font-bold  flex space-x-1 text-center leading-5">
+
+                            <p> {blog.title}</p>
+                          </h5>
+                        </div>
+
+
+                        <div className='mt-2'>
+                          <div className='leading-4'>
+
+                            <div className='flex'>
+                              {/* <img src="/Svg/Estate.svg" alt="" /> */}
+                              <TruncatedTextWithSplit text={blog.description} maxLines={4} />
+                            </div>
+
+
+                          </div>
+
+
+                         <div className='leading-5 mt-2'>
+                         <div className='flex'>
+                           <img src="/Svg/Category.svg" alt="" />
+                           <p>{blog.Category}</p>
+                          </div>
+
+                          
+                         </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div className=''>
+
+                      <div className="line my-2 border-b"></div>
+
+
+                      <div className="property-data flex justify-between text-sm pb-5 ">
+                        <div className="bed flex items-center gap-x-1 ">
+                          <p className='text-[#7C3EFF]'><i className="fa-solid fa-heart"></i></p>
+
+                          <p>{blog.newParam?.Likes} </p>
+                          <p className='text-[#7C3EFF]'><i className="fa-solid fa-comment"></i></p>
+                          <p>{blog.newParam?.Comments}</p>
+                          {/* property.newParam.bedroomMax */}
+                        </div>
+                        <div className="bathroom flex items-center gap-x-1 px-1">
+                          {/* <img
+            src="/Svg/shower-icon.svg"
+            width="15"
+            alt="bathroom"
+        /> */}
+                          {/* <p> {property.newParam.totalUnits}-{property.newParam.totalUnits}  Bath</p> */}
+                          {/* total units property.newParam.totalUnits */}
+                        </div>
+                        <div className="area flex items-center gap-x-1">
+                          <p className='text-[#7C3EFF]'><i className="fa-brands fa-readme"></i></p>
+                          <p> {blog.newParam?.Readminutes} minutes read </p>
+                          {/* MAx size .newParam.maxSize*/}
+                        </div>
+                      </div>
+
+
+
+                    </div>
+                  </div>
                 </div>
-                <div className='px-7 pt-2  pb-3 text-sm'>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi a corporis nisi libero dolores, iste omnis, facere quibusdam </p>
-                </div>
-              </div>
-              </div>
-            </a>
-          </div>
-        ))}
+              </a>
+
+
+            </div>
+          ))}
+
+          {/* <Comments/> */}
+        </div>
       </div>
-
-      {/* Pagination */}
-      <div className='flex justify-center mt-10 gap-x-2'>
-        <button
-          className={`bg-[#D9D9D9] text-[16px] rounded-full size-[35px] text-black ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          
-          <div className='  flex justify-center'>
-          <i className="text-[10px]  fa-solid fa-chevron-left"></i>
-          </div>
-        </button>
-
-        {Array.from({ length: totalPages }, (_, index) => (
-          <button
-            key={index + 1}
-            className={`bg-[#82DFDF] text-[16px] rounded-full size-[35px] text-black ${currentPage === index + 1 ? 'bg-[#82DFDF]' : 'bg-[#D9D9D9]'}`}
-            onClick={() => handlePageChange(index + 1)}
-          >
-            {index + 1}
-          </button>
-        ))}
-
-        <button
-          className={`bg-[#D9D9D9] text-[16px] rounded-full size-[35px] text-black ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''} `}
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        >
-          <div className='  flex justify-center'>
-          <i className="text-[10px]  fa-solid fa-chevron-right"></i>
-          </div>
-        </button>
-      </div>
-    </>
+    </div>
   );
 };
+
 
 export default BlogSection;

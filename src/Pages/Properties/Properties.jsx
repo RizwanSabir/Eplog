@@ -21,11 +21,9 @@ const Properties = () => {
       <PatnerSection />
       <TrendingProperties />
       <ExploreProperties />
-      {/* <MeetTeam/> 
- <Blog/> 
- 
-<Podcasts/> */}
-      {/* <FooterMain/> */}
+      {/* <MeetTeam/>  */}
+      <Blog />
+      <Podcasts />
       <NewsLetter />
       <Footer />
     </>

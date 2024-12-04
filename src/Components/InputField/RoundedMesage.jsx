@@ -5,10 +5,10 @@ const RoundedMesage = React.forwardRef(({ placeholder, ...rest }, ref) => {
     <div className="form-group">
       <textarea
         ref={ref} // Forward the ref here
-        className="border w-full border-gray-300 rounded-[20px] px-4 py-2 focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-transparent"
+        className="border w-full border-gray-300 rounded-[8px] px-4 py-2 focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-transparent"
         rows="3"
         maxLength="400"
-        placeholder={placeholder}
+  
         {...rest} // Spread the rest of the props (e.g., from `register`)
       ></textarea>
     </div>

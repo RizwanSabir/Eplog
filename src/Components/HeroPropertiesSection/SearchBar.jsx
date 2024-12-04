@@ -11,7 +11,6 @@ import SearchInput from '../SearchBar/Test';
 const SearchBar = () => {
 
     // Here get all the query params if there exists 
-
     const [UseFilter, setUseFilter] = useState(0);
 
     const [selectedFilters, setSelectedFilters] = useState();
@@ -20,8 +19,6 @@ const SearchBar = () => {
 
     const [InputError, setInputError] = useState('')
     const [InputData, setInputData] = useState('')
-
-
 
     const PropertyType = [
         { "id": "APARTMENT", "name": "Apartment" },
@@ -155,11 +152,7 @@ const SearchBar = () => {
 
                     {UseFilter ? <div className='flex justify-end w-full'>
                         <div className=' rounded-full px-4 sm:py-1 sm:my-1 mr-2 cursor-pointer flex justify-center items-center borderRed' onClick={() => { SearchProperties() }} >
-
-
-
                             <p>Search</p>
-
                         </div>
                         {/* <SearchInput InputError={InputError} setInputError={setInputError} InputData={InputData} setInputData={setInputData}/> */}
 
@@ -172,9 +165,6 @@ const SearchBar = () => {
                 </div> : ""}
             </div>
             { InputError && <p className="text-base text-white mt-2">{InputError}</p>}
-
-
-
 
         </>
     );

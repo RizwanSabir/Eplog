@@ -8,20 +8,18 @@ import Footer from '../Footer/Footer'
 
 const CareerIndex = () => {
   return (
- 
-<>
 
-{/* <ScreenSizeDisplay/> */}
-<HeroCareerSection/>
-<div>
-  
-</div>
-<Hiring/>
-<NewsLetter/>
-<Footer/>
-</>
+    <>
 
-)
+
+      <HeroCareerSection />
+      <div></div>
+      <Hiring />
+      <NewsLetter />
+      <Footer />
+    </>
+
+  )
 
 }
 

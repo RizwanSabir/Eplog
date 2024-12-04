@@ -3,22 +3,14 @@ import { useEffect, useRef, useState } from 'react';
 import './index.css'
 import { AnimatePresence, motion } from 'framer-motion';
 import SearchBar from './SearchBar';
-
 import { NavBarProvider, useNavBar } from '../../Context/NavBarContext';
 import HeroPropertiesSectionModal from '../Hero/HeroSectionModal';
-
-
-
-
 
 const HeroPropertiesSection = () => {
     const url = `${import.meta.env.VITE_REACT_APP_BASE_URL}`;
 
-
     return (<>
-
         <HeroPropertiesSectionModal>
-
             <div className='w-full  text-center mt-32 sm:mt-52 mdm:mt-10   z-20'>
                 <h1 className="    font-bold text-[20px] sm:text-2xl mdm:text-3xl  md:text-4xl   lg:text-4xl  xl:text-5xl tracking-tight word-spacing-[1px] text-white">
                     Your Trusted   Source  for Real  <br className=" block" />
@@ -26,17 +18,12 @@ const HeroPropertiesSection = () => {
 
                 </h1>
                 {/* Search Bar Open  */}
-
-
                 <NavBarProvider>
                     <NavBar />
                     <SearchBar />
                 </NavBarProvider>
 
             </div>
-
-
-
 
             {/* Hero Boxes */}
             <div className="hidden lg:flex    book-section z-10 mb-0  absolute bottom-0">
@@ -63,12 +50,6 @@ const HeroPropertiesSection = () => {
     </>)
 }
 
-
-
-
-
-
-
 const NavBar = () => {
     const { User, setUser } = useNavBar();
 
@@ -88,17 +69,11 @@ const NavBar = () => {
                                     (<WhiteBackground key={user} user={user} setUser={setUser}>
                                         <motion.div className="absolute w-full bg-[#82DFDF] h-full top-0 left-0   rounded-full   -z-10" layoutId="underline" ></motion.div>
                                     </WhiteBackground>
-
-
                                     ) : <WhiteBackground key={user} user={user} setUser={setUser} />
 
                             );
                         })
                     }
-
-
-
-
                 </div>
             </div>
 
@@ -112,8 +87,6 @@ const WhiteBackground = ({ user, setUser, children }) => {
         <motion.div key={user} onMouseEnter={() => { setUser(user) }} className={`poppins-regular px-2 sm:px-4 py-1   relative z-30 cursor-pointer`}>
             <h1 >{user[0]}</h1>
             {children}
-
-
         </motion.div>
     );
 };

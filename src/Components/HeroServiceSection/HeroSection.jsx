@@ -51,13 +51,9 @@ const HeroServiceSection = ({ HeroText }) => {
   return (
     <>
       <div className="pt-2 text-[14px] px-4 h-fit">
-
-
         {/* Top Navigation on Small Screen  */}
         <div className='flex mdm:hidden'>
-
           <TopNavigationTab />
-
         </div>
 
         {/* Banner section */}
@@ -65,20 +61,14 @@ const HeroServiceSection = ({ HeroText }) => {
           <div className="w-full px-[10px] mx-auto text-[10px] h-full ">
             {/* Top Hero Section */}
             <div className="row h-full flex">
-
               <TopNavigationTabLarge />
-
-
               {/* Video Banner Portion */}
               <video ref={videoRef} autoPlay playsInline muted loop className="w-full absolute -z-10" src={videoSrc}>
                 Your browser does not support the video tag.
               </video>
 
               {/* Hero Text */}
-
               <div className=' w-full flex justify-between '>
-
-
                 <div className="w-full  flex-grow   flex flex-col justify-center items-center mdm:justify-start
                              mdm:items-start sm:items-start h-full  mb-[85px] px-3 md:w-7/12  md:pl-9
                               z-10 sm:mb-6 text-white  lg:w-7/12  ">
@@ -101,61 +91,8 @@ const HeroServiceSection = ({ HeroText }) => {
                   </div>
 
                 </div>
-
-                {/* <div className="hidden md:flex  w-5/12 leading-[40px] ">
-                                    <div className=" booking-box mx-auto  flex flex-col  w-10/12 px-6 pt-9 pb-9  h-fit">
-
-                                        <p className='text-[27px] font-light'>Book a property  for evaluation</p>
-                                        <p className='text-[14px] mt-2  font-light'>Our roster of prospective clients, in-depth community information, and established trust are three factors that attract people to us.</p>
-
-                                        <input
-                                            className='rounded-2xl px-3 py-[10px] w-full mt-1 placeholder:text-gray-400 placeholder:font-light focus:outline-none focus:ring-1 focus:ring-gray-500 text-black font-light'
-                                            type="text"
-                                            name=""
-                                            id=""
-                                            placeholder='Name'
-                                        />
-                                        <input
-                                            className='rounded-2xl px-3 py-[10px] w-full mt-1 placeholder:text-gray-400 placeholder:font-light focus:outline-none focus:ring-1 focus:ring-gray-500 text-black font-light'
-                                            type="text"
-                                            name=""
-                                            id=""
-                                            placeholder='Enter your email address'
-                                        />
-                                        <input
-                                            className='rounded-2xl px-3 py-[10px] w-full mt-1 placeholder:text-gray-400 placeholder:font-light focus:outline-none focus:ring-1 focus:ring-gray-500 text-black font-light'
-                                            type="text"
-                                            name=""
-                                            id=""
-                                            placeholder='Enter Your Contact Number'
-                                        />
-                                        <input
-                                            className='rounded-2xl px-3 py-[10px] w-full mt-1 placeholder:text-gray-400 placeholder:font-light focus:outline-none focus:ring-1 focus:ring-gray-500 text-black font-light'
-                                            type="text"
-                                            name=""
-                                            id=""
-                                            placeholder='Enter your address'
-                                        />
-
-                                        <div className='mr-auto mt-3' >
-                                            <a href="https://eplogproperties.com/contact-us/" className="bg-primary btn text-white py-2 px-5 rounded hover:bg-transparent hover:border-primary hover:text-primary" target="_self">
-                                                Submit
-                                            </a>
-                                        </div>
-                                    </div>
-
-
-                                </div> */}
                 <BookProperty />
-
-
-
               </div>
-
-
-
-              {/* Hero Boxes */}
-
             </div>
           </div>
         </div>
@@ -166,8 +103,6 @@ const HeroServiceSection = ({ HeroText }) => {
 
 
 const TopNavigationTab = () => {
-
-
   return <>
 
     {/* Logo of Brand */}
@@ -185,7 +120,6 @@ const TopNavigationTab = () => {
   </>
 }
 const TopNavigationTabLarge = () => {
-
 
   return <>
 
@@ -337,8 +271,4 @@ const BookProperty = () => {
     </div>
   );
 };
-
-
-
-
 export default HeroServiceSection;

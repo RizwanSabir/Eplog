@@ -12,13 +12,6 @@ const About = () => {
   return (
    <>
    
-   {/* <HeroAboutSection/> */}
-   {/* <PartnerSection/> */}
-   {/* <ServiceSection/> */}
-   {/* <EplogSection/> */}
-   {/* <TeamSection/> */}
-   {/* <FooterMain/> */}
-
    <HeroAboutSection/>
    <PartnerSection/>
    <ServiceSection/>

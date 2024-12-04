@@ -7,12 +7,9 @@ const Hiring = () => {
             <div className='mx-5 mt-[30px]  2xl:mt-[20px] '>
                 <h1 className="text-2xl md:text-3xl  text-center  font-bold ">Currently Hiring</h1>
             </div>
-
-         <div className='my-10  "'>
-         <JobAccordion />
-         </div>
-
-
+            <div className='my-10  "'>
+                <JobAccordion />
+            </div>
         </>
     )
 }
@@ -24,15 +21,12 @@ const JobAccordion = () => {
 
     return (
         <>
-
             <motion.div
                 key={openAccordion}
                 initial={{ height: '105px' }}
                 animate={{ height: 'auto' }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 1 }}
-
-
                 className={`mx-10 ${openAccordion ? 'bg-[#F8F8F8]' : 'bg-white'} border border-[#7C3EFF] rounded-2xl    cursor-pointer overflow-hidden shadow-[11px_14px_35px_#00000014]  bg-[#F8F8F8]`} >
 
                 <div className='sm:flex p-5 '>
@@ -81,13 +75,8 @@ const JobAccordion = () => {
                                     animate={{ rotateZ: 360 + 270 }}
                                     exit={{ height: 0, opacity: 0 }}
                                     transition={{ duration: 1 }}
-
-
-
                                     className='sm:hidden ml-auto size-[25px] bg-[#7C3EFF] rounded-full text-[10px] flex justify-center items-center   text-white ' onClick={() => { setOpenAccordion(!openAccordion) }}>
-                                    {/* onClick={() => { setOpenAccordion(!openAccordion) }} */}
                                     <i className="fa-solid fa-chevron-down"></i>
-
                                 </motion.div>
 
                             </div>
@@ -162,7 +151,6 @@ const JobAccordion = () => {
 
 
                                     className='size-[25px] bg-[#7C3EFF] rounded-full text-[10px] flex justify-center items-center   text-white' onClick={() => { setOpenAccordion(!openAccordion) }}>
-                                    {/* onClick={() => { setOpenAccordion(!openAccordion) }} */}
                                     <i className="fa-solid fa-chevron-down"></i>
 
                                 </motion.div>
@@ -257,7 +245,5 @@ const JobAccordion = () => {
         </>
     );
 };
-
-
 
 export default Hiring

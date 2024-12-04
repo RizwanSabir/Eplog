@@ -27,7 +27,7 @@ const NewProperty = ({ HeroText }) => {
     const [loading, setLoading] = useState(true);
     const propertyId = searchParams.get('propertyId');
     const DeveloperLogo = searchParams.get('dl');
- 
+
 
     const formatPrice = (price) => {
         if (price >= 1_000_000) {
@@ -42,7 +42,7 @@ const NewProperty = ({ HeroText }) => {
     };
 
 
-  
+
 
     useEffect(() => {
         const fetchDevelopers = async () => {
@@ -58,7 +58,7 @@ const NewProperty = ({ HeroText }) => {
 
                 const DevelopersData = await DevelopersList.json();
                 if (DevelopersData.statusCode === 200) {
-                   
+
                     setPropertyDetail(DevelopersData.data)
 
                 } else {
@@ -80,7 +80,7 @@ const NewProperty = ({ HeroText }) => {
 
 
     const handleBack = () => {
-  
+
         navigate('/SearchProperties');
     };
 
@@ -274,16 +274,8 @@ const NewProperty = ({ HeroText }) => {
 
                                         </div>
                                     </div>
-
-
-
-
                                     <div className='flex flex-col  lg:items-end space-y-5 lg:justify-end lg:space-x-5 text-[14px] '>
-
-
-
                                         <div className='  rounded-3xl shadow-[5px_4px_44px_#00000017] mx-auto w-full  overflow-hidden md:w-full  p-5 relative  '>
-
                                             <p className='mt-3 text-xl font-bold'>
                                                 Floor Plan
                                             </p>
@@ -298,23 +290,10 @@ const NewProperty = ({ HeroText }) => {
                                         </div>
 
                                         <BookVisit PropertyData={PropertyDetail} propertyId={propertyId} Type="New projects" />
-
-
-
                                     </div>
                                 </div>
-
-
-
-
                             </div>
-
-
                             {/* Property Description */}
-
-
-
-
                         </div>
 
                     </div>
@@ -360,8 +339,6 @@ const TopNavigationTab = () => {
 }
 
 const TopNavigationTabLarge = () => {
-
-
     return <>
 
         {/* Logo of Brand */}
@@ -386,15 +363,8 @@ const TopNavigationTabLarge = () => {
 
 const PropertyDetails = ({ property, DeveloperLogo }) => {
 
-
-
-
-
-
     const [loading, setLoading] = useState(true);
     const [DeveloperData, setDeveloperData] = useState()
-
-
 
     useEffect(() => {
         const fetchDevelopers = async () => {
@@ -410,7 +380,7 @@ const PropertyDetails = ({ property, DeveloperLogo }) => {
 
                 const DevelopersData = await DevelopersList.json();
                 if (DevelopersData.statusCode === 200) {
-                  
+
                     setPropertyDetail(DevelopersData.data)
 
                 } else {
@@ -430,20 +400,12 @@ const PropertyDetails = ({ property, DeveloperLogo }) => {
 
 
     return (
-
-
         <>
-
             <div
                 className="  overflow-x-scroll  flex scrollbar-hide ">
                 <div className="grid  w-full">
-
                     <div className="  rounded-b-3xl  overflow-hidden md:w-full  relative w-full " >
-
-
-
                         {/* */}
-
                         <a >
                             <div className=" bg-gray-100  ">
 
@@ -501,34 +463,16 @@ const PropertyDetails = ({ property, DeveloperLogo }) => {
                                             />
                                         </div>
                                     </div>
-
                                     {/* Add beds and more */}
-
-
-
                                 </div>
                             </div>
                         </a>
-
-
                     </div>
-
                 </div>
-
             </div>
-
-
-
         </>
-
-
     );
 };
 
-
-
-
-
-// https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg
 
 export default NewProperty;

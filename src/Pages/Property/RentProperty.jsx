@@ -28,7 +28,7 @@ const RentProperty = ({ HeroText }) => {
     const [loading, setLoading] = useState(true);
     const propertyId = searchParams.get('propertyId');
     const DeveloperLogo = searchParams.get('dl');
-   
+
 
     const formatPrice = (price) => {
         if (price >= 1_000_000) {
@@ -43,7 +43,7 @@ const RentProperty = ({ HeroText }) => {
     };
 
 
-  
+
 
     useEffect(() => {
         const fetchDevelopers = async () => {
@@ -59,7 +59,7 @@ const RentProperty = ({ HeroText }) => {
 
                 const DevelopersData = await DevelopersList.json();
                 if (DevelopersData.statusCode === 200) {
-                   
+
                     setPropertyDetail(DevelopersData.data)
 
                 } else {
@@ -81,7 +81,7 @@ const RentProperty = ({ HeroText }) => {
 
 
     const handleBack = () => {
-        
+
         navigate('/SearchProperties');
     };
 
@@ -114,12 +114,7 @@ const RentProperty = ({ HeroText }) => {
                                 <TopNavigationTabLarge />
                             </div>
 
-                            {/* Back Button  */}
-                            {/* <div className='flex '>
 
-                                <p>You are here: </p>
-                                <p>  Home / {PropertyDetail.name}</p>
-                            </div> */}
 
                             {/* Heading of the property */}
                             <div className='mt-5 space-y-3'>
@@ -135,10 +130,6 @@ const RentProperty = ({ HeroText }) => {
                                     {/* <SliderComponent images={['https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg', 'https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg', "https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg", "https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg", "https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg", "https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg", "https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg"]} /> */}
                                     <SliderComponentNew baseUrl='https://dataapi.pixxicrm.ae/pixxiapi/v1/' PropertyId={PropertyDetail.propertyId} images={PropertyDetail.photos} />
 
-                                    {/* <div className='bg-[#7C3EFF] mt-5 md:hidden text-[12px] h-[60px] w-full  rounded-xl flex justify-around  items-center   text-white '>
-                                        <p className='text-lg w-[180px] text-center flex-grow px-2'>New Property</p>
-                                        <p className='bg-[#82DFDF] w-full h-full text-lg text-black flex items-center justify-center font-bold rounded-r-xl'>AED {formatPrice(PropertyDetail.price)}</p>
-                                    </div> */}
 
 
                                     <div className='bg-[#7C3EFF] hidden md:flex text-[12px] h-[104px] w-full  rounded-xl  justify-around  items-center   text-white mt-5'>
@@ -194,16 +185,11 @@ const RentProperty = ({ HeroText }) => {
 
 
                                     <div className=' hidden md:flex rounded-3xl shadow-[5px_4px_44px_#00000017] w-full mx-auto  lg:w-full overflow-hidden md:w-full  p-5 relative   mt-5'>
-
                                         <p className='mt-3 text-xl'>
                                             <TruncatedText text={PropertyDetail.description} maxLines={3} />
 
                                         </p>
-
-
                                     </div>
-
-
                                 </div>
 
                                 {/* right side */}
@@ -214,15 +200,11 @@ const RentProperty = ({ HeroText }) => {
                                     </div>
                                     <PropertyDetails property={PropertyDetail} DeveloperLogo={DeveloperLogo} />
 
-
                                     <div className=' flex md:hidden rounded-3xl shadow-[5px_4px_44px_#00000017]  mx-auto  lg:w-full overflow-hidden md:w-full  p-5 relative   mt-5'>
-
                                         <p className='mt-3 text-xl'>
                                             <TruncatedText text={PropertyDetail.description} maxLines={3} />
 
                                         </p>
-
-
                                     </div>
 
                                     <div className='bg-[#7C3EFF]  flex md:hidden text-[12px] h-[104px] w-full  rounded-xl  justify-around  items-center   text-white mt-5'>
@@ -275,40 +257,15 @@ const RentProperty = ({ HeroText }) => {
 
                                         </div>
                                     </div>
-
-
-
-
                                     <div className='flex flex-col  lg:items-end space-y-5 lg:justify-end lg:space-x-5 text-[14px] '>
-
-
-
-                                     
-
                                         <BookVisit PropertyData={PropertyDetail} propertyId={propertyId} Type="New projects" />
-
-
-
                                     </div>
                                 </div>
-
-
-
-
                             </div>
-
-
-                            {/* Property Description */}
-
-
-
-
                         </div>
-
                     </div>
 
                     <div className='h-[1px] px-4 w-full bg-slate-300  my-10'></div>
-
                     <p className='text-[40px] items-center  font-bold  px-4'>Customers Also Viewed </p>
 
                     <div className='pt-5'>
@@ -368,22 +325,9 @@ const TopNavigationTabLarge = () => {
 }
 
 
-
-
-
-
-
 const PropertyDetails = ({ property, DeveloperLogo }) => {
-
-
-
-
-
-
     const [loading, setLoading] = useState(true);
     const [DeveloperData, setDeveloperData] = useState()
-
-
 
     useEffect(() => {
         const fetchDevelopers = async () => {
@@ -399,7 +343,7 @@ const PropertyDetails = ({ property, DeveloperLogo }) => {
 
                 const DevelopersData = await DevelopersList.json();
                 if (DevelopersData.statusCode === 200) {
-                  
+
                     setPropertyDetail(DevelopersData.data)
 
                 } else {
@@ -415,24 +359,12 @@ const PropertyDetails = ({ property, DeveloperLogo }) => {
         };
         fetchDevelopers();
     }, []);
-
-
-
     return (
-
-
         <>
-
             <div
                 className="  overflow-x-scroll  flex scrollbar-hide ">
                 <div className="grid  w-full">
-
                     <div className="  rounded-b-3xl  overflow-hidden md:w-full  relative w-full " >
-
-
-
-                        {/* */}
-
                         <a >
                             <div className=" bg-gray-100  ">
 
@@ -490,31 +422,15 @@ const PropertyDetails = ({ property, DeveloperLogo }) => {
                                             />
                                         </div>
                                     </div>
-
-                                    {/* Add beds and more */}
-
-
-
                                 </div>
                             </div>
                         </a>
-
-
                     </div>
-
                 </div>
-
             </div>
 
-
-
         </>
-
-
     );
 };
-
-
-// https://eplogproperties.com/wp-content/uploads/2023/10/propert-detail1.svg
 
 export default RentProperty;

@@ -4,16 +4,9 @@ import './index.css'
 
 const MeetTeam = () => {
 
-  
-
-
-
   return (
     <>
       <div className='mt-20 mx-10 max-w-[1140px]  mx-auto'>
-
-        
-
         {/* HeaderSection */}
         <h1 className="  text-center text-[20px] md:text-[40px] font-bold ">
           Meet the Team
@@ -35,14 +28,8 @@ const MeetTeam = () => {
 
           {/* Right side */}
           <Advisors />
-
         </div>
-
-
-
       </div>
-
-
     </>
   )
 }

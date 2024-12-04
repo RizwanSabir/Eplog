@@ -20,118 +20,50 @@ const SearchBar = () => {
     const Years = ['2025', '2024', '2023', '2022', '2021', '2019', '2018', '2017',]
     // Handle the filter change when a developer is selected
     const handleFilterChange = (filterType, value) => {
-        
+
         // Implement your filtering logic here
     };
-
-    // Ha
-
-
-
     return (
         <>
-            
+
             <div className='flex justify-center mt-5'>
-                  <div className='bg-white relative w-[500px] h-[45px] rounded-full overflow-hidden flex border '>
-                        <img className='absolute  top-[35%] left-3' src="/Svg/Search.svg" alt="" />
-                        <input className='ml-10 h-full w-[300px] outline-none text-[14px]' type="text" placeholder='Search' />
-
-                       
-                     {UseFilter?   <div className='flex justify-end w-full'>
-                            <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer'>Apply Filter </h1>
-                        </div>: <div className='flex justify-end w-full'>
-                            <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer'>Search</h1>
-                            <h1 className='b rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { setUseFilter(!UseFilter) }}>Filtesssr</h1>
-                        </div>}
-                    </div>
-                  </div>
+                <div className='bg-white relative w-[500px] h-[45px] rounded-full overflow-hidden flex border '>
+                    <img className='absolute  top-[35%] left-3' src="/Svg/Search.svg" alt="" />
+                    <input className='ml-10 h-full w-[300px] outline-none text-[14px]' type="text" placeholder='Search' />
 
 
-          {UseFilter?  <motion.div
+                    {UseFilter ? <div className='flex justify-end w-full'>
+                        <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer'>Apply Filter </h1>
+                    </div> : <div className='flex justify-end w-full'>
+                        <h1 className='bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer'>Search</h1>
+                        <h1 className='b rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { setUseFilter(!UseFilter) }}>Filtesssr</h1>
+                    </div>}
+                </div>
+            </div>
+
+
+            {UseFilter ? <motion.div
                 animate={{ height: "auto" }}
                 transition={{ duration: 1 }}
                 className=" inset-0 z-30 flex justify-center items-center bg-gray-800 bg-opacity-50  rounded">
                 <div className="bg-white p-6 rounded-lg shadow-lg w-[800px] z-50">
                     <div className='flex justify-end w-full'>
-
                     </div>
-
-                  
                     {/* Filter Fields */}
                     <div className="grid grid-cols-3 gap-x-2  justify-center items-center place-content-center content-center ">
                         {/* Location */}
-
-
-
-
-
                         <DropFilter Name="Years" developers={developers} handleFilterChange={handleFilterChange} />
-
-
                         <DropFilter Name="Developers" developers={developers} handleFilterChange={handleFilterChange} />
-
-
                         <DropFilter Name="Status" developers={Status} handleFilterChange={handleFilterChange} />
-
                         <DropFilter Name="Rooms" developers={Rooms} handleFilterChange={handleFilterChange} />
-
-
                         <DropFilter Name="Property Type" developers={PropertyType} handleFilterChange={handleFilterChange} />
-
-
-
-
-
-
-
-                        {/* Property Type */}
-                        {/* <div>
-                                <label>Property Type</label>
-                                <select
-                                    className="w-full px-2 py-3 border rounded"
-                                    onChange={(e) => handleFilterChange('rooms', e.target.value)}
-                                >
-                                    <option value="">Select Rooms</option>
-                                    <option value="1">1 Room</option>
-                                    <option value="2">2 Rooms</option>
-                                    <option value="3">3 Rooms</option>
-                                </select>
-                            </div> */}
-
-                        {/* Select Price */}
-                        {/* <div>
-                                <label>Select Price</label>
-                                <select
-                                    className="w-full px-2 py-3 border rounded"
-                                    onChange={(e) => handleFilterChange('rooms', e.target.value)}
-                                >
-                                    <option value="">Select Rooms</option>
-                                    <option value="1">1 Room</option>
-                                    <option value="2">2 Rooms</option>
-                                    <option value="3">3 Rooms</option>
-                                </select>
-                            </div> */}
-
-
                     </div>
-
                     {/* Buttons */}
-                  
-
-
-
                 </div>
-            </motion.div>:""}
+            </motion.div> : ""}
         </>
     );
 };
-
-
-
-
-
-
-
 
 const DropFilter = ({ Name, developers, handleFilterChange }) => {
     const [selectedDevelopers, setSelectedDevelopers] = useState([]); // Store selected developers
@@ -233,11 +165,5 @@ const DropFilter = ({ Name, developers, handleFilterChange }) => {
         </motion.div>
     );
 };
-
-
-
-
-
-
 
 export default SearchBar;

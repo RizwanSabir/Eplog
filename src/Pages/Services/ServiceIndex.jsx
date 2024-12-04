@@ -11,7 +11,6 @@ const ServiceIndex = () => {
   return (
   
 <>
-{/* <ScreenSizeDisplay/> */}
 <HeroServiceSection/>
 <ServiceSection/>
 <NewsLetter/>

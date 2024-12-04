@@ -21,7 +21,7 @@ const Testimonial = () => {
     {
       ratingImage: 'https://eplogproperties.com/wp-content/uploads/2023/10/stars.svg',
       testimonial:
-        'Saliq is an exceptional real estate agent. He  guided us through our property purchase journey from A to Z. He is straightforward, experienced, willing to answer all questions, and great with follow-ups. ' +"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias eaque, voluptatum neque veniam magnam magni labore error aperiam sit deserunt earum accusamus numquam iure asperiores placeat qui amet molestias porro!",
+        'Saliq is an exceptional real estate agent. He  guided us through our property purchase journey from A to Z. He is straightforward, experienced, willing to answer all questions, and great with follow-ups. ' + "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias eaque, voluptatum neque veniam magnam magni labore error aperiam sit deserunt earum accusamus numquam iure asperiores placeat qui amet molestias porro!",
       userImage: 'https://eplogproperties.com/wp-content/uploads/2023/12/1686281713672.jpeg',
       userName: 'Afif Heloui',
       userTitle: 'Principal, Black Stone',
@@ -87,7 +87,7 @@ const TestimonialSlider = ({ testimonials }) => {
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
-      
+
     >
       {/* Dynamically render testimonials */}
       {testimonials.map((testimonial, index) => (

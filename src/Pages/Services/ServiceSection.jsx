@@ -84,7 +84,6 @@ const services = [
     link: '/properties/',
     linkText: 'Learn More'
   },
-  // Add more services as needed
 ];
 
 const ServiceSection = () => {

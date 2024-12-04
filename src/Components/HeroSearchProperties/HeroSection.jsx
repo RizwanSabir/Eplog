@@ -6,8 +6,6 @@ import CustomLoader from '../Loaders/CustomLoader';
 
 import ReactPaginate from 'react-paginate';
 
-
-
 const HeroSearchSection = () => {
     const { PropertyData } = usePropertyData();
     const [Properties, setProperties] = useState([]);
@@ -138,8 +136,6 @@ const HeroSearchSection = () => {
 
 const PropertyListingNEW = ({ properties, handleClickItem, Type }) => {
 
-
-
     const formatPrice = (price) => {
         if (price >= 1_000_000) {
             // Round off to millions with two decimal places
@@ -152,8 +148,6 @@ const PropertyListingNEW = ({ properties, handleClickItem, Type }) => {
         }
     };
 
-
-
     return (
         <div
         key={properties}
@@ -161,11 +155,6 @@ const PropertyListingNEW = ({ properties, handleClickItem, Type }) => {
             <div className="grid gap-2 sm:grid-cols-2 mdm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4  w-full justify-center">
                 {properties.map((property, index) => (
                     <div onClick={() => { handleClickItem(property.propertyId, Type, property.developerLogo) }} key={index} className="  rounded-3xl shadow-[5px_4px_44px_#00000017] !w-[272px] mdm:!w-[250px] md:!w-[270px] overflow-hidden mb-9 relative  cursor-pointer" >
-
-
-
-                        {/* */}
-
                         <a href={property.link}>
                             <div className=" bg-gray-100  ">
                                 <img
@@ -239,21 +228,14 @@ const PropertyListingNEW = ({ properties, handleClickItem, Type }) => {
 
                                     <div className="property-data flex justify-between text-sm pb-5 ">
                                         <div className="bed flex items-center gap-x-1 ">
-                                            <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/bed-icon.svg" width="15" alt="bed" />
+                                            <img src="/Svg/bed-icon.svg" width="15" alt="bed" />
                                             <p>{property.newParam?.bedroomMax}-{property.newParam?.bedroomMin} Beds</p>
                                             {/* property.newParam.bedroomMax */}
                                         </div>
                                         <div className="bathroom flex items-center gap-x-1 px-1">
-                                            {/* <img
-                                                src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg"
-                                                width="15"
-                                                alt="bathroom"
-                                            /> */}
-                                            {/* <p> {property.newParam.totalUnits}-{property.newParam.totalUnits}  Bath</p> */}
-                                            {/* total units property.newParam.totalUnits */}
                                         </div>
                                         <div className="area flex items-center gap-x-1">
-                                            <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg" width="15" alt="area" />
+                                            <img src="/Svg/compress-icon.svg" width="15" alt="area" />
                                             <p> {property.newParam?.maxSize} -{property.newParam?.minSize} SQM</p>
                                             {/* MAx size .newParam.maxSize*/}
                                         </div>
@@ -382,13 +364,6 @@ const PropertyListingRENT = ({ properties, handleClickItem, Type }) => {
                                             {/* property.newParam.bedroomMax */}
                                         </div>
                                         <div className="bathroom flex items-center gap-x-1 px-1">
-                                            {/* <img
-                                                src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg"
-                                                width="15"
-                                                alt="bathroom"
-                                            /> */}
-                                            {/* <p> {property.newParam.totalUnits}-{property.newParam.totalUnits}  Bath</p> */}
-                                            {/* total units property.newParam.totalUnits */}
                                         </div>
                                         <div className="area flex items-center gap-x-1">
                                             <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg" width="15" alt="area" />
@@ -415,106 +390,3 @@ const PropertyListingRENT = ({ properties, handleClickItem, Type }) => {
 
 export default HeroSearchSection;
 
-
-// Only Show when user at the bottom
-
-// const HeroSearchSection = ({ HeroText }) => {
-//     const { PropertyData } = usePropertyData();
-//     const [Properties, setProperties] = useState([]);
-//     const [loading, setLoading] = useState(true);
-//     const [page, setPage] = useState(1);
-//     const [isFetchingMore, setIsFetchingMore] = useState(false);
-//     const loadMoreRef = useRef(null); // Reference for intersection observer
-//     const navigate = useNavigate();
-
-//     useEffect(() => {
-//         const fetchProperties = async () => {
-//             setLoading(true);
-//             try {
-//                 const PropertyList = await fetch('https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Eplog Properties', {
-//                     method: 'POST',
-//                     headers: {
-//                         'Content-Type': 'application/json',
-//                         'X-PIXXI-TOKEN': 'FjuseQnHvSZy4jTqs8EN6uHfRz85YGv-'
-//                     },
-//                     body: JSON.stringify({
-//                         ...PropertyData,
-//                         "size": 10,
-//                         "ssize": (page - 1) * 10
-//                     })
-//                 });
-//                 const DevelopersData = await PropertyList.json();
-
-//                 setProperties((prevProperties) => [
-//                     ...prevProperties,
-//                     ...DevelopersData.data.list
-//                 ]);
-//             } catch (error) {
-//                 console.error("Error fetching developers:", error);
-//             } finally {
-//                 setLoading(false);
-//                 setIsFetchingMore(false);
-//             }
-//         };
-
-//         fetchProperties();
-//     }, [PropertyData, page]);
-
-//     const handleClickItem = () => {
-//         console.log("Search is Clicked");
-//         navigate('/property');
-//     };
-
-//     // Intersection Observer to load more data when reaching the bottom
-//     useEffect(() => {
-//         const observer = new IntersectionObserver(
-//             (entries) => {
-//                 if (entries[0].isIntersecting && !isFetchingMore && !loading) {
-//                     setIsFetchingMore(true);
-//                     setPage((prevPage) => prevPage + 1); // Increment page to load more data
-//                 }
-//             },
-//             { threshold: 1.0 }
-//         );
-
-//         if (loadMoreRef.current) {
-//             observer.observe(loadMoreRef.current);
-//         }
-
-//         return () => {
-//             if (loadMoreRef.current) {
-//                 observer.unobserve(loadMoreRef.current);
-//             }
-//         };
-//     }, [isFetchingMore, loading]);
-
-//     return (
-//         <>
-//             <div className="pt-2 text-[14px] px-4 h-fit">
-//                 <h1 className='text-4xl font-bold mx-5'>Explore Properties</h1>
-
-//                 {loading && !Properties.length ? (
-//                     <div className='mt-10'>
-//                         <CustomLoader />
-//                     </div>
-//                 ) : (
-//                     <>
-//                         <motion.div
-//                             layout
-//                             initial={{ opacity: 0 }}
-//                             animate={{ opacity: 1 }}
-//                             transition={{ duration: 0.5 }}
-//                         >
-//                             <PropertyListingNEW properties={Properties} handleClickItem={handleClickItem} />
-//                         </motion.div>
-
-//                         {isFetchingMore && <CustomLoader />} {/* Loader shown while fetching more */}
-
-//                         {/* Invisible div at the bottom to trigger automatic load */}
-//                         <div ref={loadMoreRef} className="h-10" />
-//                     </>
-//                 )}
-//             </div>
-//         </>
-//     );
-// };

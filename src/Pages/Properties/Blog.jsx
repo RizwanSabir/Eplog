@@ -2,28 +2,27 @@
 import React, { useRef, useState } from "react";
 import { motion } from 'framer-motion';
 import { div } from "framer-motion/client";
+import { useNavigate } from "react-router-dom";
 
-const Blog = () => {
+const Blog = ({ Text = "Blog" }) => {
 
   let [User, setUser] = useState(['Guides', 'Brand']);
-
+  const navigate = useNavigate()
   const url = `${import.meta.env.VITE_REACT_APP_BASE_URL}`;
   return (
     <>
 
-      <section className=" px-[50px]">
+      <section className=" px-[50px]" onClick={() => { navigate('/ViewBlog') }}>
 
         <div className="max-w-[1140px]  mx-auto">
           <div className=" flex justify-between items-center mt-10">
             <div className="w-full flex items-center justify-center gap-10 ">
               <h1 className="section-title-small   text-center text-[20px] md:text-[40px]">
-                Blog
+                {Text}
               </h1>
-
-
               <div className="line hidden md:flex">
                 <img
-                  src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line-black.svg"
+                  src="/Media/dashed-line.svg"
                   className="w-full"
                   alt="dashed-line"
                 />
@@ -49,17 +48,8 @@ const Blog = () => {
         <div className="mt-10">
           <NavBar User={User} setUser={setUser} />
         </div>
-
         <BlogSection />
-
-
-
-
-
       </section>
-
-
-
     </>
   )
 }
@@ -68,20 +58,14 @@ const Blog = () => {
 
 
 const NavBar = ({ User, setUser }) => {
-
-
   let users = [['Guides', 'Brand'], ['Blog', 'Influencer']]
-
   return (
     <>
-
       <div className="flex  flex-row justify-center  text-[8px] sm:text-[12px] w-[150px] xs:w-[200px] sm:w-[200px]  border  rounded-full">
         <div className="flex flex-row bgColor py-1 w-full justify-around items-center rounded-3xl ">
           {
             users.map((user) => {
               return (
-
-
                 user[0] === User[0] ?
                   (<WhiteBackground key={user} user={user} setUser={setUser}>
                     <motion.div className="absolute w-full bg-[#82DFDF] h-full top-0 left-0   rounded-full   -z-10" layoutId="blog" ></motion.div>
@@ -93,14 +77,8 @@ const NavBar = ({ User, setUser }) => {
               );
             })
           }
-
-
-
-
         </div>
       </div>
-
-
     </>
   )
 }
@@ -111,8 +89,6 @@ const WhiteBackground = ({ user, setUser, children }) => {
     <motion.div key={user} onMouseEnter={() => { setUser(user) }} className={`poppins-regular px-4 py-1   relative z-30 cursor-pointer`}>
       <h1 >{user[0]}</h1>
       {children}
-
-
     </motion.div>
   );
 };
@@ -126,70 +102,70 @@ const blogData = [
   {
     id: 1,
     title: "IMPZ Production City: A Creative Hub",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/1.svg",
+    imgSrc: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
     link: "#",
     description: "Explore Dubai's IMPZ, a modern haven for creatives and media professionals seeking innovative workspaces and networking opportunities."
   },
   {
     id: 2,
     title: "Discover Business Bay",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/2.svg",
+    imgSrc: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
     link: "#",
     description: "Business Bay is a vibrant district in Dubai known for its high-end business centers, luxury hotels, and bustling lifestyle."
   },
   {
     id: 3,
     title: "Dubai Silicon Oasis: Innovation Hub",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/3.svg",
+    imgSrc: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
     link: "#",
     description: "An innovation-driven tech park, Dubai Silicon Oasis provides the ideal environment for tech startups and multinational corporations alike."
   },
   {
     id: 4,
     title: "Exploring Downtown Dubai",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/4.svg",
+    imgSrc: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
     link: "#",
     description: "Experience the heart of Dubai, home to iconic landmarks like Burj Khalifa and the Dubai Mall, offering an unmatched urban experience."
   },
   {
     id: 5,
     title: "Jumeirah Village Circle: A Family Paradise",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/5.svg",
+    imgSrc: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
     link: "#",
     description: "Jumeirah Village Circle is a family-friendly community with spacious villas, parks, and a close-knit neighborhood atmosphere."
   },
   {
     id: 6,
     title: "Dubai Marina's Waterside Living",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/6.svg",
+    imgSrc: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
     link: "#",
     description: "Dubai Marina offers luxurious waterside living with breathtaking views, upscale amenities, and a vibrant nightlife scene."
   },
   {
     id: 7,
     title: "Al Barsha: A Growing Community",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/7.svg",
+    imgSrc: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
     link: "#",
     description: "Al Barsha is a diverse residential area in Dubai, popular for its central location and close proximity to shopping and dining venues."
   },
   {
     id: 8,
     title: "Dubai Healthcare City: Medical Excellence",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/8.svg",
+    imgSrc: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
     link: "#",
     description: "Dubai Healthcare City is a specialized zone dedicated to healthcare services, medical research, and wellness facilities."
   },
   {
     id: 9,
     title: "Mirdif: Suburban Comfort",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/9.svg",
+    imgSrc: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
     link: "#",
     description: "Known for its community atmosphere, Mirdif offers comfortable suburban living with a variety of parks, schools, and shopping options."
   },
   {
     id: 10,
     title: "Exploring Dubai Sports City",
-    imgSrc: "https://eplogproperties.com/wp-content/uploads/2023/10/10.svg",
+    imgSrc: "https://test-crm-pixxicrm.oss-me-east-1.aliyuncs.com/profile/upload/2023/12/25/6b58a5d2-a3f0-46eb-9d83-0d003c0574d6.jpg",
     link: "#",
     description: "Dubai Sports City provides world-class facilities and venues for sports enthusiasts and residents who enjoy an active lifestyle."
   }

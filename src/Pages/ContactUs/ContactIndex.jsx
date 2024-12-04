@@ -10,26 +10,19 @@ import PopOver from '../../Components/PopOver';
 
 const ContactIndex = () => {
   return (
-  
-<>
 
-
-<HeroContactSection/>
-
-<div className=''>
-<div className=' flex flex-col md:flex-row justify-start  items-center md:ml-32 md:mr-10'>
-
-    <ContactUs/>
-    <ContactDetails/>
-</div>
-
-
-
-    <NewsLetter/>
-    <Footer/>
-</div>
-</>
-)
+    <>
+      <HeroContactSection />
+      <div className=''>
+        <div className=' flex flex-col md:flex-row justify-start  items-center md:ml-32 md:mr-10'>
+          <ContactUs />
+          <ContactDetails />
+        </div>
+        <NewsLetter />
+        <Footer />
+      </div>
+    </>
+  )
 }
 
 
@@ -43,14 +36,14 @@ const ContactDetails = () => {
             width="30"
             alt="Call Icon"
           />
-          <div> 
-         <p className="contact-text">
-          +971 55 247 7432
-          </p>
-          <p className="contact-text">
-          +971 58 599 77432
-          </p>
-         </div>
+          <div>
+            <p className="contact-text">
+              +971 55 247 7432
+            </p>
+            <p className="contact-text">
+              +971 58 599 77432
+            </p>
+          </div>
         </div>
         <div className="flex items-center gap-2 mb-3 md:mb-4">
           <img
@@ -58,14 +51,14 @@ const ContactDetails = () => {
             width="30"
             alt="WhatsApp Icon"
           />
-         <div> 
-         <p className="contact-text">
-          +971 58 883 4756
-          </p>
-          <p className="contact-text">
-          +971 55 247 7432
-          </p>
-         </div>
+          <div>
+            <p className="contact-text">
+              +971 58 883 4756
+            </p>
+            <p className="contact-text">
+              +971 55 247 7432
+            </p>
+          </div>
         </div>
         <div className="flex items-center gap-2 mb-3 md:mb-4">
           <img
@@ -124,14 +117,14 @@ const ContactUs = () => {
       const response = await fetch('https://dataapi.pixxicrm.ae/pixxiapi/webhook/v1/form', {
         method: 'POST',
         headers: {
-          "X-PIXXI-TOKEN":"FjuseQnHvSZy4jTqs8EN6uHfRz85YGv-",
+          "X-PIXXI-TOKEN": "FjuseQnHvSZy4jTqs8EN6uHfRz85YGv-",
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(payload)
       });
 
       const result = await response.json();
-      
+
       setShowPopOver(true);
       setSuccessMessage('Message sent successfully!');
       setPopOverColor('bg-[#82DFDF]'); // Set color to green on success

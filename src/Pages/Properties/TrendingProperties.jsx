@@ -10,7 +10,7 @@ const TrendingProperties = () => {
     let [User, setUser] = useState(['New Projects', 'NEW']);
     const url = `${import.meta.env.VITE_REACT_APP_BASE_URL}`;
 
-  
+
     return (
         <>
 
@@ -40,88 +40,15 @@ const TrendingProperties = () => {
                 </div>
 
                 <div className=" max-w-[1140px]  mx-auto flex flex-col sm:flex-row items-center justify-between gap-y-4 sm:gap-10  mdm:mt-10  ">
-                          <div className="w-[272px]  flex items-center  ">
-                          {/* <NavBar User={User} setUser={setUser} /> */}
-
-                          </div>
-                            
-                            {/*  back and forth batton */}
-                            
-                        </div>
-
-                <ScrollProperty  Page={1}/>
-
-
-
-
-            </section>
-
-
-
-        </>
-    )
-}
-
-
-
-
-
-const NavBar = ({ User, setUser }) => {
-
-
-    let users = [['New Projects', 'NEW'], ['Buy', 'SELL'], ['Rent', 'RENT']]
-
-    return (
-        <>
-
-            <div className="flex  flex-row justify-center mt-10 sm:mt-0  text-[10px] leading-[25px] sm:leading-[30px]  w-full sm:text-[12px] xs:w-[200px] sm:w-[250px]  border  rounded-full">
-                <div className="flex flex-row bgColor py-1 w-full justify-around items-center rounded-3xl ">
-                    {
-                        users.map((user) => {
-                            return (
-
-
-                                user[0] === User[0] ?
-                                    (<WhiteBackground key={user} user={user} setUser={setUser}>
-                                        <motion.div className="absolute w-full bg-[#82DFDF] h-full top-0 left-0   rounded-full   -z-10" layoutId="trending" ></motion.div>
-                                    </WhiteBackground>
-
-
-                                    ) : <WhiteBackground key={user} user={user} setUser={setUser} />
-
-                            );
-                        })
-                    }
-
-
-
-
+                    <div className="w-[272px]  flex items-center  ">
+                    </div>
+                    {/*  back and forth batton */}
                 </div>
-            </div>
-
-
+                <ScrollProperty Page={1} />
+            </section>
         </>
     )
 }
-
-
-const WhiteBackground = ({ user, setUser, children }) => {
-    return (
-        <motion.div key={user} onMouseEnter={() => { setUser(user) }} className={`poppins-regular px-4 py-1   relative z-30 cursor-pointer`}>
-            <h1 >{user[0]}</h1>
-            {children}
-
-
-        </motion.div>
-    );
-};
-
-
-
-
-
-
-
 
 
 export default TrendingProperties

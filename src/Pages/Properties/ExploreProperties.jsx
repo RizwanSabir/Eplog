@@ -9,10 +9,7 @@ import { Link } from "react-router-dom"
 const ExploreProperties = () => {
 
     let [User, setUser] = useState(['New Projects', 'NEW']);
-
     const url = `${import.meta.env.VITE_REACT_APP_BASE_URL}`;
-
-
 
     return (
         <>
@@ -27,32 +24,12 @@ const ExploreProperties = () => {
                             <div className="w-[272px]  flex items-center  ">
 
                             </div>
-                            {/* <div className="line hidden md:flex">
-                                <img
-                                    src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/dashed-line-black.svg"
-                                    className="w-full"
-                                    alt="dashed-line"
-                                />
-                            </div> */}
-
-                            {/* <div className=" flex  gap-x-4">
-                                <div className="border border-white size-[50px] rounded-full flex justify-center items-center text-white">
-                                    <i className="fa-solid fa-chevron-left"></i>
-                                </div>
-                                <div className="border border-white size-[50px] rounded-full flex justify-center items-center text-white">
-                                    <i className="fa-solid fa-chevron-right"></i>
-                                </div>
-
-
-                            </div> */}
                         </div>
                     </div>
                 </div>
 
 
                 <ScrollProperty User={User} Page={1} Image={{ default: true }} />
-
-              
                 <div className="max-w-[1140px] mx-auto">
                     <Link
                         to="/properties"
@@ -66,13 +43,7 @@ const ExploreProperties = () => {
                         </div>
                     </Link>
                 </div>
-
-
-
             </section>
-
-
-
         </>
     )
 }
@@ -82,13 +53,10 @@ const ExploreProperties = () => {
 
 
 const NavBar = ({ User, setUser }) => {
-
-
     let users = [['Buy', 'SELL'], ['New Projects', 'NEW'], ['Rent', 'RENT']]
 
     return (
         <>
-
             <div className="flex  flex-row justify-center   text-[10px] leading-[25px] sm:leading-[30px]  w-full sm:text-[12px]  sm:w-[250px]  border  rounded-full">
                 <div className="flex flex-row  py-1 w-full justify-around items-center rounded-3xl bg-white">
                     {
@@ -107,14 +75,8 @@ const NavBar = ({ User, setUser }) => {
                             );
                         })
                     }
-
-
-
-
                 </div>
             </div>
-
-
         </>
     )
 }
@@ -124,14 +86,8 @@ const WhiteBackground = ({ user, setUser, children }) => {
         <motion.div key={user} onMouseEnter={() => { setUser(user) }} className={`poppins-regular px-4 py-1   relative z-30 cursor-pointer`}>
             <h1 >{user[0]}</h1>
             {children}
-
-
         </motion.div>
     );
 };
-
-
-
-
 
 export default ExploreProperties

@@ -3,22 +3,22 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation(); // Get the current location
-    const ServerUrl = `${import.meta.env.VITE_REACT_APP_BASE_URL}`;
     
     const toggleMenu = () => setIsOpen(!isOpen);
 
     const menuItems = [
-        { id: "/home", name: 'Home', link: `${ServerUrl}/` },
-        { id: "/properties/", name: 'Properties', link: `${ServerUrl}/properties/` },
-        { id: "/services/", name: 'Services', link: `${ServerUrl}/services/` },
-        // { id: "/blogs/", name: 'Blogs', link: `${ServerUrl}/blogs/` },
-        { id: "/Career/", name: 'Career', link: `${ServerUrl}/Career/` },
-        { id: "/about-us/", name: 'About us', link: `${ServerUrl}/about-us/` },
-        { id: "/contact-us/", name: 'Contact Us', link: `${ServerUrl}/contact-us/` },
+        { id: "/home", name: 'Home', link: `/` },
+        { id: "/properties/", name: 'Properties', link: `/properties/` },
+        { id: "/services/", name: 'Services', link: `/services/` },
+        { id: "/blogs/", name: 'Blogs', link: `/blogs/` },
+        { id: "/Career/", name: 'Career', link: `/Career/` },
+        { id: "/about-us/", name: 'About us', link: `/about-us/` },
+        { id: "/contact-us/", name: 'Contact Us', link: `/contact-us/` },
     ];
 
     const variants = {
@@ -64,24 +64,28 @@ const Navbar = () => {
 
                 {/* Navbar Items for Large Screens */}
                 <div className="hidden w-full lg:flex lg:items-center lg:space-x-4 text-[14px]">
-                    {menuItems.map((item, index) => (
-                        // Conditionally hide the "Home" link if the user is on the homepage
-                        item.id !== "/home" || location.pathname !== "/" ? (
-                            <a
-                                key={index}
-                                href={item.link}
-                                className={` ${location.pathname.includes(item.id) ? 'font-bold text-[17px]  border-red-500  text-[#82DFDF]' : ''}`}
-                            >
-                                {item.name}
-                            </a>
-                        ) :   <a
+                {menuItems.map((item, index) => (
+                // Conditionally hide the "Home" link if the user is on the homepage
+                item.id !== "/home" || location.pathname !== "/" ? (
+                    <Link
                         key={index}
-                        href={item.link}
-                        className={`  font-bold text-[17px]  border-red-500  text-[#82DFDF]`}
+                        to={item.link}
+                        className={`${
+                            location.pathname.includes(item.id) ? 'font-bold text-[17px] border-red-500 text-[#82DFDF]' : ''
+                        }`}
                     >
                         {item.name}
-                    </a>
-                    ))}
+                    </Link>
+                ) : (
+                    <Link
+                        key={index}
+                        to={item.link}
+                        className="font-bold text-[17px] border-red-500 text-[#82DFDF]"
+                    >
+                        {item.name}
+                    </Link>
+                )
+            ))}
                 </div>
             </div>
 

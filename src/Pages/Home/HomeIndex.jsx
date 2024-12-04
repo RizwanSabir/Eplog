@@ -17,26 +17,6 @@ const HomeIndex
  = () => {
   return (
    <>
-   
-       {/* <ScreenSizeDisplay/> */}
-            {/* <HeroSection /> */}
-
-            {/* <PatnerSection /> */}
-            {/* <EplogSection /> */}
-            {/* <InvestmentSection /> */}
-            {/* <PropertySnag /> */}
-            {/* <LandDevelopement /> */}
-            {/* <TrendingProperties /> */}
-            {/* <TeamSection /> */}
-            {/* <Testimonial /> */}
-            {/* <CalenderSection /> */}
-            {/* <BlogSection /> */}
-            {/* <NewsLetter /> */}
-            {/* <ContactUs /> */}
-            {/* <Footer /> */}
-
-
-
 
             <HeroSection/>
             <PatnerSection />

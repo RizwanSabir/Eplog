@@ -9,17 +9,10 @@ import { div } from "framer-motion/client";
 
 
 const ScrollProperty = ({ Page, Image = { default: false } }) => {
-
-
     const [Properties, setProperties] = useState([]);
     const [loading, setLoading] = useState(true);
-  
-
-
     let [User, setUser] = useState(['New Projects', 'NEW']);
-
     const navigate = useNavigate();
-
 
     useEffect(() => {
         const fetchProperties = async () => {
@@ -54,16 +47,13 @@ const ScrollProperty = ({ Page, Image = { default: false } }) => {
 
 
     const handleClickItem = (propertyId, Type, DeveloperLogo) => {
-     
+
         navigate(`/property/${Type}?propertyId=${propertyId}&dl=${DeveloperLogo}`);
     };
 
     return (
         <div className="pt-2 text-[12px] sm:text-[14px] h-fit max-w-[1140px]  mx-auto ">
             <div>
-
-
-
             </div>
 
             {loading && !Properties.length ? (
@@ -127,54 +117,41 @@ const PropertyListingNEW = ({ properties, handleClickItem, Type, User, setUser, 
         }
     };
 
-
-
-
     return (
-
-
-
-
         <>
             <div className="flex flex-col md:flex-row space-y-3 justify-center items-center md:justify-between">
 
-<div className="shrink-0 ">
-    <NavBar User={User} setUser={setUser} Image={Image} />
+                <div className="shrink-0 ">
+                    <NavBar User={User} setUser={setUser} Image={Image} />
 
-</div>
-{Image?.default && <div className="line hidden md:flex ">
-    <img
-        src="/Svg/dashed-line-black.svg"
-        className="px-10 hidden md:flex"
-        alt="dashed-line"
-    />
-</div>}
-
-
-<div className={` flex ${Image?.default ? 'text-white' : 'text-black'} gap-x-4 justify-center md:justify-end`}>
-    <div className={`border ${Image?.default ? 'border-white' : 'border-black'} size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleBack}`}
-    onClick={handleBack}
-        disabled={currentIndex === 0}>
-        <i className={`fa-solid ${Image?.default ? 'text-white' : 'text-black'}  fa-chevron-left`}></i>
-    </div>
-    <div
-        className={`border ${Image?.default ? 'border-white' : 'border-black'} size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleBack}`}
-
-        onClick={handleNext}
-        disabled={currentIndex === properties.length - 1}>
-        <i className={`fa-solid ${Image?.default ? 'text-white' : 'text-black'} fa-chevron-right`}></i>
-    </div>
+                </div>
+                {Image?.default && <div className="line hidden md:flex ">
+                    <img
+                        src="/Svg/dashed-line-black.svg"
+                        className="px-10 hidden md:flex"
+                        alt="dashed-line"
+                    />
+                </div>}
 
 
-</div>
-</div>
+                <div className={` flex ${Image?.default ? 'text-white' : 'text-black'} gap-x-4 justify-center md:justify-end`}>
+                    <div className={`border ${Image?.default ? 'border-white' : 'border-black'} size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleBack}`}
+                        onClick={handleBack}
+                        disabled={currentIndex === 0}>
+                        <i className={`fa-solid ${Image?.default ? 'text-white' : 'text-black'}  fa-chevron-left`}></i>
+                    </div>
+                    <div
+                        className={`border ${Image?.default ? 'border-white' : 'border-black'} size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleBack}`}
+
+                        onClick={handleNext}
+                        disabled={currentIndex === properties.length - 1}>
+                        <i className={`fa-solid ${Image?.default ? 'text-white' : 'text-black'} fa-chevron-right`}></i>
+                    </div>
 
 
-
-
-
+                </div>
+            </div>
             <div className="relative">
-
                 <div
                     className="md:ml-[100px] mt-[20px] overflow-x-scroll flex scrollbar-hide"
                     ref={scrollRef}
@@ -190,12 +167,6 @@ const PropertyListingNEW = ({ properties, handleClickItem, Type, User, setUser, 
                                 key={index}
                                 className="rounded-3xl shadow-[5px_4px_44px_#00000017] w-[210px] sm:w-[272px] bg-white overflow-hidden cursor-pointer mb-9 relative"
                             >
-                                {/* Payment Plan
-                                {property.newParam?.paymentPlan && (
-                                    <div className="absolute -right-2 h-[30px] text-white w-[120px] pl-1 rounded-s-lg rounded-t-lg top-6 bg-red-500 text-[10px] tracking-[0px]">
-                                        60 / 40 Payment Plan
-                                    </div>
-                                )} */}
                                 <a href={property.link}>
                                     <div className="bg-gray-100">
                                         <img
@@ -299,9 +270,6 @@ const PropertyListingRENT = ({ properties, handleClickItem, Type, User, setUser,
         const walk = (x - startX) * 2;
         scrollRef.current.scrollLeft = scrollLeft - walk;
     };
-
-
-
     const handleNext = () => {
         if (currentIndex < properties.length - 1) {
             setCurrentIndex((prevIndex) => prevIndex + 1);
@@ -315,10 +283,6 @@ const PropertyListingRENT = ({ properties, handleClickItem, Type, User, setUser,
             scrollRef.current.scrollBy({ left: -280, behavior: 'smooth' });
         }
     };
-
-
-
-
 
     const TypeProperty = Type === "SELL" ? "buy" : "rent"
     const DEveloperLogo = properties.listingType === "SELL" ? "buy" : "rent"
@@ -334,13 +298,9 @@ const PropertyListingRENT = ({ properties, handleClickItem, Type, User, setUser,
         }
     };
 
-
-
     return (
         <>
-
             <div className="flex justify-between">
-
                 <div className="shrink-0">
                     <NavBar User={User} setUser={setUser} Image={Image} />
 
@@ -352,7 +312,6 @@ const PropertyListingRENT = ({ properties, handleClickItem, Type, User, setUser,
                         alt="dashed-line"
                     />
                 </div>}
-
 
                 <div className={` flex ${Image?.default ? 'text-white' : 'text-black'} gap-x-4 justify-center md:justify-end`}>
                     <div className={`border ${Image?.default ? 'border-white' : 'border-black'} size-[50px] rounded-full flex justify-center items-center text-black cursor-pointer" onClick={handleBack}`}
@@ -366,12 +325,8 @@ const PropertyListingRENT = ({ properties, handleClickItem, Type, User, setUser,
                         disabled={currentIndex === properties.length - 1}>
                         <i className={`fa-solid ${Image?.default ? 'text-white' : 'text-black'} fa-chevron-right`}></i>
                     </div>
-
-
                 </div>
             </div>
-
-
 
             <div className="relative">
                 <div className="md:ml-[100px] mt-[20px] overflow-x-scroll  flex scrollbar-hide "
@@ -472,13 +427,7 @@ const PropertyListingRENT = ({ properties, handleClickItem, Type, User, setUser,
                                                     {/* property.newParam.bedroomMax */}
                                                 </div>
                                                 <div className="bathroom flex items-center gap-x-1 px-1">
-                                                    {/* <img
-                                                src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/shower-icon.svg"
-                                                width="15"
-                                                alt="bathroom"
-                                            /> */}
-                                                    {/* <p> {property.newParam.totalUnits}-{property.newParam.totalUnits}  Bath</p> */}
-                                                    {/* total units property.newParam.totalUnits */}
+
                                                 </div>
                                                 <div className="area flex items-center gap-x-1">
                                                     <img src="https://eplogproperties.com/wp-content/themes/dtheme/assets/images/trending-properties/compress-icon.svg" width="15" alt="area" />
@@ -506,39 +455,25 @@ const PropertyListingRENT = ({ properties, handleClickItem, Type, User, setUser,
 
 
 const NavBar = ({ User, setUser, Image }) => {
-
-
     let users = [['Buy', 'SELL'], ['New Projects', 'NEW'], ['Rent', 'RENT']]
-
     return (
         <>
-
             <div className="flex  flex-row justify-center   text-[10px] leading-[25px] sm:leading-[30px]  w-full sm:text-[12px]  sm:w-[250px]  border  rounded-full">
                 <div className="flex flex-row  py-1 w-full justify-around items-center rounded-3xl bg-white">
                     {
                         users.map((user) => {
                             return (
-
-
                                 user[0] === User[0] ?
                                     (<WhiteBackground key={user} user={user} setUser={setUser}>
                                         <motion.div className="absolute w-full bg-[#82DFDF] h-full top-0 left-0   rounded-full   -z-10" layoutId={Image?.default ? "explore" : "Trending"} ></motion.div>
                                     </WhiteBackground>
-
-
                                     ) : <WhiteBackground key={user} user={user} setUser={setUser} />
 
                             );
                         })
                     }
-
-
-
-
                 </div>
             </div>
-
-
         </>
     )
 }
@@ -548,13 +483,7 @@ const WhiteBackground = ({ user, setUser, children }) => {
         <motion.div key={user} onMouseEnter={() => { setUser(user) }} className={`poppins-regular px-4 py-1   relative z-30 cursor-pointer`}>
             <h1 >{user[0]}</h1>
             {children}
-
-
         </motion.div>
     );
 };
-
-
-
-
 export default ScrollProperty

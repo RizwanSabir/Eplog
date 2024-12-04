@@ -18,18 +18,11 @@ const SearchBar = () => {
     const [UseFilter, setUseFilter] = useState(Boolean(PropertyData && Object.keys(PropertyData).length > 0));
     const [InputError, setInputError] = useState('')
     const [InputData, setInputData] = useState('')
-
-
-
-
-
     const [selectedFilters, setSelectedFilters] = useState();
     const [developers, setDevelopers] = useState([]); // State for developers list
     const [QueryDeveloper, setQueryDeveloper] = useState(''); // State for developers list
     const [QueryPropertyType, setQueryPropertyType] = useState(''); // State for developers list
     const [QueryBedRoomNum, setQueryBedRoomNum] = useState(''); // State for developers list
-
-
 
     const { User, setUser } = useNavBar();
 
@@ -236,32 +229,15 @@ const SearchBar = () => {
                 {!UseFilter ? <div className='bg-white relative w-[300px] sm:[300px] mdm:w-[500px] rounded-full  flex border justify-center xs:justify-between'>
                     <div className=' flex  xs:w-[300px] items-center '>
                         <img className='size-[20px] ml-2' src="/Svg/Search.svg" alt="" />
-                        {/* <input className='ml-1 h-full w-[300px] sm:w-[700px] outline-none text-[14px] placeholder:text-[12px] sm:placeholder:text-[14px]' type="text" placeholder='Search by area or project name' /> */}
                         <SearchInput InputError={InputError} setInputError={setInputError} InputData={InputData} setInputData={setInputData} />
-
                     </div>
-
-
-
                     <div className=' hidden xs:flex  w-full'>
-                        {/* <div className='bg-[#82DFDF] flex justify-center items-center rounded-full my-1 px-2 sm:px-4 sm:py-1 sm:my-1 mr-2 cursor-pointer ' onClick={() => { SearchProperties() }} >
-                            <h1> Search</h1>
-                           
-
-                        </div> */}
                         <h1 className='b rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { setUseFilter(!UseFilter) }}>Filter</h1>
                     </div>
-
-
-
                 </div>
                     : ""}
 
                 {!UseFilter ? (<div className='flex xs:hidden w-full justify-center mt-2'>
-                    {/* <div className='bg-[#82DFDF] flex justify-center items-center rounded-full my-1 px-4 sm:py-1 sm:my-1 mr-2 cursor-pointer ' onClick={() => { SearchProperties() }} >
-                        <h1> Search</h1>
-
-                    </div> */}
                     <h1 className='b rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { setUseFilter(!UseFilter) }}>Filter</h1>
                 </div>) : ("")}
             </div>
@@ -275,68 +251,25 @@ const SearchBar = () => {
 
                     <div className='bg-white mx-auto relative xs:w-[290px]  md:w-[500px]  rounded-xl  flex border   py-2'>
                         <img className='absolute  top-[35%] left-3' src="/Svg/Search.svg" alt="" />
-                        {/* <input className='ml-10 h-full xs:w-[200px] md:w-[700px] outline-none text-[14px] placeholder:text-[12px] sm:placeholder:text-[14px]' type="text" placeholder='Search by area or project name' /> */}
                         <SearchInput InputError={InputError} setInputError={setInputError} InputData={InputData} setInputData={setInputData} />
-
-                        {/* <h1 className=' hidden sm:flex bg-[#82DFDF] rounded-full px-4 py-1 my-1 mr-2 cursor-pointer' onClick={() => { SearchProperties() }}  >Search  </h1> */}
-
                     </div>
                     {UseFilter && InputError && <p className="text-sm text-red-500 mt-2">{InputError}</p>}
-
-
-
                     {/* Filter Fields */}
                     <div className="bg-white  rounded-lg w-full sm:w-[400px]  md:w-[800px] z-50 ">
-
                         <div className={`grid  grid-cols-2 ${User[1] != 'NEW' ? 'md:grid-cols-3' : 'md:grid-cols-2'}   gap-x-2    relative   md:w-[600px] mx-auto `}>
-                            {/* Location */}
-
-
-
-                            {/* <DropFilter Name="Years" developers={developers} handleFilterChange={handleFilterChange} /> */}
-
                             <CustomDropFilter Name="Developers" Value="developerIds" developers={developers} handleFilterChange={handleFilterChange} QuerySelect={QueryDeveloper} />
                             <CustomDropFilter Name="Property Type" Value="propertyType" developers={PropertyType} handleFilterChange={handleFilterChange} QuerySelect={QueryPropertyType} />
                             {User[1] != 'NEW' ? <CustomDropFilter Name="Rooms " Value="bedRoomNum" developers={bedRoomNum} handleFilterChange={handleFilterChange} QuerySelect={QueryBedRoomNum} /> : ""}
-                            {/* <DropFilter Name="HandOver Year" Value="dateStart" developers={Years} handleFilterChange={handleFilterChange} /> */}
-                            {/* <DropFilter Name="All Payment" value="" developers={Status} handleFilterChange={handleFilterChange} /> */}
-
-
-
-
-
                         </div>
                         <div className='flex justify-end mt-2'>
                             <h1 className='  sm:flex bg-[#82DFDF] rounded-full px-4 py-1 my-1  cursor-pointer' onClick={() => { SearchProperties() }}  >Search  </h1>
-                            {/* <h1 className=' rounded-full px-4  mr-2 cursor-pointer py-1 my-1' onClick={() => { setUseFilter(!UseFilter) }} >Close  </h1> */}
-
-
                         </div>
                     </div>
                 </div>
-
-
-
-
             </motion.div> : ""}
-
-
-
-
         </>
     );
 };
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -361,29 +294,18 @@ const CustomDropFilter = ({ Name, Value, developers, handleFilterChange, QuerySe
     const handleSelectChange = (value) => {
         setSelectedDevelopers((prev) => {
             let updatedSelected;
-
             // Check if the developer ID already exists in the selected array
             if (prev.some(dev => dev.id === value.id)) {
                 // Remove the developer with the matching ID
                 updatedSelected = prev.filter(dev => dev.id !== value.id);
             } else {
-                // Add the developer to the selected list
                 updatedSelected = [...prev, value];
             }
-
-            // Create an array of selected developer IDs
             const selectedIds = updatedSelected.map(dev => dev.id);
-
-
             handleFilterChange(Value, selectedIds);
-
             return updatedSelected;
         });
     };
-
-    // Handle removal of selected developer
-
-
 
     const handleRemoveDeveloper = (value) => {
         setSelectedDevelopers((prev) => {
@@ -425,8 +347,6 @@ const CustomDropFilter = ({ Name, Value, developers, handleFilterChange, QuerySe
                 <div
                     className={`w-full text-left flex py-1 px-2 border rounded cursor-pointer ${selectedDevelopers.length >= 1 ? '  scrollbarX' : ''} overflow-y-auto`}
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-
-
                     {/* Display all selected developers with a close button */}
                     <div className='flex gap-x-2 z-50 flex-shrink-0'>
                         {selectedDevelopers.length > 0 ? (
@@ -464,8 +384,6 @@ const CustomDropFilter = ({ Name, Value, developers, handleFilterChange, QuerySe
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     )}
-
-
                 </div>
 
                 {isDropdownOpen && (
@@ -490,6 +408,5 @@ const CustomDropFilter = ({ Name, Value, developers, handleFilterChange, QuerySe
         </motion.div>
     );
 };
-
 
 export default SearchBar;

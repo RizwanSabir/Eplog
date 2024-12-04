@@ -9,8 +9,6 @@ export const PropertyDataProvider = ({ children }) => {
 
     useEffect(() => {
         const queryParams = Object.fromEntries(searchParams.entries());
-
-        // Convert query parameters to proper formats (arrays/strings)
         const updatedQueryParams = Object.keys(queryParams).reduce((acc, key) => {
             if (key === "listingType") {
                 acc[key] = queryParams[key];
@@ -36,8 +34,6 @@ export const PropertyDataProvider = ({ children }) => {
             updatedQueryParams.listingType = "NEW";
         }
 
-        
-        // Update the PropertyData state
         setPropertyData(updatedQueryParams);
     }, [searchParams]);
 

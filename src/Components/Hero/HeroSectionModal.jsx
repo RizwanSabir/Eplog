@@ -2,16 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 
 import './index.css'
 import { AnimatePresence, motion } from 'framer-motion';
-
-import { NavBarProvider, useNavBar } from '../../Context/NavBarContext';
 import Navbar from '../NavBar';
 
 
 
 
 const HeroPropertiesSectionModal = ({ children }) => {
-    const videoRef = useRef(null);
-    
+
     const screenSize = useCurrentScreenSize(); // Get the current screen size
     const [parentHeight, setParentHeight] = useState('640px');
 
@@ -19,30 +16,30 @@ const HeroPropertiesSectionModal = ({ children }) => {
     useEffect(() => {
         // Update parentHeight based on screenSize
         if (screenSize === '2xl' || screenSize === 'xl') {
-          setParentHeight('600px');
+            setParentHeight('600px');
         } else if (screenSize === 'lg' || screenSize === 'md') {
-          setParentHeight('540px');
-        } else  if (screenSize==='sm'){
-          setParentHeight('480px');
-        
-        } else  if (screenSize==='mdm'){
+            setParentHeight('540px');
+        } else if (screenSize === 'sm') {
+            setParentHeight('480px');
+
+        } else if (screenSize === 'mdm') {
             setParentHeight('280px');
-          
-          } 
-        
-        else  if (screenSize==='xs'){
-          setParentHeight('380px');
+
         }
-         else  if (screenSize==='xxs'){
-          setParentHeight('450px');
+
+        else if (screenSize === 'xs') {
+            setParentHeight('380px');
         }
-         else  {
-          setParentHeight('250px');
+        else if (screenSize === 'xxs') {
+            setParentHeight('450px');
         }
-    
-       
-    
-      }, [screenSize]); // Runs every time screenSize changes
+        else {
+            setParentHeight('250px');
+        }
+
+
+
+    }, [screenSize]); // Runs every time screenSize changes
 
 
     const [videoSrc, setVideoSrc] = useState('');
@@ -125,7 +122,7 @@ const HeroPropertiesSectionModal = ({ children }) => {
                         <div className=" flex-col h-[500px] flex">
 
                             <TopNavigationTabLarge />
-                            
+
                             <AnimatePresence>
 
                                 <motion.div
@@ -133,7 +130,7 @@ const HeroPropertiesSectionModal = ({ children }) => {
                                     className=" h-screen z-10  w-full absolute "
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0.5, position: "absolute" ,right:0 }}
+                                    exit={{ opacity: 0.5, position: "absolute", right: 0 }}
                                     transition={{ duration: 1 }}
                                 >
                                     <div className="absolute hidden md:flex justify-end   w-full z-40 top-[60%] sm:top-[40%] mdm:top-[25%] md:top-[30%]  lg:top-[35%] xl:top-[40%]   p-4" style={{ height: "630px" }}>
